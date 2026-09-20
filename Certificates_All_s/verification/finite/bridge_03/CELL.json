@@ -1,0 +1,15 @@
+{
+  "id": "bridge_03",
+  "degree": 12,
+  "center": "339/20",
+  "halfwidth": "1/20",
+  "order": 8,
+  "profile": "far6",
+  "balance": "unit",
+  "witness": {
+    "path": "certificates/finite/1c3a13d407470cd2d23ef1fa748fc26215eba6724edeaa2630c4a7c36954a1fb.capd.xz",
+    "compressed_sha256": "70a8fd01123563fe951c06067370cb8647d74a57d3dca973738cbdf89efb1856",
+    "semantic_sha256": "1c3a13d407470cd2d23ef1fa748fc26215eba6724edeaa2630c4a7c36954a1fb",
+    "compression": "capd1-xz"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "extension_d20_c122_h2",
+  "status": "PASS",
+  "cell": {
+    "id": "extension_d20_c122_h2",
+    "degree": 20,
+    "center": "122",
+    "halfwidth": "2",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/f2234459649f8c2ce93c1d57a25b1a3feb24b252c75ee25be6a23acac77e3b79.capd.xz",
+      "compressed_sha256": "7e3a538389ae4012de2bc0715d8c6be3b00f9197c37b5b15123ed3dc01719566",
+      "semantic_sha256": "f2234459649f8c2ce93c1d57a25b1a3feb24b252c75ee25be6a23acac77e3b79",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      265,
+      199,
+      144
+    ],
+    "coefficient_rows": 358,
+    "retained_rows": 356,
+    "svec_dimension": 65805
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 14,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.37448014639882027,
+    "right_inverse_uniform_residual": 0.00025670724855228694,
+    "physical_height": [
+      "648955732208071651740456578904781386266080175035777042546278717502563727990842646947711641327262792460086677173307/2462625387274654950767440006258975862817483704404090416746768337765357610718575663213391640930307227550414249394176",
+      "10386339724673255982927727329038762382015308628029826719270064986320676313846223289950016575807200679552993607138625/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816"
+    ]
+  },
+  "report_file": "extension_d20_c122_h2/verified.json",
+  "report_sha256": "e1f622e447d3fdd208008ca2c59d13c9ee6497c468c881e759f33f9afcded965",
+  "expansion_file": "extension_d20_c122_h2/EXPANSION.json",
+  "expansion_sha256": "e9f2c849ebc55c0cc207dcfd19dadafe56ddd63fad33d3a980f1242b4d7da38d"
+}

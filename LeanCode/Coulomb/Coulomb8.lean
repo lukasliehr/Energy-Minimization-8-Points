@@ -1,0 +1,10 @@
+import Coulomb8.WithCollisions
+import Coulomb8.VerifiedCAP
+
+#print Coulomb8.verified_CAP
+#print axioms Coulomb8.verified_CAP
+#print Coulomb8.coulomb_energy_N8_solution
+#print axioms Coulomb8.coulomb_energy_N8_solution
+#print axioms Coulomb8.coulomb_energy_N8_global_minimizer
+#print Coulomb8.coulomb_energy_N8_solution_with_collisions
+#print axioms Coulomb8.coulomb_energy_N8_solution_with_collisions

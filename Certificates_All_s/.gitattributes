@@ -1,0 +1,4 @@
+# Integrity bindings require identical bytes after checkout on every platform.
+* -text
+*.pdf binary
+*.capd.xz binary

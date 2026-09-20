@@ -1,0 +1,61 @@
+{
+  "status": "PASS_STANDALONE_REPLAY",
+  "source_sha256": {
+    "rational_intervals.py": "077134414d464f6e9017b734ce80342497b216dfb354e1feb8ac7b04577163a6",
+    "exact_geometry.py": "6d54498047094e73dfe588bd8347a81acf86a899b27c5257e8c73427ab94c4bf",
+    "verify_wholeball_mean.py": "5897f7a2b32e3017fddfd4f147e9ef52e3a8eec837633b2637fad8a07f8a0f94",
+    "enumerate_contact_maps_extended.py": "5d30f579434bc6ed1f05ffb5503e7d33940b8829448d40e7083e34cb1f082332",
+    "verify_packing.py": "1769709d7329964d282376082d253821b5cfd3a1b0d1a82805cf0435f0e54561",
+    "verify_variance.py": "67a16eda23ba57b1a0e5171e29c8b33d2ba4a309918bdc646854c67016b4046a",
+    "verify_sos_gap.py": "760ce7d470f94d44389f41143dc54987e471518c692130d1024c7a89bccfe48f",
+    "verify_tail124.py": "b6567b5b94e5ea34689f496c7d7d9d741d1242d28ff0623241ab502d640b508b",
+    "variance_witness.json": "8e5f64c612e6e291e200b28f882843f84950e5df46281a5e52fcfd8fbf68b08b",
+    "sos_gap.witness.json": "033370fa73b7894e9dd793b17737269dea4d20d8e88018c3bbe6f821e5ae24dd"
+  },
+  "runs": [
+    {
+      "command": [
+        "verify_packing.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.134628338000766
+    },
+    {
+      "command": [
+        "verify_wholeball_mean.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.3904986220004503
+    },
+    {
+      "command": [
+        "verify_variance.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.989986960999886
+    },
+    {
+      "command": [
+        "verify_sos_gap.py",
+        "sos_gap.witness.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.817142816998967
+    },
+    {
+      "command": [
+        "verify_tail124.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.8142416840000806
+    }
+  ],
+  "elapsed_seconds": 29.15028668999912,
+  "report_sha256": {
+    "verify_wholeball_mean.json": "f613dcc347e1bae0696db3de9479643398bf69118f13d9517b1d8cf6e6e1d1c3",
+    "verify_tail124.json": "f2b877deb4b7a40a3afbbbbf167c5165056b50f82013727dc0cf5bc37adddbf7",
+    "sos_gap.witness.verified.json": "9afe1ad0a74cf750c25ac2a022e3c11065c9400c74f935ab41d0fd90ffd6a65a",
+    "verify_variance.json": "6852e7fda90b78520cea72b9817992de16e03db3c06cad48d2795bbfe8571f18",
+    "verify_packing.json": "c0d4b5e34c0907df3be64728a613600ea25faa2b247960f967c1df09f7fbca10"
+  }
+}

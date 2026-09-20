@@ -1,0 +1,15 @@
+{
+  "id": "extension_d18_c92_h2",
+  "degree": 18,
+  "center": "92",
+  "halfwidth": "2",
+  "order": 16,
+  "profile": "general",
+  "balance": "riesz",
+  "witness": {
+    "path": "certificates/finite/733d42a95a69b4b09a947dcef28c2710908017335033127e03c51d16c384b27f.capd.xz",
+    "compressed_sha256": "984cdafd8e9cf207886abf64ae93afc85395b1aacead074784eb47ae43f9aacc",
+    "semantic_sha256": "733d42a95a69b4b09a947dcef28c2710908017335033127e03c51d16c384b27f",
+    "compression": "capd1-xz"
+  }
+}

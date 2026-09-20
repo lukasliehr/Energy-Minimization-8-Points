@@ -1,0 +1,65 @@
+{
+  "id": "extension_d16_c89_h1",
+  "status": "PASS",
+  "cell": {
+    "id": "extension_d16_c89_h1",
+    "degree": 16,
+    "center": "89",
+    "halfwidth": "1",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/e5f8850f21f5a25dc5f5432ffa474dbece623e361dd74426b9b6e09cfa593879.capd.xz",
+      "compressed_sha256": "4a61cc334950aaf23235ae182b4211280ea79c328bdc1e51e4c11afdf0016541",
+      "semantic_sha256": "e5f8850f21f5a25dc5f5432ffa474dbece623e361dd74426b9b6e09cfa593879",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      144,
+      99,
+      63
+    ],
+    "coefficient_rows": 204,
+    "retained_rows": 202,
+    "svec_dimension": 17526
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 10,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.6880388975105208,
+    "right_inverse_uniform_residual": 1.99814157278321e-05,
+    "physical_height": [
+      "10417132322858881330060630260225858052538377899389451338750101287717818651333624995309205276902645541251097181582949/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+      "10419949613500926334935586524190568818919741586468103540548742577457173983038718942174121848595954860747292378266141/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816"
+    ]
+  },
+  "report_file": "extension_d16_c89_h1/verified.json",
+  "report_sha256": "0b9eff8cbac388dc386cbfe2e8a5410201a2157f0fd238dafe4b1ea7ae84bfb2",
+  "expansion_file": "extension_d16_c89_h1/EXPANSION.json",
+  "expansion_sha256": "c3d49fb53e435a6928d9d681bab11540b2fcaf7c60cb45e9808d593208d7d891"
+}

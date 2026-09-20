@@ -1,0 +1,21 @@
+{
+  "status": "PASS_COMPLETE_GLOBAL_REPLAY",
+  "point_count": 8,
+  "sphere": "S^2",
+  "all_real_s_nonnegative": true,
+  "logarithmic_at_zero": true,
+  "finite_cell_count": 111,
+  "finite_closed_union": [
+    [
+      "0",
+      "124"
+    ]
+  ],
+  "tail_lower": "124",
+  "arithmetic": "exact-integer-enclosures",
+  "lean_verified": false,
+  "finite_summary_sha256": "d0cfa89d36204bec7f11df905c2c36c15ade2977eaf9aafecfb6d83ce6fb2011",
+  "tail_replay_sha256": "25274f19c58fefecc76d606959cb82f94e35a5ed9f757d66d4bd3f4f632ab7e3",
+  "elapsed_seconds": 6575.026311965,
+  "scope": "Computational obligations for global optimality of the square antiprism for all nonnegative exponents."
+}

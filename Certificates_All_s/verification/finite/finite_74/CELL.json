@@ -1,0 +1,15 @@
+{
+  "id": "finite_74",
+  "degree": 16,
+  "center": "72",
+  "halfwidth": "2",
+  "order": 16,
+  "profile": "general",
+  "balance": "riesz",
+  "witness": {
+    "path": "certificates/finite/3d6c616c58745e7a4e85bf34d94f8af4eff83ec8d9ac1ae8b7e148a0a59d80b6.capd.xz",
+    "compressed_sha256": "51eaa7fc45e17c8271e3aa4042875c63264a5366a46c6ce27ecef35cbd7ad64e",
+    "semantic_sha256": "3d6c616c58745e7a4e85bf34d94f8af4eff83ec8d9ac1ae8b7e148a0a59d80b6",
+    "compression": "capd1-xz"
+  }
+}

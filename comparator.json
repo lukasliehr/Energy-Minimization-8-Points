@@ -1,0 +1,39 @@
+{
+  "challenge_module": "Showcase",
+  "solution_module": "Showcase_WithProofs",
+  "theorem_names": [
+    "Thomson.logarithmic_minimum",
+    "Thomson.coulomb_minimum",
+    "Thomson.eventual_global_optimality",
+    "Thomson.Monotonic.counterexample"
+  ],
+  "definition_names": [
+    "Thomson.Point",
+    "Thomson.IsConfiguration",
+    "Thomson.E",
+    "Thomson.Congruent",
+    "Thomson.IsUniqueMinimizer",
+    "Thomson.X",
+    "Thomson.dA",
+    "Thomson.dB",
+    "Thomson.dC",
+    "Thomson.dD",
+    "Thomson.F",
+    "Thomson.Monotonic.Ef",
+    "Thomson.Monotonic.StrictlyCompletelyMonotone",
+    "Thomson.Monotonic.G",
+    "Thomson.Monotonic.aStar",
+    "Thomson.Monotonic.n",
+    "Thomson.Monotonic.dStar",
+    "Thomson.Monotonic.g",
+    "Thomson.Monotonic.h",
+    "Thomson.Monotonic.lambda",
+    "Thomson.Monotonic.f"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

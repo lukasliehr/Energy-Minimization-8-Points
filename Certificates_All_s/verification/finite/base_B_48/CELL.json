@@ -1,0 +1,15 @@
+{
+  "id": "base_B_48",
+  "degree": 12,
+  "center": "47/4",
+  "halfwidth": "1/20",
+  "order": 8,
+  "profile": "original",
+  "balance": "unit",
+  "witness": {
+    "path": "certificates/finite/af1b4a8ecf27d5e7c86c9df01ccacd8fb5b7ea0a192111a2199966e1e7c043a9.capd.xz",
+    "compressed_sha256": "989c9b6f896bd83776b5d72a11e1b5b3330950ef72a94313be821ae8b2eb08ad",
+    "semantic_sha256": "af1b4a8ecf27d5e7c86c9df01ccacd8fb5b7ea0a192111a2199966e1e7c043a9",
+    "compression": "capd1-xz"
+  }
+}

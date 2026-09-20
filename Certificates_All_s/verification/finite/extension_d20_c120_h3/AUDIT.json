@@ -1,0 +1,69 @@
+{
+  "id": "extension_d20_c120_h3",
+  "status": "PASS",
+  "cell": {
+    "id": "extension_d20_c120_h3",
+    "degree": 20,
+    "center": "120",
+    "halfwidth": "3",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/b300c146fd614b74473213bc8a69cfcbf3ba8561ad2294c9426365a128f03e65.capd.xz",
+      "compressed_sha256": "ea3ed959206cb575e7da89c9c1db4a1f295aa304180547b22eece58d39f1bb37",
+      "semantic_sha256": "b300c146fd614b74473213bc8a69cfcbf3ba8561ad2294c9426365a128f03e65",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      265,
+      199,
+      144
+    ],
+    "coefficient_rows": 358,
+    "retained_rows": 356,
+    "svec_dimension": 65805
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 14,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.36962454357477564,
+    "right_inverse_uniform_residual": 0.0006621996723075242,
+    "physical_height": [
+      "1297994694495771133076034045334601075838126108146897100754037365712073824297986603635076526498737153106131808620293/4925250774549309901534880012517951725634967408808180833493536675530715221437151326426783281860614455100828498788352",
+      "1298590236672542862655835617801112178026134501843495693768719355422566355932629976722860374385086000453828580730793/4925250774549309901534880012517951725634967408808180833493536675530715221437151326426783281860614455100828498788352"
+    ]
+  },
+  "report_file": "extension_d20_c120_h3/verified.json",
+  "report_sha256": "c3c53950a7cb107fbcf7a4dd4a392cafc52d19c04be3ed39f515b29c9f5ee0b7",
+  "expansion_file": "extension_d20_c120_h3/EXPANSION.json",
+  "expansion_sha256": "7a0baffb4b6bc1f649dda2bbed306df89f112d6ad53d2e22de19e0040df40153"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "extension_d18_c92_h2",
+  "status": "PASS",
+  "cell": {
+    "id": "extension_d18_c92_h2",
+    "degree": 18,
+    "center": "92",
+    "halfwidth": "2",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/733d42a95a69b4b09a947dcef28c2710908017335033127e03c51d16c384b27f.capd.xz",
+      "compressed_sha256": "984cdafd8e9cf207886abf64ae93afc85395b1aacead074784eb47ae43f9aacc",
+      "semantic_sha256": "733d42a95a69b4b09a947dcef28c2710908017335033127e03c51d16c384b27f",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      199,
+      144,
+      99
+    ],
+    "coefficient_rows": 274,
+    "retained_rows": 272,
+    "svec_dimension": 35455
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 12,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.46624189752738177,
+    "right_inverse_uniform_residual": 4.627691305372613e-05,
+    "physical_height": [
+      "10411827250767075004898104068243364416681894409062080183337750398817795835589499908233117179884769879214546104670429/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+      "1302145373887922034962360858223115050013215337365739028017385708240556617025425473200364277352932846970496404133653/4925250774549309901534880012517951725634967408808180833493536675530715221437151326426783281860614455100828498788352"
+    ]
+  },
+  "report_file": "extension_d18_c92_h2/verified.json",
+  "report_sha256": "d1ec75f9e5c82f0331339c4e45709cba671ff89085406364ccbaf83c883cf556",
+  "expansion_file": "extension_d18_c92_h2/EXPANSION.json",
+  "expansion_sha256": "caa8c12caefef28d9af5d42ff20f8981fa1df727ae5ac6b13fa2bbfae409be10"
+}

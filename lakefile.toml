@@ -1,0 +1,29 @@
+name = "ThomsonCombined"
+version = "0.1.0"
+defaultTargets = ["Showcase", "Showcase_WithProofs"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "db584cd6d46c92f209a44c0f1c829460d327499d"
+
+[[lean_lib]]
+name = "Showcase"
+
+[[lean_lib]]
+name = "Showcase_WithProofs"
+
+[[lean_lib]]
+name = "LeanCode"
+
+[[lean_lib]]
+name = "Thomson8"
+srcDir = "LeanCode/Logarithmic"
+
+[[lean_lib]]
+name = "Coulomb8"
+srcDir = "LeanCode/Coulomb"
+
+[[lean_lib]]
+name = "Lean_Code"
+srcDir = "LeanCode/LargeS"

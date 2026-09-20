@@ -1,0 +1,58 @@
+{
+  "id": "base_B_05",
+  "status": "PASS",
+  "cell": {
+    "id": "base_B_05",
+    "degree": 12,
+    "center": "16/5",
+    "halfwidth": "1/10",
+    "order": 8,
+    "profile": "original",
+    "balance": "unit",
+    "witness": {
+      "path": "certificates/finite/379ad516b5f20b4bafb44aefd0d1faf72df2a4c9f7c39ef446890f1253c311e0.capd.xz",
+      "compressed_sha256": "0d0b5f22f711ec68e41647262fa092f875a8fdc38d9fb7fec14183ac29139172",
+      "semantic_sha256": "379ad516b5f20b4bafb44aefd0d1faf72df2a4c9f7c39ef446890f1253c311e0",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      63,
+      35,
+      14
+    ],
+    "coefficient_rows": 102,
+    "retained_rows": 100,
+    "svec_dimension": 2807
+  },
+  "metadata": {
+    "auxiliary_nodes": [],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2,
+      "minus_one": 5
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.2154471331531883,
+    "right_inverse_uniform_residual": 1.9103112366219186e-08,
+    "physical_height": [
+      "2994142537667220712331140819446327274197696324544967365271013988768944901205476715210974860315737955416844857120421/9850501549098619803069760025035903451269934817616361666987073351061430442874302652853566563721228910201656997576704",
+      "12008810769577064018134756723485365694742862975434753510077213525632176108490521662188591189253267653921191710008885/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816"
+    ]
+  },
+  "report_file": "base_B_05/verified.json",
+  "report_sha256": "746c728eae3ecca845f200a2906620a19a11d8b1d2c5e04cb803b4e9dd33bd96",
+  "expansion_file": "base_B_05/EXPANSION.json",
+  "expansion_sha256": "b1b407a5eaec5f335b7f044d634d9563e4c22c2e3a84d37cacd09c3841e75050"
+}

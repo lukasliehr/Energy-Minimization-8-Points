@@ -1,0 +1,15 @@
+{
+  "id": "finite_d14_c18",
+  "degree": 14,
+  "center": "18",
+  "halfwidth": "1",
+  "order": 12,
+  "profile": "general",
+  "balance": "unit",
+  "witness": {
+    "path": "certificates/finite/1ab22de56a039d6b34e7bad3ef4c7a3b608a060245081214463696eda9098a49.capd.xz",
+    "compressed_sha256": "62357233f255120398fc7faa58ddde40b05745ed8f0a948800fb6cb7f7432a2f",
+    "semantic_sha256": "1ab22de56a039d6b34e7bad3ef4c7a3b608a060245081214463696eda9098a49",
+    "compression": "capd1-xz"
+  }
+}

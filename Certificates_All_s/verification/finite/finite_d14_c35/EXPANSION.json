@@ -1,0 +1,26 @@
+{
+  "generated_C_shape": [
+    7680,
+    145
+  ],
+  "generated_C_sha256_le_f64": "d92d13859880438a538e542e70cf3a2db1a51388fde545a36ac67566e4557f83",
+  "decoder_semantics": "untrusted numerical generation; actual finite output entries denote exact dyadics",
+  "source_sha256": "e77157c4691a7b7a495732d4d56a0b66f63d992875c687d1186dc14744ba5d85",
+  "semantic_sha256": "87f216deb1403754b3621aa60e89881bf77631c06cf85b754cd2ea9a13947c69",
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "D",
+      "D"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 4,
+      "C": 2,
+      "D": 6,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "elapsed_seconds": 0.27286971600005927
+}

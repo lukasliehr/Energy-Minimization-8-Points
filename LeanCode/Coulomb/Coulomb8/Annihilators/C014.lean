@@ -1,0 +1,26 @@
+import Coulomb8.CoefficientMatrix.C01
+import Coulomb8.AnnihilatorData
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+namespace Coulomb8.Annihilators.C014
+open scoped BigOperators
+
+def integers : Fin 102 → IP := ![[],[],[],[640,-7040,29440,-62720,67200,-29568],[],[-1408,12416,-40960,71680,-67200,29568],[],[768,-5376,11520,-8960],[],[],[],[],[],[],[],[1920,-21120,88320,-188160,201600,-88704],[-1920,21120,-88320,188160,-201600,88704],[-2304,16128,-34560,26880],[2304,-16128,34560,-26880],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
+
+theorem scale_checked : List.ofFn CoefficientMatrix.column14=
+    List.ofFn (fun r => K.scale (1/105) (integers r).toK) := by decide +kernel
+
+theorem checked0 : (IP.dot (List.ofFn l0) (List.ofFn integers)).isZero := by decide +kernel
+theorem checked1 : (IP.dot (List.ofFn l1) (List.ofFn integers)).isZero := by decide +kernel
+
+theorem annihilates0 : ∑ r, L0 r*K.eval (CoefficientMatrix.column14 r)=0 :=
+  scaled_annihilator l0 integers _ _ 2 scale_checked checked0
+
+theorem annihilates1 : ∑ r, L1 r*K.eval (CoefficientMatrix.column14 r)=0 := by
+  simpa only [L1,div_one] using scaled_annihilator l1 integers _ _ 1 scale_checked checked1
+
+theorem structural_zero : K.eval (CoefficientMatrix.column14 57)=0 := by rfl
+
+end Coulomb8.Annihilators.C014

@@ -1,0 +1,4143 @@
+import Coulomb8.NodeBounds
+import Coulomb8.RealPolynomial
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+namespace Coulomb8
+namespace HermiteArithmetic
+open Thomson8
+
+def b0 : Box := ⟨(13359884191254877142271052110088134713/42535295865117307932921825928971026432),(106879073530039017138168450908941769799/340282366920938463463374607431768211456)⟩
+noncomputable def v0 : ℝ := nodes a 0
+theorem h0 : b0.Contains v0 := by
+  apply Box.contains_widen (nodeBox_contains 0)
+  all_goals decide +kernel
+
+def b1 : Box := ⟨(-7907763741303776824189860854397378503/21267647932558653966460912964485513216),(-63262109930430214593518852806942335929/170141183460469231731687303715884105728)⟩
+noncomputable def v1 : ℝ := nodes a 1
+theorem h1 : b1.Contains v1 := by
+  apply Box.contains_widen (nodeBox_contains 1)
+  all_goals decide +kernel
+
+def b2 : Box := ⟨(58161977977939271616606603688680311917/340282366920938463463374607431768211456),(58161977977939271616606661778513920815/340282366920938463463374607431768211456)⟩
+noncomputable def v2 : ℝ := nodes a 2
+theorem h2 : b2.Contains v2 := by
+  apply Box.contains_widen (nodeBox_contains 2)
+  all_goals decide +kernel
+
+def b3 : Box := ⟨(-135960062519008652946471764784080384159/170141183460469231731687303715884105728),(-67980031259504326473235867869581789855/85070591730234615865843651857942052864)⟩
+noncomputable def v3 : ℝ := nodes a 3
+theorem h3 : b3.Contains v3 := by
+  apply Box.contains_widen (nodeBox_contains 3)
+  all_goals decide +kernel
+
+def b4 : Box := ⟨(315/4096),(315/4096)⟩
+noncomputable def v4 : ℝ := (((315/4096) : ℚ) : ℝ)
+theorem h4 : b4.Contains v4 := by
+  apply Box.contains_widen (Box.contains_rational ((315/4096)))
+  all_goals decide +kernel
+
+def b5 : Box := ⟨(105/1024),(105/1024)⟩
+noncomputable def v5 : ℝ := (((105/1024) : ℚ) : ℝ)
+theorem h5 : b5.Contains v5 := by
+  apply Box.contains_widen (Box.contains_rational ((105/1024)))
+  all_goals decide +kernel
+
+def b6 : Box := ⟨(189/2048),(189/2048)⟩
+noncomputable def v6 : ℝ := (((189/2048) : ℚ) : ℝ)
+theorem h6 : b6.Contains v6 := by
+  apply Box.contains_widen (Box.contains_rational ((189/2048)))
+  all_goals decide +kernel
+
+def b7 : Box := ⟨(45/1024),(45/1024)⟩
+noncomputable def v7 : ℝ := (((45/1024) : ℚ) : ℝ)
+theorem h7 : b7.Contains v7 := by
+  apply Box.contains_widen (Box.contains_rational ((45/1024)))
+  all_goals decide +kernel
+
+def b8 : Box := ⟨(35/4096),(35/4096)⟩
+noncomputable def v8 : ℝ := (((35/4096) : ℚ) : ℝ)
+theorem h8 : b8.Contains v8 := by
+  apply Box.contains_widen (Box.contains_rational ((35/4096)))
+  all_goals decide +kernel
+
+def b9 : Box := ⟨(2867/4096),(2867/4096)⟩
+noncomputable def v9 : ℝ := (((2867/4096) : ℚ) : ℝ)
+theorem h9 : b9.Contains v9 := by
+  apply Box.contains_widen (Box.contains_rational ((2867/4096)))
+  all_goals decide +kernel
+
+def b10 : Box := ⟨(319/1024),(319/1024)⟩
+noncomputable def v10 : ℝ := (((319/1024) : ℚ) : ℝ)
+theorem h10 : b10.Contains v10 := by
+  apply Box.contains_widen (Box.contains_rational ((319/1024)))
+  all_goals decide +kernel
+
+def b11 : Box := ⟨(321/2048),(321/2048)⟩
+noncomputable def v11 : ℝ := (((321/2048) : ℚ) : ℝ)
+theorem h11 : b11.Contains v11 := by
+  apply Box.contains_widen (Box.contains_rational ((321/2048)))
+  all_goals decide +kernel
+
+def b12 : Box := ⟨(55/1024),(55/1024)⟩
+noncomputable def v12 : ℝ := (((55/1024) : ℚ) : ℝ)
+theorem h12 : b12.Contains v12 := by
+  apply Box.contains_widen (Box.contains_rational ((55/1024)))
+  all_goals decide +kernel
+
+def b13 : Box := ⟨1,1⟩
+noncomputable def v13 : ℝ := ((1 : ℚ) : ℝ)
+theorem h13 : b13.Contains v13 := by
+  apply Box.contains_widen (Box.contains_rational (1))
+  all_goals decide +kernel
+
+def b14 : Box := ⟨(319/1024),(319/1024)⟩
+noncomputable def v14 : ℝ := v10 * v13
+theorem h14 : b14.Contains v14 := by
+  apply Box.contains_widen (Box.contains_times h10 h13)
+  all_goals decide +kernel
+
+def b15 : Box := ⟨2,2⟩
+noncomputable def v15 : ℝ := ((2 : ℚ) : ℝ)
+theorem h15 : b15.Contains v15 := by
+  apply Box.contains_widen (Box.contains_rational (2))
+  all_goals decide +kernel
+
+def b16 : Box := ⟨(321/1024),(321/1024)⟩
+noncomputable def v16 : ℝ := v11 * v15
+theorem h16 : b16.Contains v16 := by
+  apply Box.contains_widen (Box.contains_times h11 h15)
+  all_goals decide +kernel
+
+def b17 : Box := ⟨3,3⟩
+noncomputable def v17 : ℝ := ((3 : ℚ) : ℝ)
+theorem h17 : b17.Contains v17 := by
+  apply Box.contains_widen (Box.contains_rational (3))
+  all_goals decide +kernel
+
+def b18 : Box := ⟨(165/1024),(165/1024)⟩
+noncomputable def v18 : ℝ := v12 * v17
+theorem h18 : b18.Contains v18 := by
+  apply Box.contains_widen (Box.contains_times h12 h17)
+  all_goals decide +kernel
+
+def b19 : Box := ⟨4,4⟩
+noncomputable def v19 : ℝ := ((4 : ℚ) : ℝ)
+theorem h19 : b19.Contains v19 := by
+  apply Box.contains_widen (Box.contains_rational (4))
+  all_goals decide +kernel
+
+def b20 : Box := ⟨(35/1024),(35/1024)⟩
+noncomputable def v20 : ℝ := v8 * v19
+theorem h20 : b20.Contains v20 := by
+  apply Box.contains_widen (Box.contains_times h8 h19)
+  all_goals decide +kernel
+
+def b21 : Box := ⟨(63262109930430214593518852806942335929/170141183460469231731687303715884105728),(7907763741303776824189860854397378503/21267647932558653966460912964485513216)⟩
+noncomputable def v21 : ℝ := -v1
+theorem h21 : b21.Contains v21 := by
+  apply Box.contains_widen (Box.contains_neg h1)
+  all_goals decide +kernel
+
+def b22 : Box := ⟨(116701646695449723162603061247294874781/170141183460469231731687303715884105728),(233403293390899446325206224579299825847/340282366920938463463374607431768211456)⟩
+noncomputable def v22 : ℝ := v0 + v21
+theorem h22 : b22.Contains v22 := by
+  apply Box.contains_widen (Box.contains_add h0 h21)
+  all_goals decide +kernel
+
+def b23 : Box := ⟨(248051532510704084167451632931478027621/170141183460469231731687303715884105728),(496103065021408168334903482845916427821/340282366920938463463374607431768211456)⟩
+noncomputable def v23 : ℝ := v22⁻¹
+theorem h23 : b23.Contains v23 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h22)
+  all_goals decide +kernel
+
+def b24 : Box := ⟨(63262109930430214593518852806942335929/170141183460469231731687303715884105728),(7907763741303776824189860854397378503/21267647932558653966460912964485513216)⟩
+noncomputable def v24 : ℝ := v13 * v21
+theorem h24 : b24.Contains v24 := by
+  apply Box.contains_widen (Box.contains_times h13 h21)
+  all_goals decide +kernel
+
+def b25 : Box := ⟨1,1⟩
+noncomputable def v25 : ℝ := v13 * v13
+theorem h25 : b25.Contains v25 := by
+  apply Box.contains_widen (Box.contains_times h13 h13)
+  all_goals decide +kernel
+
+def b26 : Box := ⟨0,0⟩
+noncomputable def v26 : ℝ := ((0 : ℚ) : ℝ)
+theorem h26 : b26.Contains v26 := by
+  apply Box.contains_widen (Box.contains_rational (0))
+  all_goals decide +kernel
+
+@[simp] theorem zero26 : v26=0 := by
+  have h := h26
+  norm_num [Box.Contains,b26] at h
+  linarith
+
+def b27 : Box := ⟨(63262109930430214593518852806942335929/170141183460469231731687303715884105728),(7907763741303776824189860854397378503/21267647932558653966460912964485513216)⟩
+noncomputable def v27 : ℝ := v24 + v26
+theorem h27 : b27.Contains v27 := by
+  apply Box.contains_widen (Box.contains_add h24 h26)
+  all_goals decide +kernel
+
+def b28 : Box := ⟨(184461668820468758591845750559354359099/340282366920938463463374607431768211456),(92230834410234379295922965229423001831/170141183460469231731687303715884105728)⟩
+noncomputable def v28 : ℝ := v23 * v27
+theorem h28 : b28.Contains v28 := by
+  apply Box.contains_widen (Box.contains_times h23 h27)
+  all_goals decide +kernel
+
+def b29 : Box := ⟨(248051532510704084167451632931478027621/170141183460469231731687303715884105728),(496103065021408168334903482845916427821/340282366920938463463374607431768211456)⟩
+noncomputable def v29 : ℝ := v23 * v25
+theorem h29 : b29.Contains v29 := by
+  apply Box.contains_widen (Box.contains_times h23 h25)
+  all_goals decide +kernel
+
+def b30 : Box := ⟨(-58161977977939271616606661778513920815/340282366920938463463374607431768211456),(-58161977977939271616606603688680311917/340282366920938463463374607431768211456)⟩
+noncomputable def v30 : ℝ := -v2
+theorem h30 : b30.Contains v30 := by
+  apply Box.contains_widen (Box.contains_neg h2)
+  all_goals decide +kernel
+
+def b31 : Box := ⟨(48717095552099745521561755102191156889/340282366920938463463374607431768211456),(24358547776049872760780923610130728941/170141183460469231731687303715884105728)⟩
+noncomputable def v31 : ℝ := v0 + v30
+theorem h31 : b31.Contains v31 := by
+  apply Box.contains_widen (Box.contains_add h0 h30)
+  all_goals decide +kernel
+
+def b32 : Box := ⟨(297103326678937924662693622660217661511/42535295865117307932921825928971026432),(148551663339468962331347092223138510659/21267647932558653966460912964485513216)⟩
+noncomputable def v32 : ℝ := v31⁻¹
+theorem h32 : b32.Contains v32 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h31)
+  all_goals decide +kernel
+
+def b33 : Box := ⟨(-31528684888343736559708291031478134981/340282366920938463463374607431768211456),(-7882171222085934139927057198249069195/85070591730234615865843651857942052864)⟩
+noncomputable def v33 : ℝ := v28 * v30
+theorem h33 : b33.Contains v33 := by
+  apply Box.contains_widen (Box.contains_times h28 h30)
+  all_goals decide +kernel
+
+def b34 : Box := ⟨(184461668820468758591845750559354359099/340282366920938463463374607431768211456),(92230834410234379295922965229423001831/170141183460469231731687303715884105728)⟩
+noncomputable def v34 : ℝ := v28 * v13
+theorem h34 : b34.Contains v34 := by
+  apply Box.contains_widen (Box.contains_times h28 h13)
+  all_goals decide +kernel
+
+def b35 : Box := ⟨(-84795271067534806673505066443658133665/340282366920938463463374607431768211456),(-42397635533767403336752472333127960019/170141183460469231731687303715884105728)⟩
+noncomputable def v35 : ℝ := v29 * v30
+theorem h35 : b35.Contains v35 := by
+  apply Box.contains_widen (Box.contains_times h29 h30)
+  all_goals decide +kernel
+
+def b36 : Box := ⟨(248051532510704084167451632931478027621/170141183460469231731687303715884105728),(496103065021408168334903482845916427821/340282366920938463463374607431768211456)⟩
+noncomputable def v36 : ℝ := v29 * v13
+theorem h36 : b36.Contains v36 := by
+  apply Box.contains_widen (Box.contains_times h29 h13)
+  all_goals decide +kernel
+
+def b37 : Box := ⟨(-84795271067534806673505066443658133665/340282366920938463463374607431768211456),(-42397635533767403336752472333127960019/170141183460469231731687303715884105728)⟩
+noncomputable def v37 : ℝ := v35 + v26
+theorem h37 : b37.Contains v37 := by
+  apply Box.contains_widen (Box.contains_add h35 h26)
+  all_goals decide +kernel
+
+def b38 : Box := ⟨(-31528684888343736559708291031478134981/340282366920938463463374607431768211456),(-7882171222085934139927057198249069195/85070591730234615865843651857942052864)⟩
+noncomputable def v38 : ℝ := v33 + v26
+theorem h38 : b38.Contains v38 := by
+  apply Box.contains_widen (Box.contains_add h33 h26)
+  all_goals decide +kernel
+
+def b39 : Box := ⟨(49833198876466975959170342057848112717/170141183460469231731687303715884105728),(12458299719116743989792623224073760453/42535295865117307932921825928971026432)⟩
+noncomputable def v39 : ℝ := v34 + v37
+theorem h39 : b39.Contains v39 := by
+  apply Box.contains_widen (Box.contains_add h34 h37)
+  all_goals decide +kernel
+
+def b40 : Box := ⟨(-55055906956914314330656104022488596605/85070591730234615865843651857942052864),(-220223627827657257322623564946570723531/340282366920938463463374607431768211456)⟩
+noncomputable def v40 : ℝ := v32 * v38
+theorem h40 : b40.Contains v40 := by
+  apply Box.contains_widen (Box.contains_times h32 h38)
+  all_goals decide +kernel
+
+def b41 : Box := ⟨(696156397369430545379395891168522599347/340282366920938463463374607431768211456),(348078198684715272689699657343855654189/170141183460469231731687303715884105728)⟩
+noncomputable def v41 : ℝ := v32 * v39
+theorem h41 : b41.Contains v41 := by
+  apply Box.contains_widen (Box.contains_times h32 h39)
+  all_goals decide +kernel
+
+def b42 : Box := ⟨(1732606626986621953715037847203228050387/170141183460469231731687303715884105728),(3465213253973243907430083762297799380843/340282366920938463463374607431768211456)⟩
+noncomputable def v42 : ℝ := v32 * v36
+theorem h42 : b42.Contains v42 := by
+  apply Box.contains_widen (Box.contains_times h32 h36)
+  all_goals decide +kernel
+
+def b43 : Box := ⟨(67980031259504326473235867869581789855/85070591730234615865843651857942052864),(135960062519008652946471764784080384159/170141183460469231731687303715884105728)⟩
+noncomputable def v43 : ℝ := -v3
+theorem h43 : b43.Contains v43 := by
+  apply Box.contains_widen (Box.contains_neg h3)
+  all_goals decide +kernel
+
+def b44 : Box := ⟨(94699799642014080757777972089758059281/85070591730234615865843651857942052864),(378799198568056323031111980477102538117/340282366920938463463374607431768211456)⟩
+noncomputable def v44 : ℝ := v0 + v43
+theorem h44 : b44.Contains v44 := by
+  apply Box.contains_widen (Box.contains_add h0 h43)
+  all_goals decide +kernel
+
+def b45 : Box := ⟨(305681980519060163250518987230557246177/340282366920938463463374607431768211456),(305681980519060163250519061567657951903/340282366920938463463374607431768211456)⟩
+noncomputable def v45 : ℝ := v44⁻¹
+theorem h45 : b45.Contains v45 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h44)
+  all_goals decide +kernel
+
+def b46 : Box := ⟨(-175981015287623405894017021275371443171/340282366920938463463374607431768211456),(-87990507643811702947008151765477005439/170141183460469231731687303715884105728)⟩
+noncomputable def v46 : ℝ := v40 * v43
+theorem h46 : b46.Contains v46 := by
+  apply Box.contains_widen (Box.contains_times h40 h43)
+  all_goals decide +kernel
+
+def b47 : Box := ⟨(-55055906956914314330656104022488596605/85070591730234615865843651857942052864),(-220223627827657257322623564946570723531/340282366920938463463374607431768211456)⟩
+noncomputable def v47 : ℝ := v40 * v13
+theorem h47 : b47.Contains v47 := by
+  apply Box.contains_widen (Box.contains_times h40 h13)
+  all_goals decide +kernel
+
+def b48 : Box := ⟨(556299570652431469118565528257569625369/340282366920938463463374607431768211456),(556299570652431469118568382837969844753/340282366920938463463374607431768211456)⟩
+noncomputable def v48 : ℝ := v41 * v43
+theorem h48 : b48.Contains v48 := by
+  apply Box.contains_widen (Box.contains_times h41 h43)
+  all_goals decide +kernel
+
+def b49 : Box := ⟨(696156397369430545379395891168522599347/340282366920938463463374607431768211456),(348078198684715272689699657343855654189/170141183460469231731687303715884105728)⟩
+noncomputable def v49 : ℝ := v41 * v13
+theorem h49 : b49.Contains v49 := by
+  apply Box.contains_widen (Box.contains_times h41 h13)
+  all_goals decide +kernel
+
+def b50 : Box := ⟨(1384528428301906681025339303058907678751/170141183460469231731687303715884105728),(2769056856603813362050685644730206216389/340282366920938463463374607431768211456)⟩
+noncomputable def v50 : ℝ := v42 * v43
+theorem h50 : b50.Contains v50 := by
+  apply Box.contains_widen (Box.contains_times h42 h43)
+  all_goals decide +kernel
+
+def b51 : Box := ⟨(1732606626986621953715037847203228050387/170141183460469231731687303715884105728),(3465213253973243907430083762297799380843/340282366920938463463374607431768211456)⟩
+noncomputable def v51 : ℝ := v42 * v13
+theorem h51 : b51.Contains v51 := by
+  apply Box.contains_widen (Box.contains_times h42 h13)
+  all_goals decide +kernel
+
+def b52 : Box := ⟨(1384528428301906681025339303058907678751/170141183460469231731687303715884105728),(2769056856603813362050685644730206216389/340282366920938463463374607431768211456)⟩
+noncomputable def v52 : ℝ := v50 + v26
+theorem h52 : b52.Contains v52 := by
+  apply Box.contains_widen (Box.contains_add h50 h26)
+  all_goals decide +kernel
+
+def b53 : Box := ⟨(556299570652431469118565528257569625369/340282366920938463463374607431768211456),(556299570652431469118568382837969844753/340282366920938463463374607431768211456)⟩
+noncomputable def v53 : ℝ := v48 + v26
+theorem h53 : b53.Contains v53 := by
+  apply Box.contains_widen (Box.contains_add h48 h26)
+  all_goals decide +kernel
+
+def b54 : Box := ⟨(3465213253973243907430074497286337956849/340282366920938463463374607431768211456),(3465213253973243907430084959417917524767/340282366920938463463374607431768211456)⟩
+noncomputable def v54 : ℝ := v49 + v52
+theorem h54 : b54.Contains v54 := by
+  apply Box.contains_widen (Box.contains_add h49 h52)
+  all_goals decide +kernel
+
+def b55 : Box := ⟨(-175981015287623405894017021275371443171/340282366920938463463374607431768211456),(-87990507643811702947008151765477005439/170141183460469231731687303715884105728)⟩
+noncomputable def v55 : ℝ := v46 + v26
+theorem h55 : b55.Contains v55 := by
+  apply Box.contains_widen (Box.contains_add h46 h26)
+  all_goals decide +kernel
+
+def b56 : Box := ⟨(336075942824774211795941112167615238949/340282366920938463463374607431768211456),(168037971412387105897972408945699560611/170141183460469231731687303715884105728)⟩
+noncomputable def v56 : ℝ := v47 + v53
+theorem h56 : b56.Contains v56 := by
+  apply Box.contains_widen (Box.contains_add h47 h53)
+  all_goals decide +kernel
+
+def b57 : Box := ⟨(-158087019828959663450284528897673572125/340282366920938463463374607431768211456),(-158087019828959663450283845690208000011/340282366920938463463374607431768211456)⟩
+noncomputable def v57 : ℝ := v45 * v55
+theorem h57 : b57.Contains v57 := by
+  apply Box.contains_widen (Box.contains_times h45 h55)
+  all_goals decide +kernel
+
+def b58 : Box := ⟨(150951635750430089714601661194076078069/170141183460469231731687303715884105728),(301903271500860179429206724726942720771/340282366920938463463374607431768211456)⟩
+noncomputable def v58 : ℝ := v45 * v56
+theorem h58 : b58.Contains v58 := by
+  apply Box.contains_widen (Box.contains_times h45 h56)
+  all_goals decide +kernel
+
+def b59 : Box := ⟨(3112865529824959028133343559016707554713/340282366920938463463374607431768211456),(1556432764912479514066676857172294447615/170141183460469231731687303715884105728)⟩
+noncomputable def v59 : ℝ := v45 * v54
+theorem h59 : b59.Contains v59 := by
+  apply Box.contains_widen (Box.contains_times h45 h54)
+  all_goals decide +kernel
+
+def b60 : Box := ⟨(1556432764912479514066672317205989926791/170141183460469231731687303715884105728),(1556432764912479514066676319474658298181/170141183460469231731687303715884105728)⟩
+noncomputable def v60 : ℝ := v45 * v51
+theorem h60 : b60.Contains v60 := by
+  apply Box.contains_widen (Box.contains_times h45 h51)
+  all_goals decide +kernel
+
+def b61 : Box := ⟨(55895180056372185075192878039059161145/42535295865117307932921825928971026432),(447161440450977480601543058340709981255/340282366920938463463374607431768211456)⟩
+noncomputable def v61 : ℝ := v0 + v13
+theorem h61 : b61.Contains v61 := by
+  apply Box.contains_widen (Box.contains_add h0 h13)
+  all_goals decide +kernel
+
+def b62 : Box := ⟨(55895180056372185075192878039059161145/42535295865117307932921825928971026432),(447161440450977480601543058340709981255/340282366920938463463374607431768211456)⟩
+noncomputable def v62 : ℝ := v13 * v61
+theorem h62 : b62.Contains v62 := by
+  apply Box.contains_widen (Box.contains_times h13 h61)
+  all_goals decide +kernel
+
+def b63 : Box := ⟨(73451261828331247485603467078453445389/42535295865117307932921825928971026432),(9181407728541405935700434782186182083/5316911983139663491615228241121378304)⟩
+noncomputable def v63 : ℝ := v62 * v61
+theorem h63 : b63.Contains v63 := by
+  apply Box.contains_widen (Box.contains_times h62 h61)
+  all_goals decide +kernel
+
+def b64 : Box := ⟨(386086088906624283415748160062481832307/170141183460469231731687303715884105728),(386086088906624283415748248203996026309/170141183460469231731687303715884105728)⟩
+noncomputable def v64 : ℝ := v63 * v61
+theorem h64 : b64.Contains v64 := by
+  apply Box.contains_widen (Box.contains_times h63 h61)
+  all_goals decide +kernel
+
+def b65 : Box := ⟨(1014703249044240195852632468236197418715/340282366920938463463374607431768211456),(507351624522120097926316388552534272015/170141183460469231731687303715884105728)⟩
+noncomputable def v65 : ℝ := v64 * v61
+theorem h65 : b65.Contains v65 := by
+  apply Box.contains_widen (Box.contains_times h64 h61)
+  all_goals decide +kernel
+
+def b66 : Box := ⟨(1333410751131664977851884739900291351497/340282366920938463463374607431768211456),(666705375565832488925942623625957936821/170141183460469231731687303715884105728)⟩
+noncomputable def v66 : ℝ := v65 * v61
+theorem h66 : b66.Contains v66 := by
+  apply Box.contains_widen (Box.contains_times h65 h61)
+  all_goals decide +kernel
+
+def b67 : Box := ⟨(13359884191254877142271052110088134713/21267647932558653966460912964485513216),(106879073530039017138168450908941769799/170141183460469231731687303715884105728)⟩
+noncomputable def v67 : ℝ := v0 * v15
+theorem h67 : b67.Contains v67 := by
+  apply Box.contains_widen (Box.contains_times h0 h15)
+  all_goals decide +kernel
+
+def b68 : Box := ⟨(-106879073530039017138168450908941769799/170141183460469231731687303715884105728),(-13359884191254877142271052110088134713/21267647932558653966460912964485513216)⟩
+noncomputable def v68 : ℝ := -v67
+theorem h68 : b68.Contains v68 := by
+  apply Box.contains_widen (Box.contains_neg h67)
+  all_goals decide +kernel
+
+def b69 : Box := ⟨(233403293390899446325206156522826441657/170141183460469231731687303715884105728),(29175411673862430790650773818882891719/21267647932558653966460912964485513216)⟩
+noncomputable def v69 : ℝ := v15 + v68
+theorem h69 : b69.Contains v69 := by
+  apply Box.contains_widen (Box.contains_add h15 h68)
+  all_goals decide +kernel
+
+def b70 : Box := ⟨(398554952603019341394411145256715394919/340282366920938463463374607431768211456),(199277476301509670697205587154847517881/170141183460469231731687303715884105728)⟩
+noncomputable def v70 : ℝ := Real.sqrt v69
+theorem h70 : b70.Contains v70 := by
+  apply Box.contains_sqrt_interval h69 <;> decide +kernel
+
+def b71 : Box := ⟨(1134882017220326952025330250219822085/1329227995784915872903807060280344576),(290529796408403699718484565234674583991/340282366920938463463374607431768211456)⟩
+noncomputable def v71 : ℝ := v70⁻¹
+theorem h71 : b71.Contains v71 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h70)
+  all_goals decide +kernel
+
+def b72 : Box := ⟨0,0⟩
+noncomputable def v72 : ℝ := v0 * v26
+theorem h72 : b72.Contains v72 := by
+  apply Box.contains_widen (Box.contains_times h0 h26)
+  all_goals decide +kernel
+
+@[simp] theorem zero72 : v72=0 := by
+  have h := h72
+  norm_num [Box.Contains,b72] at h
+  linarith
+
+def b73 : Box := ⟨(35/4096),(35/4096)⟩
+noncomputable def v73 : ℝ := v8 + v72
+theorem h73 : b73.Contains v73 := by
+  apply Box.contains_widen (Box.contains_add h8 h72)
+  all_goals decide +kernel
+
+def b74 : Box := ⟨(913273333386563867147435202838056083/340282366920938463463374607431768211456),(456636666693281933573717746803340081/170141183460469231731687303715884105728)⟩
+noncomputable def v74 : ℝ := v0 * v73
+theorem h74 : b74.Contains v74 := by
+  apply Box.contains_widen (Box.contains_times h0 h73)
+  all_goals decide +kernel
+
+def b75 : Box := ⟨(19190158275429157119574782281692794003/340282366920938463463374607431768211456),(9595079137714578559787391286230709041/170141183460469231731687303715884105728)⟩
+noncomputable def v75 : ℝ := v12 + v74
+theorem h75 : b75.Contains v75 := by
+  apply Box.contains_widen (Box.contains_add h12 h74)
+  all_goals decide +kernel
+
+def b76 : Box := ⟨(6027424682423280186883818860830282949/340282366920938463463374607431768211456),(753428085302910023360477608896680479/42535295865117307932921825928971026432)⟩
+noncomputable def v76 : ℝ := v0 * v75
+theorem h76 : b76.Contains v76 := by
+  apply Box.contains_widen (Box.contains_times h0 h75)
+  all_goals decide +kernel
+
+def b77 : Box := ⟨(59362698013293029587149077154579109061/340282366920938463463374607431768211456),(7420337251661628698393634895615283743/42535295865117307932921825928971026432)⟩
+noncomputable def v77 : ℝ := v11 + v76
+theorem h77 : b77.Contains v77 := by
+  apply Box.contains_widen (Box.contains_add h11 h76)
+  all_goals decide +kernel
+
+def b78 : Box := ⟨(1165324518449549198421769314333528521/21267647932558653966460912964485513216),(18645192295192787174748315597033670309/340282366920938463463374607431768211456)⟩
+noncomputable def v78 : ℝ := v0 * v77
+theorem h78 : b78.Contains v78 := by
+  apply Box.contains_widen (Box.contains_times h0 h77)
+  all_goals decide +kernel
+
+def b79 : Box := ⟨(7790695309939989252426682630418371017/21267647932558653966460912964485513216),(124651124959039828038826928654391150245/340282366920938463463374607431768211456)⟩
+noncomputable def v79 : ℝ := v10 + v78
+theorem h79 : b79.Contains v79 := by
+  apply Box.contains_widen (Box.contains_add h10 h78)
+  all_goals decide +kernel
+
+def b80 : Box := ⟨(19575796522531366800626830125993243873/170141183460469231731687303715884105728),(39151593045062733601253674779942850075/340282366920938463463374607431768211456)⟩
+noncomputable def v80 : ℝ := v0 * v79
+theorem h80 : b80.Contains v80 := by
+  apply Box.contains_widen (Box.contains_times h0 h79)
+  all_goals decide +kernel
+
+def b81 : Box := ⟨(138666317269886173288602293932985365729/170141183460469231731687303715884105728),(277332634539772346577204602393927093787/340282366920938463463374607431768211456)⟩
+noncomputable def v81 : ℝ := v9 + v80
+theorem h81 : b81.Contains v81 := by
+  apply Box.contains_widen (Box.contains_add h9 h80)
+  all_goals decide +kernel
+
+def b82 : Box := ⟨(-277332634539772346577204602393927093787/340282366920938463463374607431768211456),(-138666317269886173288602293932985365729/170141183460469231731687303715884105728)⟩
+noncomputable def v82 : ℝ := -v81
+theorem h82 : b82.Contains v82 := by
+  apply Box.contains_widen (Box.contains_neg h81)
+  all_goals decide +kernel
+
+def b83 : Box := ⟨(13197161868631353141279941662347359973/340282366920938463463374607431768211456),(13197161868631353141279977368703852533/340282366920938463463374607431768211456)⟩
+noncomputable def v83 : ℝ := v71 + v82
+theorem h83 : b83.Contains v83 := by
+  apply Box.contains_widen (Box.contains_add h71 h82)
+  all_goals decide +kernel
+
+def b84 : Box := ⟨(86839024763407308954131604382061709781/340282366920938463463374607431768211456),(86839024763407308954131637423583422609/340282366920938463463374607431768211456)⟩
+noncomputable def v84 : ℝ := v66⁻¹
+theorem h84 : b84.Contains v84 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h66)
+  all_goals decide +kernel
+
+def b85 : Box := ⟨(3367875557839416836485544657996881749/340282366920938463463374607431768211456),(3367875557839416836485555051598872065/340282366920938463463374607431768211456)⟩
+noncomputable def v85 : ℝ := v83 * v84
+theorem h85 : b85.Contains v85 := by
+  apply Box.contains_widen (Box.contains_times h83 h84)
+  all_goals decide +kernel
+
+def b86 : Box := ⟨(35/1024),(35/1024)⟩
+noncomputable def v86 : ℝ := v20 + v72
+theorem h86 : b86.Contains v86 := by
+  apply Box.contains_widen (Box.contains_add h20 h72)
+  all_goals decide +kernel
+
+def b87 : Box := ⟨(3653093333546255468589740811352224335/340282366920938463463374607431768211456),(456636666693281933573717746803340081/42535295865117307932921825928971026432)⟩
+noncomputable def v87 : ℝ := v0 * v86
+theorem h87 : b87.Contains v87 := by
+  apply Box.contains_widen (Box.contains_times h0 h86)
+  all_goals decide +kernel
+
+def b88 : Box := ⟨(58483748159674035225871782047916438095/340282366920938463463374607431768211456),(7310468519959254403233972901373866801/42535295865117307932921825928971026432)⟩
+noncomputable def v88 : ℝ := v18 + v87
+theorem h88 : b88.Contains v88 := by
+  apply Box.contains_widen (Box.contains_add h18 h87)
+  all_goals decide +kernel
+
+def b89 : Box := ⟨(18369123491263290725465682739767636415/340282366920938463463374607431768211456),(18369123491263290725465688953451785739/340282366920938463463374607431768211456)⟩
+noncomputable def v89 : ℝ := v0 * v88
+theorem h89 : b89.Contains v89 := by
+  apply Box.contains_widen (Box.contains_times h0 h88)
+  all_goals decide +kernel
+
+def b90 : Box := ⟨(125039670153002789525996199327265288639/340282366920938463463374607431768211456),(125039670153002789525996205540949437963/340282366920938463463374607431768211456)⟩
+noncomputable def v90 : ℝ := v16 + v89
+theorem h90 : b90.Contains v90 := by
+  apply Box.contains_widen (Box.contains_add h16 h89)
+  all_goals decide +kernel
+
+def b91 : Box := ⟨(19636815479715473754118952986602094443/170141183460469231731687303715884105728),(1227300967482217109632435013400729091/10633823966279326983230456482242756608)⟩
+noncomputable def v91 : ℝ := v0 * v90
+theorem h91 : b91.Contains v91 := by
+  apply Box.contains_widen (Box.contains_times h0 h90)
+  all_goals decide +kernel
+
+def b92 : Box := ⟨(72639781811638994186158259515280834411/170141183460469231731687303715884105728),(4539986363227437136634891671443150339/10633823966279326983230456482242756608)⟩
+noncomputable def v92 : ℝ := v14 + v91
+theorem h92 : b92.Contains v92 := by
+  apply Box.contains_widen (Box.contains_add h14 h91)
+  all_goals decide +kernel
+
+def b93 : Box := ⟨(7751610390959502630232864659228273637/10633823966279326983230456482242756608),(62012883127676021041862926314782871287/85070591730234615865843651857942052864)⟩
+noncomputable def v93 : ℝ := v69⁻¹
+theorem h93 : b93.Contains v93 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h69)
+  all_goals decide +kernel
+
+def b94 : Box := ⟨(26473000162785160399077147876682830109/42535295865117307932921825928971026432),(105892000651140641596308614663975652387/170141183460469231731687303715884105728)⟩
+noncomputable def v94 : ℝ := v71 * v93
+theorem h94 : b94.Contains v94 := by
+  apply Box.contains_widen (Box.contains_times h71 h93)
+  all_goals decide +kernel
+
+def b95 : Box := ⟨(-4539986363227437136634891671443150339/10633823966279326983230456482242756608),(-72639781811638994186158259515280834411/170141183460469231731687303715884105728)⟩
+noncomputable def v95 : ℝ := -v92
+theorem h95 : b95.Contains v95 := by
+  apply Box.contains_widen (Box.contains_neg h92)
+  all_goals decide +kernel
+
+def b96 : Box := ⟨(8313054709875411852537581190910228753/42535295865117307932921825928971026432),(4156527354937705926268794393586852247/21267647932558653966460912964485513216)⟩
+noncomputable def v96 : ℝ := v94 + v95
+theorem h96 : b96.Contains v96 := by
+  apply Box.contains_widen (Box.contains_add h94 h95)
+  all_goals decide +kernel
+
+def b97 : Box := ⟨5,5⟩
+noncomputable def v97 : ℝ := ((5 : ℚ) : ℝ)
+theorem h97 : b97.Contains v97 := by
+  apply Box.contains_widen (Box.contains_rational (5))
+  all_goals decide +kernel
+
+def b98 : Box := ⟨(5073516245221200979263162341180987093575/340282366920938463463374607431768211456),(2536758122610600489631581942762671360075/170141183460469231731687303715884105728)⟩
+noncomputable def v98 : ℝ := v65 * v97
+theorem h98 : b98.Contains v98 := by
+  apply Box.contains_widen (Box.contains_times h65 h97)
+  all_goals decide +kernel
+
+def b99 : Box := ⟨(12553523937483145694743983318761279947/85070591730234615865843651857942052864),(50214095749932582778976103525618714435/340282366920938463463374607431768211456)⟩
+noncomputable def v99 : ℝ := v98 * v85
+theorem h99 : b99.Contains v99 := by
+  apply Box.contains_widen (Box.contains_times h98 h85)
+  all_goals decide +kernel
+
+def b100 : Box := ⟨(-50214095749932582778976103525618714435/340282366920938463463374607431768211456),(-12553523937483145694743983318761279947/85070591730234615865843651857942052864)⟩
+noncomputable def v100 : ℝ := -v99
+theorem h100 : b100.Contains v100 := by
+  apply Box.contains_widen (Box.contains_neg h99)
+  all_goals decide +kernel
+
+def b101 : Box := ⟨(16290341929070712041324546001663115589/340282366920938463463374607431768211456),(4072585482267678010331194255586129041/85070591730234615865843651857942052864)⟩
+noncomputable def v101 : ℝ := v96 + v100
+theorem h101 : b101.Contains v101 := by
+  apply Box.contains_widen (Box.contains_add h96 h100)
+  all_goals decide +kernel
+
+def b102 : Box := ⟨(1039311424643715220305410110414945863/85070591730234615865843651857942052864),(1039311424643715220305425244807998581/85070591730234615865843651857942052864)⟩
+noncomputable def v102 : ℝ := v101 * v84
+theorem h102 : b102.Contains v102 := by
+  apply Box.contains_widen (Box.contains_times h101 h84)
+  all_goals decide +kernel
+
+def b103 : Box := ⟨(150951635750430089714601661194076078069/170141183460469231731687303715884105728),(301903271500860179429206724726942720771/340282366920938463463374607431768211456)⟩
+noncomputable def v103 : ℝ := v58 * v13
+theorem h103 : b103.Contains v103 := by
+  apply Box.contains_widen (Box.contains_times h58 h13)
+  all_goals decide +kernel
+
+def b104 : Box := ⟨(3112865529824959028133343559016707554713/170141183460469231731687303715884105728),(1556432764912479514066676857172294447615/85070591730234615865843651857942052864)⟩
+noncomputable def v104 : ℝ := v59 * v15
+theorem h104 : b104.Contains v104 := by
+  apply Box.contains_widen (Box.contains_times h59 h15)
+  all_goals decide +kernel
+
+def b105 : Box := ⟨(4669298294737438542200016951617969780373/170141183460469231731687303715884105728),(4669298294737438542200028958423974894543/170141183460469231731687303715884105728)⟩
+noncomputable def v105 : ℝ := v60 * v17
+theorem h105 : b105.Contains v105 := by
+  apply Box.contains_widen (Box.contains_times h60 h17)
+  all_goals decide +kernel
+
+def b106 : Box := ⟨(4669298294737438542200016951617969780373/170141183460469231731687303715884105728),(4669298294737438542200028958423974894543/170141183460469231731687303715884105728)⟩
+noncomputable def v106 : ℝ := v105 + v72
+theorem h106 : b106.Contains v106 := by
+  apply Box.contains_widen (Box.contains_add h105 h72)
+  all_goals decide +kernel
+
+def b107 : Box := ⟨(2933153899760420531923088537804535940373/340282366920938463463374607431768211456),(2933153899760420531923097014084411917059/340282366920938463463374607431768211456)⟩
+noncomputable def v107 : ℝ := v0 * v106
+theorem h107 : b107.Contains v107 := by
+  apply Box.contains_widen (Box.contains_times h0 h106)
+  all_goals decide +kernel
+
+def b108 : Box := ⟨(9158884959410338588189775655837951049799/340282366920938463463374607431768211456),(9158884959410338588189804442773589707519/340282366920938463463374607431768211456)⟩
+noncomputable def v108 : ℝ := v104 + v107
+theorem h108 : b108.Contains v108 := by
+  apply Box.contains_widen (Box.contains_add h104 h107)
+  all_goals decide +kernel
+
+def b109 : Box := ⟨(2876708387471111549457763624842518056325/340282366920938463463374607431768211456),(719177096867777887364443395600358052633/85070591730234615865843651857942052864)⟩
+noncomputable def v109 : ℝ := v0 * v108
+theorem h109 : b109.Contains v109 := by
+  apply Box.contains_widen (Box.contains_times h0 h108)
+  all_goals decide +kernel
+
+def b110 : Box := ⟨(3178611658971971728886966947230670212463/340282366920938463463374607431768211456),(3178611658971971728886980307128374931303/340282366920938463463374607431768211456)⟩
+noncomputable def v110 : ℝ := v103 + v109
+theorem h110 : b110.Contains v110 := by
+  apply Box.contains_widen (Box.contains_add h103 h109)
+  all_goals decide +kernel
+
+def b111 : Box := ⟨(3367875557839416836485544657996881749/170141183460469231731687303715884105728),(3367875557839416836485555051598872065/170141183460469231731687303715884105728)⟩
+noncomputable def v111 : ℝ := v85 * v15
+theorem h111 : b111.Contains v111 := by
+  apply Box.contains_widen (Box.contains_times h85 h15)
+  all_goals decide +kernel
+
+def b112 : Box := ⟨(7864915695589328579212734442849479425/42535295865117307932921825928971026432),(31459662782357314316851167085946614901/170141183460469231731687303715884105728)⟩
+noncomputable def v112 : ℝ := v111 * v110
+theorem h112 : b112.Contains v112 := by
+  apply Box.contains_widen (Box.contains_times h111 h110)
+  all_goals decide +kernel
+
+def b113 : Box := ⟨(-31459662782357314316851167085946614901/170141183460469231731687303715884105728),(-7864915695589328579212734442849479425/42535295865117307932921825928971026432)⟩
+noncomputable def v113 : ℝ := -v112
+theorem h113 : b113.Contains v113 := by
+  apply Box.contains_widen (Box.contains_neg h112)
+  all_goals decide +kernel
+
+def b114 : Box := ⟨(-29381039933069883876240346865116723175/170141183460469231731687303715884105728),(-14690519966534941938120043640890960269/85070591730234615865843651857942052864)⟩
+noncomputable def v114 : ℝ := v102 + v113
+theorem h114 : b114.Contains v114 := by
+  apply Box.contains_widen (Box.contains_add h102 h113)
+  all_goals decide +kernel
+
+def b115 : Box := ⟨(-106879073530039017138168450908941769799/340282366920938463463374607431768211456),(-13359884191254877142271052110088134713/42535295865117307932921825928971026432)⟩
+noncomputable def v115 : ℝ := -v0
+theorem h115 : b115.Contains v115 := by
+  apply Box.contains_widen (Box.contains_neg h0)
+  all_goals decide +kernel
+
+def b116 : Box := ⟨(18456544521010635535080158023195068517/340282366920938463463374607431768211456),(18456544521010635535080326964134140595/340282366920938463463374607431768211456)⟩
+noncomputable def v116 : ℝ := v114 * v115
+theorem h116 : b116.Contains v116 := by
+  apply Box.contains_widen (Box.contains_times h114 h115)
+  all_goals decide +kernel
+
+def b117 : Box := ⟨(-29381039933069883876240346865116723175/170141183460469231731687303715884105728),(-14690519966534941938120043640890960269/85070591730234615865843651857942052864)⟩
+noncomputable def v117 : ℝ := v114 * v13
+theorem h117 : b117.Contains v117 := by
+  apply Box.contains_widen (Box.contains_times h114 h13)
+  all_goals decide +kernel
+
+def b118 : Box := ⟨(10912210039425026185782851340595975133/170141183460469231731687303715884105728),(5456105019712513092891470503933253165/85070591730234615865843651857942052864)⟩
+noncomputable def v118 : ℝ := v85 + v116
+theorem h118 : b118.Contains v118 := by
+  apply Box.contains_widen (Box.contains_add h85 h116)
+  all_goals decide +kernel
+
+def b119 : Box := ⟨(18360858707239770541413620860250293425/85070591730234615865843651857942052864),(73443434828959082165655118244579945599/340282366920938463463374607431768211456)⟩
+noncomputable def v119 : ℝ := v57 * v57
+theorem h119 : b119.Contains v119 := by
+  apply Box.contains_widen (Box.contains_times h57 h57)
+  all_goals decide +kernel
+
+def b120 : Box := ⟨(-140257013315277694134545399975414899973/340282366920938463463374607431768211456),(-140257013315277694134543213179268064207/340282366920938463463374607431768211456)⟩
+noncomputable def v120 : ℝ := v57 * v58
+theorem h120 : b120.Contains v120 := by
+  apply Box.contains_widen (Box.contains_times h57 h58)
+  all_goals decide +kernel
+
+def b121 : Box := ⟨(-723081303317516837842505408246719185137/170141183460469231731687303715884105728),(-22596290728672401182578122635396665289/5316911983139663491615228241121378304)⟩
+noncomputable def v121 : ℝ := v57 * v59
+theorem h121 : b121.Contains v121 := by
+  apply Box.contains_widen (Box.contains_times h57 h59)
+  all_goals decide +kernel
+
+def b122 : Box := ⟨(-1446162606635033675685010316890607714697/340282366920938463463374607431768211456),(-1446162606635033675685000348268217234073/340282366920938463463374607431768211456)⟩
+noncomputable def v122 : ℝ := v57 * v60
+theorem h122 : b122.Contains v122 := by
+  apply Box.contains_widen (Box.contains_times h57 h60)
+  all_goals decide +kernel
+
+def b123 : Box := ⟨(-140257013315277694134545399975414899973/340282366920938463463374607431768211456),(-140257013315277694134543213179268064207/340282366920938463463374607431768211456)⟩
+noncomputable def v123 : ℝ := v58 * v57
+theorem h123 : b123.Contains v123 := by
+  apply Box.contains_widen (Box.contains_times h58 h57)
+  all_goals decide +kernel
+
+def b124 : Box := ⟨(133926400841244513096038991657789027141/170141183460469231731687303715884105728),(66963200420622256548021005130156462883/85070591730234615865843651857942052864)⟩
+noncomputable def v124 : ℝ := v58 * v58
+theorem h124 : b124.Contains v124 := by
+  apply Box.contains_widen (Box.contains_times h58 h58)
+  all_goals decide +kernel
+
+def b125 : Box := ⟨(345222225184666993191234706126608518631/42535295865117307932921825928971026432),(2761777801477335945529917783181370769865/340282366920938463463374607431768211456)⟩
+noncomputable def v125 : ℝ := v58 * v59
+theorem h125 : b125.Contains v125 := by
+  apply Box.contains_widen (Box.contains_times h58 h59)
+  all_goals decide +kernel
+
+def b126 : Box := ⟨(1380888900738667972764939301559291384377/170141183460469231731687303715884105728),(172611112592333496595619801817228509385/21267647932558653966460912964485513216)⟩
+noncomputable def v126 : ℝ := v58 * v60
+theorem h126 : b126.Contains v126 := by
+  apply Box.contains_widen (Box.contains_times h58 h60)
+  all_goals decide +kernel
+
+def b127 : Box := ⟨(-723081303317516837842505408246719185137/170141183460469231731687303715884105728),(-22596290728672401182578122635396665289/5316911983139663491615228241121378304)⟩
+noncomputable def v127 : ℝ := v59 * v57
+theorem h127 : b127.Contains v127 := by
+  apply Box.contains_widen (Box.contains_times h59 h57)
+  all_goals decide +kernel
+
+def b128 : Box := ⟨(345222225184666993191234706126608518631/42535295865117307932921825928971026432),(2761777801477335945529917783181370769865/340282366920938463463374607431768211456)⟩
+noncomputable def v128 : ℝ := v59 * v58
+theorem h128 : b128.Contains v128 := by
+  apply Box.contains_widen (Box.contains_times h59 h58)
+  all_goals decide +kernel
+
+def b129 : Box := ⟨(28476150246785461786406561393082964286527/340282366920938463463374607431768211456),(28476150246785461786406747192719847851697/340282366920938463463374607431768211456)⟩
+noncomputable def v129 : ℝ := v59 * v59
+theorem h129 : b129.Contains v129 := by
+  apply Box.contains_widen (Box.contains_times h59 h59)
+  all_goals decide +kernel
+
+def b130 : Box := ⟨(14238075123392730893203285615340102780651/170141183460469231731687303715884105728),(28476150246785461786406737355122606576931/340282366920938463463374607431768211456)⟩
+noncomputable def v130 : ℝ := v59 * v60
+theorem h130 : b130.Contains v130 := by
+  apply Box.contains_widen (Box.contains_times h59 h60)
+  all_goals decide +kernel
+
+def b131 : Box := ⟨(-1446162606635033675685010316890607714697/340282366920938463463374607431768211456),(-1446162606635033675685000348268217234073/340282366920938463463374607431768211456)⟩
+noncomputable def v131 : ℝ := v60 * v57
+theorem h131 : b131.Contains v131 := by
+  apply Box.contains_widen (Box.contains_times h60 h57)
+  all_goals decide +kernel
+
+def b132 : Box := ⟨(1380888900738667972764939301559291384377/170141183460469231731687303715884105728),(172611112592333496595619801817228509385/21267647932558653966460912964485513216)⟩
+noncomputable def v132 : ℝ := v60 * v58
+theorem h132 : b132.Contains v132 := by
+  apply Box.contains_widen (Box.contains_times h60 h58)
+  all_goals decide +kernel
+
+def b133 : Box := ⟨(14238075123392730893203285615340102780651/170141183460469231731687303715884105728),(28476150246785461786406737355122606576931/340282366920938463463374607431768211456)⟩
+noncomputable def v133 : ℝ := v60 * v59
+theorem h133 : b133.Contains v133 := by
+  apply Box.contains_widen (Box.contains_times h60 h59)
+  all_goals decide +kernel
+
+def b134 : Box := ⟨(28476150246785461786406581068277446836077/340282366920938463463374607431768211456),(14238075123392730893203363758762682651083/170141183460469231731687303715884105728)⟩
+noncomputable def v134 : ℝ := v60 * v60
+theorem h134 : b134.Contains v134 := by
+  apply Box.contains_widen (Box.contains_times h60 h60)
+  all_goals decide +kernel
+
+def b135 : Box := ⟨(-1446162606635033675685010316890607714697/340282366920938463463374607431768211456),(-1446162606635033675685000348268217234073/340282366920938463463374607431768211456)⟩
+noncomputable def v135 : ℝ := v131 + v26
+theorem h135 : b135.Contains v135 := by
+  apply Box.contains_widen (Box.contains_add h131 h26)
+  all_goals decide +kernel
+
+def b136 : Box := ⟨(-723081303317516837842505408246719185137/170141183460469231731687303715884105728),(-22596290728672401182578122635396665289/5316911983139663491615228241121378304)⟩
+noncomputable def v136 : ℝ := v127 + v26
+theorem h136 : b136.Contains v136 := by
+  apply Box.contains_widen (Box.contains_add h127 h26)
+  all_goals decide +kernel
+
+def b137 : Box := ⟨(1315615194842302269844867332122260434351/340282366920938463463374607431768211456),(82225949677643891865307339682072095987/21267647932558653966460912964485513216)⟩
+noncomputable def v137 : ℝ := v128 + v135
+theorem h137 : b137.Contains v137 := by
+  apply Box.contains_widen (Box.contains_add h128 h135)
+  all_goals decide +kernel
+
+def b138 : Box := ⟨(31237928048262797731936439996201547055281/340282366920938463463374607431768211456),(31237928048262797731936664021795504001857/340282366920938463463374607431768211456)⟩
+noncomputable def v138 : ℝ := v129 + v132
+theorem h138 : b138.Contains v138 := by
+  apply Box.contains_widen (Box.contains_add h129 h132)
+  all_goals decide +kernel
+
+def b139 : Box := ⟨(14238075123392730893203285615340102780651/85070591730234615865843651857942052864),(28476150246785461786406737355122606576931/170141183460469231731687303715884105728)⟩
+noncomputable def v139 : ℝ := v130 + v133
+theorem h139 : b139.Contains v139 := by
+  apply Box.contains_widen (Box.contains_add h130 h133)
+  all_goals decide +kernel
+
+def b140 : Box := ⟨(-140257013315277694134545399975414899973/340282366920938463463374607431768211456),(-140257013315277694134543213179268064207/340282366920938463463374607431768211456)⟩
+noncomputable def v140 : ℝ := v123 + v26
+theorem h140 : b140.Contains v140 := by
+  apply Box.contains_widen (Box.contains_add h123 h26)
+  all_goals decide +kernel
+
+def b141 : Box := ⟨(-147288725619068081186616604147232539499/42535295865117307932921825928971026432),(-294577451238136162373228957036190181741/85070591730234615865843651857942052864)⟩
+noncomputable def v141 : ℝ := v124 + v136
+theorem h141 : b141.Contains v141 := by
+  apply Box.contains_widen (Box.contains_add h124 h136)
+  all_goals decide +kernel
+
+def b142 : Box := ⟨(4077392996319638215374744981135128583399/340282366920938463463374607431768211456),(4077392996319638215374835218094524305657/340282366920938463463374607431768211456)⟩
+noncomputable def v142 : ℝ := v125 + v137
+theorem h142 : b142.Contains v142 := by
+  apply Box.contains_widen (Box.contains_add h125 h137)
+  all_goals decide +kernel
+
+def b143 : Box := ⟨(33999705849740133677466318599320129824035/340282366920938463463374607431768211456),(33999705849740133677466580850871160152017/340282366920938463463374607431768211456)⟩
+noncomputable def v143 : ℝ := v126 + v138
+theorem h143 : b143.Contains v143 := by
+  apply Box.contains_widen (Box.contains_add h126 h138)
+  all_goals decide +kernel
+
+def b144 : Box := ⟨(18360858707239770541413620860250293425/85070591730234615865843651857942052864),(73443434828959082165655118244579945599/340282366920938463463374607431768211456)⟩
+noncomputable def v144 : ℝ := v119 + v26
+theorem h144 : b144.Contains v144 := by
+  apply Box.contains_widen (Box.contains_add h119 h26)
+  all_goals decide +kernel
+
+def b145 : Box := ⟨(-140257013315277694134545399975414899973/170141183460469231731687303715884105728),(-140257013315277694134543213179268064207/170141183460469231731687303715884105728)⟩
+noncomputable def v145 : ℝ := v120 + v140
+theorem h145 : b145.Contains v145 := by
+  apply Box.contains_widen (Box.contains_add h120 h140)
+  all_goals decide +kernel
+
+def b146 : Box := ⟨(-1312236205793789162588971824835649343133/170141183460469231731687303715884105728),(-656118102896894581294478919202536826365/85070591730234615865843651857942052864)⟩
+noncomputable def v146 : ℝ := v121 + v141
+theorem h146 : b146.Contains v146 := by
+  apply Box.contains_widen (Box.contains_add h121 h141)
+  all_goals decide +kernel
+
+def b147 : Box := ⟨(1315615194842302269844867332122260434351/170141183460469231731687303715884105728),(82225949677643891865307339682072095987/10633823966279326983230456482242756608)⟩
+noncomputable def v147 : ℝ := v122 + v142
+theorem h147 : b147.Contains v147 := by
+  apply Box.contains_widen (Box.contains_add h122 h142)
+  all_goals decide +kernel
+
+def b148 : Box := ⟨(1177595821555793394147640514937630523/85070591730234615865843651857942052864),(2355191643111586788295320739785730859/170141183460469231731687303715884105728)⟩
+noncomputable def v148 : ℝ := v118 * v144
+theorem h148 : b148.Contains v148 := by
+  apply Box.contains_widen (Box.contains_times h118 h144)
+  all_goals decide +kernel
+
+def b149 : Box := ⟨(-17991105476874080168309134892333980889/340282366920938463463374607431768211456),(-17991105476874080168308706551097798265/340282366920938463463374607431768211456)⟩
+noncomputable def v149 : ℝ := v118 * v145
+theorem h149 : b149.Contains v149 := by
+  apply Box.contains_widen (Box.contains_times h118 h145)
+  all_goals decide +kernel
+
+def b150 : Box := ⟨(-84161851985042607165715092278095276773/170141183460469231731687303715884105728),(-168323703970085214331427007341814678323/340282366920938463463374607431768211456)⟩
+noncomputable def v150 : ℝ := v118 * v146
+theorem h150 : b150.Contains v150 := by
+  apply Box.contains_widen (Box.contains_times h118 h146)
+  all_goals decide +kernel
+
+def b151 : Box := ⟨(84378567523681486315077049560162573505/170141183460469231731687303715884105728),(21094641880920371578770239078617533741/42535295865117307932921825928971026432)⟩
+noncomputable def v151 : ℝ := v118 * v147
+theorem h151 : b151.Contains v151 := by
+  apply Box.contains_widen (Box.contains_times h118 h147)
+  all_goals decide +kernel
+
+def b152 : Box := ⟨(2180612147894418232097143946609410713889/340282366920938463463374607431768211456),(2180612147894418232097178684846856857719/340282366920938463463374607431768211456)⟩
+noncomputable def v152 : ℝ := v118 * v143
+theorem h152 : b152.Contains v152 := by
+  apply Box.contains_widen (Box.contains_times h118 h143)
+  all_goals decide +kernel
+
+def b153 : Box := ⟨(3652704492670287091734426443417252371141/340282366920938463463374607431768211456),(3652704492670287091734477767422260743617/340282366920938463463374607431768211456)⟩
+noncomputable def v153 : ℝ := v118 * v139
+theorem h153 : b153.Contains v153 := by
+  apply Box.contains_widen (Box.contains_times h118 h139)
+  all_goals decide +kernel
+
+def b154 : Box := ⟨(913176123167571772933606926327396083889/170141183460469231731687303715884105728),(1826352246335143545867238252764964389601/340282366920938463463374607431768211456)⟩
+noncomputable def v154 : ℝ := v118 * v134
+theorem h154 : b154.Contains v154 := by
+  apply Box.contains_widen (Box.contains_times h118 h134)
+  all_goals decide +kernel
+
+def b155 : Box := ⟨(-12682670048741126927465211177217623971/340282366920938463463374607431768211456),(-6341335024370563463732494751596094905/170141183460469231731687303715884105728)⟩
+noncomputable def v155 : ℝ := v117 * v144
+theorem h155 : b155.Contains v155 := by
+  apply Box.contains_widen (Box.contains_times h117 h144)
+  all_goals decide +kernel
+
+def b156 : Box := ⟨(24220455184894970213832084747853288775/170141183460469231731687303715884105728),(24220455184894970213832676366684862789/170141183460469231731687303715884105728)⟩
+noncomputable def v156 : ℝ := v117 * v145
+theorem h156 : b156.Contains v156 := by
+  apply Box.contains_widen (Box.contains_times h117 h145)
+  all_goals decide +kernel
+
+def b157 : Box := ⟨(226605126283286399248119630796209522665/170141183460469231731687303715884105728),(453210252566572798496248096261490085397/340282366920938463463374607431768211456)⟩
+noncomputable def v157 : ℝ := v117 * v146
+theorem h157 : b157.Contains v157 := by
+  apply Box.contains_widen (Box.contains_times h117 h146)
+  all_goals decide +kernel
+
+def b158 : Box := ⟨(-227188631171101146416125065155418328689/170141183460469231731687303715884105728),(-56797157792775286604028601466848092457/42535295865117307932921825928971026432)⟩
+noncomputable def v158 : ℝ := v117 * v147
+theorem h158 : b158.Contains v158 := by
+  apply Box.contains_widen (Box.contains_times h117 h147)
+  all_goals decide +kernel
+
+def b159 : Box := ⟨(-733910137867899609094927101549225237481/42535295865117307932921825928971026432),(-2935640551471598436379659826011951323445/170141183460469231731687303715884105728)⟩
+noncomputable def v159 : ℝ := v117 * v143
+theorem h159 : b159.Contains v159 := by
+  apply Box.contains_widen (Box.contains_times h117 h143)
+  all_goals decide +kernel
+
+def b160 : Box := ⟨(-9834878193794762533821224846891293519893/340282366920938463463374607431768211456),(-2458719548448690633455270145079022538547/85070591730234615865843651857942052864)⟩
+noncomputable def v160 : ℝ := v117 * v139
+theorem h160 : b160.Contains v160 := by
+  apply Box.contains_widen (Box.contains_times h117 h139)
+  all_goals decide +kernel
+
+def b161 : Box := ⟨(-4917439096897381266910610724628044151067/340282366920938463463374607431768211456),(-614679887112172658363817748621955960747/42535295865117307932921825928971026432)⟩
+noncomputable def v161 : ℝ := v117 * v134
+theorem h161 : b161.Contains v161 := by
+  apply Box.contains_widen (Box.contains_times h117 h134)
+  all_goals decide +kernel
+
+def b162 : Box := ⟨(-12682670048741126927465211177217623971/340282366920938463463374607431768211456),(-6341335024370563463732494751596094905/170141183460469231731687303715884105728)⟩
+noncomputable def v162 : ℝ := v155 + v26
+theorem h162 : b162.Contains v162 := by
+  apply Box.contains_widen (Box.contains_add h155 h26)
+  all_goals decide +kernel
+
+def b163 : Box := ⟨(1177595821555793394147640514937630523/85070591730234615865843651857942052864),(2355191643111586788295320739785730859/170141183460469231731687303715884105728)⟩
+noncomputable def v163 : ℝ := v148 + v26
+theorem h163 : b163.Contains v163 := by
+  apply Box.contains_widen (Box.contains_add h148 h26)
+  all_goals decide +kernel
+
+def b164 : Box := ⟨(-7668443881403801773943586517387901215/85070591730234615865843651857942052864),(-30673775525615207095773696054289988075/340282366920938463463374607431768211456)⟩
+noncomputable def v164 : ℝ := v149 + v162
+theorem h164 : b164.Contains v164 := by
+  apply Box.contains_widen (Box.contains_add h149 h162)
+  all_goals decide +kernel
+
+def b165 : Box := ⟨(-29970698400073818475941503765120993999/85070591730234615865843651857942052864),(-119882793600295273903761654608444952745/340282366920938463463374607431768211456)⟩
+noncomputable def v165 : ℝ := v150 + v156
+theorem h165 : b165.Contains v165 := by
+  apply Box.contains_widen (Box.contains_add h150 h156)
+  all_goals decide +kernel
+
+def b166 : Box := ⟨(155491846903483942781598340178186048085/85070591730234615865843651857942052864),(621967387613935771126410008890430355325/340282366920938463463374607431768211456)⟩
+noncomputable def v166 : ℝ := v151 + v157
+theorem h166 : b166.Contains v166 := by
+  apply Box.contains_widen (Box.contains_add h151 h157)
+  all_goals decide +kernel
+
+def b167 : Box := ⟨(1726234885552215939264893816298574056511/340282366920938463463374607431768211456),(1726234885552215939264949873112072118063/340282366920938463463374607431768211456)⟩
+noncomputable def v167 : ℝ := v152 + v158
+theorem h167 : b167.Contains v167 := by
+  apply Box.contains_widen (Box.contains_add h152 h158)
+  all_goals decide +kernel
+
+def b168 : Box := ⟨(-2218576610272909781024990368976549528707/340282366920938463463374607431768211456),(-2218576610272909781024841884601641903273/340282366920938463463374607431768211456)⟩
+noncomputable def v168 : ℝ := v153 + v159
+theorem h168 : b168.Contains v168 := by
+  apply Box.contains_widen (Box.contains_add h153 h159)
+  all_goals decide +kernel
+
+def b169 : Box := ⟨(-8008525947459618987954010994236501352115/340282366920938463463374607431768211456),(-8008525947459618987953842327551125764587/340282366920938463463374607431768211456)⟩
+noncomputable def v169 : ℝ := v154 + v160
+theorem h169 : b169.Contains v169 := by
+  apply Box.contains_widen (Box.contains_add h154 h160)
+  all_goals decide +kernel
+
+def b170 : Box := ⟨(-233403293390899446325206224579299825847/340282366920938463463374607431768211456),(-116701646695449723162603061247294874781/170141183460469231731687303715884105728)⟩
+noncomputable def v170 : ℝ := v1 + v115
+theorem h170 : b170.Contains v170 := by
+  apply Box.contains_widen (Box.contains_add h1 h115)
+  all_goals decide +kernel
+
+def b171 : Box := ⟨(-496103065021408168334903482845916427821/340282366920938463463374607431768211456),(-248051532510704084167451632931478027621/170141183460469231731687303715884105728)⟩
+noncomputable def v171 : ℝ := v170⁻¹
+theorem h171 : b171.Contains v171 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h170)
+  all_goals decide +kernel
+
+def b172 : Box := ⟨(-106879073530039017138168450908941769799/340282366920938463463374607431768211456),(-13359884191254877142271052110088134713/42535295865117307932921825928971026432)⟩
+noncomputable def v172 : ℝ := v13 * v115
+theorem h172 : b172.Contains v172 := by
+  apply Box.contains_widen (Box.contains_times h13 h115)
+  all_goals decide +kernel
+
+def b173 : Box := ⟨(-106879073530039017138168450908941769799/340282366920938463463374607431768211456),(-13359884191254877142271052110088134713/42535295865117307932921825928971026432)⟩
+noncomputable def v173 : ℝ := v172 + v26
+theorem h173 : b173.Contains v173 := by
+  apply Box.contains_widen (Box.contains_add h172 h26)
+  all_goals decide +kernel
+
+def b174 : Box := ⟨(19477587262558713108941088505186793241/42535295865117307932921825928971026432),(155820698100469704871528825803841714223/340282366920938463463374607431768211456)⟩
+noncomputable def v174 : ℝ := v171 * v173
+theorem h174 : b174.Contains v174 := by
+  apply Box.contains_widen (Box.contains_times h171 h173)
+  all_goals decide +kernel
+
+def b175 : Box := ⟨(-496103065021408168334903482845916427821/340282366920938463463374607431768211456),(-248051532510704084167451632931478027621/170141183460469231731687303715884105728)⟩
+noncomputable def v175 : ℝ := v171 * v25
+theorem h175 : b175.Contains v175 := by
+  apply Box.contains_widen (Box.contains_times h171 h25)
+  all_goals decide +kernel
+
+def b176 : Box := ⟨(-184686197838799700803644435448871976863/340282366920938463463374607431768211456),(-184686197838799700803644309302564983775/340282366920938463463374607431768211456)⟩
+noncomputable def v176 : ℝ := v1 + v30
+theorem h176 : b176.Contains v176 := by
+  apply Box.contains_widen (Box.contains_add h1 h30)
+  all_goals decide +kernel
+
+def b177 : Box := ⟨(-626966663412408376893394318034623624239/340282366920938463463374607431768211456),(-313483331706204188446696944898633419363/170141183460469231731687303715884105728)⟩
+noncomputable def v177 : ℝ := v176⁻¹
+theorem h177 : b177.Contains v177 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h176)
+  all_goals decide +kernel
+
+def b178 : Box := ⟨(-1664580818099720941056149761601069131/21267647932558653966460912964485513216),(-13316646544797767528449174728551357437/170141183460469231731687303715884105728)⟩
+noncomputable def v178 : ℝ := v174 * v30
+theorem h178 : b178.Contains v178 := by
+  apply Box.contains_widen (Box.contains_times h174 h30)
+  all_goals decide +kernel
+
+def b179 : Box := ⟨(19477587262558713108941088505186793241/42535295865117307932921825928971026432),(155820698100469704871528825803841714223/340282366920938463463374607431768211456)⟩
+noncomputable def v179 : ℝ := v174 * v13
+theorem h179 : b179.Contains v179 := by
+  apply Box.contains_widen (Box.contains_times h174 h13)
+  all_goals decide +kernel
+
+def b180 : Box := ⟨(42397635533767403336752472333127960019/170141183460469231731687303715884105728),(84795271067534806673505066443658133665/340282366920938463463374607431768211456)⟩
+noncomputable def v180 : ℝ := v175 * v30
+theorem h180 : b180.Contains v180 := by
+  apply Box.contains_widen (Box.contains_times h175 h30)
+  all_goals decide +kernel
+
+def b181 : Box := ⟨(-496103065021408168334903482845916427821/340282366920938463463374607431768211456),(-248051532510704084167451632931478027621/170141183460469231731687303715884105728)⟩
+noncomputable def v181 : ℝ := v175 * v13
+theorem h181 : b181.Contains v181 := by
+  apply Box.contains_widen (Box.contains_times h175 h13)
+  all_goals decide +kernel
+
+def b182 : Box := ⟨(42397635533767403336752472333127960019/170141183460469231731687303715884105728),(84795271067534806673505066443658133665/340282366920938463463374607431768211456)⟩
+noncomputable def v182 : ℝ := v180 + v26
+theorem h182 : b182.Contains v182 := by
+  apply Box.contains_widen (Box.contains_add h180 h26)
+  all_goals decide +kernel
+
+def b183 : Box := ⟨(-1664580818099720941056149761601069131/21267647932558653966460912964485513216),(-13316646544797767528449174728551357437/170141183460469231731687303715884105728)⟩
+noncomputable def v183 : ℝ := v178 + v26
+theorem h183 : b183.Contains v183 := by
+  apply Box.contains_widen (Box.contains_add h178 h26)
+  all_goals decide +kernel
+
+def b184 : Box := ⟨(120307984584002255772516826353875132983/170141183460469231731687303715884105728),(15038498073000281971564618265468740493/21267647932558653966460912964485513216)⟩
+noncomputable def v184 : ℝ := v179 + v182
+theorem h184 : b184.Contains v184 := by
+  apply Box.contains_widen (Box.contains_add h179 h182)
+  all_goals decide +kernel
+
+def b185 : Box := ⟨(49071560936767960170680049280156471097/340282366920938463463374607431768211456),(24535780468383980085340084447161625683/170141183460469231731687303715884105728)⟩
+noncomputable def v185 : ℝ := v177 * v183
+theorem h185 : b185.Contains v185 := by
+  apply Box.contains_widen (Box.contains_times h177 h183)
+  all_goals decide +kernel
+
+def b186 : Box := ⟨(-110833094819204410445991320726688736103/85070591730234615865843651857942052864),(-221666189638408820891982269373879968083/170141183460469231731687303715884105728)⟩
+noncomputable def v186 : ℝ := v177 * v184
+theorem h186 : b186.Contains v186 := by
+  apply Box.contains_widen (Box.contains_times h177 h184)
+  all_goals decide +kernel
+
+def b187 : Box := ⟨(914064652246317302064621412048902676235/340282366920938463463374607431768211456),(457032326123158651032311218085877108485/170141183460469231731687303715884105728)⟩
+noncomputable def v187 : ℝ := v177 * v181
+theorem h187 : b187.Contains v187 := by
+  apply Box.contains_widen (Box.contains_times h177 h181)
+  all_goals decide +kernel
+
+def b188 : Box := ⟨(36348976294289219176476424451992275843/85070591730234615865843651857942052864),(36348976294289219176476455988569024115/85070591730234615865843651857942052864)⟩
+noncomputable def v188 : ℝ := v1 + v43
+theorem h188 : b188.Contains v188 := by
+  apply Box.contains_widen (Box.contains_add h1 h43)
+  all_goals decide +kernel
+
+def b189 : Box := ⟨(796391680331230323863124276451121241059/340282366920938463463374607431768211456),(796391680331230323863124967405032710557/340282366920938463463374607431768211456)⟩
+noncomputable def v189 : ℝ := v188⁻¹
+theorem h189 : b189.Contains v189 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h188)
+  all_goals decide +kernel
+
+def b190 : Box := ⟨(19606577188345585955461460298336521319/170141183460469231731687303715884105728),(19606577188345585955461512278781933547/170141183460469231731687303715884105728)⟩
+noncomputable def v190 : ℝ := v185 * v43
+theorem h190 : b190.Contains v190 := by
+  apply Box.contains_widen (Box.contains_times h185 h43)
+  all_goals decide +kernel
+
+def b191 : Box := ⟨(49071560936767960170680049280156471097/340282366920938463463374607431768211456),(24535780468383980085340084447161625683/170141183460469231731687303715884105728)⟩
+noncomputable def v191 : ℝ := v185 * v13
+theorem h191 : b191.Contains v191 := by
+  apply Box.contains_widen (Box.contains_times h185 h13)
+  all_goals decide +kernel
+
+def b192 : Box := ⟨(-177133768489336535692273978943640084679/170141183460469231731687303715884105728),(-88566884244668267846136821886798534721/85070591730234615865843651857942052864)⟩
+noncomputable def v192 : ℝ := v186 * v43
+theorem h192 : b192.Contains v192 := by
+  apply Box.contains_widen (Box.contains_times h186 h43)
+  all_goals decide +kernel
+
+def b193 : Box := ⟨(-110833094819204410445991320726688736103/85070591730234615865843651857942052864),(-221666189638408820891982269373879968083/170141183460469231731687303715884105728)⟩
+noncomputable def v193 : ℝ := v186 * v13
+theorem h193 : b193.Contains v193 := by
+  apply Box.contains_widen (Box.contains_times h186 h13)
+  all_goals decide +kernel
+
+def b194 : Box := ⟨(730430368110726566955192243812326222947/340282366920938463463374607431768211456),(730430368110726566955193218230955087871/340282366920938463463374607431768211456)⟩
+noncomputable def v194 : ℝ := v187 * v43
+theorem h194 : b194.Contains v194 := by
+  apply Box.contains_widen (Box.contains_times h187 h43)
+  all_goals decide +kernel
+
+def b195 : Box := ⟨(914064652246317302064621412048902676235/340282366920938463463374607431768211456),(457032326123158651032311218085877108485/170141183460469231731687303715884105728)⟩
+noncomputable def v195 : ℝ := v187 * v13
+theorem h195 : b195.Contains v195 := by
+  apply Box.contains_widen (Box.contains_times h187 h13)
+  all_goals decide +kernel
+
+def b196 : Box := ⟨(730430368110726566955192243812326222947/340282366920938463463374607431768211456),(730430368110726566955193218230955087871/340282366920938463463374607431768211456)⟩
+noncomputable def v196 : ℝ := v194 + v26
+theorem h196 : b196.Contains v196 := by
+  apply Box.contains_widen (Box.contains_add h194 h26)
+  all_goals decide +kernel
+
+def b197 : Box := ⟨(-177133768489336535692273978943640084679/170141183460469231731687303715884105728),(-88566884244668267846136821886798534721/85070591730234615865843651857942052864)⟩
+noncomputable def v197 : ℝ := v192 + v26
+theorem h197 : b197.Contains v197 := by
+  apply Box.contains_widen (Box.contains_add h192 h26)
+  all_goals decide +kernel
+
+def b198 : Box := ⟨(287097988833908925171226960905571278535/340282366920938463463374607431768211456),(287097988833908925171228679483195151705/340282366920938463463374607431768211456)⟩
+noncomputable def v198 : ℝ := v193 + v196
+theorem h198 : b198.Contains v198 := by
+  apply Box.contains_widen (Box.contains_add h193 h196)
+  all_goals decide +kernel
+
+def b199 : Box := ⟨(19606577188345585955461460298336521319/170141183460469231731687303715884105728),(19606577188345585955461512278781933547/170141183460469231731687303715884105728)⟩
+noncomputable def v199 : ℝ := v190 + v26
+theorem h199 : b199.Contains v199 := by
+  apply Box.contains_widen (Box.contains_add h190 h26)
+  all_goals decide +kernel
+
+def b200 : Box := ⟨(-305195976041905111213867908607123698261/340282366920938463463374607431768211456),(-152597988020952555606933559326435443759/170141183460469231731687303715884105728)⟩
+noncomputable def v200 : ℝ := v191 + v197
+theorem h200 : b200.Contains v200 := by
+  apply Box.contains_widen (Box.contains_add h191 h197)
+  all_goals decide +kernel
+
+def b201 : Box := ⟨(45886935293941934237495080210145359395/170141183460469231731687303715884105728),(91773870587883868474990483352307221379/340282366920938463463374607431768211456)⟩
+noncomputable def v201 : ℝ := v189 * v199
+theorem h201 : b201.Contains v201 := by
+  apply Box.contains_widen (Box.contains_times h189 h199)
+  all_goals decide +kernel
+
+def b202 : Box := ⟨(-11160562879993356549508055938139428641/5316911983139663491615228241121378304),(-714276024319574819168513111534089557559/340282366920938463463374607431768211456)⟩
+noncomputable def v202 : ℝ := v189 * v200
+theorem h202 : b202.Contains v202 := by
+  apply Box.contains_widen (Box.contains_times h189 h200)
+  all_goals decide +kernel
+
+def b203 : Box := ⟨(671919770089869332426079413737306341595/340282366920938463463374607431768211456),(335959885044934666213042009415820388411/170141183460469231731687303715884105728)⟩
+noncomputable def v203 : ℝ := v189 * v198
+theorem h203 : b203.Contains v203 := by
+  apply Box.contains_widen (Box.contains_times h189 h198)
+  all_goals decide +kernel
+
+def b204 : Box := ⟨(2139263021239533585103086078420873125751/340282366920938463463374607431768211456),(2139263021239533585103090331299088663661/340282366920938463463374607431768211456)⟩
+noncomputable def v204 : ℝ := v189 * v195
+theorem h204 : b204.Contains v204 := by
+  apply Box.contains_widen (Box.contains_times h189 h195)
+  all_goals decide +kernel
+
+def b205 : Box := ⟨(13359884191254877142271052110088134713/21267647932558653966460912964485513216),(106879073530039017138168450908941769799/170141183460469231731687303715884105728)⟩
+noncomputable def v205 : ℝ := v1 + v13
+theorem h205 : b205.Contains v205 := by
+  apply Box.contains_widen (Box.contains_add h1 h13)
+  all_goals decide +kernel
+
+def b206 : Box := ⟨(13359884191254877142271052110088134713/21267647932558653966460912964485513216),(106879073530039017138168450908941769799/170141183460469231731687303715884105728)⟩
+noncomputable def v206 : ℝ := v13 * v205
+theorem h206 : b206.Contains v206 := by
+  apply Box.contains_widen (Box.contains_times h13 h205)
+  all_goals decide +kernel
+
+def b207 : Box := ⟨(67139161291266964290232590868898392497/170141183460469231731687303715884105728),(134278322582533928580465267241055609029/340282366920938463463374607431768211456)⟩
+noncomputable def v207 : ℝ := v206 * v205
+theorem h207 : b207.Contains v207 := by
+  apply Box.contains_widen (Box.contains_times h206 h205)
+  all_goals decide +kernel
+
+def b208 : Box := ⟨(10543848365292605518267575747732631301/42535295865117307932921825928971026432),(21087696730585211036535171637213649983/85070591730234615865843651857942052864)⟩
+noncomputable def v208 : ℝ := v207 * v205
+theorem h208 : b208.Contains v208 := by
+  apply Box.contains_widen (Box.contains_times h207 h205)
+  all_goals decide +kernel
+
+def b209 : Box := ⟨(52987370690789582285057882943731099985/340282366920938463463374607431768211456),(52987370690789582285057950424360637861/340282366920938463463374607431768211456)⟩
+noncomputable def v209 : ℝ := v208 * v205
+theorem h209 : b209.Contains v209 := by
+  apply Box.contains_widen (Box.contains_times h208 h205)
+  all_goals decide +kernel
+
+def b210 : Box := ⟨(8321384883190460797989982586108058255/85070591730234615865843651857942052864),(33285539532761843191959983331802923813/340282366920938463463374607431768211456)⟩
+noncomputable def v210 : ℝ := v209 * v205
+theorem h210 : b210.Contains v210 := by
+  apply Box.contains_widen (Box.contains_times h209 h205)
+  all_goals decide +kernel
+
+def b211 : Box := ⟨(-7907763741303776824189860854397378503/10633823966279326983230456482242756608),(-63262109930430214593518852806942335929/85070591730234615865843651857942052864)⟩
+noncomputable def v211 : ℝ := v1 * v15
+theorem h211 : b211.Contains v211 := by
+  apply Box.contains_widen (Box.contains_times h1 h15)
+  all_goals decide +kernel
+
+def b212 : Box := ⟨(63262109930430214593518852806942335929/85070591730234615865843651857942052864),(7907763741303776824189860854397378503/10633823966279326983230456482242756608)⟩
+noncomputable def v212 : ℝ := -v211
+theorem h212 : b212.Contains v212 := by
+  apply Box.contains_widen (Box.contains_neg h211)
+  all_goals decide +kernel
+
+def b213 : Box := ⟨(233403293390899446325206156522826441657/85070591730234615865843651857942052864),(29175411673862430790650773818882891719/10633823966279326983230456482242756608)⟩
+noncomputable def v213 : ℝ := v15 + v212
+theorem h213 : b213.Contains v213 := by
+  apply Box.contains_widen (Box.contains_add h15 h212)
+  all_goals decide +kernel
+
+def b214 : Box := ⟨(140910454830539008559965617557061589589/85070591730234615865843651857942052864),(70455227415269504279982813914420524223/42535295865117307932921825928971026432)⟩
+noncomputable def v214 : ℝ := Real.sqrt v213
+theorem h214 : b214.Contains v214 := by
+  apply Box.contains_sqrt_interval h213 <;> decide +kernel
+
+def b215 : Box := ⟨(102717794588564657870548623017292971533/170141183460469231731687303715884105728),(102717794588564657870548630504988144917/170141183460469231731687303715884105728)⟩
+noncomputable def v215 : ℝ := v214⁻¹
+theorem h215 : b215.Contains v215 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h214)
+  all_goals decide +kernel
+
+def b216 : Box := ⟨0,0⟩
+noncomputable def v216 : ℝ := v1 * v26
+theorem h216 : b216.Contains v216 := by
+  apply Box.contains_widen (Box.contains_times h1 h26)
+  all_goals decide +kernel
+
+@[simp] theorem zero216 : v216=0 := by
+  have h := h216
+  norm_num [Box.Contains,b216] at h
+  linarith
+
+def b217 : Box := ⟨(35/4096),(35/4096)⟩
+noncomputable def v217 : ℝ := v8 + v216
+theorem h217 : b217.Contains v217 := by
+  apply Box.contains_widen (Box.contains_add h8 h216)
+  all_goals decide +kernel
+
+def b218 : Box := ⟨(-1081139574006375737682207538687141593/340282366920938463463374607431768211456),(-270284893501593934420551739287473359/85070591730234615865843651857942052864)⟩
+noncomputable def v218 : ℝ := v1 * v217
+theorem h218 : b218.Contains v218 := by
+  apply Box.contains_widen (Box.contains_times h1 h217)
+  all_goals decide +kernel
+
+def b219 : Box := ⟨(17195745368036217514745139540167596327/340282366920938463463374607431768211456),(4298936342009054378686285030426211121/85070591730234615865843651857942052864)⟩
+noncomputable def v219 : ℝ := v12 + v218
+theorem h219 : b219.Contains v219 := by
+  apply Box.contains_widen (Box.contains_add h12 h218)
+  all_goals decide +kernel
+
+def b220 : Box := ⟨(-3196871890987942272821960062928741133/170141183460469231731687303715884105728),(-199804493186746392051372389702515433/10633823966279326983230456482242756608)⟩
+noncomputable def v220 : ℝ := v1 * v219
+theorem h220 : b220.Contains v220 := by
+  apply Box.contains_widen (Box.contains_times h1 h219)
+  all_goals decide +kernel
+
+def b221 : Box := ⟨(23470764774446932427310669083945671923/170141183460469231731687303715884105728),(1466922798402933276706916931977135383/10633823966279326983230456482242756608)⟩
+noncomputable def v221 : ℝ := v11 + v220
+theorem h221 : b221.Contains v221 := by
+  apply Box.contains_widen (Box.contains_add h11 h220)
+  all_goals decide +kernel
+
+def b222 : Box := ⟨(-17453858861365134264662689394557688985/340282366920938463463374607431768211456),(-2181732357670641783082834830888110771/42535295865117307932921825928971026432)⟩
+noncomputable def v222 : ℝ := v1 * v221
+theorem h222 : b222.Contains v222 := by
+  apply Box.contains_widen (Box.contains_times h1 h221)
+  all_goals decide +kernel
+
+def b223 : Box := ⟨(88552073802481906599415923662799790951/340282366920938463463374607431768211456),(11069009225310238324926991801281574221/42535295865117307932921825928971026432)⟩
+noncomputable def v223 : ℝ := v10 + v222
+theorem h223 : b223.Contains v223 := by
+  apply Box.contains_widen (Box.contains_add h10 h222)
+  all_goals decide +kernel
+
+def b224 : Box := ⟨(-32925544030682917682593205504439852431/340282366920938463463374607431768211456),(-8231386007670729420648295949473400907/85070591730234615865843651857942052864)⟩
+noncomputable def v224 : ℝ := v1 * v223
+theorem h224 : b224.Contains v224 := by
+  apply Box.contains_widen (Box.contains_times h1 h223)
+  all_goals decide +kernel
+
+def b225 : Box := ⟨(205255497464026695293357722109544391281/340282366920938463463374607431768211456),(51313874366006673823339435954022660021/85070591730234615865843651857942052864)⟩
+noncomputable def v225 : ℝ := v9 + v224
+theorem h225 : b225.Contains v225 := by
+  apply Box.contains_widen (Box.contains_add h9 h224)
+  all_goals decide +kernel
+
+def b226 : Box := ⟨(-51313874366006673823339435954022660021/85070591730234615865843651857942052864),(-205255497464026695293357722109544391281/340282366920938463463374607431768211456)⟩
+noncomputable def v226 : ℝ := -v225
+theorem h226 : b226.Contains v226 := by
+  apply Box.contains_widen (Box.contains_neg h225)
+  all_goals decide +kernel
+
+def b227 : Box := ⟨(90045856551310223869751109247651491/170141183460469231731687303715884105728),(180091713102620447739538900431898553/340282366920938463463374607431768211456)⟩
+noncomputable def v227 : ℝ := v215 + v226
+theorem h227 : b227.Contains v227 := by
+  apply Box.contains_widen (Box.contains_add h215 h226)
+  all_goals decide +kernel
+
+def b228 : Box := ⟨(3478750558432316085015483077655042660787/340282366920938463463374607431768211456),(3478750558432316085015488615490630364769/340282366920938463463374607431768211456)⟩
+noncomputable def v228 : ℝ := v210⁻¹
+theorem h228 : b228.Contains v228 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h210)
+  all_goals decide +kernel
+
+def b229 : Box := ⟨(920550414048244819245102864941507787/170141183460469231731687303715884105728),(920550414048244819245291832455278449/170141183460469231731687303715884105728)⟩
+noncomputable def v229 : ℝ := v227 * v228
+theorem h229 : b229.Contains v229 := by
+  apply Box.contains_widen (Box.contains_times h227 h228)
+  all_goals decide +kernel
+
+def b230 : Box := ⟨(35/1024),(35/1024)⟩
+noncomputable def v230 : ℝ := v20 + v216
+theorem h230 : b230.Contains v230 := by
+  apply Box.contains_widen (Box.contains_add h20 h216)
+  all_goals decide +kernel
+
+def b231 : Box := ⟨(-4324558296025502950728830154748566369/340282366920938463463374607431768211456),(-4324558296025502950728827828599573745/340282366920938463463374607431768211456)⟩
+noncomputable def v231 : ℝ := v1 * v230
+theorem h231 : b231.Contains v231 := by
+  apply Box.contains_widen (Box.contains_times h1 h230)
+  all_goals decide +kernel
+
+def b232 : Box := ⟨(50506096530102276806553211081815647391/340282366920938463463374607431768211456),(50506096530102276806553213407964640015/340282366920938463463374607431768211456)⟩
+noncomputable def v232 : ℝ := v18 + v231
+theorem h232 : b232.Contains v232 := by
+  apply Box.contains_widen (Box.contains_add h18 h231)
+  all_goals decide +kernel
+
+def b233 : Box := ⟨(-18779240662720604974287518831682181911/340282366920938463463374607431768211456),(-4694810165680151243571876966387804171/85070591730234615865843651857942052864)⟩
+noncomputable def v233 : ℝ := v1 * v232
+theorem h233 : b233.Contains v233 := by
+  apply Box.contains_widen (Box.contains_times h1 h232)
+  all_goals decide +kernel
+
+def b234 : Box := ⟨(87891305999018893826242997755815470313/340282366920938463463374607431768211456),(21972826499754723456560752180486608885/85070591730234615865843651857942052864)⟩
+noncomputable def v234 : ℝ := v16 + v233
+theorem h234 : b234.Contains v234 := by
+  apply Box.contains_widen (Box.contains_add h16 h233)
+  all_goals decide +kernel
+
+def b235 : Box := ⟨(-32679856510642373018587290733132712237/340282366920938463463374607431768211456),(-16339928255321186509293634538715416661/170141183460469231731687303715884105728)⟩
+noncomputable def v235 : ℝ := v1 * v234
+theorem h235 : b235.Contains v235 := by
+  apply Box.contains_widen (Box.contains_times h1 h234)
+  all_goals decide +kernel
+
+def b236 : Box := ⟨(73326076153204667845491322324224767699/340282366920938463463374607431768211456),(36663038076602333922745671989963323307/170141183460469231731687303715884105728)⟩
+noncomputable def v236 : ℝ := v14 + v235
+theorem h236 : b236.Contains v236 := by
+  apply Box.contains_widen (Box.contains_add h14 h235)
+  all_goals decide +kernel
+
+def b237 : Box := ⟨(7751610390959502630232864659228273637/21267647932558653966460912964485513216),(62012883127676021041862926314782871287/170141183460469231731687303715884105728)⟩
+noncomputable def v237 : ℝ := v213⁻¹
+theorem h237 : b237.Contains v237 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h213)
+  all_goals decide +kernel
+
+def b238 : Box := ⟨(18719237933457963408190838885386057175/85070591730234615865843651857942052864),(74876951733831853632763371916188729417/340282366920938463463374607431768211456)⟩
+noncomputable def v238 : ℝ := v215 * v237
+theorem h238 : b238.Contains v238 := by
+  apply Box.contains_widen (Box.contains_times h215 h237)
+  all_goals decide +kernel
+
+def b239 : Box := ⟨(-36663038076602333922745671989963323307/170141183460469231731687303715884105728),(-73326076153204667845491322324224767699/340282366920938463463374607431768211456)⟩
+noncomputable def v239 : ℝ := -v236
+theorem h239 : b239.Contains v239 := by
+  apply Box.contains_widen (Box.contains_neg h236)
+  all_goals decide +kernel
+
+def b240 : Box := ⟨(775437790313592893636005780808791043/170141183460469231731687303715884105728),(775437790313592893636024795981980859/170141183460469231731687303715884105728)⟩
+noncomputable def v240 : ℝ := v238 + v239
+theorem h240 : b240.Contains v240 := by
+  apply Box.contains_widen (Box.contains_add h238 h239)
+  all_goals decide +kernel
+
+def b241 : Box := ⟨(264936853453947911425289414718655499925/340282366920938463463374607431768211456),(264936853453947911425289752121803189305/340282366920938463463374607431768211456)⟩
+noncomputable def v241 : ℝ := v209 * v97
+theorem h241 : b241.Contains v241 := by
+  apply Box.contains_widen (Box.contains_times h209 h97)
+  all_goals decide +kernel
+
+def b242 : Box := ⟨(1433443245093778386411763957897885577/340282366920938463463374607431768211456),(716721622546889193206030017930705325/170141183460469231731687303715884105728)⟩
+noncomputable def v242 : ℝ := v241 * v229
+theorem h242 : b242.Contains v242 := by
+  apply Box.contains_widen (Box.contains_times h241 h229)
+  all_goals decide +kernel
+
+def b243 : Box := ⟨(-716721622546889193206030017930705325/170141183460469231731687303715884105728),(-1433443245093778386411763957897885577/340282366920938463463374607431768211456)⟩
+noncomputable def v243 : ℝ := -v242
+theorem h243 : b243.Contains v243 := by
+  apply Box.contains_widen (Box.contains_neg h242)
+  all_goals decide +kernel
+
+def b244 : Box := ⟨(29358083883351850214987881439042859/85070591730234615865843651857942052864),(117432335533407400860285634066076141/340282366920938463463374607431768211456)⟩
+noncomputable def v244 : ℝ := v240 + v243
+theorem h244 : b244.Contains v244 := by
+  apply Box.contains_widen (Box.contains_add h240 h243)
+  all_goals decide +kernel
+
+def b245 : Box := ⟨(1200525923547979596317630733687457887/340282366920938463463374607431768211456),(1200525923547979596321048277185663689/340282366920938463463374607431768211456)⟩
+noncomputable def v245 : ℝ := v244 * v228
+theorem h245 : b245.Contains v245 := by
+  apply Box.contains_widen (Box.contains_times h244 h228)
+  all_goals decide +kernel
+
+def b246 : Box := ⟨(-11160562879993356549508055938139428641/5316911983139663491615228241121378304),(-714276024319574819168513111534089557559/340282366920938463463374607431768211456)⟩
+noncomputable def v246 : ℝ := v202 * v13
+theorem h246 : b246.Contains v246 := by
+  apply Box.contains_widen (Box.contains_times h202 h13)
+  all_goals decide +kernel
+
+def b247 : Box := ⟨(671919770089869332426079413737306341595/170141183460469231731687303715884105728),(335959885044934666213042009415820388411/85070591730234615865843651857942052864)⟩
+noncomputable def v247 : ℝ := v203 * v15
+theorem h247 : b247.Contains v247 := by
+  apply Box.contains_widen (Box.contains_times h203 h15)
+  all_goals decide +kernel
+
+def b248 : Box := ⟨(6417789063718600755309258235262619377253/340282366920938463463374607431768211456),(6417789063718600755309270993897265990983/340282366920938463463374607431768211456)⟩
+noncomputable def v248 : ℝ := v204 * v17
+theorem h248 : b248.Contains v248 := by
+  apply Box.contains_widen (Box.contains_times h204 h17)
+  all_goals decide +kernel
+
+def b249 : Box := ⟨(6417789063718600755309258235262619377253/340282366920938463463374607431768211456),(6417789063718600755309270993897265990983/340282366920938463463374607431768211456)⟩
+noncomputable def v249 : ℝ := v248 + v216
+theorem h249 : b249.Contains v249 := by
+  apply Box.contains_widen (Box.contains_add h248 h216)
+  all_goals decide +kernel
+
+def b250 : Box := ⟨(-2386270443179384760752777330617839723437/340282366920938463463374607431768211456),(-298283805397423095094096412891045366787/42535295865117307932921825928971026432)⟩
+noncomputable def v250 : ℝ := v1 * v249
+theorem h250 : b250.Contains v250 := by
+  apply Box.contains_widen (Box.contains_times h1 h249)
+  all_goals decide +kernel
+
+def b251 : Box := ⟨(-1042430902999646095900618503143227040247/340282366920938463463374607431768211456),(-260607725749911523975150816366270345163/85070591730234615865843651857942052864)⟩
+noncomputable def v251 : ℝ := v247 + v250
+theorem h251 : b251.Contains v251 := by
+  apply Box.contains_widen (Box.contains_add h247 h250)
+  all_goals decide +kernel
+
+def b252 : Box := ⟨(387597976216988597803338552355735737645/340282366920938463463374607431768211456),(387597976216988597803344426534668258521/340282366920938463463374607431768211456)⟩
+noncomputable def v252 : ℝ := v1 * v251
+theorem h252 : b252.Contains v252 := by
+  apply Box.contains_widen (Box.contains_times h1 h251)
+  all_goals decide +kernel
+
+def b253 : Box := ⟨(-326678048102586221365177027685187695379/340282366920938463463374607431768211456),(-163339024051293110682584342499710649519/170141183460469231731687303715884105728)⟩
+noncomputable def v253 : ℝ := v246 + v252
+theorem h253 : b253.Contains v253 := by
+  apply Box.contains_widen (Box.contains_add h246 h252)
+  all_goals decide +kernel
+
+def b254 : Box := ⟨(920550414048244819245102864941507787/85070591730234615865843651857942052864),(920550414048244819245291832455278449/85070591730234615865843651857942052864)⟩
+noncomputable def v254 : ℝ := v229 * v15
+theorem h254 : b254.Contains v254 := by
+  apply Box.contains_widen (Box.contains_times h229 h15)
+  all_goals decide +kernel
+
+def b255 : Box := ⟨(-3534989075836287466808104679660430051/340282366920938463463374607431768211456),(-883747268959071866701822188139566213/85070591730234615865843651857942052864)⟩
+noncomputable def v255 : ℝ := v254 * v253
+theorem h255 : b255.Contains v255 := by
+  apply Box.contains_widen (Box.contains_times h254 h253)
+  all_goals decide +kernel
+
+def b256 : Box := ⟨(883747268959071866701822188139566213/85070591730234615865843651857942052864),(3534989075836287466808104679660430051/340282366920938463463374607431768211456)⟩
+noncomputable def v256 : ℝ := -v255
+theorem h256 : b256.Contains v256 := by
+  apply Box.contains_widen (Box.contains_neg h255)
+  all_goals decide +kernel
+
+def b257 : Box := ⟨(4735514999384267063124919486245722739/340282366920938463463374607431768211456),(1183878749846066765782288239211523435/85070591730234615865843651857942052864)⟩
+noncomputable def v257 : ℝ := v245 + v256
+theorem h257 : b257.Contains v257 := by
+  apply Box.contains_widen (Box.contains_add h245 h256)
+  all_goals decide +kernel
+
+def b258 : Box := ⟨(1760765173811389838964549212779859491/340282366920938463463374607431768211456),(1760765173811389838966124254273534275/340282366920938463463374607431768211456)⟩
+noncomputable def v258 : ℝ := v257 * v21
+theorem h258 : b258.Contains v258 := by
+  apply Box.contains_widen (Box.contains_times h257 h21)
+  all_goals decide +kernel
+
+def b259 : Box := ⟨(4735514999384267063124919486245722739/340282366920938463463374607431768211456),(1183878749846066765782288239211523435/85070591730234615865843651857942052864)⟩
+noncomputable def v259 : ℝ := v257 * v13
+theorem h259 : b259.Contains v259 := by
+  apply Box.contains_widen (Box.contains_times h257 h13)
+  all_goals decide +kernel
+
+def b260 : Box := ⟨(3601866001907879477454754942662875065/340282366920938463463374607431768211456),(3601866001907879477456707919184091173/340282366920938463463374607431768211456)⟩
+noncomputable def v260 : ℝ := v229 + v258
+theorem h260 : b260.Contains v260 := by
+  apply Box.contains_widen (Box.contains_add h229 h258)
+  all_goals decide +kernel
+
+def b261 : Box := ⟨(24751336364832957891666713686068460023/340282366920938463463374607431768211456),(24751336364832957891666887875059557989/340282366920938463463374607431768211456)⟩
+noncomputable def v261 : ℝ := v201 * v201
+theorem h261 : b261.Contains v261 := by
+  apply Box.contains_widen (Box.contains_times h201 h201)
+  all_goals decide +kernel
+
+def b262 : Box := ⟨(-24079956013105447226500217418104222011/42535295865117307932921825928971026432),(-192639648104843577812000395734150309217/340282366920938463463374607431768211456)⟩
+noncomputable def v262 : ℝ := v201 * v202
+theorem h262 : b262.Contains v262 := by
+  apply Box.contains_widen (Box.contains_times h201 h202)
+  all_goals decide +kernel
+
+def b263 : Box := ⟨(181216201661120987573756235765569470967/340282366920938463463374607431768211456),(45304050415280246893439528853882665205/85070591730234615865843651857942052864)⟩
+noncomputable def v263 : ℝ := v201 * v203
+theorem h263 : b263.Contains v263 := by
+  apply Box.contains_widen (Box.contains_times h201 h203)
+  all_goals decide +kernel
+
+def b264 : Box := ⟨(288478726419429128764368675731592076009/170141183460469231731687303715884105728),(576957452838858257528740528646962553041/340282366920938463463374607431768211456)⟩
+noncomputable def v264 : ℝ := v201 * v204
+theorem h264 : b264.Contains v264 := by
+  apply Box.contains_widen (Box.contains_times h201 h204)
+  all_goals decide +kernel
+
+def b265 : Box := ⟨(-24079956013105447226500217418104222011/42535295865117307932921825928971026432),(-192639648104843577812000395734150309217/340282366920938463463374607431768211456)⟩
+noncomputable def v265 : ℝ := v202 * v201
+theorem h265 : b265.Contains v265 := by
+  apply Box.contains_widen (Box.contains_times h202 h201)
+  all_goals decide +kernel
+
+def b266 : Box := ⟨(187414294903912819962101446436214459497/42535295865117307932921825928971026432),(1499314359231302559696821934619978702099/340282366920938463463374607431768211456)⟩
+noncomputable def v266 : ℝ := v202 * v202
+theorem h266 : b266.Contains v266 := by
+  apply Box.contains_widen (Box.contains_times h202 h202)
+  all_goals decide +kernel
+
+def b267 : Box := ⟨(-705202838431271797900403666641034741609/170141183460469231731687303715884105728),(-705202838431271797900396396286326280507/170141183460469231731687303715884105728)⟩
+noncomputable def v267 : ℝ := v202 * v203
+theorem h267 : b267.Contains v267 := by
+  apply Box.contains_widen (Box.contains_times h202 h203)
+  all_goals decide +kernel
+
+def b268 : Box := ⟨(-4490459789648397634056516382056259525905/340282366920938463463374607431768211456),(-2245229894824198817028245968069875465073/170141183460469231731687303715884105728)⟩
+noncomputable def v268 : ℝ := v202 * v204
+theorem h268 : b268.Contains v268 := by
+  apply Box.contains_widen (Box.contains_times h202 h204)
+  all_goals decide +kernel
+
+def b269 : Box := ⟨(181216201661120987573756235765569470967/340282366920938463463374607431768211456),(45304050415280246893439528853882665205/85070591730234615865843651857942052864)⟩
+noncomputable def v269 : ℝ := v203 * v201
+theorem h269 : b269.Contains v269 := by
+  apply Box.contains_widen (Box.contains_times h203 h201)
+  all_goals decide +kernel
+
+def b270 : Box := ⟨(-705202838431271797900403666641034741609/170141183460469231731687303715884105728),(-705202838431271797900396396286326280507/170141183460469231731687303715884105728)⟩
+noncomputable def v270 : ℝ := v203 * v202
+theorem h270 : b270.Contains v270 := by
+  apply Box.contains_widen (Box.contains_times h203 h202)
+  all_goals decide +kernel
+
+def b271 : Box := ⟨(82923077516994745778488085742134685197/21267647932558653966460912964485513216),(1326769240271915932455827558264207638433/340282366920938463463374607431768211456)⟩
+noncomputable def v271 : ℝ := v203 * v203
+theorem h271 : b271.Contains v271 := by
+  apply Box.contains_widen (Box.contains_times h203 h203)
+  all_goals decide +kernel
+
+def b272 : Box := ⟨(4224177498233391049105126697339157692599/340282366920938463463374607431768211456),(4224177498233391049105164046030148590327/340282366920938463463374607431768211456)⟩
+noncomputable def v272 : ℝ := v203 * v204
+theorem h272 : b272.Contains v272 := by
+  apply Box.contains_widen (Box.contains_times h203 h204)
+  all_goals decide +kernel
+
+def b273 : Box := ⟨(288478726419429128764368675731592076009/170141183460469231731687303715884105728),(576957452838858257528740528646962553041/340282366920938463463374607431768211456)⟩
+noncomputable def v273 : ℝ := v204 * v201
+theorem h273 : b273.Contains v273 := by
+  apply Box.contains_widen (Box.contains_times h204 h201)
+  all_goals decide +kernel
+
+def b274 : Box := ⟨(-4490459789648397634056516382056259525905/340282366920938463463374607431768211456),(-2245229894824198817028245968069875465073/170141183460469231731687303715884105728)⟩
+noncomputable def v274 : ℝ := v204 * v202
+theorem h274 : b274.Contains v274 := by
+  apply Box.contains_widen (Box.contains_times h204 h202)
+  all_goals decide +kernel
+
+def b275 : Box := ⟨(4224177498233391049105126697339157692599/340282366920938463463374607431768211456),(4224177498233391049105164046030148590327/340282366920938463463374607431768211456)⟩
+noncomputable def v275 : ℝ := v204 * v203
+theorem h275 : b275.Contains v275 := by
+  apply Box.contains_widen (Box.contains_times h204 h203)
+  all_goals decide +kernel
+
+def b276 : Box := ⟨(840560428434239348059738558104062507963/21267647932558653966460912964485513216),(13448966854947829568955870403050545545751/340282366920938463463374607431768211456)⟩
+noncomputable def v276 : ℝ := v204 * v204
+theorem h276 : b276.Contains v276 := by
+  apply Box.contains_widen (Box.contains_times h204 h204)
+  all_goals decide +kernel
+
+def b277 : Box := ⟨(288478726419429128764368675731592076009/170141183460469231731687303715884105728),(576957452838858257528740528646962553041/340282366920938463463374607431768211456)⟩
+noncomputable def v277 : ℝ := v273 + v26
+theorem h277 : b277.Contains v277 := by
+  apply Box.contains_widen (Box.contains_add h273 h26)
+  all_goals decide +kernel
+
+def b278 : Box := ⟨(181216201661120987573756235765569470967/340282366920938463463374607431768211456),(45304050415280246893439528853882665205/85070591730234615865843651857942052864)⟩
+noncomputable def v278 : ℝ := v269 + v26
+theorem h278 : b278.Contains v278 := by
+  apply Box.contains_widen (Box.contains_add h269 h26)
+  all_goals decide +kernel
+
+def b279 : Box := ⟨(-3255657125092520852625273366480020825/1329227995784915872903807060280344576),(-833448224023685338272052263925690007973/340282366920938463463374607431768211456)⟩
+noncomputable def v279 : ℝ := v270 + v277
+theorem h279 : b279.Contains v279 := by
+  apply Box.contains_widen (Box.contains_add h270 h277)
+  all_goals decide +kernel
+
+def b280 : Box := ⟨(-3163690549376481701600707010182104562753/340282366920938463463374607431768211456),(-3163690549376481701600664377875543291713/340282366920938463463374607431768211456)⟩
+noncomputable def v280 : ℝ := v271 + v274
+theorem h280 : b280.Contains v280 := by
+  apply Box.contains_widen (Box.contains_add h271 h274)
+  all_goals decide +kernel
+
+def b281 : Box := ⟨(4224177498233391049105126697339157692599/170141183460469231731687303715884105728),(4224177498233391049105164046030148590327/170141183460469231731687303715884105728)⟩
+noncomputable def v281 : ℝ := v272 + v275
+theorem h281 : b281.Contains v281 := by
+  apply Box.contains_widen (Box.contains_add h272 h275)
+  all_goals decide +kernel
+
+def b282 : Box := ⟨(-24079956013105447226500217418104222011/42535295865117307932921825928971026432),(-192639648104843577812000395734150309217/340282366920938463463374607431768211456)⟩
+noncomputable def v282 : ℝ := v265 + v26
+theorem h282 : b282.Contains v282 := by
+  apply Box.contains_widen (Box.contains_add h265 h26)
+  all_goals decide +kernel
+
+def b283 : Box := ⟨(1680530560892423547270567807255285146943/340282366920938463463374607431768211456),(1680530560892423547270580050035509362919/340282366920938463463374607431768211456)⟩
+noncomputable def v283 : ℝ := v266 + v278
+theorem h283 : b283.Contains v283 := by
+  apply Box.contains_widen (Box.contains_add h266 h278)
+  all_goals decide +kernel
+
+def b284 : Box := ⟨(-1121926950443114467036438657550477407209/170141183460469231731687303715884105728),(-2243853900886228934072845056498342568987/340282366920938463463374607431768211456)⟩
+noncomputable def v284 : ℝ := v267 + v279
+theorem h284 : b284.Contains v284 := by
+  apply Box.contains_widen (Box.contains_add h267 h279)
+  all_goals decide +kernel
+
+def b285 : Box := ⟨(-3827075169512439667828611696119182044329/170141183460469231731687303715884105728),(-7654150339024879335657156314015294221859/340282366920938463463374607431768211456)⟩
+noncomputable def v285 : ℝ := v268 + v280
+theorem h285 : b285.Contains v285 := by
+  apply Box.contains_widen (Box.contains_add h268 h280)
+  all_goals decide +kernel
+
+def b286 : Box := ⟨(24751336364832957891666713686068460023/340282366920938463463374607431768211456),(24751336364832957891666887875059557989/340282366920938463463374607431768211456)⟩
+noncomputable def v286 : ℝ := v261 + v26
+theorem h286 : b286.Contains v286 := by
+  apply Box.contains_widen (Box.contains_add h261 h26)
+  all_goals decide +kernel
+
+def b287 : Box := ⟨(-24079956013105447226500217418104222011/21267647932558653966460912964485513216),(-192639648104843577812000395734150309217/170141183460469231731687303715884105728)⟩
+noncomputable def v287 : ℝ := v262 + v282
+theorem h287 : b287.Contains v287 := by
+  apply Box.contains_widen (Box.contains_add h262 h282)
+  all_goals decide +kernel
+
+def b288 : Box := ⟨(930873381276772267422162021510427308955/170141183460469231731687303715884105728),(1861746762553544534844338165451040023739/340282366920938463463374607431768211456)⟩
+noncomputable def v288 : ℝ := v263 + v283
+theorem h288 : b288.Contains v288 := by
+  apply Box.contains_widen (Box.contains_add h263 h283)
+  all_goals decide +kernel
+
+def b289 : Box := ⟨(-3255657125092520852625273366480020825/664613997892457936451903530140172288),(-833448224023685338272052263925690007973/170141183460469231731687303715884105728)⟩
+noncomputable def v289 : ℝ := v264 + v284
+theorem h289 : b289.Contains v289 := by
+  apply Box.contains_widen (Box.contains_add h264 h284)
+  all_goals decide +kernel
+
+def b290 : Box := ⟨(261991233224821851722191041723727591/340282366920938463463374607431768211456),(130995616612410925861167470202990779/170141183460469231731687303715884105728)⟩
+noncomputable def v290 : ℝ := v260 * v286
+theorem h290 : b290.Contains v290 := by
+  apply Box.contains_widen (Box.contains_times h260 h286)
+  all_goals decide +kernel
+
+def b291 : Box := ⟨(-4078155476622427329663120665269605239/340282366920938463463374607431768211456),(-2039077738311213664830440497308356779/170141183460469231731687303715884105728)⟩
+noncomputable def v291 : ℝ := v260 * v287
+theorem h291 : b291.Contains v291 := by
+  apply Box.contains_widen (Box.contains_times h260 h287)
+  all_goals decide +kernel
+
+def b292 : Box := ⟨(19706464454450256717264908684189143693/340282366920938463463374607431768211456),(9853232227225128358637871629581764655/170141183460469231731687303715884105728)⟩
+noncomputable def v292 : ℝ := v260 * v288
+theorem h292 : b292.Contains v292 := by
+  apply Box.contains_widen (Box.contains_times h260 h288)
+  all_goals decide +kernel
+
+def b293 : Box := ⟨(-17643986960740134599054006955538930783/340282366920938463463374607431768211456),(-8821993480370067299522032540528141335/170141183460469231731687303715884105728)⟩
+noncomputable def v293 : ℝ := v260 * v289
+theorem h293 : b293.Contains v293 := by
+  apply Box.contains_widen (Box.contains_times h260 h289)
+  all_goals decide +kernel
+
+def b294 : Box := ⟨(-20254666829409090942318953677963701939/85070591730234615865843651857942052864),(-81018667317636363769231175364801462191/340282366920938463463374607431768211456)⟩
+noncomputable def v294 : ℝ := v260 * v285
+theorem h294 : b294.Contains v294 := by
+  apply Box.contains_widen (Box.contains_times h260 h285)
+  all_goals decide +kernel
+
+def b295 : Box := ⟨(11178158785146647401287494211983727957/42535295865117307932921825928971026432),(89425270281173179210349231855838324707/340282366920938463463374607431768211456)⟩
+noncomputable def v295 : ℝ := v260 * v281
+theorem h295 : b295.Contains v295 := by
+  apply Box.contains_widen (Box.contains_times h260 h281)
+  all_goals decide +kernel
+
+def b296 : Box := ⟨(35589102745718707444725026891295071095/85070591730234615865843651857942052864),(142356410982874829778977860993050018851/340282366920938463463374607431768211456)⟩
+noncomputable def v296 : ℝ := v260 * v276
+theorem h296 : b296.Contains v296 := by
+  apply Box.contains_widen (Box.contains_times h260 h276)
+  all_goals decide +kernel
+
+def b297 : Box := ⟨(344450186094140142535754130944267595/340282366920938463463374607431768211456),(344450186094140142536064487694034249/340282366920938463463374607431768211456)⟩
+noncomputable def v297 : ℝ := v259 * v286
+theorem h297 : b297.Contains v297 := by
+  apply Box.contains_widen (Box.contains_times h259 h286)
+  all_goals decide +kernel
+
+def b298 : Box := ⟨(-5361711518178938344129446149459674581/340282366920938463463374607431768211456),(-1340427879544734586031153868300694813/85070591730234615865843651857942052864)⟩
+noncomputable def v298 : ℝ := v259 * v287
+theorem h298 : b298.Contains v298 := by
+  apply Box.contains_widen (Box.contains_times h259 h287)
+  all_goals decide +kernel
+
+def b299 : Box := ⟨(25908864449552286908240840157903470421/340282366920938463463374607431768211456),(25908864449552286908264198779851765017/340282366920938463463374607431768211456)⟩
+noncomputable def v299 : ℝ := v259 * v288
+theorem h299 : b299.Contains v299 := by
+  apply Box.contains_widen (Box.contains_times h259 h288)
+  all_goals decide +kernel
+
+def b300 : Box := ⟨(-23197244111043494847775687407847779317/340282366920938463463374607431768211456),(-23197244111043494847754456322999007717/340282366920938463463374607431768211456)⟩
+noncomputable def v300 : ℝ := v259 * v289
+theorem h300 : b300.Contains v300 := by
+  apply Box.contains_widen (Box.contains_times h259 h289)
+  all_goals decide +kernel
+
+def b301 : Box := ⟨(-53259215377469147269466938882554147429/170141183460469231731687303715884105728),(-106518430754938294538837718593950996993/340282366920938463463374607431768211456)⟩
+noncomputable def v301 : ℝ := v259 * v285
+theorem h301 : b301.Contains v301 := by
+  apply Box.contains_widen (Box.contains_times h259 h285)
+  all_goals decide +kernel
+
+def b302 : Box := ⟨(29392730637132015264534395797374187843/85070591730234615865843651857942052864),(58785461274264030529121864566760794367/170141183460469231731687303715884105728)⟩
+noncomputable def v302 : ℝ := v259 * v281
+theorem h302 : b302.Contains v302 := by
+  apply Box.contains_widen (Box.contains_times h259 h281)
+  all_goals decide +kernel
+
+def b303 : Box := ⟨(187161576558048866237602474351617854679/340282366920938463463374607431768211456),(46790394139512216559442634451320030559/85070591730234615865843651857942052864)⟩
+noncomputable def v303 : ℝ := v259 * v276
+theorem h303 : b303.Contains v303 := by
+  apply Box.contains_widen (Box.contains_times h259 h276)
+  all_goals decide +kernel
+
+def b304 : Box := ⟨(344450186094140142535754130944267595/340282366920938463463374607431768211456),(344450186094140142536064487694034249/340282366920938463463374607431768211456)⟩
+noncomputable def v304 : ℝ := v297 + v26
+theorem h304 : b304.Contains v304 := by
+  apply Box.contains_widen (Box.contains_add h297 h26)
+  all_goals decide +kernel
+
+def b305 : Box := ⟨(261991233224821851722191041723727591/340282366920938463463374607431768211456),(130995616612410925861167470202990779/170141183460469231731687303715884105728)⟩
+noncomputable def v305 : ℝ := v290 + v26
+theorem h305 : b305.Contains v305 := by
+  apply Box.contains_widen (Box.contains_add h290 h26)
+  all_goals decide +kernel
+
+def b306 : Box := ⟨(-933426322632071796781841633581334411/85070591730234615865843651857942052864),(-3733705290528287187124816506922679309/340282366920938463463374607431768211456)⟩
+noncomputable def v306 : ℝ := v291 + v304
+theorem h306 : b306.Contains v306 := by
+  apply Box.contains_widen (Box.contains_add h291 h304)
+  all_goals decide +kernel
+
+def b307 : Box := ⟨(1793094117033914796641932816841183639/42535295865117307932921825928971026432),(7172376468135659186575563892980375029/170141183460469231731687303715884105728)⟩
+noncomputable def v307 : ℝ := v292 + v298
+theorem h307 : b307.Contains v307 := by
+  apply Box.contains_widen (Box.contains_add h292 h298)
+  all_goals decide +kernel
+
+def b308 : Box := ⟨(4132438744406076154593416601182269819/170141183460469231731687303715884105728),(8264877488812152309220133698795482347/340282366920938463463374607431768211456)⟩
+noncomputable def v308 : ℝ := v293 + v299
+theorem h308 : b308.Contains v308 := by
+  apply Box.contains_widen (Box.contains_add h293 h299)
+  all_goals decide +kernel
+
+def b309 : Box := ⟨(-104215911428679858617051502119702587073/340282366920938463463374607431768211456),(-26053977857169964654246407921950117477/85070591730234615865843651857942052864)⟩
+noncomputable def v309 : ℝ := v294 + v300
+theorem h309 : b309.Contains v309 := by
+  apply Box.contains_widen (Box.contains_add h294 h300)
+  all_goals decide +kernel
+
+def b310 : Box := ⟨(-8546580236882557664316962034619235601/170141183460469231731687303715884105728),(-8546580236882557664244243369056336143/170141183460469231731687303715884105728)⟩
+noncomputable def v310 : ℝ := v295 + v301
+theorem h310 : b310.Contains v310 := by
+  apply Box.contains_widen (Box.contains_add h295 h301)
+  all_goals decide +kernel
+
+def b311 : Box := ⟨(32490916691425361354629711344334629469/42535295865117307932921825928971026432),(259927333531402890837221590126571607585/340282366920938463463374607431768211456)⟩
+noncomputable def v311 : ℝ := v296 + v302
+theorem h311 : b311.Contains v311 := by
+  apply Box.contains_widen (Box.contains_add h296 h302)
+  all_goals decide +kernel
+
+def b312 : Box := ⟨(-24358547776049872760780923610130728941/170141183460469231731687303715884105728),(-48717095552099745521561755102191156889/340282366920938463463374607431768211456)⟩
+noncomputable def v312 : ℝ := v2 + v115
+theorem h312 : b312.Contains v312 := by
+  apply Box.contains_widen (Box.contains_add h2 h115)
+  all_goals decide +kernel
+
+def b313 : Box := ⟨(-148551663339468962331347092223138510659/21267647932558653966460912964485513216),(-297103326678937924662693622660217661511/42535295865117307932921825928971026432)⟩
+noncomputable def v313 : ℝ := v312⁻¹
+theorem h313 : b313.Contains v313 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h312)
+  all_goals decide +kernel
+
+def b314 : Box := ⟨(746535968594933263021498340831312108195/340282366920938463463374607431768211456),(373267984297466631510749995061099818827/170141183460469231731687303715884105728)⟩
+noncomputable def v314 : ℝ := v313 * v173
+theorem h314 : b314.Contains v314 := by
+  apply Box.contains_widen (Box.contains_times h313 h173)
+  all_goals decide +kernel
+
+def b315 : Box := ⟨(-148551663339468962331347092223138510659/21267647932558653966460912964485513216),(-297103326678937924662693622660217661511/42535295865117307932921825928971026432)⟩
+noncomputable def v315 : ℝ := v313 * v25
+theorem h315 : b315.Contains v315 := by
+  apply Box.contains_widen (Box.contains_times h313 h25)
+  all_goals decide +kernel
+
+def b316 : Box := ⟨(184686197838799700803644309302564983775/340282366920938463463374607431768211456),(184686197838799700803644435448871976863/340282366920938463463374607431768211456)⟩
+noncomputable def v316 : ℝ := v2 + v21
+theorem h316 : b316.Contains v316 := by
+  apply Box.contains_widen (Box.contains_add h2 h21)
+  all_goals decide +kernel
+
+def b317 : Box := ⟨(313483331706204188446696944898633419363/170141183460469231731687303715884105728),(626966663412408376893394318034623624239/340282366920938463463374607431768211456)⟩
+noncomputable def v317 : ℝ := v316⁻¹
+theorem h317 : b317.Contains v317 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h316)
+  all_goals decide +kernel
+
+def b318 : Box := ⟨(34697243453732746544802463514284455827/42535295865117307932921825928971026432),(277577947629861972358420470662892235971/340282366920938463463374607431768211456)⟩
+noncomputable def v318 : ℝ := v314 * v21
+theorem h318 : b318.Contains v318 := by
+  apply Box.contains_widen (Box.contains_times h314 h21)
+  all_goals decide +kernel
+
+def b319 : Box := ⟨(746535968594933263021498340831312108195/340282366920938463463374607431768211456),(373267984297466631510749995061099818827/170141183460469231731687303715884105728)⟩
+noncomputable def v319 : ℝ := v314 * v13
+theorem h319 : b319.Contains v319 := by
+  apply Box.contains_widen (Box.contains_times h314 h13)
+  all_goals decide +kernel
+
+def b320 : Box := ⟨(-883754676241636871258553970691139581555/340282366920938463463374607431768211456),(-220938669060409217814637956063448597345/85070591730234615865843651857942052864)⟩
+noncomputable def v320 : ℝ := v315 * v21
+theorem h320 : b320.Contains v320 := by
+  apply Box.contains_widen (Box.contains_times h315 h21)
+  all_goals decide +kernel
+
+def b321 : Box := ⟨(-148551663339468962331347092223138510659/21267647932558653966460912964485513216),(-297103326678937924662693622660217661511/42535295865117307932921825928971026432)⟩
+noncomputable def v321 : ℝ := v315 * v13
+theorem h321 : b321.Contains v321 := by
+  apply Box.contains_widen (Box.contains_times h315 h13)
+  all_goals decide +kernel
+
+def b322 : Box := ⟨(-883754676241636871258553970691139581555/340282366920938463463374607431768211456),(-220938669060409217814637956063448597345/85070591730234615865843651857942052864)⟩
+noncomputable def v322 : ℝ := v320 + v26
+theorem h322 : b322.Contains v322 := by
+  apply Box.contains_widen (Box.contains_add h320 h26)
+  all_goals decide +kernel
+
+def b323 : Box := ⟨(34697243453732746544802463514284455827/42535295865117307932921825928971026432),(277577947629861972358420470662892235971/340282366920938463463374607431768211456)⟩
+noncomputable def v323 : ℝ := v318 + v26
+theorem h323 : b323.Contains v323 := by
+  apply Box.contains_widen (Box.contains_add h318 h26)
+  all_goals decide +kernel
+
+def b324 : Box := ⟨(-8576169227918975514815976866239217085/21267647932558653966460912964485513216),(-68609353823351804118525917065797375863/170141183460469231731687303715884105728)⟩
+noncomputable def v324 : ℝ := v319 + v322
+theorem h324 : b324.Contains v324 := by
+  apply Box.contains_widen (Box.contains_add h319 h322)
+  all_goals decide +kernel
+
+def b325 : Box := ⟨(255717216905913880307658805853124537937/170141183460469231731687303715884105728),(127858608452956940153829841504833183631/85070591730234615865843651857942052864)⟩
+noncomputable def v325 : ℝ := v317 * v323
+theorem h325 : b325.Contains v325 := by
+  apply Box.contains_widen (Box.contains_times h317 h323)
+  all_goals decide +kernel
+
+def b326 : Box := ⟨(-252824018092612903595436275238687105571/340282366920938463463374607431768211456),(-252824018092612903595429108963031921575/340282366920938463463374607431768211456)⟩
+noncomputable def v326 : ℝ := v317 * v324
+theorem h326 : b326.Contains v326 := by
+  apply Box.contains_widen (Box.contains_times h317 h324)
+  all_goals decide +kernel
+
+def b327 : Box := ⟨(-4379277906219561209494707288392155818199/340282366920938463463374607431768211456),(-4379277906219561209494696016532756556623/340282366920938463463374607431768211456)⟩
+noncomputable def v327 : ℝ := v317 * v321
+theorem h327 : b327.Contains v327 := by
+  apply Box.contains_widen (Box.contains_times h317 h321)
+  all_goals decide +kernel
+
+def b328 : Box := ⟨(330082103015956577509550075167007471337/340282366920938463463374607431768211456),(330082103015956577509550191346674689133/340282366920938463463374607431768211456)⟩
+noncomputable def v328 : ℝ := v2 + v43
+theorem h328 : b328.Contains v328 := by
+  apply Box.contains_widen (Box.contains_add h2 h43)
+  all_goals decide +kernel
+
+def b329 : Box := ⟨(350797841444068424625814410683307752087/340282366920938463463374607431768211456),(350797841444068424625814534154335436745/340282366920938463463374607431768211456)⟩
+noncomputable def v329 : ℝ := v328⁻¹
+theorem h329 : b329.Contains v329 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h328)
+  all_goals decide +kernel
+
+def b330 : Box := ⟨(408687985948949539876036445758584328031/340282366920938463463374607431768211456),(408687985948949539876037934939992144021/340282366920938463463374607431768211456)⟩
+noncomputable def v330 : ℝ := v325 * v43
+theorem h330 : b330.Contains v330 := by
+  apply Box.contains_widen (Box.contains_times h325 h43)
+  all_goals decide +kernel
+
+def b331 : Box := ⟨(255717216905913880307658805853124537937/170141183460469231731687303715884105728),(127858608452956940153829841504833183631/85070591730234615865843651857942052864)⟩
+noncomputable def v331 : ℝ := v325 * v13
+theorem h331 : b331.Contains v331 := by
+  apply Box.contains_widen (Box.contains_times h325 h13)
+  all_goals decide +kernel
+
+def b332 : Box := ⟨(-50508008418439599433505554425241011333/85070591730234615865843651857942052864),(-202032033673758397734016447960101116547/340282366920938463463374607431768211456)⟩
+noncomputable def v332 : ℝ := v326 * v43
+theorem h332 : b332.Contains v332 := by
+  apply Box.contains_widen (Box.contains_times h326 h43)
+  all_goals decide +kernel
+
+def b333 : Box := ⟨(-252824018092612903595436275238687105571/340282366920938463463374607431768211456),(-252824018092612903595429108963031921575/340282366920938463463374607431768211456)⟩
+noncomputable def v333 : ℝ := v326 * v13
+theorem h333 : b333.Contains v333 := by
+  apply Box.contains_widen (Box.contains_times h326 h13)
+  all_goals decide +kernel
+
+def b334 : Box := ⟨(-1749743612357269964502939866959934106827/170141183460469231731687303715884105728),(-218717951544658745562866873685714666941/21267647932558653966460912964485513216)⟩
+noncomputable def v334 : ℝ := v327 * v43
+theorem h334 : b334.Contains v334 := by
+  apply Box.contains_widen (Box.contains_times h327 h43)
+  all_goals decide +kernel
+
+def b335 : Box := ⟨(-4379277906219561209494707288392155818199/340282366920938463463374607431768211456),(-4379277906219561209494696016532756556623/340282366920938463463374607431768211456)⟩
+noncomputable def v335 : ℝ := v327 * v13
+theorem h335 : b335.Contains v335 := by
+  apply Box.contains_widen (Box.contains_times h327 h13)
+  all_goals decide +kernel
+
+def b336 : Box := ⟨(-1749743612357269964502939866959934106827/170141183460469231731687303715884105728),(-218717951544658745562866873685714666941/21267647932558653966460912964485513216)⟩
+noncomputable def v336 : ℝ := v334 + v26
+theorem h336 : b336.Contains v336 := by
+  apply Box.contains_widen (Box.contains_add h334 h26)
+  all_goals decide +kernel
+
+def b337 : Box := ⟨(-50508008418439599433505554425241011333/85070591730234615865843651857942052864),(-202032033673758397734016447960101116547/340282366920938463463374607431768211456)⟩
+noncomputable def v337 : ℝ := v332 + v26
+theorem h337 : b337.Contains v337 := by
+  apply Box.contains_widen (Box.contains_add h332 h26)
+  all_goals decide +kernel
+
+def b338 : Box := ⟨(-3752311242807152832601316009158555319225/340282366920938463463374607431768211456),(-3752311242807152832601299087934466592631/340282366920938463463374607431768211456)⟩
+noncomputable def v338 : ℝ := v333 + v336
+theorem h338 : b338.Contains v338 := by
+  apply Box.contains_widen (Box.contains_add h333 h336)
+  all_goals decide +kernel
+
+def b339 : Box := ⟨(408687985948949539876036445758584328031/340282366920938463463374607431768211456),(408687985948949539876037934939992144021/340282366920938463463374607431768211456)⟩
+noncomputable def v339 : ℝ := v330 + v26
+theorem h339 : b339.Contains v339 := by
+  apply Box.contains_widen (Box.contains_add h330 h26)
+  all_goals decide +kernel
+
+def b340 : Box := ⟨(154701200069034681440647697002642515271/170141183460469231731687303715884105728),(309402400138069362881302918059231617977/340282366920938463463374607431768211456)⟩
+noncomputable def v340 : ℝ := v331 + v337
+theorem h340 : b340.Contains v340 := by
+  apply Box.contains_widen (Box.contains_add h331 h337)
+  all_goals decide +kernel
+
+def b341 : Box := ⟨(421317344746004019466145842576051878611/340282366920938463463374607431768211456),(210658672373002009733073763034182508561/170141183460469231731687303715884105728)⟩
+noncomputable def v341 : ℝ := v329 * v339
+theorem h341 : b341.Contains v341 := by
+  apply Box.contains_widen (Box.contains_times h329 h339)
+  all_goals decide +kernel
+
+def b342 : Box := ⟨(79740903920586064607107668039069599649/85070591730234615865843651857942052864),(318963615682344258428438540986332430945/340282366920938463463374607431768211456)⟩
+noncomputable def v342 : ℝ := v329 * v340
+theorem h342 : b342.Contains v342 := by
+  apply Box.contains_widen (Box.contains_times h329 h340)
+  all_goals decide +kernel
+
+def b343 : Box := ⟨(-1934132961860010194113663906379451050091/170141183460469231731687303715884105728),(-3868265923720020388227309007110322179607/340282366920938463463374607431768211456)⟩
+noncomputable def v343 : ℝ := v329 * v338
+theorem h343 : b343.Contains v343 := by
+  apply Box.contains_widen (Box.contains_times h329 h338)
+  all_goals decide +kernel
+
+def b344 : Box := ⟨(-1128651809441578683203428417636286374475/85070591730234615865843651857942052864),(-4514607237766314732813700461345002124085/340282366920938463463374607431768211456)⟩
+noncomputable def v344 : ℝ := v329 * v335
+theorem h344 : b344.Contains v344 := by
+  apply Box.contains_widen (Box.contains_times h329 h335)
+  all_goals decide +kernel
+
+def b345 : Box := ⟨(398444344898877735079981211120448523373/340282366920938463463374607431768211456),(398444344898877735079981269210282132271/340282366920938463463374607431768211456)⟩
+noncomputable def v345 : ℝ := v2 + v13
+theorem h345 : b345.Contains v345 := by
+  apply Box.contains_widen (Box.contains_add h2 h13)
+  all_goals decide +kernel
+
+def b346 : Box := ⟨(398444344898877735079981211120448523373/340282366920938463463374607431768211456),(398444344898877735079981269210282132271/340282366920938463463374607431768211456)⟩
+noncomputable def v346 : ℝ := v13 * v345
+theorem h346 : b346.Contains v346 := by
+  apply Box.contains_widen (Box.contains_times h13 h345)
+  all_goals decide +kernel
+
+def b347 : Box := ⟨(466547524687877229787406903663416659773/340282366920938463463374607431768211456),(116636881171969307446851759925206320061/85070591730234615865843651857942052864)⟩
+noncomputable def v347 : ℝ := v346 * v345
+theorem h347 : b347.Contains v347 := by
+  apply Box.contains_widen (Box.contains_times h346 h345)
+  all_goals decide +kernel
+
+def b348 : Box := ⟨(34143192703554935141617569083163392523/21267647932558653966460912964485513216),(533487385993045861587774750258346897/332306998946228968225951765070086144)⟩
+noncomputable def v348 : ℝ := v347 * v345
+theorem h348 : b348.Contains v348 := by
+  apply Box.contains_widen (Box.contains_times h347 h345)
+  all_goals decide +kernel
+
+def b349 : Box := ⟨(639664625475460741043856366150614416075/340282366920938463463374607431768211456),(79958078184432592630482092397687438491/42535295865117307932921825928971026432)⟩
+noncomputable def v349 : ℝ := v348 * v345
+theorem h349 : b349.Contains v349 := by
+  apply Box.contains_widen (Box.contains_times h348 h345)
+  all_goals decide +kernel
+
+def b350 : Box := ⟨(374498912416130060178769863703868069819/170141183460469231731687303715884105728),(374498912416130060178770136697823028417/170141183460469231731687303715884105728)⟩
+noncomputable def v350 : ℝ := v349 * v345
+theorem h350 : b350.Contains v350 := by
+  apply Box.contains_widen (Box.contains_times h349 h345)
+  all_goals decide +kernel
+
+def b351 : Box := ⟨(58161977977939271616606603688680311917/170141183460469231731687303715884105728),(58161977977939271616606661778513920815/170141183460469231731687303715884105728)⟩
+noncomputable def v351 : ℝ := v2 * v15
+theorem h351 : b351.Contains v351 := by
+  apply Box.contains_widen (Box.contains_times h2 h15)
+  all_goals decide +kernel
+
+def b352 : Box := ⟨(-58161977977939271616606661778513920815/170141183460469231731687303715884105728),(-58161977977939271616606603688680311917/170141183460469231731687303715884105728)⟩
+noncomputable def v352 : ℝ := -v351
+theorem h352 : b352.Contains v352 := by
+  apply Box.contains_widen (Box.contains_neg h351)
+  all_goals decide +kernel
+
+def b353 : Box := ⟨(282120388942999191846767945653254290641/170141183460469231731687303715884105728),(282120388942999191846768003743087899539/170141183460469231731687303715884105728)⟩
+noncomputable def v353 : ℝ := v15 + v352
+theorem h353 : b353.Contains v353 := by
+  apply Box.contains_widen (Box.contains_add h15 h352)
+  all_goals decide +kernel
+
+def b354 : Box := ⟨(219089700472408699720047817950867596763/170141183460469231731687303715884105728),(54772425118102174930011960126658971735/42535295865117307932921825928971026432)⟩
+noncomputable def v354 : ℝ := Real.sqrt v353
+theorem h354 : b354.Contains v354 := by
+  apply Box.contains_sqrt_interval h353 <;> decide +kernel
+
+def b355 : Box := ⟨(264257263092791069879330134076012592061/340282366920938463463374607431768211456),(132128631546395534939665080640940579261/170141183460469231731687303715884105728)⟩
+noncomputable def v355 : ℝ := v354⁻¹
+theorem h355 : b355.Contains v355 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h354)
+  all_goals decide +kernel
+
+def b356 : Box := ⟨0,0⟩
+noncomputable def v356 : ℝ := v2 * v26
+theorem h356 : b356.Contains v356 := by
+  apply Box.contains_widen (Box.contains_times h2 h26)
+  all_goals decide +kernel
+
+@[simp] theorem zero356 : v356=0 := by
+  have h := h356
+  norm_num [Box.Contains,b356] at h
+  linarith
+
+def b357 : Box := ⟨(35/4096),(35/4096)⟩
+noncomputable def v357 : ℝ := v8 + v356
+theorem h357 : b357.Contains v357 := by
+  apply Box.contains_widen (Box.contains_add h8 h356)
+  all_goals decide +kernel
+
+def b358 : Box := ⟨(496989557916961549458308381128860087/340282366920938463463374607431768211456),(496989557916961549458308877501950007/340282366920938463463374607431768211456)⟩
+noncomputable def v358 : ℝ := v2 * v357
+theorem h358 : b358.Contains v358 := by
+  apply Box.contains_widen (Box.contains_times h2 h357)
+  all_goals decide +kernel
+
+def b359 : Box := ⟨(18773874499959554801885655459983598007/340282366920938463463374607431768211456),(18773874499959554801885655956356687927/340282366920938463463374607431768211456)⟩
+noncomputable def v359 : ℝ := v12 + v358
+theorem h359 : b359.Contains v359 := by
+  apply Box.contains_widen (Box.contains_add h12 h358)
+  all_goals decide +kernel
+
+def b360 : Box := ⟨(3208881156868590713826201396828550409/340282366920938463463374607431768211456),(3208881156868590713826204686570821663/340282366920938463463374607431768211456)⟩
+noncomputable def v360 : ℝ := v2 * v359
+theorem h360 : b360.Contains v360 := by
+  apply Box.contains_widen (Box.contains_times h2 h359)
+  all_goals decide +kernel
+
+def b361 : Box := ⟨(56544154487738340114091459690577376521/340282366920938463463374607431768211456),(56544154487738340114091462980319647775/340282366920938463463374607431768211456)⟩
+noncomputable def v361 : ℝ := v11 + v360
+theorem h361 : b361.Contains v361 := by
+  apply Box.contains_widen (Box.contains_add h11 h360)
+  all_goals decide +kernel
+
+def b362 : Box := ⟨(9664679065962703118078532428106455011/340282366920938463463374607431768211456),(4832339532981351559039271321544507079/170141183460469231731687303715884105728)⟩
+noncomputable def v362 : ℝ := v2 * v361
+theorem h362 : b362.Contains v362 := by
+  apply Box.contains_widen (Box.contains_times h2 h361)
+  all_goals decide +kernel
+
+def b363 : Box := ⟨(115670611729809743982157145485463934947/340282366920938463463374607431768211456),(57835305864904871991078577850223247047/170141183460469231731687303715884105728)⟩
+noncomputable def v363 : ℝ := v10 + v362
+theorem h363 : b363.Contains v363 := by
+  apply Box.contains_widen (Box.contains_add h10 h362)
+  all_goals decide +kernel
+
+def b364 : Box := ⟨(4942683067153361195155893759286384549/85070591730234615865843651857942052864),(9885366134306722390311798264663208121/170141183460469231731687303715884105728)⟩
+noncomputable def v364 : ℝ := v2 * v363
+theorem h364 : b364.Contains v364 := by
+  apply Box.contains_widen (Box.contains_times h2 h363)
+  all_goals decide +kernel
+
+def b365 : Box := ⟨(64487943440830764439143625662782445477/85070591730234615865843651857942052864),(128975886881661528878287262071655329977/170141183460469231731687303715884105728)⟩
+noncomputable def v365 : ℝ := v9 + v364
+theorem h365 : b365.Contains v365 := by
+  apply Box.contains_widen (Box.contains_add h9 h364)
+  all_goals decide +kernel
+
+def b366 : Box := ⟨(-128975886881661528878287262071655329977/170141183460469231731687303715884105728),(-64487943440830764439143625662782445477/85070591730234615865843651857942052864)⟩
+noncomputable def v366 : ℝ := -v365
+theorem h366 : b366.Contains v366 := by
+  apply Box.contains_widen (Box.contains_neg h365)
+  all_goals decide +kernel
+
+def b367 : Box := ⟨(6305489329468012122755609932701932107/340282366920938463463374607431768211456),(3152744664734006061377829315375688307/170141183460469231731687303715884105728)⟩
+noncomputable def v367 : ℝ := v355 + v366
+theorem h367 : b367.Contains v367 := by
+  apply Box.contains_widen (Box.contains_add h355 h366)
+  all_goals decide +kernel
+
+def b368 : Box := ⟨(77298014358885564636914774570214222511/170141183460469231731687303715884105728),(77298014358885564636914830917215377033/170141183460469231731687303715884105728)⟩
+noncomputable def v368 : ℝ := v350⁻¹
+theorem h368 : b368.Contains v368 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h350)
+  all_goals decide +kernel
+
+def b369 : Box := ⟨(1432345170098871217543671136348471969/170141183460469231731687303715884105728),(1432345170098871217543683242641187089/170141183460469231731687303715884105728)⟩
+noncomputable def v369 : ℝ := v367 * v368
+theorem h369 : b369.Contains v369 := by
+  apply Box.contains_widen (Box.contains_times h367 h368)
+  all_goals decide +kernel
+
+def b370 : Box := ⟨(35/1024),(35/1024)⟩
+noncomputable def v370 : ℝ := v20 + v356
+theorem h370 : b370.Contains v370 := by
+  apply Box.contains_widen (Box.contains_add h20 h356)
+  all_goals decide +kernel
+
+def b371 : Box := ⟨(496989557916961549458308381128860087/85070591730234615865843651857942052864),(496989557916961549458308877501950007/85070591730234615865843651857942052864)⟩
+noncomputable def v371 : ℝ := v2 * v370
+theorem h371 : b371.Contains v371 := by
+  apply Box.contains_widen (Box.contains_times h2 h370)
+  all_goals decide +kernel
+
+def b372 : Box := ⟨(14204653264448906488778818690269913527/85070591730234615865843651857942052864),(14204653264448906488778819186643003447/85070591730234615865843651857942052864)⟩
+noncomputable def v372 : ℝ := v18 + v371
+theorem h372 : b372.Contains v372 := by
+  apply Box.contains_widen (Box.contains_add h18 h371)
+  all_goals decide +kernel
+
+def b373 : Box := ⟨(2427897565856222564677431083626055987/85070591730234615865843651857942052864),(9711590263424890258709734373413886607/340282366920938463463374607431768211456)⟩
+noncomputable def v373 : ℝ := v2 * v372
+theorem h373 : b373.Contains v373 := by
+  apply Box.contains_widen (Box.contains_times h2 h372)
+  all_goals decide +kernel
+
+def b374 : Box := ⟨(29095534231291097264810060230500469043/85070591730234615865843651857942052864),(116382136925164389059240250960911538831/340282366920938463463374607431768211456)⟩
+noncomputable def v374 : ℝ := v16 + v373
+theorem h374 : b374.Contains v374 := by
+  apply Box.contains_widen (Box.contains_add h16 h373)
+  all_goals decide +kernel
+
+def b375 : Box := ⟨(4973087017494241580254858192009723939/85070591730234615865843651857942052864),(38852242324173762345741121780448963/664613997892457936451903530140172288)⟩
+noncomputable def v375 : ℝ := v2 * v374
+theorem h375 : b375.Contains v375 := by
+  apply Box.contains_widen (Box.contains_times h2 h374)
+  all_goals decide +kernel
+
+def b376 : Box := ⟨(31474570183456001796274511456349093923/85070591730234615865843651857942052864),(245895079558250014033394662908100291/664613997892457936451903530140172288)⟩
+noncomputable def v376 : ℝ := v14 + v375
+theorem h376 : b376.Contains v376 := by
+  apply Box.contains_widen (Box.contains_add h14 h375)
+  all_goals decide +kernel
+
+def b377 : Box := ⟨(12826094569851273184363489474619999535/21267647932558653966460912964485513216),(205217513117620370949815873849111952625/340282366920938463463374607431768211456)⟩
+noncomputable def v377 : ℝ := v353⁻¹
+theorem h377 : b377.Contains v377 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h353)
+  all_goals decide +kernel
+
+def b378 : Box := ⟨(159368288300907495006005260665298903931/340282366920938463463374607431768211456),(159368288300907495006005309887250131669/340282366920938463463374607431768211456)⟩
+noncomputable def v378 : ℝ := v355 * v377
+theorem h378 : b378.Contains v378 := by
+  apply Box.contains_widen (Box.contains_times h355 h377)
+  all_goals decide +kernel
+
+def b379 : Box := ⟨(-245895079558250014033394662908100291/664613997892457936451903530140172288),(-31474570183456001796274511456349093923/85070591730234615865843651857942052864)⟩
+noncomputable def v379 : ℝ := -v376
+theorem h379 : b379.Contains v379 := by
+  apply Box.contains_widen (Box.contains_neg h376)
+  all_goals decide +kernel
+
+def b380 : Box := ⟨(33470007567083487820907193256351554939/340282366920938463463374607431768211456),(33470007567083487820907264061853755977/340282366920938463463374607431768211456)⟩
+noncomputable def v380 : ℝ := v378 + v379
+theorem h380 : b380.Contains v380 := by
+  apply Box.contains_widen (Box.contains_add h378 h379)
+  all_goals decide +kernel
+
+def b381 : Box := ⟨(3198323127377303705219281830753072080375/340282366920938463463374607431768211456),(399790390922162963152410461988437192455/42535295865117307932921825928971026432)⟩
+noncomputable def v381 : ℝ := v349 * v97
+theorem h381 : b381.Contains v381 := by
+  apply Box.contains_widen (Box.contains_times h349 h97)
+  all_goals decide +kernel
+
+def b382 : Box := ⟨(1682831351711935638837639687614897215/21267647932558653966460912964485513216),(26925301627390970221402478278510519765/340282366920938463463374607431768211456)⟩
+noncomputable def v382 : ℝ := v381 * v369
+theorem h382 : b382.Contains v382 := by
+  apply Box.contains_widen (Box.contains_times h381 h369)
+  all_goals decide +kernel
+
+def b383 : Box := ⟨(-26925301627390970221402478278510519765/340282366920938463463374607431768211456),(-1682831351711935638837639687614897215/21267647932558653966460912964485513216)⟩
+noncomputable def v383 : ℝ := -v382
+theorem h383 : b383.Contains v383 := by
+  apply Box.contains_widen (Box.contains_neg h382)
+  all_goals decide +kernel
+
+def b384 : Box := ⟨(3272352969846258799752357488920517587/170141183460469231731687303715884105728),(6544705939692517599505029060015400537/340282366920938463463374607431768211456)⟩
+noncomputable def v384 : ℝ := v380 + v383
+theorem h384 : b384.Contains v384 := by
+  apply Box.contains_widen (Box.contains_add h380 h383)
+  all_goals decide +kernel
+
+def b385 : Box := ⟨(2973370488036927798784875302411805049/340282366920938463463374607431768211456),(2973370488036927798785020162712384951/340282366920938463463374607431768211456)⟩
+noncomputable def v385 : ℝ := v384 * v368
+theorem h385 : b385.Contains v385 := by
+  apply Box.contains_widen (Box.contains_times h384 h368)
+  all_goals decide +kernel
+
+def b386 : Box := ⟨(79740903920586064607107668039069599649/85070591730234615865843651857942052864),(318963615682344258428438540986332430945/340282366920938463463374607431768211456)⟩
+noncomputable def v386 : ℝ := v342 * v13
+theorem h386 : b386.Contains v386 := by
+  apply Box.contains_widen (Box.contains_times h342 h13)
+  all_goals decide +kernel
+
+def b387 : Box := ⟨(-1934132961860010194113663906379451050091/85070591730234615865843651857942052864),(-3868265923720020388227309007110322179607/170141183460469231731687303715884105728)⟩
+noncomputable def v387 : ℝ := v343 * v15
+theorem h387 : b387.Contains v387 := by
+  apply Box.contains_widen (Box.contains_times h343 h15)
+  all_goals decide +kernel
+
+def b388 : Box := ⟨(-3385955428324736049610285252908859123425/85070591730234615865843651857942052864),(-13543821713298944198441101384035006372255/340282366920938463463374607431768211456)⟩
+noncomputable def v388 : ℝ := v344 * v17
+theorem h388 : b388.Contains v388 := by
+  apply Box.contains_widen (Box.contains_times h344 h17)
+  all_goals decide +kernel
+
+def b389 : Box := ⟨(-3385955428324736049610285252908859123425/85070591730234615865843651857942052864),(-13543821713298944198441101384035006372255/340282366920938463463374607431768211456)⟩
+noncomputable def v389 : ℝ := v388 + v356
+theorem h389 : b389.Contains v389 := by
+  apply Box.contains_widen (Box.contains_add h388 h356)
+  all_goals decide +kernel
+
+def b390 : Box := ⟨(-72342076831100918445045243687396970135/10633823966279326983230456482242756608),(-1157473229297614695120719356332798111753/170141183460469231731687303715884105728)⟩
+noncomputable def v390 : ℝ := v2 * v389
+theorem h390 : b390.Contains v390 := by
+  apply Box.contains_widen (Box.contains_times h2 h389)
+  all_goals decide +kernel
+
+def b391 : Box := ⟨(-2512869576508817541674025855878626811171/85070591730234615865843651857942052864),(-157054348531801096354625886357597509105/5316911983139663491615228241121378304)⟩
+noncomputable def v391 : ℝ := v387 + v390
+theorem h391 : b391.Contains v391 := by
+  apply Box.contains_widen (Box.contains_add h387 h390)
+  all_goals decide +kernel
+
+def b392 : Box := ⟨(-859012862128685427105391053683273333645/170141183460469231731687303715884105728),(-859012862128685427105386204979243986543/170141183460469231731687303715884105728)⟩
+noncomputable def v392 : ℝ := v2 * v391
+theorem h392 : b392.Contains v392 := by
+  apply Box.contains_widen (Box.contains_times h2 h391)
+  all_goals decide +kernel
+
+def b393 : Box := ⟨(-699531054287513297891175717605134134347/170141183460469231731687303715884105728),(-1399062108575026595782333868972155542141/340282366920938463463374607431768211456)⟩
+noncomputable def v393 : ℝ := v386 + v392
+theorem h393 : b393.Contains v393 := by
+  apply Box.contains_widen (Box.contains_add h386 h392)
+  all_goals decide +kernel
+
+def b394 : Box := ⟨(1432345170098871217543671136348471969/85070591730234615865843651857942052864),(1432345170098871217543683242641187089/85070591730234615865843651857942052864)⟩
+noncomputable def v394 : ℝ := v369 * v15
+theorem h394 : b394.Contains v394 := by
+  apply Box.contains_widen (Box.contains_times h369 h15)
+  all_goals decide +kernel
+
+def b395 : Box := ⟨(-23556199776303768787455400737468094353/340282366920938463463374607431768211456),(-23556199776303768787454905873486612831/340282366920938463463374607431768211456)⟩
+noncomputable def v395 : ℝ := v394 * v393
+theorem h395 : b395.Contains v395 := by
+  apply Box.contains_widen (Box.contains_times h394 h393)
+  all_goals decide +kernel
+
+def b396 : Box := ⟨(23556199776303768787454905873486612831/340282366920938463463374607431768211456),(23556199776303768787455400737468094353/340282366920938463463374607431768211456)⟩
+noncomputable def v396 : ℝ := -v395
+theorem h396 : b396.Contains v396 := by
+  apply Box.contains_widen (Box.contains_neg h395)
+  all_goals decide +kernel
+
+def b397 : Box := ⟨(3316196283042587073279972646987302235/42535295865117307932921825928971026432),(3316196283042587073280052612522559913/42535295865117307932921825928971026432)⟩
+noncomputable def v397 : ℝ := v385 + v396
+theorem h397 : b397.Contains v397 := by
+  apply Box.contains_widen (Box.contains_add h385 h396)
+  all_goals decide +kernel
+
+def b398 : Box := ⟨(-2267252775159638395053717087900645487/170141183460469231731687303715884105728),(-4534505550319276790107320303524339921/340282366920938463463374607431768211456)⟩
+noncomputable def v398 : ℝ := v397 * v30
+theorem h398 : b398.Contains v398 := by
+  apply Box.contains_widen (Box.contains_times h397 h30)
+  all_goals decide +kernel
+
+def b399 : Box := ⟨(3316196283042587073279972646987302235/42535295865117307932921825928971026432),(3316196283042587073280052612522559913/42535295865117307932921825928971026432)⟩
+noncomputable def v399 : ℝ := v397 * v13
+theorem h399 : b399.Contains v399 := by
+  apply Box.contains_widen (Box.contains_times h397 h13)
+  all_goals decide +kernel
+
+def b400 : Box := ⟨(-417453802530383588755022975776086759/85070591730234615865843651857942052864),(-1669815210121534355019953818241965743/340282366920938463463374607431768211456)⟩
+noncomputable def v400 : ℝ := v369 + v398
+theorem h400 : b400.Contains v400 := by
+  apply Box.contains_widen (Box.contains_add h369 h398)
+  all_goals decide +kernel
+
+def b401 : Box := ⟨(521650024331309689062216649269317766819/340282366920938463463374607431768211456),(8150781630176713891597200282328099933/5316911983139663491615228241121378304)⟩
+noncomputable def v401 : ℝ := v341 * v341
+theorem h401 : b401.Contains v401 := by
+  apply Box.contains_widen (Box.contains_times h341 h341)
+  all_goals decide +kernel
+
+def b402 : Box := ⟨(394921737631774759007956412085056611799/340282366920938463463374607431768211456),(394921737631774759007967732822638907953/340282366920938463463374607431768211456)⟩
+noncomputable def v402 : ℝ := v341 * v342
+theorem h402 : b402.Contains v402 := by
+  apply Box.contains_widen (Box.contains_times h341 h342)
+  all_goals decide +kernel
+
+def b403 : Box := ⟨(-4789456305068635224659191962674319664971/340282366920938463463374607431768211456),(-598682038133579403082393692627157240745/42535295865117307932921825928971026432)⟩
+noncomputable def v403 : ℝ := v341 * v343
+theorem h403 : b403.Contains v403 := by
+  apply Box.contains_widen (Box.contains_times h341 h343)
+  all_goals decide +kernel
+
+def b404 : Box := ⟨(-5589717596000873661277361419393410689011/340282366920938463463374607431768211456),(-87339337437513650957458167644616843251/5316911983139663491615228241121378304)⟩
+noncomputable def v404 : ℝ := v341 * v344
+theorem h404 : b404.Contains v404 := by
+  apply Box.contains_widen (Box.contains_times h341 h344)
+  all_goals decide +kernel
+
+def b405 : Box := ⟨(394921737631774759007956412085056611799/340282366920938463463374607431768211456),(394921737631774759007967732822638907953/340282366920938463463374607431768211456)⟩
+noncomputable def v405 : ℝ := v342 * v341
+theorem h405 : b405.Contains v405 := by
+  apply Box.contains_widen (Box.contains_times h342 h341)
+  all_goals decide +kernel
+
+def b406 : Box := ⟨(298980488027438885568719666109219567155/340282366920938463463374607431768211456),(2335785062714366293505737639078929293/2658455991569831745807614120560689152)⟩
+noncomputable def v406 : ℝ := v342 * v342
+theorem h406 : b406.Contains v406 := by
+  apply Box.contains_widen (Box.contains_times h342 h342)
+  all_goals decide +kernel
+
+def b407 : Box := ⟨(-3625918370719490357174129574825452899615/340282366920938463463374607431768211456),(-1812959185359745178587011247987287566971/170141183460469231731687303715884105728)⟩
+noncomputable def v407 : ℝ := v342 * v343
+theorem h407 : b407.Contains v407 := by
+  apply Box.contains_widen (Box.contains_times h342 h343)
+  all_goals decide +kernel
+
+def b408 : Box := ⟨(-2115883142834425130474371463761212058565/170141183460469231731687303715884105728),(-4231766285668850260948626148237877990335/340282366920938463463374607431768211456)⟩
+noncomputable def v408 : ℝ := v342 * v344
+theorem h408 : b408.Contains v408 := by
+  apply Box.contains_widen (Box.contains_times h342 h344)
+  all_goals decide +kernel
+
+def b409 : Box := ⟨(-4789456305068635224659191962674319664971/340282366920938463463374607431768211456),(-598682038133579403082393692627157240745/42535295865117307932921825928971026432)⟩
+noncomputable def v409 : ℝ := v343 * v341
+theorem h409 : b409.Contains v409 := by
+  apply Box.contains_widen (Box.contains_times h343 h341)
+  all_goals decide +kernel
+
+def b410 : Box := ⟨(-3625918370719490357174129574825452899615/340282366920938463463374607431768211456),(-1812959185359745178587011247987287566971/170141183460469231731687303715884105728)⟩
+noncomputable def v410 : ℝ := v343 * v342
+theorem h410 : b410.Contains v410 := by
+  apply Box.contains_widen (Box.contains_times h343 h342)
+  all_goals decide +kernel
+
+def b411 : Box := ⟨(21986859607230445180742637069858142624277/170141183460469231731687303715884105728),(43973719214460890361485701697865909041755/340282366920938463463374607431768211456)⟩
+noncomputable def v411 : ℝ := v343 * v343
+theorem h411 : b411.Contains v411 := by
+  apply Box.contains_widen (Box.contains_times h343 h343)
+  all_goals decide +kernel
+
+def b412 : Box := ⟨(51321205664731774218063628647286273983383/340282366920938463463374607431768211456),(25660602832365887109032014153004285768783/170141183460469231731687303715884105728)⟩
+noncomputable def v412 : ℝ := v343 * v344
+theorem h412 : b412.Contains v412 := by
+  apply Box.contains_widen (Box.contains_times h343 h344)
+  all_goals decide +kernel
+
+def b413 : Box := ⟨(-5589717596000873661277361419393410689011/340282366920938463463374607431768211456),(-87339337437513650957458167644616843251/5316911983139663491615228241121378304)⟩
+noncomputable def v413 : ℝ := v344 * v341
+theorem h413 : b413.Contains v413 := by
+  apply Box.contains_widen (Box.contains_times h344 h341)
+  all_goals decide +kernel
+
+def b414 : Box := ⟨(-2115883142834425130474371463761212058565/170141183460469231731687303715884105728),(-4231766285668850260948626148237877990335/340282366920938463463374607431768211456)⟩
+noncomputable def v414 : ℝ := v344 * v342
+theorem h414 : b414.Contains v414 := by
+  apply Box.contains_widen (Box.contains_times h344 h342)
+  all_goals decide +kernel
+
+def b415 : Box := ⟨(51321205664731774218063628647286273983383/340282366920938463463374607431768211456),(25660602832365887109032014153004285768783/170141183460469231731687303715884105728)⟩
+noncomputable def v415 : ℝ := v344 * v343
+theorem h415 : b415.Contains v415 := by
+  apply Box.contains_widen (Box.contains_times h344 h343)
+  all_goals decide +kernel
+
+def b416 : Box := ⟨(59896369875749375171387981355144158844137/340282366920938463463374607431768211456),(59896369875749375171388331854355222782521/340282366920938463463374607431768211456)⟩
+noncomputable def v416 : ℝ := v344 * v344
+theorem h416 : b416.Contains v416 := by
+  apply Box.contains_widen (Box.contains_times h344 h344)
+  all_goals decide +kernel
+
+def b417 : Box := ⟨(-5589717596000873661277361419393410689011/340282366920938463463374607431768211456),(-87339337437513650957458167644616843251/5316911983139663491615228241121378304)⟩
+noncomputable def v417 : ℝ := v413 + v26
+theorem h417 : b417.Contains v417 := by
+  apply Box.contains_widen (Box.contains_add h413 h26)
+  all_goals decide +kernel
+
+def b418 : Box := ⟨(-4789456305068635224659191962674319664971/340282366920938463463374607431768211456),(-598682038133579403082393692627157240745/42535295865117307932921825928971026432)⟩
+noncomputable def v418 : ℝ := v409 + v26
+theorem h418 : b418.Contains v418 := by
+  apply Box.contains_widen (Box.contains_add h409 h26)
+  all_goals decide +kernel
+
+def b419 : Box := ⟨(-4607817983360182009225745497109431794313/170141183460469231731687303715884105728),(-4607817983360182009225672612615026551003/170141183460469231731687303715884105728)⟩
+noncomputable def v419 : ℝ := v410 + v417
+theorem h419 : b419.Contains v419 := by
+  apply Box.contains_widen (Box.contains_add h410 h417)
+  all_goals decide +kernel
+
+def b420 : Box := ⟨(1241936029024751253141766600381058160357/10633823966279326983230456482242756608),(9935488232198010025134268887407007762855/85070591730234615865843651857942052864)⟩
+noncomputable def v420 : ℝ := v411 + v414
+theorem h420 : b420.Contains v420 := by
+  apply Box.contains_widen (Box.contains_add h411 h414)
+  all_goals decide +kernel
+
+def b421 : Box := ⟨(51321205664731774218063628647286273983383/170141183460469231731687303715884105728),(25660602832365887109032014153004285768783/85070591730234615865843651857942052864)⟩
+noncomputable def v421 : ℝ := v412 + v415
+theorem h421 : b421.Contains v421 := by
+  apply Box.contains_widen (Box.contains_add h412 h415)
+  all_goals decide +kernel
+
+def b422 : Box := ⟨(394921737631774759007956412085056611799/340282366920938463463374607431768211456),(394921737631774759007967732822638907953/340282366920938463463374607431768211456)⟩
+noncomputable def v422 : ℝ := v405 + v26
+theorem h422 : b422.Contains v422 := by
+  apply Box.contains_widen (Box.contains_add h405 h26)
+  all_goals decide +kernel
+
+def b423 : Box := ⟨(-561309477130149542386309037070637512227/42535295865117307932921825928971026432),(-561309477130149542386301890401894372057/42535295865117307932921825928971026432)⟩
+noncomputable def v423 : ℝ := v406 + v418
+theorem h423 : b423.Contains v423 := by
+  apply Box.contains_widen (Box.contains_add h406 h418)
+  all_goals decide +kernel
+
+def b424 : Box := ⟨(-12841554337439854375625620569044316488241/340282366920938463463374607431768211456),(-3210388584359963593906341930301157058987/85070591730234615865843651857942052864)⟩
+noncomputable def v424 : ℝ := v407 + v419
+theorem h424 : b424.Contains v424 := by
+  apply Box.contains_widen (Box.contains_add h407 h419)
+  all_goals decide +kernel
+
+def b425 : Box := ⟨(17755093321561594919793894142335718507147/170141183460469231731687303715884105728),(35510186643123189839588449401390153061085/340282366920938463463374607431768211456)⟩
+noncomputable def v425 : ℝ := v408 + v420
+theorem h425 : b425.Contains v425 := by
+  apply Box.contains_widen (Box.contains_add h408 h420)
+  all_goals decide +kernel
+
+def b426 : Box := ⟨(521650024331309689062216649269317766819/340282366920938463463374607431768211456),(8150781630176713891597200282328099933/5316911983139663491615228241121378304)⟩
+noncomputable def v426 : ℝ := v401 + v26
+theorem h426 : b426.Contains v426 := by
+  apply Box.contains_widen (Box.contains_add h401 h26)
+  all_goals decide +kernel
+
+def b427 : Box := ⟨(394921737631774759007956412085056611799/170141183460469231731687303715884105728),(394921737631774759007967732822638907953/170141183460469231731687303715884105728)⟩
+noncomputable def v427 : ℝ := v402 + v422
+theorem h427 : b427.Contains v427 := by
+  apply Box.contains_widen (Box.contains_add h402 h422)
+  all_goals decide +kernel
+
+def b428 : Box := ⟨(-9279932122109831563749664259239419762787/340282366920938463463374607431768211456),(-579995757631864472734347791514525806401/21267647932558653966460912964485513216)⟩
+noncomputable def v428 : ℝ := v403 + v423
+theorem h428 : b428.Contains v428 := by
+  apply Box.contains_widen (Box.contains_add h403 h423)
+  all_goals decide +kernel
+
+def b429 : Box := ⟨(-4607817983360182009225745497109431794313/85070591730234615865843651857942052864),(-4607817983360182009225672612615026551003/85070591730234615865843651857942052864)⟩
+noncomputable def v429 : ℝ := v404 + v424
+theorem h429 : b429.Contains v429 := by
+  apply Box.contains_widen (Box.contains_add h404 h424)
+  all_goals decide +kernel
+
+def b430 : Box := ⟨(-2559812760415740635054172260836521827/340282366920938463463374607431768211456),(-319976595051967579381742515123564661/42535295865117307932921825928971026432)⟩
+noncomputable def v430 : ℝ := v400 * v426
+theorem h430 : b430.Contains v430 := by
+  apply Box.contains_widen (Box.contains_times h400 h426)
+  all_goals decide +kernel
+
+def b431 : Box := ⟨(-3875877144456208815463121881497451121/340282366920938463463374607431768211456),(-1937938572228104407731345130995603561/170141183460469231731687303715884105728)⟩
+noncomputable def v431 : ℝ := v400 * v427
+theorem h431 : b431.Contains v431 := by
+  apply Box.contains_widen (Box.contains_times h400 h427)
+  all_goals decide +kernel
+
+def b432 : Box := ⟨(22768990275059870078199064799754016471/170141183460469231731687303715884105728),(45537980550119740156402384076225828485/340282366920938463463374607431768211456)⟩
+noncomputable def v432 : ℝ := v400 * v428
+theorem h432 : b432.Contains v432 := by
+  apply Box.contains_widen (Box.contains_times h400 h428)
+  all_goals decide +kernel
+
+def b433 : Box := ⟨(90444939873996421256005030538710809481/340282366920938463463374607431768211456),(22611234968499105314003485118741331031/85070591730234615865843651857942052864)⟩
+noncomputable def v433 : ℝ := v400 * v429
+theorem h433 : b433.Contains v433 := by
+  apply Box.contains_widen (Box.contains_times h400 h429)
+  all_goals decide +kernel
+
+def b434 : Box := ⟨(-87126832794010767059090046287631588933/170141183460469231731687303715884105728),(-43563416397005383529540609631265404847/85070591730234615865843651857942052864)⟩
+noncomputable def v434 : ℝ := v400 * v425
+theorem h434 : b434.Contains v434 := by
+  apply Box.contains_widen (Box.contains_times h400 h425)
+  all_goals decide +kernel
+
+def b435 : Box := ⟨(-503681284435496329582258572937211657535/340282366920938463463374607431768211456),(-503681284435496329582212998798857269651/340282366920938463463374607431768211456)⟩
+noncomputable def v435 : ℝ := v400 * v421
+theorem h435 : b435.Contains v435 := by
+  apply Box.contains_widen (Box.contains_times h400 h421)
+  all_goals decide +kernel
+
+def b436 : Box := ⟨(-73480055956608947654479494647245329759/85070591730234615865843651857942052864),(-146960111913217895308945976497228585015/170141183460469231731687303715884105728)⟩
+noncomputable def v436 : ℝ := v400 * v416
+theorem h436 : b436.Contains v436 := by
+  apply Box.contains_widen (Box.contains_times h400 h416)
+  all_goals decide +kernel
+
+def b437 : Box := ⟨(5083701184371065357412846411023436945/42535295865117307932921825928971026432),(40669609474968522859304076993961697807/340282366920938463463374607431768211456)⟩
+noncomputable def v437 : ℝ := v399 * v426
+theorem h437 : b437.Contains v437 := by
+  apply Box.contains_widen (Box.contains_times h399 h426)
+  all_goals decide +kernel
+
+def b438 : Box := ⟨(61578882750935786574066679045029603361/340282366920938463463374607431768211456),(30789441375467893287034964570950940907/170141183460469231731687303715884105728)⟩
+noncomputable def v438 : ℝ := v399 * v427
+theorem h438 : b438.Contains v438 := by
+  apply Box.contains_widen (Box.contains_times h399 h427)
+  all_goals decide +kernel
+
+def b439 : Box := ⟨(-723495059439931768977689882240711375127/340282366920938463463374607431768211456),(-723495059439931768977664671382069514691/340282366920938463463374607431768211456)⟩
+noncomputable def v439 : ℝ := v399 * v428
+theorem h439 : b439.Contains v439 := by
+  apply Box.contains_widen (Box.contains_times h399 h428)
+  all_goals decide +kernel
+
+def b440 : Box := ⟨(-359241156281391321970356220714396881843/85070591730234615865843651857942052864),(-359241156281391321970341875782536472537/85070591730234615865843651857942052864)⟩
+noncomputable def v440 : ℝ := v399 * v429
+theorem h440 : b440.Contains v440 := by
+  apply Box.contains_widen (Box.contains_times h399 h429)
+  all_goals decide +kernel
+
+def b441 : Box := ⟨(346061860394411289014590306283120191811/42535295865117307932921825928971026432),(692123720788822578029210187909405020747/85070591730234615865843651857942052864)⟩
+noncomputable def v441 : ℝ := v399 * v425
+theorem h441 : b441.Contains v441 := by
+  apply Box.contains_widen (Box.contains_times h399 h425)
+  all_goals decide +kernel
+
+def b442 : Box := ⟨(8002351365150345788094042529161690012439/340282366920938463463374607431768211456),(4001175682575172894047148906209755617253/170141183460469231731687303715884105728)⟩
+noncomputable def v442 : ℝ := v399 * v421
+theorem h442 : b442.Contains v442 := by
+  apply Box.contains_widen (Box.contains_times h399 h421)
+  all_goals decide +kernel
+
+def b443 : Box := ⟨(4669724639498666976799186515222913657815/340282366920938463463374607431768211456),(1167431159874666744199831611338099412315/85070591730234615865843651857942052864)⟩
+noncomputable def v443 : ℝ := v399 * v416
+theorem h443 : b443.Contains v443 := by
+  apply Box.contains_widen (Box.contains_times h399 h416)
+  all_goals decide +kernel
+
+def b444 : Box := ⟨(5083701184371065357412846411023436945/42535295865117307932921825928971026432),(40669609474968522859304076993961697807/340282366920938463463374607431768211456)⟩
+noncomputable def v444 : ℝ := v437 + v26
+theorem h444 : b444.Contains v444 := by
+  apply Box.contains_widen (Box.contains_add h437 h26)
+  all_goals decide +kernel
+
+def b445 : Box := ⟨(-2559812760415740635054172260836521827/340282366920938463463374607431768211456),(-319976595051967579381742515123564661/42535295865117307932921825928971026432)⟩
+noncomputable def v445 : ℝ := v430 + v26
+theorem h445 : b445.Contains v445 := by
+  apply Box.contains_widen (Box.contains_add h430 h26)
+  all_goals decide +kernel
+
+def b446 : Box := ⟨(36793732330512314043839649406690044439/340282366920938463463374607431768211456),(36793732330512314043841386731970490685/340282366920938463463374607431768211456)⟩
+noncomputable def v446 : ℝ := v431 + v444
+theorem h446 : b446.Contains v446 := by
+  apply Box.contains_widen (Box.contains_add h431 h444)
+  all_goals decide +kernel
+
+def b447 : Box := ⟨(107116863301055526730464808644537636303/340282366920938463463374607431768211456),(107116863301055526730472313218127710299/340282366920938463463374607431768211456)⟩
+noncomputable def v447 : ℝ := v432 + v438
+theorem h447 : b447.Contains v447 := by
+  apply Box.contains_widen (Box.contains_add h432 h438)
+  all_goals decide +kernel
+
+def b448 : Box := ⟨(-316525059782967673860842425851000282823/170141183460469231731687303715884105728),(-633050119565935347721650730907104190567/340282366920938463463374607431768211456)⟩
+noncomputable def v448 : ℝ := v433 + v439
+theorem h448 : b448.Contains v448 := by
+  apply Box.contains_widen (Box.contains_add h433 h439)
+  all_goals decide +kernel
+
+def b449 : Box := ⟨(-805609145356793410999802487716425352619/170141183460469231731687303715884105728),(-50350571584799588187485310676725234673/10633823966279326983230456482242756608)⟩
+noncomputable def v449 : ℝ := v434 + v440
+theorem h449 : b449.Contains v449 := by
+  apply Box.contains_widen (Box.contains_add h434 h440)
+  all_goals decide +kernel
+
+def b450 : Box := ⟨(2264813598719793982534463877327749876953/340282366920938463463374607431768211456),(2264813598719793982534627752838762813337/340282366920938463463374607431768211456)⟩
+noncomputable def v450 : ℝ := v435 + v441
+theorem h450 : b450.Contains v450 := by
+  apply Box.contains_widen (Box.contains_add h435 h441)
+  all_goals decide +kernel
+
+def b451 : Box := ⟨(7708431141323909997476124550572708693403/340282366920938463463374607431768211456),(1927107785330977499369101464856263516119/85070591730234615865843651857942052864)⟩
+noncomputable def v451 : ℝ := v436 + v442
+theorem h451 : b451.Contains v451 := by
+  apply Box.contains_widen (Box.contains_add h436 h442)
+  all_goals decide +kernel
+
+def b452 : Box := ⟨(-378799198568056323031111980477102538117/340282366920938463463374607431768211456),(-94699799642014080757777972089758059281/85070591730234615865843651857942052864)⟩
+noncomputable def v452 : ℝ := v3 + v115
+theorem h452 : b452.Contains v452 := by
+  apply Box.contains_widen (Box.contains_add h3 h115)
+  all_goals decide +kernel
+
+def b453 : Box := ⟨(-305681980519060163250519061567657951903/340282366920938463463374607431768211456),(-305681980519060163250518987230557246177/340282366920938463463374607431768211456)⟩
+noncomputable def v453 : ℝ := v452⁻¹
+theorem h453 : b453.Contains v453 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h452)
+  all_goals decide +kernel
+
+def b454 : Box := ⟨(96011460036350926012614216984032047701/340282366920938463463374607431768211456),(48005730018175463006307135450361535493/170141183460469231731687303715884105728)⟩
+noncomputable def v454 : ℝ := v453 * v173
+theorem h454 : b454.Contains v454 := by
+  apply Box.contains_widen (Box.contains_times h453 h173)
+  all_goals decide +kernel
+
+def b455 : Box := ⟨(-305681980519060163250519061567657951903/340282366920938463463374607431768211456),(-305681980519060163250518987230557246177/340282366920938463463374607431768211456)⟩
+noncomputable def v455 : ℝ := v453 * v25
+theorem h455 : b455.Contains v455 := by
+  apply Box.contains_widen (Box.contains_times h453 h25)
+  all_goals decide +kernel
+
+def b456 : Box := ⟨(-36348976294289219176476455988569024115/85070591730234615865843651857942052864),(-36348976294289219176476424451992275843/85070591730234615865843651857942052864)⟩
+noncomputable def v456 : ℝ := v3 + v21
+theorem h456 : b456.Contains v456 := by
+  apply Box.contains_widen (Box.contains_add h3 h21)
+  all_goals decide +kernel
+
+def b457 : Box := ⟨(-796391680331230323863124967405032710557/340282366920938463463374607431768211456),(-796391680331230323863124276451121241059/340282366920938463463374607431768211456)⟩
+noncomputable def v457 : ℝ := v456⁻¹
+theorem h457 : b457.Contains v457 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h456)
+  all_goals decide +kernel
+
+def b458 : Box := ⟨(35699102450477268221638756078458276211/340282366920938463463374607431768211456),(35699102450477268221638795328122502405/340282366920938463463374607431768211456)⟩
+noncomputable def v458 : ℝ := v454 * v21
+theorem h458 : b458.Contains v458 := by
+  apply Box.contains_widen (Box.contains_times h454 h21)
+  all_goals decide +kernel
+
+def b459 : Box := ⟨(96011460036350926012614216984032047701/340282366920938463463374607431768211456),(48005730018175463006307135450361535493/170141183460469231731687303715884105728)⟩
+noncomputable def v459 : ℝ := v454 * v13
+theorem h459 : b459.Contains v459 := by
+  apply Box.contains_widen (Box.contains_times h454 h13)
+  all_goals decide +kernel
+
+def b460 : Box := ⟨(-56829530223179155612645290451303956873/170141183460469231731687303715884105728),(-7103691277897394451580655757881065435/21267647932558653966460912964485513216)⟩
+noncomputable def v460 : ℝ := v455 * v21
+theorem h460 : b460.Contains v460 := by
+  apply Box.contains_widen (Box.contains_times h455 h21)
+  all_goals decide +kernel
+
+def b461 : Box := ⟨(-305681980519060163250519061567657951903/340282366920938463463374607431768211456),(-305681980519060163250518987230557246177/340282366920938463463374607431768211456)⟩
+noncomputable def v461 : ℝ := v455 * v13
+theorem h461 : b461.Contains v461 := by
+  apply Box.contains_widen (Box.contains_times h455 h13)
+  all_goals decide +kernel
+
+def b462 : Box := ⟨(-56829530223179155612645290451303956873/170141183460469231731687303715884105728),(-7103691277897394451580655757881065435/21267647932558653966460912964485513216)⟩
+noncomputable def v462 : ℝ := v460 + v26
+theorem h462 : b462.Contains v462 := by
+  apply Box.contains_widen (Box.contains_add h460 h26)
+  all_goals decide +kernel
+
+def b463 : Box := ⟨(35699102450477268221638756078458276211/340282366920938463463374607431768211456),(35699102450477268221638795328122502405/340282366920938463463374607431768211456)⟩
+noncomputable def v463 : ℝ := v458 + v26
+theorem h463 : b463.Contains v463 := by
+  apply Box.contains_widen (Box.contains_add h458 h26)
+  all_goals decide +kernel
+
+def b464 : Box := ⟨(-17647600410007385212676363918575866045/340282366920938463463374607431768211456),(-8823800205003692606338110612686987987/170141183460469231731687303715884105728)⟩
+noncomputable def v464 : ℝ := v459 + v462
+theorem h464 : b464.Contains v464 := by
+  apply Box.contains_widen (Box.contains_add h459 h462)
+  all_goals decide +kernel
+
+def b465 : Box := ⟨(-83549636862194203482010418125486549925/340282366920938463463374607431768211456),(-41774818431097101741005126889016458497/170141183460469231731687303715884105728)⟩
+noncomputable def v465 : ℝ := v457 * v463
+theorem h465 : b465.Contains v465 := by
+  apply Box.contains_widen (Box.contains_times h457 h463)
+  all_goals decide +kernel
+
+def b466 : Box := ⟨(5162771976517557917994393490689725029/42535295865117307932921825928971026432),(41302175812140463343955517716519593925/340282366920938463463374607431768211456)⟩
+noncomputable def v466 : ℝ := v457 * v464
+theorem h466 : b466.Contains v466 := by
+  apply Box.contains_widen (Box.contains_times h457 h464)
+  all_goals decide +kernel
+
+def b467 : Box := ⟨(715413461812185009246930332545858028541/340282366920938463463374607431768211456),(89426682726523126155866390902503925585/42535295865117307932921825928971026432)⟩
+noncomputable def v467 : ℝ := v457 * v461
+theorem h467 : b467.Contains v467 := by
+  apply Box.contains_widen (Box.contains_times h457 h461)
+  all_goals decide +kernel
+
+def b468 : Box := ⟨(-330082103015956577509550191346674689133/340282366920938463463374607431768211456),(-330082103015956577509550075167007471337/340282366920938463463374607431768211456)⟩
+noncomputable def v468 : ℝ := v3 + v30
+theorem h468 : b468.Contains v468 := by
+  apply Box.contains_widen (Box.contains_add h3 h30)
+  all_goals decide +kernel
+
+def b469 : Box := ⟨(-350797841444068424625814534154335436745/340282366920938463463374607431768211456),(-350797841444068424625814410683307752087/340282366920938463463374607431768211456)⟩
+noncomputable def v469 : ℝ := v468⁻¹
+theorem h469 : b469.Contains v469 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h468)
+  all_goals decide +kernel
+
+def b470 : Box := ⟨(3570132198748931206291443262950851117/85070591730234615865843651857942052864),(14280528794995724825165815405327663591/340282366920938463463374607431768211456)⟩
+noncomputable def v470 : ℝ := v465 * v30
+theorem h470 : b470.Contains v470 := by
+  apply Box.contains_widen (Box.contains_times h465 h30)
+  all_goals decide +kernel
+
+def b471 : Box := ⟨(-83549636862194203482010418125486549925/340282366920938463463374607431768211456),(-41774818431097101741005126889016458497/170141183460469231731687303715884105728)⟩
+noncomputable def v471 : ℝ := v465 * v13
+theorem h471 : b471.Contains v471 := by
+  apply Box.contains_widen (Box.contains_times h465 h13)
+  all_goals decide +kernel
+
+def b472 : Box := ⟨(-3529739524506162466609954759291875897/170141183460469231731687303715884105728),(-7059479049012324933219839262188042249/340282366920938463463374607431768211456)⟩
+noncomputable def v472 : ℝ := v466 * v30
+theorem h472 : b472.Contains v472 := by
+  apply Box.contains_widen (Box.contains_times h466 h30)
+  all_goals decide +kernel
+
+def b473 : Box := ⟨(5162771976517557917994393490689725029/42535295865117307932921825928971026432),(41302175812140463343955517716519593925/340282366920938463463374607431768211456)⟩
+noncomputable def v473 : ℝ := v466 * v13
+theorem h473 : b473.Contains v473 := by
+  apply Box.contains_widen (Box.contains_times h466 h13)
+  all_goals decide +kernel
+
+def b474 : Box := ⟨(-15285049291398222245018669230554224055/42535295865117307932921825928971026432),(-122280394331185777960149095887868120113/340282366920938463463374607431768211456)⟩
+noncomputable def v474 : ℝ := v467 * v30
+theorem h474 : b474.Contains v474 := by
+  apply Box.contains_widen (Box.contains_times h467 h30)
+  all_goals decide +kernel
+
+def b475 : Box := ⟨(715413461812185009246930332545858028541/340282366920938463463374607431768211456),(89426682726523126155866390902503925585/42535295865117307932921825928971026432)⟩
+noncomputable def v475 : ℝ := v467 * v13
+theorem h475 : b475.Contains v475 := by
+  apply Box.contains_widen (Box.contains_times h467 h13)
+  all_goals decide +kernel
+
+def b476 : Box := ⟨(-15285049291398222245018669230554224055/42535295865117307932921825928971026432),(-122280394331185777960149095887868120113/340282366920938463463374607431768211456)⟩
+noncomputable def v476 : ℝ := v474 + v26
+theorem h476 : b476.Contains v476 := by
+  apply Box.contains_widen (Box.contains_add h474 h26)
+  all_goals decide +kernel
+
+def b477 : Box := ⟨(-3529739524506162466609954759291875897/170141183460469231731687303715884105728),(-7059479049012324933219839262188042249/340282366920938463463374607431768211456)⟩
+noncomputable def v477 : ℝ := v472 + v26
+theorem h477 : b477.Contains v477 := by
+  apply Box.contains_widen (Box.contains_add h472 h26)
+  all_goals decide +kernel
+
+def b478 : Box := ⟨(-5061138657440332163512137869932249513/21267647932558653966460912964485513216),(-20244554629761328654048394542837131547/85070591730234615865843651857942052864)⟩
+noncomputable def v478 : ℝ := v473 + v476
+theorem h478 : b478.Contains v478 := by
+  apply Box.contains_widen (Box.contains_add h473 h476)
+  all_goals decide +kernel
+
+def b479 : Box := ⟨(3570132198748931206291443262950851117/85070591730234615865843651857942052864),(14280528794995724825165815405327663591/340282366920938463463374607431768211456)⟩
+noncomputable def v479 : ℝ := v470 + v26
+theorem h479 : b479.Contains v479 := by
+  apply Box.contains_widen (Box.contains_add h470 h26)
+  all_goals decide +kernel
+
+def b480 : Box := ⟨(-90609115911206528415230327644070301719/340282366920938463463374607431768211456),(-90609115911206528415230093040220959243/340282366920938463463374607431768211456)⟩
+noncomputable def v480 : ℝ := v471 + v477
+theorem h480 : b480.Contains v480 := by
+  apply Box.contains_widen (Box.contains_add h471 h477)
+  all_goals decide +kernel
+
+def b481 : Box := ⟨(-7360914291994880513739117952402533897/170141183460469231731687303715884105728),(-14721828583989761027478187060791773065/340282366920938463463374607431768211456)⟩
+noncomputable def v481 : ℝ := v469 * v479
+theorem h481 : b481.Contains v481 := by
+  apply Box.contains_widen (Box.contains_times h469 h479)
+  all_goals decide +kernel
+
+def b482 : Box := ⟨(93409137136370381310874578293139453247/340282366920938463463374607431768211456),(46704568568185190655437426512083915441/170141183460469231731687303715884105728)⟩
+noncomputable def v482 : ℝ := v469 * v480
+theorem h482 : b482.Contains v482 := by
+  apply Box.contains_widen (Box.contains_times h469 h480)
+  all_goals decide +kernel
+
+def b483 : Box := ⟨(41740311902596013833943859352446623467/170141183460469231731687303715884105728),(83480623805192027667888395234087464487/340282366920938463463374607431768211456)⟩
+noncomputable def v483 : ℝ := v469 * v478
+theorem h483 : b483.Contains v483 := by
+  apply Box.contains_widen (Box.contains_times h469 h478)
+  all_goals decide +kernel
+
+def b484 : Box := ⟨(-737521313298177880422730315004669190841/340282366920938463463374607431768211456),(-737521313298177880422729236186441426539/340282366920938463463374607431768211456)⟩
+noncomputable def v484 : ℝ := v469 * v475
+theorem h484 : b484.Contains v484 := by
+  apply Box.contains_widen (Box.contains_times h469 h475)
+  all_goals decide +kernel
+
+def b485 : Box := ⟨(34181120941460578785215538931803721569/170141183460469231731687303715884105728),(17090560470730289392607783988360263009/85070591730234615865843651857942052864)⟩
+noncomputable def v485 : ℝ := v3 + v13
+theorem h485 : b485.Contains v485 := by
+  apply Box.contains_widen (Box.contains_add h3 h13)
+  all_goals decide +kernel
+
+def b486 : Box := ⟨(34181120941460578785215538931803721569/170141183460469231731687303715884105728),(17090560470730289392607783988360263009/85070591730234615865843651857942052864)⟩
+noncomputable def v486 : ℝ := v13 * v485
+theorem h486 : b486.Contains v486 := by
+  apply Box.contains_widen (Box.contains_times h13 h485)
+  all_goals decide +kernel
+
+def b487 : Box := ⟨(13733876831604504209055153941148100063/340282366920938463463374607431768211456),(13733876831604504209055177281477439155/340282366920938463463374607431768211456)⟩
+noncomputable def v487 : ℝ := v486 * v485
+theorem h487 : b487.Contains v487 := by
+  apply Box.contains_widen (Box.contains_times h486 h485)
+  all_goals decide +kernel
+
+def b488 : Box := ⟨(1379558127633651281935994170814703469/170141183460469231731687303715884105728),(172444765954206410241999710949230519/21267647932558653966460912964485513216)⟩
+noncomputable def v488 : ℝ := v487 * v485
+theorem h488 : b488.Contains v488 := by
+  apply Box.contains_widen (Box.contains_times h487 h485)
+  all_goals decide +kernel
+
+def b489 : Box := ⟨(554302518030583065871740988767836723/340282366920938463463374607431768211456),(69287814753822883233967859101283063/42535295865117307932921825928971026432)⟩
+noncomputable def v489 : ℝ := v488 * v485
+theorem h489 : b489.Contains v489 := by
+  apply Box.contains_widen (Box.contains_times h488 h485)
+  all_goals decide +kernel
+
+def b490 : Box := ⟨(13919823100444096257169182760778169/42535295865117307932921825928971026432),(13919823100444096257169241901627379/42535295865117307932921825928971026432)⟩
+noncomputable def v490 : ℝ := v489 * v485
+theorem h490 : b490.Contains v490 := by
+  apply Box.contains_widen (Box.contains_times h489 h485)
+  all_goals decide +kernel
+
+def b491 : Box := ⟨(-135960062519008652946471764784080384159/85070591730234615865843651857942052864),(-67980031259504326473235867869581789855/42535295865117307932921825928971026432)⟩
+noncomputable def v491 : ℝ := v3 * v15
+theorem h491 : b491.Contains v491 := by
+  apply Box.contains_widen (Box.contains_times h3 h15)
+  all_goals decide +kernel
+
+def b492 : Box := ⟨(67980031259504326473235867869581789855/42535295865117307932921825928971026432),(135960062519008652946471764784080384159/85070591730234615865843651857942052864)⟩
+noncomputable def v492 : ℝ := -v491
+theorem h492 : b492.Contains v492 := by
+  apply Box.contains_widen (Box.contains_neg h491)
+  all_goals decide +kernel
+
+def b493 : Box := ⟨(153050622989738942339079519727523842719/42535295865117307932921825928971026432),(306101245979477884678159068499964489887/85070591730234615865843651857942052864)⟩
+noncomputable def v493 : ℝ := v15 + v492
+theorem h493 : b493.Contains v493 := by
+  apply Box.contains_widen (Box.contains_add h15 h492)
+  all_goals decide +kernel
+
+def b494 : Box := ⟨(80684902746480836442526802057097717183/42535295865117307932921825928971026432),(645479221971846691540214447080456987761/340282366920938463463374607431768211456)⟩
+noncomputable def v494 : ℝ := Real.sqrt v493
+theorem h494 : b494.Contains v494 := by
+  apply Box.contains_sqrt_interval h493 <;> decide +kernel
+
+def b495 : Box := ⟨(179389336319127246428018384542093888039/340282366920938463463374607431768211456),(179389336319127246428018393052919011149/340282366920938463463374607431768211456)⟩
+noncomputable def v495 : ℝ := v494⁻¹
+theorem h495 : b495.Contains v495 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h494)
+  all_goals decide +kernel
+
+def b496 : Box := ⟨0,0⟩
+noncomputable def v496 : ℝ := v3 * v26
+theorem h496 : b496.Contains v496 := by
+  apply Box.contains_widen (Box.contains_times h3 h26)
+  all_goals decide +kernel
+
+@[simp] theorem zero496 : v496=0 := by
+  have h := h496
+  norm_num [Box.Contains,b496] at h
+  linarith
+
+def b497 : Box := ⟨(35/4096),(35/4096)⟩
+noncomputable def v497 : ℝ := v8 + v496
+theorem h497 : b497.Contains v497 := by
+  apply Box.contains_widen (Box.contains_add h8 h496)
+  all_goals decide +kernel
+
+def b498 : Box := ⟨(-2323536224690089283753179573946686253/340282366920938463463374607431768211456),(-580884056172522320938294769393399083/85070591730234615865843651857942052864)⟩
+noncomputable def v498 : ℝ := v3 * v497
+theorem h498 : b498.Contains v498 := by
+  apply Box.contains_widen (Box.contains_times h3 h497)
+  all_goals decide +kernel
+
+def b499 : Box := ⟨(15953348717352503968674167504908051667/340282366920938463463374607431768211456),(3988337179338125992168542000320285397/85070591730234615865843651857942052864)⟩
+noncomputable def v499 : ℝ := v12 + v498
+theorem h499 : b499.Contains v499 := by
+  apply Box.contains_widen (Box.contains_add h12 h498)
+  all_goals decide +kernel
+
+def b500 : Box := ⟨(-1593542965967690565730063230349250245/42535295865117307932921825928971026432),(-12748343727741524525840502722734579605/340282366920938463463374607431768211456)⟩
+noncomputable def v500 : ℝ := v3 * v499
+theorem h500 : b500.Contains v500 := by
+  apply Box.contains_widen (Box.contains_times h3 h499)
+  all_goals decide +kernel
+
+def b501 : Box := ⟨(5073366200391028109303094056369353019/42535295865117307932921825928971026432),(40586929603128224874424755571014246507/340282366920938463463374607431768211456)⟩
+noncomputable def v501 : ℝ := v11 + v500
+theorem h501 : b501.Contains v501 := by
+  apply Box.contains_widen (Box.contains_add h11 h500)
+  all_goals decide +kernel
+
+def b502 : Box := ⟨(-32433073369200002161831787429452603543/340282366920938463463374607431768211456),(-4054134171150000270228972250948298883/42535295865117307932921825928971026432)⟩
+noncomputable def v502 : ℝ := v3 * v501
+theorem h502 : b502.Contains v502 := by
+  apply Box.contains_widen (Box.contains_times h3 h501)
+  all_goals decide +kernel
+
+def b503 : Box := ⟨(73572859294647038702246825627904876393/340282366920938463463374607431768211456),(9196607411830879837780854381221386109/42535295865117307932921825928971026432)⟩
+noncomputable def v503 : ℝ := v10 + v502
+theorem h503 : b503.Contains v503 := by
+  apply Box.contains_widen (Box.contains_add h10 h502)
+  all_goals decide +kernel
+
+def b504 : Box := ⟨(-58792176861321398798801087836300743949/340282366920938463463374607431768211456),(-29396088430660699399400533873800652945/170141183460469231731687303715884105728)⟩
+noncomputable def v504 : ℝ := v3 * v503
+theorem h504 : b504.Contains v504 := by
+  apply Box.contains_widen (Box.contains_times h3 h503)
+  all_goals decide +kernel
+
+def b505 : Box := ⟨(179388864633388214177149839777683499763/340282366920938463463374607431768211456),(89694432316694107088574929933191468911/170141183460469231731687303715884105728)⟩
+noncomputable def v505 : ℝ := v9 + v504
+theorem h505 : b505.Contains v505 := by
+  apply Box.contains_widen (Box.contains_add h9 h504)
+  all_goals decide +kernel
+
+def b506 : Box := ⟨(-89694432316694107088574929933191468911/170141183460469231731687303715884105728),(-179388864633388214177149839777683499763/340282366920938463463374607431768211456)⟩
+noncomputable def v506 : ℝ := -v505
+theorem h506 : b506.Contains v506 := by
+  apply Box.contains_widen (Box.contains_neg h505)
+  all_goals decide +kernel
+
+def b507 : Box := ⟨(471685739032250868524675710950217/340282366920938463463374607431768211456),(235842869516125434276637617755693/170141183460469231731687303715884105728)⟩
+noncomputable def v507 : ℝ := v495 + v506
+theorem h507 : b507.Contains v507 := by
+  apply Box.contains_widen (Box.contains_add h495 h506)
+  all_goals decide +kernel
+
+def b508 : Box := ⟨(1039812866170888868977326267185307684644575/340282366920938463463374607431768211456),(519906433085444434488665342507791667188281/170141183460469231731687303715884105728)⟩
+noncomputable def v508 : ℝ := v490⁻¹
+theorem h508 : b508.Contains v508 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h490)
+  all_goals decide +kernel
+
+def b509 : Box := ⟨(720673399378660395117516971400535935/170141183460469231731687303715884105728),(180168349844665098790304080692055659/42535295865117307932921825928971026432)⟩
+noncomputable def v509 : ℝ := v507 * v508
+theorem h509 : b509.Contains v509 := by
+  apply Box.contains_widen (Box.contains_times h507 h508)
+  all_goals decide +kernel
+
+def b510 : Box := ⟨(35/1024),(35/1024)⟩
+noncomputable def v510 : ℝ := v20 + v496
+theorem h510 : b510.Contains v510 := by
+  apply Box.contains_widen (Box.contains_add h20 h496)
+  all_goals decide +kernel
+
+def b511 : Box := ⟨(-9294144898760357135012718295786745011/340282366920938463463374607431768211456),(-9294144898760357135012716310294385331/340282366920938463463374607431768211456)⟩
+noncomputable def v511 : ℝ := v3 * v510
+theorem h511 : b511.Contains v511 := by
+  apply Box.contains_widen (Box.contains_times h3 h510)
+  all_goals decide +kernel
+
+def b512 : Box := ⟨(45536509927367422622269322940777468749/340282366920938463463374607431768211456),(45536509927367422622269324926269828429/340282366920938463463374607431768211456)⟩
+noncomputable def v512 : ℝ := v18 + v511
+theorem h512 : b512.Contains v512 := by
+  apply Box.contains_widen (Box.contains_add h18 h511)
+  all_goals decide +kernel
+
+def b513 : Box := ⟨(-9097072517514241365656937940877780705/85070591730234615865843651857942052864),(-36388290070056965462627742403332855759/340282366920938463463374607431768211456)⟩
+noncomputable def v513 : ℝ := v3 * v512
+theorem h513 : b513.Contains v513 := by
+  apply Box.contains_widen (Box.contains_times h3 h512)
+  all_goals decide +kernel
+
+def b514 : Box := ⟨(17570564147920633334475691205996632351/85070591730234615865843651857942052864),(70282256591682533337902774184164796465/340282366920938463463374607431768211456)⟩
+noncomputable def v514 : ℝ := v16 + v513
+theorem h514 : b514.Contains v514 := by
+  apply Box.contains_widen (Box.contains_add h16 h513)
+  all_goals decide +kernel
+
+def b515 : Box := ⟨(-56162651545222841359828461012783246291/340282366920938463463374607431768211456),(-56162651545222841359828441535119752295/340282366920938463463374607431768211456)⟩
+noncomputable def v515 : ℝ := v3 * v514
+theorem h515 : b515.Contains v515 := by
+  apply Box.contains_widen (Box.contains_times h3 h514)
+  all_goals decide +kernel
+
+def b516 : Box := ⟨(49843281118624199504250152044574233645/340282366920938463463374607431768211456),(49843281118624199504250171522237727641/340282366920938463463374607431768211456)⟩
+noncomputable def v516 : ℝ := v14 + v515
+theorem h516 : b516.Contains v516 := by
+  apply Box.contains_widen (Box.contains_add h14 h515)
+  all_goals decide +kernel
+
+def b517 : Box := ⟨(94570089764580138768982039911655343545/340282366920938463463374607431768211456),(2955315305143129336530689027659150333/10633823966279326983230456482242756608)⟩
+noncomputable def v517 : ℝ := v493⁻¹
+theorem h517 : b517.Contains v517 := by
+  apply Box.contains_widen (Box.contains_signedInverse (by decide +kernel) h493)
+  all_goals decide +kernel
+
+def b518 : Box := ⟨(49855259301314173468090146679487450619/340282366920938463463374607431768211456),(24927629650657086734045076887692021071/170141183460469231731687303715884105728)⟩
+noncomputable def v518 : ℝ := v495 * v517
+theorem h518 : b518.Contains v518 := by
+  apply Box.contains_widen (Box.contains_times h495 h517)
+  all_goals decide +kernel
+
+def b519 : Box := ⟨(-49843281118624199504250171522237727641/340282366920938463463374607431768211456),(-49843281118624199504250152044574233645/340282366920938463463374607431768211456)⟩
+noncomputable def v519 : ℝ := -v516
+theorem h519 : b519.Contains v519 := by
+  apply Box.contains_widen (Box.contains_neg h516)
+  all_goals decide +kernel
+
+def b520 : Box := ⟨(5989091344986981919987578624861489/170141183460469231731687303715884105728),(11978182689973963840001730809808497/340282366920938463463374607431768211456)⟩
+noncomputable def v520 : ℝ := v518 + v519
+theorem h520 : b520.Contains v520 := by
+  apply Box.contains_widen (Box.contains_add h518 h519)
+  all_goals decide +kernel
+
+def b521 : Box := ⟨(2771512590152915329358704943839183615/340282366920938463463374607431768211456),(346439073769114416169839295506415315/42535295865117307932921825928971026432)⟩
+noncomputable def v521 : ℝ := v489 * v97
+theorem h521 : b521.Contains v521 := by
+  apply Box.contains_widen (Box.contains_times h489 h97)
+  all_goals decide +kernel
+
+def b522 : Box := ⟨(2934849986262034217402394635927001/85070591730234615865843651857942052864),(5869699972524068435160729229863951/170141183460469231731687303715884105728)⟩
+noncomputable def v522 : ℝ := v521 * v509
+theorem h522 : b522.Contains v522 := by
+  apply Box.contains_widen (Box.contains_times h521 h509)
+  all_goals decide +kernel
+
+def b523 : Box := ⟨(-5869699972524068435160729229863951/170141183460469231731687303715884105728),(-2934849986262034217402394635927001/85070591730234615865843651857942052864)⟩
+noncomputable def v523 : ℝ := -v522
+theorem h523 : b523.Contains v523 := by
+  apply Box.contains_widen (Box.contains_neg h522)
+  all_goals decide +kernel
+
+def b524 : Box := ⟨(59695686231456742413424697498769/85070591730234615865843651857942052864),(238782744925826970392152266100493/340282366920938463463374607431768211456)⟩
+noncomputable def v524 : ℝ := v520 + v523
+theorem h524 : b524.Contains v524 := by
+  apply Box.contains_widen (Box.contains_add h520 h523)
+  all_goals decide +kernel
+
+def b525 : Box := ⟨(364828440333442558423000186785296941/170141183460469231731687303715884105728),(91207110083360639887815235444068525/42535295865117307932921825928971026432)⟩
+noncomputable def v525 : ℝ := v524 * v508
+theorem h525 : b525.Contains v525 := by
+  apply Box.contains_widen (Box.contains_times h524 h508)
+  all_goals decide +kernel
+
+def b526 : Box := ⟨(93409137136370381310874578293139453247/340282366920938463463374607431768211456),(46704568568185190655437426512083915441/170141183460469231731687303715884105728)⟩
+noncomputable def v526 : ℝ := v482 * v13
+theorem h526 : b526.Contains v526 := by
+  apply Box.contains_widen (Box.contains_times h482 h13)
+  all_goals decide +kernel
+
+def b527 : Box := ⟨(41740311902596013833943859352446623467/85070591730234615865843651857942052864),(83480623805192027667888395234087464487/170141183460469231731687303715884105728)⟩
+noncomputable def v527 : ℝ := v483 * v15
+theorem h527 : b527.Contains v527 := by
+  apply Box.contains_widen (Box.contains_times h483 h15)
+  all_goals decide +kernel
+
+def b528 : Box := ⟨(-2212563939894533641268190945014007572523/340282366920938463463374607431768211456),(-2212563939894533641268187708559324279617/340282366920938463463374607431768211456)⟩
+noncomputable def v528 : ℝ := v484 * v17
+theorem h528 : b528.Contains v528 := by
+  apply Box.contains_widen (Box.contains_times h484 h17)
+  all_goals decide +kernel
+
+def b529 : Box := ⟨(-2212563939894533641268190945014007572523/340282366920938463463374607431768211456),(-2212563939894533641268187708559324279617/340282366920938463463374607431768211456)⟩
+noncomputable def v529 : ℝ := v528 + v496
+theorem h529 : b529.Contains v529 := by
+  apply Box.contains_widen (Box.contains_add h528 h496)
+  all_goals decide +kernel
+
+def b530 : Box := ⟨(1768063002014193619071123314277853602889/340282366920938463463374607431768211456),(221007875251774202383890784780212558153/42535295865117307932921825928971026432)⟩
+noncomputable def v530 : ℝ := v3 * v529
+theorem h530 : b530.Contains v530 := by
+  apply Box.contains_widen (Box.contains_times h3 h529)
+  all_goals decide +kernel
+
+def b531 : Box := ⟨(1935024249624577674406898751687640096757/340282366920938463463374607431768211456),(967512124812288837203451534354937697099/170141183460469231731687303715884105728)⟩
+noncomputable def v531 : ℝ := v527 + v530
+theorem h531 : b531.Contains v531 := by
+  apply Box.contains_widen (Box.contains_add h527 h530)
+  all_goals decide +kernel
+
+def b532 : Box := ⟨(-386570159857682323262583681109656335635/85070591730234615865843651857942052864),(-773140319715364646525165472185347140059/170141183460469231731687303715884105728)⟩
+noncomputable def v532 : ℝ := v3 * v531
+theorem h532 : b532.Contains v532 := by
+  apply Box.contains_widen (Box.contains_times h3 h531)
+  all_goals decide +kernel
+
+def b533 : Box := ⟨(-1452871502294358911739460146145485889293/340282366920938463463374607431768211456),(-363217875573589727934864022836631612309/85070591730234615865843651857942052864)⟩
+noncomputable def v533 : ℝ := v526 + v532
+theorem h533 : b533.Contains v533 := by
+  apply Box.contains_widen (Box.contains_add h526 h532)
+  all_goals decide +kernel
+
+def b534 : Box := ⟨(720673399378660395117516971400535935/85070591730234615865843651857942052864),(180168349844665098790304080692055659/21267647932558653966460912964485513216)⟩
+noncomputable def v534 : ℝ := v509 * v15
+theorem h534 : b534.Contains v534 := by
+  apply Box.contains_widen (Box.contains_times h509 h15)
+  all_goals decide +kernel
+
+def b535 : Box := ⟨(-1538495593957897447934392507129274147/42535295865117307932921825928971026432),(-12307964751663179582728789724148894739/340282366920938463463374607431768211456)⟩
+noncomputable def v535 : ℝ := v534 * v533
+theorem h535 : b535.Contains v535 := by
+  apply Box.contains_widen (Box.contains_times h534 h533)
+  all_goals decide +kernel
+
+def b536 : Box := ⟨(12307964751663179582728789724148894739/340282366920938463463374607431768211456),(1538495593957897447934392507129274147/42535295865117307932921825928971026432)⟩
+noncomputable def v536 : ℝ := -v535
+theorem h536 : b536.Contains v536 := by
+  apply Box.contains_widen (Box.contains_neg h535)
+  all_goals decide +kernel
+
+def b537 : Box := ⟨(13037621632330064699574790097719488621/340282366920938463463374607431768211456),(101856419002578630488887983910833917/2658455991569831745807614120560689152)⟩
+noncomputable def v537 : ℝ := v525 + v536
+theorem h537 : b537.Contains v537 := by
+  apply Box.contains_widen (Box.contains_add h525 h536)
+  all_goals decide +kernel
+
+def b538 : Box := ⟨(10418382052941473095520015472585101067/340282366920938463463374607431768211456),(1302297756617684137239952109176022217/42535295865117307932921825928971026432)⟩
+noncomputable def v538 : ℝ := v537 * v43
+theorem h538 : b538.Contains v538 := by
+  apply Box.contains_widen (Box.contains_times h537 h43)
+  all_goals decide +kernel
+
+def b539 : Box := ⟨(13037621632330064699574790097719488621/340282366920938463463374607431768211456),(101856419002578630488887983910833917/2658455991569831745807614120560689152)⟩
+noncomputable def v539 : ℝ := v537 * v13
+theorem h539 : b539.Contains v539 := by
+  apply Box.contains_widen (Box.contains_times h537 h13)
+  all_goals decide +kernel
+
+def b540 : Box := ⟨(11859728851698793885755049415386172937/340282366920938463463374607431768211456),(370616526615587309007564047467019469/10633823966279326983230456482242756608)⟩
+noncomputable def v540 : ℝ := v509 + v538
+theorem h540 : b540.Contains v540 := by
+  apply Box.contains_widen (Box.contains_add h509 h538)
+  all_goals decide +kernel
+
+def b541 : Box := ⟨(318459400082187848495503542371561855/170141183460469231731687303715884105728),(318459400082187848495505655537746709/170141183460469231731687303715884105728)⟩
+noncomputable def v541 : ℝ := v481 * v481
+theorem h541 : b541.Contains v541 := by
+  apply Box.contains_widen (Box.contains_times h481 h481)
+  all_goals decide +kernel
+
+def b542 : Box := ⟨(-1010303088537306893567913616056993847/85070591730234615865843651857942052864),(-505151544268653446783953646308599233/42535295865117307932921825928971026432)⟩
+noncomputable def v542 : ℝ := v481 * v482
+theorem h542 : b542.Contains v542 := by
+  apply Box.contains_widen (Box.contains_times h481 h482)
+  all_goals decide +kernel
+
+def b543 : Box := ⟨(-3611669463995812107427583210126220351/340282366920938463463374607431768211456),(-1805834731997906053713770979140504567/170141183460469231731687303715884105728)⟩
+noncomputable def v543 : ℝ := v481 * v483
+theorem h543 : b543.Contains v543 := by
+  apply Box.contains_widen (Box.contains_times h481 h483)
+  all_goals decide +kernel
+
+def b544 : Box := ⟨(1994237618316236251641109224545708465/21267647932558653966460912964485513216),(7976950473264945006564475032452267201/85070591730234615865843651857942052864)⟩
+noncomputable def v544 : ℝ := v481 * v484
+theorem h544 : b544.Contains v544 := by
+  apply Box.contains_widen (Box.contains_times h481 h484)
+  all_goals decide +kernel
+
+def b545 : Box := ⟨(-1010303088537306893567913616056993847/85070591730234615865843651857942052864),(-505151544268653446783953646308599233/42535295865117307932921825928971026432)⟩
+noncomputable def v545 : ℝ := v482 * v481
+theorem h545 : b545.Contains v545 := by
+  apply Box.contains_widen (Box.contains_times h482 h481)
+  all_goals decide +kernel
+
+def b546 : Box := ⟨(12820627438783046447369902591027170689/170141183460469231731687303715884105728),(25641254877566092894739956012016749069/340282366920938463463374607431768211456)⟩
+noncomputable def v546 : ℝ := v482 * v482
+theorem h546 : b546.Contains v546 := by
+  apply Box.contains_widen (Box.contains_times h482 h482)
+  all_goals decide +kernel
+
+def b547 : Box := ⟨(11457915242285664324834490768450975701/170141183460469231731687303715884105728),(22915830484571328649669234646478819497/340282366920938463463374607431768211456)⟩
+noncomputable def v547 : ℝ := v482 * v483
+theorem h547 : b547.Contains v547 := by
+  apply Box.contains_widen (Box.contains_times h482 h483)
+  all_goals decide +kernel
+
+def b548 : Box := ⟨(-101226563865520157201104515681537222121/170141183460469231731687303715884105728),(-202453127731040314402208139775680773107/340282366920938463463374607431768211456)⟩
+noncomputable def v548 : ℝ := v482 * v484
+theorem h548 : b548.Contains v548 := by
+  apply Box.contains_widen (Box.contains_times h482 h484)
+  all_goals decide +kernel
+
+def b549 : Box := ⟨(-3611669463995812107427583210126220351/340282366920938463463374607431768211456),(-1805834731997906053713770979140504567/170141183460469231731687303715884105728)⟩
+noncomputable def v549 : ℝ := v483 * v481
+theorem h549 : b549.Contains v549 := by
+  apply Box.contains_widen (Box.contains_times h483 h481)
+  all_goals decide +kernel
+
+def b550 : Box := ⟨(11457915242285664324834490768450975701/170141183460469231731687303715884105728),(22915830484571328649669234646478819497/340282366920938463463374607431768211456)⟩
+noncomputable def v550 : ℝ := v483 * v482
+theorem h550 : b550.Contains v550 := by
+  apply Box.contains_widen (Box.contains_times h483 h482)
+  all_goals decide +kernel
+
+def b551 : Box := ⟨(10240046544232457224294503533349995133/170141183460469231731687303715884105728),(1280005818029057153036833688071092665/21267647932558653966460912964485513216)⟩
+noncomputable def v551 : ℝ := v483 * v483
+theorem h551 : b551.Contains v551 := by
+  apply Box.contains_widen (Box.contains_times h483 h483)
+  all_goals decide +kernel
+
+def b552 : Box := ⟨(-180934263097039338444259812336071020969/340282366920938463463374607431768211456),(-90467131548519669222129040688105181159/170141183460469231731687303715884105728)⟩
+noncomputable def v552 : ℝ := v483 * v484
+theorem h552 : b552.Contains v552 := by
+  apply Box.contains_widen (Box.contains_times h483 h484)
+  all_goals decide +kernel
+
+def b553 : Box := ⟨(1994237618316236251641109224545708465/21267647932558653966460912964485513216),(7976950473264945006564475032452267201/85070591730234615865843651857942052864)⟩
+noncomputable def v553 : ℝ := v484 * v481
+theorem h553 : b553.Contains v553 := by
+  apply Box.contains_widen (Box.contains_times h484 h481)
+  all_goals decide +kernel
+
+def b554 : Box := ⟨(-101226563865520157201104515681537222121/170141183460469231731687303715884105728),(-202453127731040314402208139775680773107/340282366920938463463374607431768211456)⟩
+noncomputable def v554 : ℝ := v484 * v482
+theorem h554 : b554.Contains v554 := by
+  apply Box.contains_widen (Box.contains_times h484 h482)
+  all_goals decide +kernel
+
+def b555 : Box := ⟨(-180934263097039338444259812336071020969/340282366920938463463374607431768211456),(-90467131548519669222129040688105181159/170141183460469231731687303715884105728)⟩
+noncomputable def v555 : ℝ := v484 * v483
+theorem h555 : b555.Contains v555 := by
+  apply Box.contains_widen (Box.contains_times h484 h483)
+  all_goals decide +kernel
+
+def b556 : Box := ⟨(1598489197341947679944926340695746017795/340282366920938463463374607431768211456),(1598489197341947679944931017114588111975/340282366920938463463374607431768211456)⟩
+noncomputable def v556 : ℝ := v484 * v484
+theorem h556 : b556.Contains v556 := by
+  apply Box.contains_widen (Box.contains_times h484 h484)
+  all_goals decide +kernel
+
+def b557 : Box := ⟨(1994237618316236251641109224545708465/21267647932558653966460912964485513216),(7976950473264945006564475032452267201/85070591730234615865843651857942052864)⟩
+noncomputable def v557 : ℝ := v553 + v26
+theorem h557 : b557.Contains v557 := by
+  apply Box.contains_widen (Box.contains_add h553 h26)
+  all_goals decide +kernel
+
+def b558 : Box := ⟨(-3611669463995812107427583210126220351/340282366920938463463374607431768211456),(-1805834731997906053713770979140504567/170141183460469231731687303715884105728)⟩
+noncomputable def v558 : ℝ := v549 + v26
+theorem h558 : b558.Contains v558 := by
+  apply Box.contains_widen (Box.contains_add h549 h26)
+  all_goals decide +kernel
+
+def b559 : Box := ⟨(27411816188815554337963364564816643421/170141183460469231731687303715884105728),(54823632377631108675927134776287888301/340282366920938463463374607431768211456)⟩
+noncomputable def v559 : ℝ := v550 + v557
+theorem h559 : b559.Contains v559 := by
+  apply Box.contains_widen (Box.contains_add h550 h557)
+  all_goals decide +kernel
+
+def b560 : Box := ⟨(-22746629330321924994202503037046806747/42535295865117307932921825928971026432),(-181973034642575399953618800766543290467/340282366920938463463374607431768211456)⟩
+noncomputable def v560 : ℝ := v551 + v554
+theorem h560 : b560.Contains v560 := by
+  apply Box.contains_widen (Box.contains_add h551 h554)
+  all_goals decide +kernel
+
+def b561 : Box := ⟨(-180934263097039338444259812336071020969/170141183460469231731687303715884105728),(-90467131548519669222129040688105181159/85070591730234615865843651857942052864)⟩
+noncomputable def v561 : ℝ := v552 + v555
+theorem h561 : b561.Contains v561 := by
+  apply Box.contains_widen (Box.contains_add h552 h555)
+  all_goals decide +kernel
+
+def b562 : Box := ⟨(-1010303088537306893567913616056993847/85070591730234615865843651857942052864),(-505151544268653446783953646308599233/42535295865117307932921825928971026432)⟩
+noncomputable def v562 : ℝ := v545 + v26
+theorem h562 : b562.Contains v562 := by
+  apply Box.contains_widen (Box.contains_add h545 h26)
+  all_goals decide +kernel
+
+def b563 : Box := ⟨(22029585413570280787312221971928121027/340282366920938463463374607431768211456),(22029585413570280787312414053735739935/340282366920938463463374607431768211456)⟩
+noncomputable def v563 : ℝ := v546 + v558
+theorem h563 : b563.Contains v563 := by
+  apply Box.contains_widen (Box.contains_add h546 h558)
+  all_goals decide +kernel
+
+def b564 : Box := ⟨(19434865715550609331398927666633809561/85070591730234615865843651857942052864),(38869731431101218662798184711383353899/170141183460469231731687303715884105728)⟩
+noncomputable def v564 : ℝ := v547 + v559
+theorem h564 : b564.Contains v564 := by
+  apply Box.contains_widen (Box.contains_add h547 h559)
+  all_goals decide +kernel
+
+def b565 : Box := ⟨(-192213081186807857177914527829724449109/170141183460469231731687303715884105728),(-192213081186807857177913470271112031787/170141183460469231731687303715884105728)⟩
+noncomputable def v565 : ℝ := v548 + v560
+theorem h565 : b565.Contains v565 := by
+  apply Box.contains_widen (Box.contains_add h548 h560)
+  all_goals decide +kernel
+
+def b566 : Box := ⟨(318459400082187848495503542371561855/170141183460469231731687303715884105728),(318459400082187848495505655537746709/170141183460469231731687303715884105728)⟩
+noncomputable def v566 : ℝ := v541 + v26
+theorem h566 : b566.Contains v566 := by
+  apply Box.contains_widen (Box.contains_add h541 h26)
+  all_goals decide +kernel
+
+def b567 : Box := ⟨(-1010303088537306893567913616056993847/42535295865117307932921825928971026432),(-505151544268653446783953646308599233/21267647932558653966460912964485513216)⟩
+noncomputable def v567 : ℝ := v542 + v562
+theorem h567 : b567.Contains v567 := by
+  apply Box.contains_widen (Box.contains_add h542 h562)
+  all_goals decide +kernel
+
+def b568 : Box := ⟨(4604478987393617169971159690450475169/85070591730234615865843651857942052864),(18417915949574468679884872095454730801/340282366920938463463374607431768211456)⟩
+noncomputable def v568 : ℝ := v543 + v563
+theorem h568 : b568.Contains v568 := by
+  apply Box.contains_widen (Box.contains_add h543 h563)
+  all_goals decide +kernel
+
+def b569 : Box := ⟨(27411816188815554337963364564816643421/85070591730234615865843651857942052864),(54823632377631108675927134776287888301/170141183460469231731687303715884105728)⟩
+noncomputable def v569 : ℝ := v544 + v564
+theorem h569 : b569.Contains v569 := by
+  apply Box.contains_widen (Box.contains_add h544 h564)
+  all_goals decide +kernel
+
+def b570 : Box := ⟨(346848171401036743595678566414991/5316911983139663491615228241121378304),(22198282969666351594778583495471401/340282366920938463463374607431768211456)⟩
+noncomputable def v570 : ℝ := v540 * v566
+theorem h570 : b570.Contains v570 := by
+  apply Box.contains_widen (Box.contains_times h540 h566)
+  all_goals decide +kernel
+
+def b571 : Box := ⟨(-17605850101057676463554090696617583/21267647932558653966460912964485513216),(-281693601616922823357792184368402015/340282366920938463463374607431768211456)⟩
+noncomputable def v571 : ℝ := v540 * v567
+theorem h571 : b571.Contains v571 := by
+  apply Box.contains_widen (Box.contains_times h540 h567)
+  all_goals decide +kernel
+
+def b572 : Box := ⟨(20059764184945474576863485908934285/10633823966279326983230456482242756608),(320956226959127593297124766428531893/170141183460469231731687303715884105728)⟩
+noncomputable def v572 : ℝ := v540 * v568
+theorem h572 : b572.Contains v572 := by
+  apply Box.contains_widen (Box.contains_times h540 h568)
+  all_goals decide +kernel
+
+def b573 : Box := ⟨(3821493429396454015471960257682377125/340282366920938463463374607431768211456),(3821493429396454016273360527074720361/340282366920938463463374607431768211456)⟩
+noncomputable def v573 : ℝ := v540 * v569
+theorem h573 : b573.Contains v573 := by
+  apply Box.contains_widen (Box.contains_times h540 h569)
+  all_goals decide +kernel
+
+def b574 : Box := ⟨(-13398255368047037940663311887683261193/340282366920938463463374607431768211456),(-1674781921005879742231700889392331769/42535295865117307932921825928971026432)⟩
+noncomputable def v574 : ℝ := v540 * v565
+theorem h574 : b574.Contains v574 := by
+  apply Box.contains_widen (Box.contains_times h540 h565)
+  all_goals decide +kernel
+
+def b575 : Box := ⟨(-12612062856676804215528547988798850061/340282366920938463463374607431768211456),(-6306031428338402106441830919120230051/170141183460469231731687303715884105728)⟩
+noncomputable def v575 : ℝ := v540 * v561
+theorem h575 : b575.Contains v575 := by
+  apply Box.contains_widen (Box.contains_times h540 h561)
+  all_goals decide +kernel
+
+def b576 : Box := ⟨(13927880413246465981737120988161149905/85070591730234615865843651857942052864),(27855760826492931969315711659806696993/170141183460469231731687303715884105728)⟩
+noncomputable def v576 : ℝ := v540 * v556
+theorem h576 : b576.Contains v576 := by
+  apply Box.contains_widen (Box.contains_times h540 h556)
+  all_goals decide +kernel
+
+def b577 : Box := ⟨(24402987443043476415649283962192971/340282366920938463463374607431768211456),(12201493721521738210635014804459843/170141183460469231731687303715884105728)⟩
+noncomputable def v577 : ℝ := v539 * v566
+theorem h577 : b577.Contains v577 := by
+  apply Box.contains_widen (Box.contains_times h539 h566)
+  all_goals decide +kernel
+
+def b578 : Box := ⟨(-309671042234974286176504050337044969/340282366920938463463374607431768211456),(-154835521117487143052588782698472725/170141183460469231731687303715884105728)⟩
+noncomputable def v578 : ℝ := v539 * v567
+theorem h578 : b578.Contains v578 := by
+  apply Box.contains_widen (Box.contains_times h539 h567)
+  all_goals decide +kernel
+
+def b579 : Box := ⟨(705666360497604287246565698394978579/340282366920938463463374607431768211456),(705666360497604287409106249131194795/340282366920938463463374607431768211456)⟩
+noncomputable def v579 : ℝ := v539 * v568
+theorem h579 : b579.Contains v579 := by
+  apply Box.contains_widen (Box.contains_times h539 h568)
+  all_goals decide +kernel
+
+def b580 : Box := ⟨(2100519582948547512874537133189763335/170141183460469231731687303715884105728),(2100519582948547513358351890174641619/170141183460469231731687303715884105728)⟩
+noncomputable def v580 : ℝ := v539 * v569
+theorem h580 : b580.Contains v580 := by
+  apply Box.contains_widen (Box.contains_times h539 h569)
+  all_goals decide +kernel
+
+def b581 : Box := ⟨(-14728952592951652514105967990299153387/340282366920938463463374607431768211456),(-14728952592951652510713461686792844051/340282366920938463463374607431768211456)⟩
+noncomputable def v581 : ℝ := v539 * v565
+theorem h581 : b581.Contains v581 := by
+  apply Box.contains_widen (Box.contains_times h539 h565)
+  all_goals decide +kernel
+
+def b582 : Box := ⟨(-3466169117031768972571745448704966857/85070591730234615865843651857942052864),(-3466169117031768971773371767781911271/85070591730234615865843651857942052864)⟩
+noncomputable def v582 : ℝ := v539 * v561
+theorem h582 : b582.Contains v582 := by
+  apply Box.contains_widen (Box.contains_times h539 h561)
+  all_goals decide +kernel
+
+def b583 : Box := ⟨(61244717223779627341723366574516896427/340282366920938463463374607431768211456),(61244717223779627355829648997080190693/340282366920938463463374607431768211456)⟩
+noncomputable def v583 : ℝ := v539 * v556
+theorem h583 : b583.Contains v583 := by
+  apply Box.contains_widen (Box.contains_times h539 h556)
+  all_goals decide +kernel
+
+def b584 : Box := ⟨(24402987443043476415649283962192971/340282366920938463463374607431768211456),(12201493721521738210635014804459843/170141183460469231731687303715884105728)⟩
+noncomputable def v584 : ℝ := v577 + v26
+theorem h584 : b584.Contains v584 := by
+  apply Box.contains_widen (Box.contains_add h577 h26)
+  all_goals decide +kernel
+
+def b585 : Box := ⟨(346848171401036743595678566414991/5316911983139663491615228241121378304),(22198282969666351594778583495471401/340282366920938463463374607431768211456)⟩
+noncomputable def v585 : ℝ := v570 + v26
+theorem h585 : b585.Contains v585 := by
+  apply Box.contains_widen (Box.contains_add h570 h26)
+  all_goals decide +kernel
+
+def b586 : Box := ⟨(-257290614173879347001216167183688357/340282366920938463463374607431768211456),(-257290614173879346936522154759482329/340282366920938463463374607431768211456)⟩
+noncomputable def v586 : ℝ := v571 + v584
+theorem h586 : b586.Contains v586 := by
+  apply Box.contains_widen (Box.contains_add h571 h584)
+  all_goals decide +kernel
+
+def b587 : Box := ⟨(332241411683280900283127498748852151/340282366920938463463374607431768211456),(5191272057551264070141749491564349/5316911983139663491615228241121378304)⟩
+noncomputable def v587 : ℝ := v572 + v578
+theorem h587 : b587.Contains v587 := by
+  apply Box.contains_widen (Box.contains_add h572 h578)
+  all_goals decide +kernel
+
+def b588 : Box := ⟨(565894973736757287839815744509669463/42535295865117307932921825928971026432),(1131789947473514575920616694051478789/85070591730234615865843651857942052864)⟩
+noncomputable def v588 : ℝ := v573 + v579
+theorem h588 : b588.Contains v588 := by
+  apply Box.contains_widen (Box.contains_add h573 h579)
+  all_goals decide +kernel
+
+def b589 : Box := ⟨(-9197216202149942914914237621303734523/340282366920938463463374607431768211456),(-4598608101074971455568451667394685457/170141183460469231731687303715884105728)⟩
+noncomputable def v589 : ℝ := v574 + v580
+theorem h589 : b589.Contains v589 := by
+  apply Box.contains_widen (Box.contains_add h574 h580)
+  all_goals decide +kernel
+
+def b590 : Box := ⟨(-3417626931203557091204314497387250431/42535295865117307932921825928971026432),(-27341015449628456723597123525033304153/340282366920938463463374607431768211456)⟩
+noncomputable def v590 : ℝ := v575 + v581
+theorem h590 : b590.Contains v590 := by
+  apply Box.contains_widen (Box.contains_add h575 h581)
+  all_goals decide +kernel
+
+def b591 : Box := ⟨(1307713912026837126145671942432022881/10633823966279326983230456482242756608),(20923422592429394025768968124242874451/170141183460469231731687303715884105728)⟩
+noncomputable def v591 : ℝ := v576 + v582
+theorem h591 : b591.Contains v591 := by
+  apply Box.contains_widen (Box.contains_add h576 h582)
+  all_goals decide +kernel
+
+def b592 : Box := ⟨(1177595821555793394147640514937630523/85070591730234615865843651857942052864),(2355191643111586788295320739785730859/170141183460469231731687303715884105728)⟩
+noncomputable def v592 : ℝ := v26 + v163
+theorem h592 : b592.Contains v592 := by
+  apply Box.contains_widen (Box.contains_add h26 h163)
+  all_goals decide +kernel
+
+def b593 : Box := ⟨(4972374519447995428312753101474249683/340282366920938463463374607431768211456),(1243093629861998857078244104994360819/85070591730234615865843651857942052864)⟩
+noncomputable def v593 : ℝ := v592 + v305
+theorem h593 : b593.Contains v593 := by
+  apply Box.contains_widen (Box.contains_add h592 h305)
+  all_goals decide +kernel
+
+def b594 : Box := ⟨(-4300935102017936785362714075484617813/42535295865117307932921825928971026432),(-4300935102017936785362314070151583423/42535295865117307932921825928971026432)⟩
+noncomputable def v594 : ℝ := v164 + v306
+theorem h594 : b594.Contains v594 := by
+  apply Box.contains_widen (Box.contains_add h164 h306)
+  all_goals decide +kernel
+
+def b595 : Box := ⟨(-26384510166005988882657638131438626721/85070591730234615865843651857942052864),(-105538040664023955530610526822484202687/340282366920938463463374607431768211456)⟩
+noncomputable def v595 : ℝ := v165 + v307
+theorem h595 : b595.Contains v595 := by
+  apply Box.contains_widen (Box.contains_add h165 h307)
+  all_goals decide +kernel
+
+def b596 : Box := ⟨(315116132551373961717790096957554365989/170141183460469231731687303715884105728),(78779033137843490429453767823653229709/42535295865117307932921825928971026432)⟩
+noncomputable def v596 : ℝ := v166 + v308
+theorem h596 : b596.Contains v596 := by
+  apply Box.contains_widen (Box.contains_add h166 h308)
+  all_goals decide +kernel
+
+def b597 : Box := ⟨(811009487061768040323921157089435734719/170141183460469231731687303715884105728),(1622018974123536080647964241424271648155/340282366920938463463374607431768211456)⟩
+noncomputable def v597 : ℝ := v167 + v309
+theorem h597 : b597.Contains v597 := by
+  apply Box.contains_widen (Box.contains_add h167 h309)
+  all_goals decide +kernel
+
+def b598 : Box := ⟨(-2235669770746674896353624293045787999909/340282366920938463463374607431768211456),(-2235669770746674896353330371339754575559/340282366920938463463374607431768211456)⟩
+noncomputable def v598 : ℝ := v168 + v310
+theorem h598 : b598.Contains v598 := by
+  apply Box.contains_widen (Box.contains_add h168 h310)
+  all_goals decide +kernel
+
+def b599 : Box := ⟨(-7748598613928216097116973303481824316363/340282366920938463463374607431768211456),(-3874299306964108048558310368712277078501/170141183460469231731687303715884105728)⟩
+noncomputable def v599 : ℝ := v169 + v311
+theorem h599 : b599.Contains v599 := by
+  apply Box.contains_widen (Box.contains_add h169 h311)
+  all_goals decide +kernel
+
+def b600 : Box := ⟨(-1182569380084833100168252062569106574097/85070591730234615865843651857942052864),(-1182569380084833100168192862792591890935/85070591730234615865843651857942052864)⟩
+noncomputable def v600 : ℝ := v161 + v303
+theorem h600 : b600.Contains v600 := by
+  apply Box.contains_widen (Box.contains_add h161 h303)
+  all_goals decide +kernel
+
+def b601 : Box := ⟨(150785109939515924578661302539857991/21267647932558653966460912964485513216),(603140439758063698314759074747231497/85070591730234615865843651857942052864)⟩
+noncomputable def v601 : ℝ := v593 + v445
+theorem h601 : b601.Contains v601 := by
+  apply Box.contains_widen (Box.contains_add h593 h445)
+  all_goals decide +kernel
+
+def b602 : Box := ⟨(2386251514368819760937936802813101935/340282366920938463463374607431768211456),(2386251514368819760942874170757823301/340282366920938463463374607431768211456)⟩
+noncomputable def v602 : ℝ := v594 + v446
+theorem h602 : b602.Contains v602 := by
+  apply Box.contains_widen (Box.contains_add h594 h446)
+  all_goals decide +kernel
+
+def b603 : Box := ⟨(1578822637031571199834256118783129419/340282366920938463463374607431768211456),(394705659257892799965446598910876903/85070591730234615865843651857942052864)⟩
+noncomputable def v603 : ℝ := v595 + v447
+theorem h603 : b603.Contains v603 := by
+  apply Box.contains_widen (Box.contains_add h595 h447)
+  all_goals decide +kernel
+
+def b604 : Box := ⟨(-704463615796856071526164446722958417/85070591730234615865843651857942052864),(-2817854463187424286020588317878352895/340282366920938463463374607431768211456)⟩
+noncomputable def v604 : ℝ := v596 + v448
+theorem h604 : b604.Contains v604 := by
+  apply Box.contains_widen (Box.contains_add h596 h448)
+  all_goals decide +kernel
+
+def b605 : Box := ⟨(1350085426243657331029667343252595525/42535295865117307932921825928971026432),(10800683409949258648434299769064138619/340282366920938463463374607431768211456)⟩
+noncomputable def v605 : ℝ := v597 + v449
+theorem h605 : b605.Contains v605 := by
+  apply Box.contains_widen (Box.contains_add h597 h449)
+  all_goals decide +kernel
+
+def b606 : Box := ⟨(7285956993279771545209896070490469261/85070591730234615865843651857942052864),(14571913986559543090648690749504118889/170141183460469231731687303715884105728)⟩
+noncomputable def v606 : ℝ := v598 + v450
+theorem h606 : b606.Contains v606 := by
+  apply Box.contains_widen (Box.contains_add h598 h450)
+  all_goals decide +kernel
+
+def b607 : Box := ⟨(-2510467037769131227553047056819726435/21267647932558653966460912964485513216),(-20083736302153049820107438999750046263/170141183460469231731687303715884105728)⟩
+noncomputable def v607 : ℝ := v599 + v451
+theorem h607 : b607.Contains v607 := by
+  apply Box.contains_widen (Box.contains_add h599 h451)
+  all_goals decide +kernel
+
+def b608 : Box := ⟨(-60552880840665423873821735053512638573/340282366920938463463374607431768211456),(-3784555052541588992090312863623119655/21267647932558653966460912964485513216)⟩
+noncomputable def v608 : ℝ := v600 + v443
+theorem h608 : b608.Contains v608 := by
+  apply Box.contains_widen (Box.contains_add h600 h443)
+  all_goals decide +kernel
+
+def b609 : Box := ⟨(152172502625120071553044016805517955/21267647932558653966460912964485513216),(2434760042001921144853814882484397389/340282366920938463463374607431768211456)⟩
+noncomputable def v609 : ℝ := v601 + v585
+theorem h609 : b609.Contains v609 := by
+  apply Box.contains_widen (Box.contains_add h601 h585)
+  all_goals decide +kernel
+
+def b610 : Box := ⟨(1064480450097470206968360317814706789/170141183460469231731687303715884105728),(532240225048735103501588003999585243/85070591730234615865843651857942052864)⟩
+noncomputable def v610 : ℝ := v602 + v586
+theorem h610 : b610.Contains v610 := by
+  apply Box.contains_widen (Box.contains_add h602 h586)
+  all_goals decide +kernel
+
+def b611 : Box := ⟨(955532024357426050058691808765990785/170141183460469231731687303715884105728),(477766012178713025087714590775906487/85070591730234615865843651857942052864)⟩
+noncomputable def v611 : ℝ := v603 + v587
+theorem h611 : b611.Contains v611 := by
+  apply Box.contains_widen (Box.contains_add h603 h587)
+  all_goals decide +kernel
+
+def b612 : Box := ⟨(427326331676658504153467042296380509/85070591730234615865843651857942052864),(1709305326706634017661878458327562261/340282366920938463463374607431768211456)⟩
+noncomputable def v612 : ℝ := v604 + v588
+theorem h612 : b612.Contains v612 := by
+  apply Box.contains_widen (Box.contains_add h604 h588)
+  all_goals decide +kernel
+
+def b613 : Box := ⟨(1603467207799315733323101124717029677/340282366920938463463374607431768211456),(1603467207799315737297396434274767705/340282366920938463463374607431768211456)⟩
+noncomputable def v613 : ℝ := v605 + v589
+theorem h613 : b613.Contains v613 := by
+  apply Box.contains_widen (Box.contains_add h605 h589)
+  all_goals decide +kernel
+
+def b614 : Box := ⟨(450703130872657362801267075715968399/85070591730234615865843651857942052864),(1802812523490629457700257973974933625/340282366920938463463374607431768211456)⟩
+noncomputable def v614 : ℝ := v606 + v590
+theorem h614 : b614.Contains v614 := by
+  apply Box.contains_widen (Box.contains_add h606 h590)
+  all_goals decide +kernel
+
+def b615 : Box := ⟨(104960786284543024738296828044319327/21267647932558653966460912964485513216),(209921572569086051415382281123207047/42535295865117307932921825928971026432)⟩
+noncomputable def v615 : ℝ := v607 + v591
+theorem h615 : b615.Contains v615 := by
+  apply Box.contains_widen (Box.contains_add h607 h591)
+  all_goals decide +kernel
+
+def b616 : Box := ⟨(345918191557101733950815760502128927/170141183460469231731687303715884105728),(691836383114203482384643179110276213/340282366920938463463374607431768211456)⟩
+noncomputable def v616 : ℝ := v608 + v583
+theorem h616 : b616.Contains v616 := by
+  apply Box.contains_widen (Box.contains_add h608 h583)
+  all_goals decide +kernel
+
+def b617 : Box := ⟨10,10⟩
+noncomputable def v617 : ℝ := ((10 : ℚ) : ℝ)
+theorem h617 : b617.Contains v617 := by
+  apply Box.contains_widen (Box.contains_rational (10))
+  all_goals decide +kernel
+
+def b618 : Box := ⟨(152172502625120071553044016805517955/21267647932558653966460912964485513216),(2434760042001921144853814882484397389/340282366920938463463374607431768211456)⟩
+noncomputable def v618 : ℝ := v13 * v609
+theorem h618 : b618.Contains v618 := by
+  apply Box.contains_widen (Box.contains_times h13 h609)
+  all_goals decide +kernel
+
+def b619 : Box := ⟨(1064480450097470206968360317814706789/170141183460469231731687303715884105728),(532240225048735103501588003999585243/85070591730234615865843651857942052864)⟩
+noncomputable def v619 : ℝ := v13 * v610
+theorem h619 : b619.Contains v619 := by
+  apply Box.contains_widen (Box.contains_times h13 h610)
+  all_goals decide +kernel
+
+def b620 : Box := ⟨(955532024357426050058691808765990785/170141183460469231731687303715884105728),(477766012178713025087714590775906487/85070591730234615865843651857942052864)⟩
+noncomputable def v620 : ℝ := v13 * v611
+theorem h620 : b620.Contains v620 := by
+  apply Box.contains_widen (Box.contains_times h13 h611)
+  all_goals decide +kernel
+
+def b621 : Box := ⟨(427326331676658504153467042296380509/85070591730234615865843651857942052864),(1709305326706634017661878458327562261/340282366920938463463374607431768211456)⟩
+noncomputable def v621 : ℝ := v13 * v612
+theorem h621 : b621.Contains v621 := by
+  apply Box.contains_widen (Box.contains_times h13 h612)
+  all_goals decide +kernel
+
+def b622 : Box := ⟨(1603467207799315733323101124717029677/340282366920938463463374607431768211456),(1603467207799315737297396434274767705/340282366920938463463374607431768211456)⟩
+noncomputable def v622 : ℝ := v13 * v613
+theorem h622 : b622.Contains v622 := by
+  apply Box.contains_widen (Box.contains_times h13 h613)
+  all_goals decide +kernel
+
+def b623 : Box := ⟨(450703130872657362801267075715968399/85070591730234615865843651857942052864),(1802812523490629457700257973974933625/340282366920938463463374607431768211456)⟩
+noncomputable def v623 : ℝ := v13 * v614
+theorem h623 : b623.Contains v623 := by
+  apply Box.contains_widen (Box.contains_times h13 h614)
+  all_goals decide +kernel
+
+def b624 : Box := ⟨(104960786284543024738296828044319327/21267647932558653966460912964485513216),(209921572569086051415382281123207047/42535295865117307932921825928971026432)⟩
+noncomputable def v624 : ℝ := v13 * v615
+theorem h624 : b624.Contains v624 := by
+  apply Box.contains_widen (Box.contains_times h13 h615)
+  all_goals decide +kernel
+
+def b625 : Box := ⟨(345918191557101733950815760502128927/170141183460469231731687303715884105728),(691836383114203482384643179110276213/340282366920938463463374607431768211456)⟩
+noncomputable def v625 : ℝ := v13 * v616
+theorem h625 : b625.Contains v625 := by
+  apply Box.contains_widen (Box.contains_times h13 h616)
+  all_goals decide +kernel
+
+def b626 : Box := ⟨(760862513125600357765220084027589775/21267647932558653966460912964485513216),(12173800210009605724269074412421986945/340282366920938463463374607431768211456)⟩
+noncomputable def v626 : ℝ := v97 * v609
+theorem h626 : b626.Contains v626 := by
+  apply Box.contains_widen (Box.contains_times h97 h609)
+  all_goals decide +kernel
+
+def b627 : Box := ⟨(5322402250487351034841801589073533945/170141183460469231731687303715884105728),(2661201125243675517507940019997926215/85070591730234615865843651857942052864)⟩
+noncomputable def v627 : ℝ := v97 * v610
+theorem h627 : b627.Contains v627 := by
+  apply Box.contains_widen (Box.contains_times h97 h610)
+  all_goals decide +kernel
+
+def b628 : Box := ⟨(4777660121787130250293459043829953925/170141183460469231731687303715884105728),(2388830060893565125438572953879532435/85070591730234615865843651857942052864)⟩
+noncomputable def v628 : ℝ := v97 * v611
+theorem h628 : b628.Contains v628 := by
+  apply Box.contains_widen (Box.contains_times h97 h611)
+  all_goals decide +kernel
+
+def b629 : Box := ⟨(2136631658383292520767335211481902545/85070591730234615865843651857942052864),(8546526633533170088309392291637811305/340282366920938463463374607431768211456)⟩
+noncomputable def v629 : ℝ := v97 * v612
+theorem h629 : b629.Contains v629 := by
+  apply Box.contains_widen (Box.contains_times h97 h612)
+  all_goals decide +kernel
+
+def b630 : Box := ⟨(8017336038996578666615505623585148385/340282366920938463463374607431768211456),(8017336038996578686486982171373838525/340282366920938463463374607431768211456)⟩
+noncomputable def v630 : ℝ := v97 * v613
+theorem h630 : b630.Contains v630 := by
+  apply Box.contains_widen (Box.contains_times h97 h613)
+  all_goals decide +kernel
+
+def b631 : Box := ⟨(2253515654363286814006335378579841995/85070591730234615865843651857942052864),(9014062617453147288501289869874668125/340282366920938463463374607431768211456)⟩
+noncomputable def v631 : ℝ := v97 * v614
+theorem h631 : b631.Contains v631 := by
+  apply Box.contains_widen (Box.contains_times h97 h614)
+  all_goals decide +kernel
+
+def b632 : Box := ⟨(524803931422715123691484140221596635/21267647932558653966460912964485513216),(1049607862845430257076911405616035235/42535295865117307932921825928971026432)⟩
+noncomputable def v632 : ℝ := v97 * v615
+theorem h632 : b632.Contains v632 := by
+  apply Box.contains_widen (Box.contains_times h97 h615)
+  all_goals decide +kernel
+
+def b633 : Box := ⟨(1729590957785508669754078802510644635/170141183460469231731687303715884105728),(3459181915571017411923215895551381065/340282366920938463463374607431768211456)⟩
+noncomputable def v633 : ℝ := v97 * v616
+theorem h633 : b633.Contains v633 := by
+  apply Box.contains_widen (Box.contains_times h97 h616)
+  all_goals decide +kernel
+
+def b634 : Box := ⟨(760862513125600357765220084027589775/10633823966279326983230456482242756608),(12173800210009605724269074412421986945/170141183460469231731687303715884105728)⟩
+noncomputable def v634 : ℝ := v617 * v609
+theorem h634 : b634.Contains v634 := by
+  apply Box.contains_widen (Box.contains_times h617 h609)
+  all_goals decide +kernel
+
+def b635 : Box := ⟨(5322402250487351034841801589073533945/85070591730234615865843651857942052864),(2661201125243675517507940019997926215/42535295865117307932921825928971026432)⟩
+noncomputable def v635 : ℝ := v617 * v610
+theorem h635 : b635.Contains v635 := by
+  apply Box.contains_widen (Box.contains_times h617 h610)
+  all_goals decide +kernel
+
+def b636 : Box := ⟨(4777660121787130250293459043829953925/85070591730234615865843651857942052864),(2388830060893565125438572953879532435/42535295865117307932921825928971026432)⟩
+noncomputable def v636 : ℝ := v617 * v611
+theorem h636 : b636.Contains v636 := by
+  apply Box.contains_widen (Box.contains_times h617 h611)
+  all_goals decide +kernel
+
+def b637 : Box := ⟨(2136631658383292520767335211481902545/42535295865117307932921825928971026432),(8546526633533170088309392291637811305/170141183460469231731687303715884105728)⟩
+noncomputable def v637 : ℝ := v617 * v612
+theorem h637 : b637.Contains v637 := by
+  apply Box.contains_widen (Box.contains_times h617 h612)
+  all_goals decide +kernel
+
+def b638 : Box := ⟨(8017336038996578666615505623585148385/170141183460469231731687303715884105728),(8017336038996578686486982171373838525/170141183460469231731687303715884105728)⟩
+noncomputable def v638 : ℝ := v617 * v613
+theorem h638 : b638.Contains v638 := by
+  apply Box.contains_widen (Box.contains_times h617 h613)
+  all_goals decide +kernel
+
+def b639 : Box := ⟨(2253515654363286814006335378579841995/42535295865117307932921825928971026432),(9014062617453147288501289869874668125/170141183460469231731687303715884105728)⟩
+noncomputable def v639 : ℝ := v617 * v614
+theorem h639 : b639.Contains v639 := by
+  apply Box.contains_widen (Box.contains_times h617 h614)
+  all_goals decide +kernel
+
+def b640 : Box := ⟨(524803931422715123691484140221596635/10633823966279326983230456482242756608),(1049607862845430257076911405616035235/21267647932558653966460912964485513216)⟩
+noncomputable def v640 : ℝ := v617 * v615
+theorem h640 : b640.Contains v640 := by
+  apply Box.contains_widen (Box.contains_times h617 h615)
+  all_goals decide +kernel
+
+def b641 : Box := ⟨(1729590957785508669754078802510644635/85070591730234615865843651857942052864),(3459181915571017411923215895551381065/170141183460469231731687303715884105728)⟩
+noncomputable def v641 : ℝ := v617 * v616
+theorem h641 : b641.Contains v641 := by
+  apply Box.contains_widen (Box.contains_times h617 h616)
+  all_goals decide +kernel
+
+def b642 : Box := ⟨(152172502625120071553044016805517955/21267647932558653966460912964485513216),(2434760042001921144853814882484397389/340282366920938463463374607431768211456)⟩
+noncomputable def v642 : ℝ := v618 + v26
+theorem h642 : b642.Contains v642 := by
+  apply Box.contains_widen (Box.contains_add h618 h26)
+  all_goals decide +kernel
+
+def b643 : Box := ⟨(760862513125600357765220084027589775/21267647932558653966460912964485513216),(12173800210009605724269074412421986945/340282366920938463463374607431768211456)⟩
+noncomputable def v643 : ℝ := v626 + v26
+theorem h643 : b643.Contains v643 := by
+  apply Box.contains_widen (Box.contains_add h626 h26)
+  all_goals decide +kernel
+
+def b644 : Box := ⟨(6539782271488311607266153723517677585/170141183460469231731687303715884105728),(13079564542976623214885574962476102249/340282366920938463463374607431768211456)⟩
+noncomputable def v644 : ℝ := v627 + v642
+theorem h644 : b644.Contains v644 := by
+  apply Box.contains_widen (Box.contains_add h627 h642)
+  all_goals decide +kernel
+
+def b645 : Box := ⟨(2921070285942300228630909680822330357/85070591730234615865843651857942052864),(1460535142971150114470080478939558839/42535295865117307932921825928971026432)⟩
+noncomputable def v645 : ℝ := v628 + v619
+theorem h645 : b645.Contains v645 := by
+  apply Box.contains_widen (Box.contains_add h628 h619)
+  all_goals decide +kernel
+
+def b646 : Box := ⟨(5228795341124011091593362231729795875/170141183460469231731687303715884105728),(10457590682248022188660250654741437253/340282366920938463463374607431768211456)⟩
+noncomputable def v646 : ℝ := v629 + v620
+theorem h646 : b646.Contains v646 := by
+  apply Box.contains_widen (Box.contains_add h629 h620)
+  all_goals decide +kernel
+
+def b647 : Box := ⟨(9726641365703212683229373792770670421/340282366920938463463374607431768211456),(4863320682851606352074430314850700393/170141183460469231731687303715884105728)⟩
+noncomputable def v647 : ℝ := v630 + v621
+theorem h647 : b647.Contains v647 := by
+  apply Box.contains_widen (Box.contains_add h630 h621)
+  all_goals decide +kernel
+
+def b648 : Box := ⟨(10617529825252462989348442639036397657/340282366920938463463374607431768211456),(5308764912626231512899343152074717915/170141183460469231731687303715884105728)⟩
+noncomputable def v648 : ℝ := v631 + v622
+theorem h648 : b648.Contains v648 := by
+  apply Box.contains_widen (Box.contains_add h631 h622)
+  all_goals decide +kernel
+
+def b649 : Box := ⟨(2549918856563517857567203636602354939/85070591730234615865843651857942052864),(10199675426254071514315549218903215505/340282366920938463463374607431768211456)⟩
+noncomputable def v649 : ℝ := v632 + v623
+theorem h649 : b649.Contains v649 := by
+  apply Box.contains_widen (Box.contains_add h632 h623)
+  all_goals decide +kernel
+
+def b650 : Box := ⟨(2569277248061852867660453426865199251/170141183460469231731687303715884105728),(5138554496123705823246274144537037441/340282366920938463463374607431768211456)⟩
+noncomputable def v650 : ℝ := v633 + v624
+theorem h650 : b650.Contains v650 := by
+  apply Box.contains_widen (Box.contains_add h633 h624)
+  all_goals decide +kernel
+
+def b651 : Box := ⟨(760862513125600357765220084027589775/10633823966279326983230456482242756608),(12173800210009605724269074412421986945/170141183460469231731687303715884105728)⟩
+noncomputable def v651 : ℝ := v634 + v26
+theorem h651 : b651.Contains v651 := by
+  apply Box.contains_widen (Box.contains_add h634 h26)
+  all_goals decide +kernel
+
+def b652 : Box := ⟨(8365852302989752465902681925183893045/85070591730234615865843651857942052864),(33463409211959009864332594572405396665/340282366920938463463374607431768211456)⟩
+noncomputable def v652 : ℝ := v635 + v643
+theorem h652 : b652.Contains v652 := by
+  apply Box.contains_widen (Box.contains_add h635 h643)
+  all_goals decide +kernel
+
+def b653 : Box := ⟨(16095102515062572107853071811177585435/170141183460469231731687303715884105728),(32190205030125144218394158593512361729/340282366920938463463374607431768211456)⟩
+noncomputable def v653 : ℝ := v636 + v644
+theorem h653 : b653.Contains v653 := by
+  apply Box.contains_widen (Box.contains_add h636 h644)
+  all_goals decide +kernel
+
+def b654 : Box := ⟨(7194333602708885270165580103786135447/85070591730234615865843651857942052864),(14388667205417770546189714207396046661/170141183460469231731687303715884105728)⟩
+noncomputable def v654 : ℝ := v637 + v645
+theorem h654 : b654.Contains v654 := by
+  apply Box.contains_widen (Box.contains_add h637 h645)
+  all_goals decide +kernel
+
+def b655 : Box := ⟨(3311532845030147439552216963828736065/42535295865117307932921825928971026432),(26492262760241179561634214997489114303/340282366920938463463374607431768211456)⟩
+noncomputable def v655 : ℝ := v638 + v646
+theorem h655 : b655.Contains v655 := by
+  apply Box.contains_widen (Box.contains_add h638 h646)
+  all_goals decide +kernel
+
+def b656 : Box := ⟨(27754766600609507195280056821409406381/340282366920938463463374607431768211456),(6938691650152376820287860092362684259/85070591730234615865843651857942052864)⟩
+noncomputable def v656 : ℝ := v639 + v647
+theorem h656 : b656.Contains v656 := by
+  apply Box.contains_widen (Box.contains_add h639 h647)
+  all_goals decide +kernel
+
+def b657 : Box := ⟨(27411255630779346947475935126127489977/340282366920938463463374607431768211456),(13705627815389673569514634397002999795/170141183460469231731687303715884105728)⟩
+noncomputable def v657 : ℝ := v640 + v648
+theorem h657 : b657.Contains v657 := by
+  apply Box.contains_widen (Box.contains_add h640 h648)
+  all_goals decide +kernel
+
+def b658 : Box := ⟨(2139754907174513263660641219556499787/42535295865117307932921825928971026432),(17118039257396106338161981010005977635/340282366920938463463374607431768211456)⟩
+noncomputable def v658 : ℝ := v641 + v649
+theorem h658 : b658.Contains v658 := by
+  apply Box.contains_widen (Box.contains_add h641 h649)
+  all_goals decide +kernel
+
+def b659 : Box := ⟨(11409302355492153896963562261294252145/85070591730234615865843651857942052864),(22818604710984307794300834492413691805/170141183460469231731687303715884105728)⟩
+noncomputable def v659 : ℝ := v635 + v651
+theorem h659 : b659.Contains v659 := by
+  apply Box.contains_widen (Box.contains_add h635 h651)
+  all_goals decide +kernel
+
+def b660 : Box := ⟨(6571756212388441358098070484506923485/42535295865117307932921825928971026432),(52574049699107530867841178203441656145/340282366920938463463374607431768211456)⟩
+noncomputable def v660 : ℝ := v636 + v652
+theorem h660 : b660.Contains v660 := by
+  apply Box.contains_widen (Box.contains_add h636 h652)
+  all_goals decide +kernel
+
+def b661 : Box := ⟨(24641629148595742190922412657105195615/170141183460469231731687303715884105728),(49283258297191484395012943176787984339/340282366920938463463374607431768211456)⟩
+noncomputable def v661 : ℝ := v637 + v653
+theorem h661 : b661.Contains v661 := by
+  apply Box.contains_widen (Box.contains_add h637 h653)
+  all_goals decide +kernel
+
+def b662 : Box := ⟨(22406003244414349206946665831157419279/170141183460469231731687303715884105728),(11203001622207174616338348189384942593/85070591730234615865843651857942052864)⟩
+noncomputable def v662 : ℝ := v638 + v654
+theorem h662 : b662.Contains v662 := by
+  apply Box.contains_widen (Box.contains_add h638 h654)
+  all_goals decide +kernel
+
+def b663 : Box := ⟨(1391262124848358563389638085602144515/10633823966279326983230456482242756608),(44520387995147474138636794737238450553/340282366920938463463374607431768211456)⟩
+noncomputable def v663 : ℝ := v639 + v655
+theorem h663 : b663.Contains v663 := by
+  apply Box.contains_widen (Box.contains_add h639 h655)
+  all_goals decide +kernel
+
+def b664 : Box := ⟨(44548492406136391153407549308500498701/340282366920938463463374607431768211456),(11137123101534097848595505714826825199/85070591730234615865843651857942052864)⟩
+noncomputable def v664 : ℝ := v640 + v656
+theorem h664 : b664.Contains v664 := by
+  apply Box.contains_widen (Box.contains_add h640 h656)
+  all_goals decide +kernel
+
+def b665 : Box := ⟨(34329619461921381626492250336170068517/340282366920938463463374607431768211456),(4291202432740172745359462573138595215/42535295865117307932921825928971026432)⟩
+noncomputable def v665 : ℝ := v641 + v657
+theorem h665 : b665.Contains v665 := by
+  apply Box.contains_widen (Box.contains_add h641 h657)
+  all_goals decide +kernel
+
+def b666 : Box := ⟨(17496202460496956759085322933514970345/170141183460469231731687303715884105728),(17496202460496956759284954452417839375/170141183460469231731687303715884105728)⟩
+noncomputable def v666 : ℝ := v627 + v651
+theorem h666 : b666.Contains v666 := by
+  apply Box.contains_widen (Box.contains_add h627 h651)
+  all_goals decide +kernel
+
+def b667 : Box := ⟨(27596264832771438044220583566418458215/170141183460469231731687303715884105728),(27596264832771438045177980400172756675/170141183460469231731687303715884105728)⟩
+noncomputable def v667 : ℝ := v628 + v659
+theorem h667 : b667.Contains v667 := by
+  apply Box.contains_widen (Box.contains_add h628 h659)
+  all_goals decide +kernel
+
+def b668 : Box := ⟨(15280144083160175236963476180495749515/85070591730234615865843651857942052864),(30560288166320350478075285247539733725/170141183460469231731687303715884105728)⟩
+noncomputable def v668 : ℝ := v629 + v660
+theorem h668 : b668.Contains v668 := by
+  apply Box.contains_widen (Box.contains_add h629 h660)
+  all_goals decide +kernel
+
+def b669 : Box := ⟨(57300594336188063048460330937795539615/340282366920938463463374607431768211456),(3581287146011753942593745334260113929/21267647932558653966460912964485513216)⟩
+noncomputable def v669 : ℝ := v630 + v661
+theorem h669 : b669.Contains v669 := by
+  apply Box.contains_widen (Box.contains_add h630 h661)
+  all_goals decide +kernel
+
+def b670 : Box := ⟨(26913034553140922834959336588317103269/170141183460469231731687303715884105728),(53826069106281845753854682627414438497/340282366920938463463374607431768211456)⟩
+noncomputable def v670 : ℝ := v631 + v662
+theorem h670 : b670.Contains v670 := by
+  apply Box.contains_widen (Box.contains_add h631 h662)
+  all_goals decide +kernel
+
+def b671 : Box := ⟨(3307328181119432250470760311425885665/21267647932558653966460912964485513216),(52917250897910916195252085982166732433/340282366920938463463374607431768211456)⟩
+noncomputable def v671 : ℝ := v632 + v663
+theorem h671 : b671.Contains v671 := by
+  apply Box.contains_widen (Box.contains_add h632 h663)
+  all_goals decide +kernel
+
+def b672 : Box := ⟨(48007674321707408492915706913521787971/340282366920938463463374607431768211456),(48007674321707408806305238754858681861/340282366920938463463374607431768211456)⟩
+noncomputable def v672 : ℝ := v633 + v664
+theorem h672 : b672.Contains v672 := by
+  apply Box.contains_widen (Box.contains_add h633 h664)
+  all_goals decide +kernel
+
+def b673 : Box := ⟨(7151380555102273069090120990035424989/170141183460469231731687303715884105728),(14302761110204546138275426428420327917/340282366920938463463374607431768211456)⟩
+noncomputable def v673 : ℝ := v619 + v643
+theorem h673 : b673.Contains v673 := by
+  apply Box.contains_widen (Box.contains_add h619 h643)
+  all_goals decide +kernel
+
+def b674 : Box := ⟨(9225867242427191404572007371140480565/85070591730234615865843651857942052864),(18451734484854382809460383633969652349/170141183460469231731687303715884105728)⟩
+noncomputable def v674 : ℝ := v620 + v666
+theorem h674 : b674.Contains v674 := by
+  apply Box.contains_widen (Box.contains_add h620 h666)
+  all_goals decide +kernel
+
+def b675 : Box := ⟨(28450917496124755052527517651011219233/170141183460469231731687303715884105728),(56901834992249510108017839258673075611/340282366920938463463374607431768211456)⟩
+noncomputable def v675 : ℝ := v621 + v667
+theorem h675 : b675.Contains v675 := by
+  apply Box.contains_widen (Box.contains_add h621 h667)
+  all_goals decide +kernel
+
+def b676 : Box := ⟨(62724043540440016681177005846700027737/340282366920938463463374607431768211456),(62724043540440016693447966929354235155/340282366920938463463374607431768211456)⟩
+noncomputable def v676 : ℝ := v622 + v668
+theorem h676 : b676.Contains v676 := by
+  apply Box.contains_widen (Box.contains_add h622 h668)
+  all_goals decide +kernel
+
+def b677 : Box := ⟨(59103406859678692499665399240659413211/340282366920938463463374607431768211456),(59103406859678692539200183322136756489/340282366920938463463374607431768211456)⟩
+noncomputable def v677 : ℝ := v623 + v669
+theorem h677 : b677.Contains v677 := by
+  apply Box.contains_widen (Box.contains_add h623 h669)
+  all_goals decide +kernel
+
+def b678 : Box := ⟨(27752720843417267032865711212671657885/170141183460469231731687303715884105728),(55505441686834534165177740876400094873/340282366920938463463374607431768211456)⟩
+noncomputable def v678 : ℝ := v624 + v670
+theorem h678 : b678.Contains v678 := by
+  apply Box.contains_widen (Box.contains_add h624 h670)
+  all_goals decide +kernel
+
+def b679 : Box := ⟨(26804543640512559737716898251909214247/170141183460469231731687303715884105728),(26804543640512559838818364580638504323/170141183460469231731687303715884105728)⟩
+noncomputable def v679 : ℝ := v625 + v671
+theorem h679 : b679.Contains v679 := by
+  apply Box.contains_widen (Box.contains_add h625 h671)
+  all_goals decide +kernel
+
+def b680 : Box := ⟨(15038487596044470882549976992679533187/21267647932558653966460912964485513216),(240615801536711534120804742496468641101/340282366920938463463374607431768211456)⟩
+noncomputable def v680 : ℝ := v9 + v642
+theorem h680 : b680.Contains v680 := by
+  apply Box.contains_widen (Box.contains_add h9 h642)
+  all_goals decide +kernel
+
+def b681 : Box := ⟨(60154346887025793501129427518714164957/170141183460469231731687303715884105728),(120308693774051587002354039485777807853/340282366920938463463374607431768211456)⟩
+noncomputable def v681 : ℝ := v10 + v673
+theorem h681 : b681.Contains v681 := by
+  apply Box.contains_widen (Box.contains_add h10 h673)
+  all_goals decide +kernel
+
+def b682 : Box := ⟨(22559685575144628754638321944577687093/85070591730234615865843651857942052864),(45119371150289257509593012780844065405/170141183460469231731687303715884105728)⟩
+noncomputable def v682 : ℝ := v11 + v674
+theorem h682 : b682.Contains v682 := by
+  apply Box.contains_widen (Box.contains_add h11 h674)
+  all_goals decide +kernel
+
+def b683 : Box := ⟨(37589359967146051678741191190438588193/170141183460469231731687303715884105728),(75178719934292103360445186337527813531/340282366920938463463374607431768211456)⟩
+noncomputable def v683 : ℝ := v12 + v675
+theorem h683 : b683.Contains v683 := by
+  apply Box.contains_widen (Box.contains_add h12 h675)
+  all_goals decide +kernel
+
+def b684 : Box := ⟨(65631729781219520153154083791063281497/340282366920938463463374607431768211456),(65631729781219520165425044873717488915/340282366920938463463374607431768211456)⟩
+noncomputable def v684 : ℝ := v8 + v676
+theorem h684 : b684.Contains v684 := by
+  apply Box.contains_widen (Box.contains_add h8 h676)
+  all_goals decide +kernel
+
+end HermiteArithmetic
+end Coulomb8

@@ -1,0 +1,50 @@
+{
+  "status": "PASS_PACKING_ENUMERATION",
+  "canonical_pruning": false,
+  "topology_pruning": true,
+  "adjacent_degree_four_angle_pruning": false,
+  "source_sha256": {
+    "verify_packing.py": "1769709d7329964d282376082d253821b5cfd3a1b0d1a82805cf0435f0e54561",
+    "enumerate_contact_maps_extended.py": "5d30f579434bc6ed1f05ffb5503e7d33940b8829448d40e7083e34cb1f082332"
+  },
+  "runs": [
+    {
+      "k": 6,
+      "deduplicate": false,
+      "counts": {
+        "labelled_graphs": 15740,
+        "triangle_filtered": 3960,
+        "processed_graphs": 3960,
+        "sphere_maps": 360
+      },
+      "elapsed_seconds": 3.387167947999842,
+      "surviving_labelled_graphs": 360
+    },
+    {
+      "k": 4,
+      "deduplicate": false,
+      "counts": {
+        "labelled_graphs": 14634,
+        "triangle_filtered": 3096,
+        "processed_graphs": 3096,
+        "sphere_maps": 72
+      },
+      "elapsed_seconds": 2.3746356070005277,
+      "surviving_labelled_graphs": 72
+    },
+    {
+      "k": 2,
+      "deduplicate": false,
+      "counts": {
+        "labelled_graphs": 15740,
+        "triangle_filtered": 1530,
+        "processed_graphs": 1530,
+        "sphere_maps": 0
+      },
+      "elapsed_seconds": 1.3403845590000856,
+      "surviving_labelled_graphs": 0
+    }
+  ],
+  "all_surviving_graphs_have_verified_spanning_cubes": true,
+  "elapsed_seconds": 7.102636720999726
+}

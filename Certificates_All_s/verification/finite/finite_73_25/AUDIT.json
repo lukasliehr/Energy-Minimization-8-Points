@@ -1,0 +1,65 @@
+{
+  "id": "finite_73_25",
+  "status": "PASS",
+  "cell": {
+    "id": "finite_73_25",
+    "degree": 16,
+    "center": "70",
+    "halfwidth": "13/4",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/3d6c616c58745e7a4e85bf34d94f8af4eff83ec8d9ac1ae8b7e148a0a59d80b6.capd.xz",
+      "compressed_sha256": "51eaa7fc45e17c8271e3aa4042875c63264a5366a46c6ce27ecef35cbd7ad64e",
+      "semantic_sha256": "3d6c616c58745e7a4e85bf34d94f8af4eff83ec8d9ac1ae8b7e148a0a59d80b6",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      144,
+      99,
+      63
+    ],
+    "coefficient_rows": 204,
+    "retained_rows": 202,
+    "svec_dimension": 17526
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 10,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.4727081244950146,
+    "right_inverse_uniform_residual": 0.00018279125439845664,
+    "physical_height": [
+      "10444427768633332081821231681148406162207169222115817322811544175209065896780674590173324632624606710582712883039487/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816",
+      "5229795097677816673617340140574645705852489557015228014501145204742359372047386466974502149133115573274577551328687/19701003098197239606139520050071806902539869635232723333974146702122860885748605305707133127442457820403313995153408"
+    ]
+  },
+  "report_file": "finite_73_25/verified.json",
+  "report_sha256": "eee9a011fa4be65c418e07c4a937db8e7a8f5f1261ae4348e833f5cf60c30ddd",
+  "expansion_file": "finite_73_25/EXPANSION.json",
+  "expansion_sha256": "5e04aeb42a3e8f622f0d5866942ca4a5749d63ce12e784464eeb22216b56a1a1"
+}

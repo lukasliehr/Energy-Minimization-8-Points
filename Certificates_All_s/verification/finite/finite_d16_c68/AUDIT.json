@@ -1,0 +1,65 @@
+{
+  "id": "finite_d16_c68",
+  "status": "PASS",
+  "cell": {
+    "id": "finite_d16_c68",
+    "degree": 16,
+    "center": "68",
+    "halfwidth": "3",
+    "order": 16,
+    "profile": "general",
+    "balance": "riesz",
+    "witness": {
+      "path": "certificates/finite/3edac4ccd69ba7af51d4602cdad521b3126650f8608747db29081caf71eeb383.capd.xz",
+      "compressed_sha256": "9578f7dcd891f50d300db6c71f76b1510451a36738fecd1400f7202abfb25d80",
+      "semantic_sha256": "3edac4ccd69ba7af51d4602cdad521b3126650f8608747db29081caf71eeb383",
+      "compression": "capd1-xz"
+    }
+  },
+  "dimensions": {
+    "orders": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      144,
+      99,
+      63
+    ],
+    "coefficient_rows": 204,
+    "retained_rows": 202,
+    "svec_dimension": 17526
+  },
+  "metadata": {
+    "auxiliary_nodes": [
+      "B",
+      "B",
+      "B",
+      "B"
+    ],
+    "hermite_multiplicities": {
+      "A": 2,
+      "B": 10,
+      "C": 2,
+      "D": 2,
+      "minus_one": 1
+    },
+    "left_preconditioned": true
+  },
+  "bounds": {
+    "maximum_PSD_uniform_error": 0.4403665445954331,
+    "right_inverse_uniform_residual": 7.035521555008782e-05,
+    "physical_height": [
+      "2612301024651151478321841856625227410379445537428685574537738663331769175418055716828113723813138495052592313467663/9850501549098619803069760025035903451269934817616361666987073351061430442874302652853566563721228910201656997576704",
+      "10463977645992042944164450629995011562146594408517424491836413843780287527373949033732995280072154685292601262271123/39402006196394479212279040100143613805079739270465446667948293404245721771497210611414266254884915640806627990306816"
+    ]
+  },
+  "report_file": "finite_d16_c68/verified.json",
+  "report_sha256": "783dca95e74499c2f69a7073cc7c2da9c91f34000e6f0107090df98662f9728f",
+  "expansion_file": "finite_d16_c68/EXPANSION.json",
+  "expansion_sha256": "8c8b8892f5f3ceeec756de90a8518daa9849e46f6b0c33b3f0ff824adff6178f"
+}
