@@ -1,0 +1,9 @@
+{
+  "id": "finite_d16_c68",
+  "degree": 16,
+  "center": "72",
+  "halfwidth": "10",
+  "order": 16,
+  "profile": "general",
+  "balance": "riesz"
+}

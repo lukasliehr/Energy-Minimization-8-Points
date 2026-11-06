@@ -1,0 +1,46 @@
+{
+  "status": "PASS_ANALYTIC_REDUCTIONS_AND_FRESH_NUMERICAL_REPLAY",
+  "date": "2026-10-12",
+  "paper_source_sha256": "d850e1f0d95e81c678bb5727479f6cc76d2a5170daf919e1778508d2cf3e5016",
+  "paper_pdf_sha256": "8729d0cf2cfd9bd80d76efa8ba2667dae7ea8af95aa0c2120c59683c38c79a5f",
+  "finite_summary_sha256": "02d73852b4dd732f0a7866888b363f6230dcc63133b30c5845d9ce47e548a991",
+  "finite_source_bindings_sha256": "8e2759fd45b941c8c384c0b1e4edd4b75eb06fc2fc3a4f0f7aa281ad5d471c06",
+  "finite_cells": 30,
+  "finite_strict_gates": 120,
+  "root_defects": 30,
+  "independent_reviews": {
+    "scalar_counts.json": {
+      "sha256": "2261b8ce0d32d036534f3daac9acada7e884b6f234a11e21498c0cd13966ad25",
+      "status": "PASS_CURRENT_ALL30_SAME_OPERAND_WORK_DELTAS"
+    },
+    "scalar_negative_tests.json": {
+      "sha256": "35bdf767c80231ddeb4f68e259cdfc6bcbd204a1611d3a7db134cd2f3ef2a9e1",
+      "status": "PASS_EXACT_SCALAR_EDGE_AND_REJECTION_AUDIT"
+    },
+    "root_negative_tests.json": {
+      "sha256": "52ae133db710f3a254ad680f548b55988de5bb7a71a0e5bad24db2670772eeb8",
+      "status": "PASS_FINAL_ROOT_CONTRACT_AND_NEGATIVE_WITNESS_AUDIT"
+    },
+    "height_review.json": {
+      "sha256": "d184dbd6fc2c046458f7ab3b1a1fbd7f8a97de48de73a86239b1228c626a5874",
+      "status": "PASS_INDEPENDENT_TRANSLATED_HEIGHT_TAIL_REVIEW"
+    },
+    "root_review.json": {
+      "sha256": "98d6c6a68a98aee7e92d9ba87f7d34a1579c12fcdf902e0b85d77ac186e2f9b7",
+      "status": "PASS_INDEPENDENT_ROOT_MATH_SOURCE_AND_ALL30_REVIEW"
+    },
+    "height_counts.json": {
+      "sha256": "1304eb3430d6e305fcbba256685c20ddd31a9f688e4afabc27372571420d5e61",
+      "status": "PASS_ALL30_HEIGHT_TAIL_CENSUS"
+    },
+    "matrix_counts.json": {
+      "sha256": "838b0a293bf58373f9d0e6cfed33609285be8d3df7ace9130691bb5d9b530df9",
+      "status": "PASS_EXACT_CURRENT_WORKLOAD_CENSUS"
+    },
+    "root_counts.json": {
+      "sha256": "980e0e46c0121affe2ced2b536f060cbd4c7b8d487939632bc6de59783782813",
+      "status": "PASS_ALL30_ROOT_ONLY_CENSUS"
+    }
+  },
+  "full_CAP_Lean_verified": false
+}

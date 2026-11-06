@@ -2,9 +2,7 @@
   "challenge_module": "Showcase",
   "solution_module": "Showcase_WithProofs",
   "theorem_names": [
-    "Thomson.logarithmic_minimum",
-    "Thomson.coulomb_minimum",
-    "Thomson.eventual_global_optimality",
+    "Thomson.all_s_global_optimality",
     "Thomson.Monotonic.counterexample"
   ],
   "definition_names": [

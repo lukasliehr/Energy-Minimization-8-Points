@@ -1,0 +1,9 @@
+{
+  "id": "base_A_01",
+  "degree": 12,
+  "center": "1/5",
+  "halfwidth": "1/5",
+  "order": 8,
+  "profile": "original",
+  "balance": "unit"
+}

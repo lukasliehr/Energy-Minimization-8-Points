@@ -1,0 +1,18 @@
+{
+  "status": "OPTIONAL_REDUCED_LEAN_TABLE_PROTOCOL_NUMERICALLY_CHECKED",
+  "degree_tables": [
+    12,
+    14,
+    16,
+    18
+  ],
+  "proofs": [
+    "lem:direct-fixed-table",
+    "cor:packed-fixed-table"
+  ],
+  "checker": "../Verification/verify_fixed_tables.py",
+  "checker_sha256": "de41b2c8c013428af419e4ee7c2bea581a144b1e4b24eedfe180dea0f86e97b9",
+  "current_source_bindings_sha256": "8e2759fd45b941c8c384c0b1e4edd4b75eb06fc2fc3a4f0f7aa281ad5d471c06",
+  "full_CAP_Lean_verified": false,
+  "scope": "Required independent semantic table identities for the optional Lean route. Active Python replay may generate tables; Lean need not certify their discovery transcript."
+}

@@ -1,0 +1,22 @@
+import ThomsonCompact.CoeffMap.Deg.GramN
+import ThomsonCompact.CoeffMap.Deg.Prog
+import ThomsonCompact.CoeffMap.Deg.Shift
+import ThomsonCompact.CoeffMap.Deg.D16.RFS
+import ThomsonCompact.CoeffMap.Deg.StageZ
+import ThomsonCompact.CoeffMap.Deg.GramR
+import ThomsonCompact.CoeffMap.Deg.D16.Data
+import ThomsonCompact.Cells.finite_d16_c68.W0Ctx
+import ThomsonCompact.Cells.finite_d16_c68.W0Z
+
+/-! Stage-Z leaf of cell finite_d16_c68: block 11, dense rows 13-255, rows 0-28 (`CoeffMap/Deg/gen/cells.py`). -/
+
+set_option maxHeartbeats 0
+set_option maxRecDepth 100000
+
+namespace ThomsonCompact.Cells.C_finite_d16_c68.W0.Leaves
+open ThomsonCompact.Packed ThomsonCompact.CoeffMap ThomsonCompact.CoeffMap.Deg ThomsonCompact.Cells.C_finite_d16_c68.W0
+
+theorem zleaf_11_13_256_0_29 : D16.L.zStageOkC D16.LS 17 6 ctx A (WTr fdata ctx 11) zData 11 13 256 0 29 = true := by
+  decide +kernel
+
+end ThomsonCompact.Cells.C_finite_d16_c68.W0.Leaves

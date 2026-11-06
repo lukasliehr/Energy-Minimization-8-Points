@@ -1,0 +1,10 @@
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle070
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle071
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle072
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle073
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle074
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle075
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle076
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle077
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle078
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle079

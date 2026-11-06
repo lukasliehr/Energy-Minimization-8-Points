@@ -1,0 +1,6 @@
+import ThomsonNegative.Structure.Concrete.BasisKernel
+namespace ThomsonNegative.Structure.Concrete.BasisKernel
+set_option maxRecDepth 100000
+set_option maxHeartbeats 100000000
+theorem block0_row5 : rowCheck 0 5 6=true := by decide +kernel
+end ThomsonNegative.Structure.Concrete.BasisKernel

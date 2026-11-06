@@ -1,0 +1,66 @@
+import ThomsonNegative.Certificate.Correction.q07.Input
+import ThomsonNegative.Certificate.Correction.SourceData04
+
+namespace ThomsonNegative.Certificate.Correction.q07
+open ThomsonNegative.Compact.Packed
+open ThomsonNegative.Certificate
+open ThomsonNegative.Certificate.Correction
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+noncomputable def norm17 : Nat := 0x2
+noncomputable def inverse17 : TM := ⟨0x1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 0x1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 0x1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 0x4, true⟩
+theorem inverse17_checked : sameTM (denominatorInverse context argument Source.r17d norm17) inverse17=true := by decide +kernel
+theorem norm17_positive : 0 < norm17 := by decide +kernel
+noncomputable def columns17 : List Nat := [0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014, 0x1, 0x800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006]
+theorem columns17_checked : allBelow 68 (fun j => let M := ratioTM context argument inverse17 (Source.r17n j) norm17 1; M.ok && Nat.beq (rangeX context M) (columns17.getD j 0))=true := by decide +kernel
+noncomputable def center17_0 : Nat := 0x14c8ad549952acfc99b755944ae2e80000000000000000000000000000000000000000000000000000214b01000
+noncomputable def model17_0 : TM := ⟨0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffea6456aa4ca9567e4cdbaaca25717400000000000000000000000000000000000000000000000000001, 0x159ba955b356a981b3245535da8e8bfffffffffffffffffffffffffffffffffffffffffffffffffffff, 0x159ba955b356a981b3245535da8e8bfffffffffffffffffffffffffffffffffffffffffffffffffffff, 0x4, true⟩
+noncomputable def center17_1 : Nat := 0x196bdf7cb6234c810bfa253e6deedcfffffffffffffffffffffffffffffffffffffffffffffffffffff414f01000
+noncomputable def model17_1 : TM := ⟨0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffecb5efbe5b11a64085fd129f36f76e7ffffffffffffffffffffffffffffffffffffffffffffffffffffa, 0x134a1041a4ee59bf7a02ed60c90891800000000000000000000000000000000000000000000000000006, 0x134a1041a4ee59bf7a02ed60c90891800000000000000000000000000000000000000000000000000006, 0x4, true⟩
+noncomputable def center17_2 : Nat := 0x3612dd1034fd3acb6afac4bbbf398e7ffffffffffffffffffffffffffffffffffffffffffffffffffffc14e01000
+noncomputable def model17_2 : TM := ⟨0xb096e881a7e9d65b57d625ddf9cc73ffffffffffffffffffffffffffffffffffffffffffffffffffffe, 0xb096e881a7e9d65b57d625ddf9cc73ffffffffffffffffffffffffffffffffffffffffffffffffffffe, 0xb096e881a7e9d65b57d625ddf9cc73ffffffffffffffffffffffffffffffffffffffffffffffffffffe, 0x4, true⟩
+noncomputable def center17_3 : Nat := 0x6d075b035eaa4b2c4f25f2a40558ebfffffffffffffffffffffffffffffffffffffffffffffffffffff214f01000
+noncomputable def model17_3 : TM := ⟨0x1683ad81af5525962792f95202ac75fffffffffffffffffffffffffffffffffffffffffffffffffffff9, 0x1683ad81af5525962792f95202ac75fffffffffffffffffffffffffffffffffffffffffffffffffffff9, 0x1683ad81af5525962792f95202ac75fffffffffffffffffffffffffffffffffffffffffffffffffffff9, 0x4, true⟩
+noncomputable def center17_4 : Nat := 0x2563cce94fa577e8a03289b60e29dd00000000000000000000000000000000000000000000000000000a15001000
+noncomputable def model17_4 : TM := ⟨0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd2b1e674a7d2bbf4501944db0714ee800000000000000000000000000000000000000000000000000005, 0x2d4e198b582d440bafe6bb24f8eb117ffffffffffffffffffffffffffffffffffffffffffffffffffffb, 0x2d4e198b582d440bafe6bb24f8eb117ffffffffffffffffffffffffffffffffffffffffffffffffffffb, 0x4, true⟩
+noncomputable def center17_5 : Nat := 0x7cac8492b0d0dd432d848b9a036be00000000000000000000000000000000000000000000000000000a14f01000
+noncomputable def model17_5 : TM := ⟨0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe3e56424958686ea196c245cd01b5f000000000000000000000000000000000000000000000000000005, 0x1c1a9bdb6a797915e693dba32fe4a0fffffffffffffffffffffffffffffffffffffffffffffffffffffb, 0x1c1a9bdb6a797915e693dba32fe4a0fffffffffffffffffffffffffffffffffffffffffffffffffffffb, 0x4, true⟩
+noncomputable def center17_6 : Nat := 0xd712e44129d83260edd07a790a13b100000000000000000000000000000000000000000000000000000015001000
+noncomputable def model17_6 : TM := ⟨0x2b89722094ec193076e83d3c8509d8800000000000000000000000000000000000000000000000000000, 0x2b89722094ec193076e83d3c8509d8800000000000000000000000000000000000000000000000000000, 0x2b89722094ec193076e83d3c8509d8800000000000000000000000000000000000000000000000000000, 0x4, true⟩
+noncomputable def center17_7 : Nat := 0x6e941865ffced26f0d62183152d6cc00000000000000000000000000000000000000000000000000000e14f01000
+noncomputable def model17_7 : TM := ⟨0x174a0c32ffe7693786b10c18a96b66000000000000000000000000000000000000000000000000000007, 0x174a0c32ffe7693786b10c18a96b66000000000000000000000000000000000000000000000000000007, 0x174a0c32ffe7693786b10c18a96b66000000000000000000000000000000000000000000000000000007, 0x4, true⟩
+noncomputable def center17_8 : Nat := 0x3f784d7c43f40005695a7ab652fe480000000000000000000000000000000000000000000000000000014e01000
+noncomputable def model17_8 : TM := ⟨0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1fbc26be21fa0002b4ad3d5b297f2400000000000000000000000000000000000000000000000000000, 0xe043d941de05fffd4b52c2a4d680dc00000000000000000000000000000000000000000000000000000, 0xe043d941de05fffd4b52c2a4d680dc00000000000000000000000000000000000000000000000000000, 0x4, true⟩
+noncomputable def center17_9 : Nat := 0x7807c4492e501ceb1d02e6e08d3ad00000000000000000000000000000000000000000000000000000814e01000
+noncomputable def model17_9 : TM := ⟨0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff3c03e22497280e758e817370469d6800000000000000000000000000000000000000000000000000004, 0xc3fc1ddb68d7f18a717e8c8fb96297ffffffffffffffffffffffffffffffffffffffffffffffffffffc, 0xc3fc1ddb68d7f18a717e8c8fb96297ffffffffffffffffffffffffffffffffffffffffffffffffffffc, 0x4, true⟩
+noncomputable def center17_10 : Nat := 0x3e336efd78e4c6a218bb67b6984d080000000000000000000000000000000000000000000000000000014d01000
+noncomputable def model17_10 : TM := ⟨0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff9f19b77ebc7263510c5db3db4c268400000000000000000000000000000000000000000000000000000, 0x60e64881438d9caef3a24c24b3d97c00000000000000000000000000000000000000000000000000000, 0x60e64881438d9caef3a24c24b3d97c00000000000000000000000000000000000000000000000000000, 0x4, true⟩
+noncomputable def centers17 : Nat → Nat
+  | 0 => center17_0
+  | 1 => center17_1
+  | 2 => center17_2
+  | 3 => center17_3
+  | 4 => center17_4
+  | 5 => center17_5
+  | 6 => center17_6
+  | 7 => center17_7
+  | 8 => center17_8
+  | 9 => center17_9
+  | 10 => center17_10
+  | _ => 0x100000
+noncomputable def models17 : Nat → TM
+  | 0 => model17_0
+  | 1 => model17_1
+  | 2 => model17_2
+  | 3 => model17_3
+  | 4 => model17_4
+  | 5 => model17_5
+  | 6 => model17_6
+  | 7 => model17_7
+  | 8 => model17_8
+  | 9 => model17_9
+  | 10 => model17_10
+  | _ => zeroTM
+theorem centers17_checked : allBelow 11 (fun k => sameTM (ratioTM context argument inverse17 (centers17 k) norm17 (Nat.pow 2 384)) (models17 k))=true := by decide +kernel
+end ThomsonNegative.Certificate.Correction.q07

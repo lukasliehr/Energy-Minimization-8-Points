@@ -1,0 +1,12 @@
+import ThomsonNegative.Certificate.Correction.q09.BlockData
+
+namespace ThomsonNegative.Certificate.Correction.q09
+open ThomsonNegative.Compact.Packed
+open ThomsonNegative.Certificate
+open ThomsonNegative.Certificate.Correction
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+theorem congruence7_3_checked : congruenceGate context 11 ThomsonNegative.Certificate.Cells.q09.inverse7 (centerMatrix7 3)=true := by decide +kernel
+theorem bound7_3_checked : allBelow 11 (fun i => allBelow 11 (fun j => Nat.beq (rangeX context (entry (congruenceTM context 11 ThomsonNegative.Certificate.Cells.q09.inverse7 (centerMatrix7 3)) i j)) (centerBound7 3 i j)))=true := by decide +kernel
+end ThomsonNegative.Certificate.Correction.q09

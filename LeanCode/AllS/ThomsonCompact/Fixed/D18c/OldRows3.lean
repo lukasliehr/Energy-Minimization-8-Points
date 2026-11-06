@@ -1,0 +1,47 @@
+import ThomsonCompact.Fixed.D12c.OldKernel
+import ThomsonCompact.Fixed.D18c.Slice0
+import ThomsonCompact.Fixed.D18c.Slice1
+import ThomsonCompact.Fixed.D18c.Slice2
+import ThomsonCompact.Fixed.D18c.Slice3
+import ThomsonCompact.Fixed.D18c.Slice4
+import ThomsonCompact.Fixed.D18c.Slice5
+import ThomsonCompact.Fixed.D18c.Slice6
+import ThomsonCompact.Fixed.D18c.Slice7
+import ThomsonCompact.Fixed.D18c.Slice8
+import ThomsonCompact.Fixed.D18c.Slice9
+import ThomsonCompact.Fixed.D18c.Slice10
+import ThomsonCompact.Fixed.D18c.Slice11
+import ThomsonCompact.Fixed.D18c.Slice12
+import ThomsonCompact.Fixed.D18c.Slice13
+import ThomsonCompact.Fixed.D18c.Slice14
+import ThomsonCompact.Fixed.D18c.Slice15
+import ThomsonCompact.Fixed.D18c.Slice16
+import ThomsonCompact.Fixed.D18c.Slice17
+import ThomsonCompact.Fixed.D18c.Slice18
+import ThomsonCompact.Fixed.D18c.Slice19
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle017
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle018
+import AllS.Units.N_AI.N_fixed_tables.D18.HSingle019
+
+/-! Old `FixedTables.D18` rows 17–19 (`h017`–`h019`) against the compact slices (exact coefficient lists; F4c
+identification leaf; imports only the old `HSingle` rows). -/
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+namespace ThomsonCompact.Fixed.D18c
+
+open ThomsonCompact.Fixed
+
+/-- The old rows 17–19. -/
+noncomputable def oldG3 (k : Nat) : Fin 272 → List Int :=
+  bif Nat.beq k 17 then Blueprint.CAP.FixedTables.D18.h017 else
+  bif Nat.beq k 18 then Blueprint.CAP.FixedTables.D18.h018 else
+  bif Nat.beq k 19 then Blueprint.CAP.FixedTables.D18.h019 else
+  fun _ => []
+
+theorem oldRows3 : rowsOldOk [slice0, slice1, slice2, slice3, slice4, slice5, slice6, slice7, slice8, slice9, slice10, slice11, slice12, slice13, slice14, slice15, slice16, slice17, slice18, slice19]
+    (fun k m => if h : m < 272 then oldG3 k ⟨m, h⟩ else []) 3 17 = true := by
+  decide +kernel
+
+end ThomsonCompact.Fixed.D18c
