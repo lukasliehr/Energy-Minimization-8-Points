@@ -136,6 +136,6 @@ lake build
 ```
 
 `Showcase.lean` produces two expected `sorry` warnings.
-A complete build compiles 17,582 modules of this repository on top of Mathlib. On a
-36-core server it took about 110 CPU hours, with up to 100 GB of memory for 36
-parallel jobs, and the `.lake` directory needs about 74 GB of disk space.
+A complete build compiles 17,582 modules of this repository on top of Mathlib. With 36
+parallel jobs it needs up to 100 GB of memory, and the `.lake` directory needs about
+74 GB of disk space.
