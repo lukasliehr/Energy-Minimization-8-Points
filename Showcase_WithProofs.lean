@@ -66,6 +66,92 @@ def F (s a : ℝ) : ℝ :=
   16 * dA a ^ (-q) + 16 * dB a ^ (-q)
     - 8 * (2 + √2) * dC a ^ (-q) - 8 * (2 - √2) * dD a ^ (-q)
 
+/-! ## Exact energies of the square antiprism -/
+
+/-- The type of the pair `{i, j}` in `X(a)`: `0` on the diagonal, then `1`, `2`, `3`, `4` for the
+squared distances `dA`, `dB`, `dC`, `dD`. -/
+private def pairCode : Fin 8 → Fin 8 → Fin 5 :=
+  ![![0, 1, 2, 1, 3, 4, 4, 3], ![1, 0, 1, 2, 3, 3, 4, 4], ![2, 1, 0, 1, 4, 3, 3, 4],
+    ![1, 2, 1, 0, 4, 4, 3, 3], ![3, 3, 4, 4, 0, 1, 2, 1], ![4, 3, 3, 4, 1, 0, 1, 2],
+    ![4, 4, 3, 3, 2, 1, 0, 1], ![3, 4, 4, 3, 1, 2, 1, 0]]
+
+private theorem X_norm_sub {a : ℝ} (ha : a ∈ Set.Ioo (0 : ℝ) 1) (i j : Fin 8) :
+    ‖X a i - X a j‖ = √(![0, dA a, dB a, dC a, dD a] (pairCode i j)) := by
+  have hr : √(1 - a) ^ 2 = 1 - a := Real.sq_sqrt (by linarith [ha.2])
+  have hh : √a ^ 2 = a := Real.sq_sqrt ha.1.le
+  have ht : √(2 : ℝ) ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  have hti : (√(2 : ℝ))⁻¹ = √2 / 2 := by
+    have h0 : √(2 : ℝ) ≠ 0 := by positivity
+    field_simp
+    linarith
+  rw [← Real.sqrt_sq (norm_nonneg (X a i - X a j)), EuclideanSpace.real_norm_sq_eq]
+  congr 1
+  fin_cases i <;> fin_cases j
+  all_goals simp [X, pairCode, dA, dB, dC, dD, Fin.sum_univ_succ, div_eq_mul_inv, hti]
+  all_goals try ring_nf
+  all_goals try simp only [hr, hh, ht]
+  all_goals first | rfl | ring
+
+private theorem dC_mul_dD (a : ℝ) : dC a * dD a = 2 * (1 + 6 * a + a ^ 2) := by
+  have ht : √(2 : ℝ) ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  simp only [dC, dD]
+  linear_combination -(a - 1) ^ 2 * ht
+
+private theorem dC_pos {a : ℝ} (ha : a ∈ Set.Ioo (0 : ℝ) 1) : 0 < dC a := by
+  have h2 : √(2 : ℝ) < 2 := by
+    rw [show (2 : ℝ) = √4 by rw [show (4 : ℝ) = 2 ^ 2 by norm_num, Real.sqrt_sq (by norm_num)]]
+    exact Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
+  have h0 : 0 ≤ √(2 : ℝ) := Real.sqrt_nonneg 2
+  simp only [dC]
+  nlinarith [ha.1]
+
+private theorem dD_pos {a : ℝ} (ha : a ∈ Set.Ioo (0 : ℝ) 1) : 0 < dD a := by
+  have h2 : √(2 : ℝ) < 2 := by
+    rw [show (2 : ℝ) = √4 by rw [show (4 : ℝ) = 2 ^ 2 by norm_num, Real.sqrt_sq (by norm_num)]]
+    exact Real.sqrt_lt_sqrt (by norm_num) (by norm_num)
+  have h0 : 0 ≤ √(2 : ℝ) := Real.sqrt_nonneg 2
+  simp only [dD]
+  nlinarith [ha.1]
+
+/-- The logarithmic energy of `X(a)`. -/
+private theorem E_zero_X {a : ℝ} (ha : a ∈ Set.Ioo (0 : ℝ) 1) :
+    E 0 (X a) = -12 * log 2 - 6 * log (1 - a) - 4 * log (1 + 6 * a + a ^ 2) := by
+  have h1 : 0 < 1 - a := by linarith [ha.2]
+  have hA : 0 < dA a := by simp only [dA]; linarith
+  have hB : 0 < dB a := by simp only [dB]; linarith
+  have hC := dC_pos ha
+  have hD := dD_pos ha
+  have hlA : log (dA a) = log 2 + log (1 - a) := by
+    simp only [dA]; rw [Real.log_mul (by norm_num) h1.ne']
+  have hlB : log (dB a) = 2 * log 2 + log (1 - a) := by
+    simp only [dB]
+    rw [Real.log_mul (by norm_num) h1.ne', show (4 : ℝ) = 2 ^ 2 by norm_num, Real.log_pow]
+    push_cast; ring
+  have hlCD : log (dC a) + log (dD a) = log 2 + log (1 + 6 * a + a ^ 2) := by
+    rw [← Real.log_mul hC.ne' hD.ne', dC_mul_dD, Real.log_mul (by norm_num) (by nlinarith [ha.1])]
+  simp only [E, if_true, X_norm_sub ha]
+  simp [Finset.sum_filter, Fin.sum_univ_succ, pairCode, Real.log_sqrt, hA.le, hB.le, hC.le, hD.le]
+  linarith
+
+/-- The Coulomb energy of `X(a)`. -/
+private theorem E_one_X {a : ℝ} (ha : a ∈ Set.Ioo (0 : ℝ) 1) :
+    E 1 (X a) = (4 * √2 + 2) / √(1 - a) + 8 / √(dC a) + 8 / √(dD a) := by
+  have h1 : 0 < 1 - a := by linarith [ha.2]
+  have hsA : √(dA a) = √2 * √(1 - a) := by
+    simp only [dA]; rw [Real.sqrt_mul (by norm_num)]
+  have hsB : √(dB a) = 2 * √(1 - a) := by
+    simp only [dB]
+    rw [Real.sqrt_mul (by norm_num), show (4 : ℝ) = 2 ^ 2 by norm_num, Real.sqrt_sq (by norm_num)]
+  have ht : √(2 : ℝ) ^ 2 = 2 := Real.sq_sqrt (by norm_num)
+  have h2 : 0 < √(2 : ℝ) := by positivity
+  have hs1 : 0 < √(1 - a) := Real.sqrt_pos.2 h1
+  simp only [E, one_ne_zero, if_false, X_norm_sub ha, Real.rpow_neg_one, div_one]
+  simp [Finset.sum_filter, Fin.sum_univ_succ, pairCode, hsA, hsB]
+  field_simp
+  ring_nf
+  simp only [ht]
+  ring
+
 /-! ## Global optimality for every `s > -2` -/
 
 /-- Global optimality for every real `s > -2`, with logarithmic energy at `s = 0`.
@@ -116,47 +202,22 @@ theorem all_s_global_optimality :
   obtain ⟨a, haNeg, haPos⟩ : ∃ a : ℝ → ℝ, (∀ s < 0, a s = aNeg s) ∧ ∀ s ≥ 0, a s = aPos s :=
     ⟨fun s => if s < 0 then aNeg s else aPos s, fun s hs => if_pos hs,
       fun s hs => if_neg (not_lt.2 hs)⟩
-  -- At `s = 1` the stationary parameter is the Coulomb parameter.
-  have hF₁ : F 1 Coulomb8.a = 0 := by
-    change SquareAntiprismVerification.F 1 Coulomb8.a = 0
-    rw [ThomsonCombined.stationarity_one Coulomb8.a ⟨Coulomb8.a_pos, Coulomb8.a_lt_one⟩,
-      Coulomb8.F_a, mul_zero]
-  have ha₁ : a 1 = Coulomb8.a :=
-    (haPos 1 (by norm_num)).trans
-      (((hrootPos' 1 (by norm_num)).2 Coulomb8.a ⟨Coulomb8.a_pos, Coulomb8.a_lt_one⟩).1 hF₁).symm
-  refine ⟨a, fun s hs => ?_, by rw [haPos 0 le_rfl, ha₀], fun s hs => ?_, ?_, ?_⟩
-  · by_cases h : s < 0
+  have hroot : ∀ s > (-2 : ℝ), a s ∈ Set.Ioo 0 1 ∧
+      ∀ b ∈ Set.Ioo (0 : ℝ) 1, F s b = 0 ↔ b = a s := by
+    intro s hs
+    by_cases h : s < 0
     · rw [haNeg s h]
       exact hrootNeg' s ⟨hs, h⟩
     · rw [haPos s (not_lt.1 h)]
       exact hrootPos' s (not_lt.1 h)
-  · by_cases h : s < 0
-    · rw [haNeg s h]
-      exact hminNeg' s ⟨hs, h⟩
-    · rw [haPos s (not_lt.1 h)]
-      exact hminPos' s (not_lt.1 h)
-  · -- Exact logarithmic minimum.
-    rw [haPos 0 le_rfl, ha₀]
-    have hX : X ((2 * √58 - 13) / 7) = Thomson8.antiprism := by
-      simp only [X, Thomson8.antiprism, Thomson8.point, Thomson8.radius,
-        Thomson8.height, Thomson8.a, neg_div]
-    have hE : ∀ Y, E 0 Y = Thomson8.logEnergy Y := by
-      intro Y
-      simp [E, Thomson8.logEnergy]
-    simpa only [hX, hE, Thomson8.optimalEnergy, Thomson8.a] using
-      Thomson8.antiprism_energy
-  · -- Exact Coulomb minimum.
-    rw [ha₁]
-    have hX : X Coulomb8.a = Coulomb8.antiprism := by
-      simp only [X, Coulomb8.antiprism, Thomson8.point, Coulomb8.radius,
-        Coulomb8.height, Coulomb8.q, neg_div]
-    have hE : ∀ Y, E 1 Y = Coulomb8.coulombEnergy Y := by
-      intro Y
-      simp only [E, one_ne_zero, if_false, Real.rpow_neg_one, one_div, div_one,
-        Coulomb8.coulombEnergy]
-    simpa only [hX, hE, Coulomb8.optimalEnergy, Coulomb8.G,
-      Coulomb8.q, Coulomb8.dMinus, Coulomb8.dPlus, dC, dD] using
-      Coulomb8.antiprism_energy
+  -- The closed forms of `E 0 (X a)` and `E 1 (X a)` hold for every `0 < a < 1`.
+  refine ⟨a, hroot, by rw [haPos 0 le_rfl, ha₀], fun s hs => ?_,
+    E_zero_X (hroot 0 (by norm_num)).1, E_one_X (hroot 1 (by norm_num)).1⟩
+  by_cases h : s < 0
+  · rw [haNeg s h]
+    exact hminNeg' s ⟨hs, h⟩
+  · rw [haPos s (not_lt.1 h)]
+    exact hminPos' s (not_lt.1 h)
 
 /-! ## A counterexample for completely monotone potentials -/
 

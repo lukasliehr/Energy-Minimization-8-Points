@@ -113,16 +113,13 @@ the configurations with centroid zero, so uniqueness fails there.
 
 | Path | Contents |
 | --- | --- |
-| [LeanCode/Logarithmic](LeanCode/Logarithmic) | Logarithmic minimum and uniqueness. |
-| [LeanCode/Coulomb](LeanCode/Coulomb) | Coulomb minimum and uniqueness. |
 | [LeanCode/LargeS](LeanCode/LargeS) | Global optimality for sufficiently large Riesz exponents. |
 | [LeanCode/AllS](LeanCode/AllS) | Global optimality for every exponent $s\ge0$. |
 | [LeanCode/Negative_s](LeanCode/Negative_s) | Global optimality for every exponent $-2\lt s\lt0$. |
 | [LeanCode/Monotonic](LeanCode/Monotonic) | Counterexample for completely monotone potentials. |
-| [LeanCode/Bridge.lean](LeanCode/Bridge.lean) | Coordinate and stationarity identities connecting the developments. |
+| [LeanCode/Bridge.lean](LeanCode/Bridge.lean) | Coordinates of the large-exponent development in the notation of the paper. |
 | [LeanCode/CertificatesLean](LeanCode/CertificatesLean) | Certificates carried by the Lean proof for every exponent $s\ge0$, with Python checkers. |
-| [Certificates](Certificates) | Logarithmic and Coulomb certificates with independent Python checkers. |
-| [Certificates_All_s](Certificates_All_s) | Independent certificates and checkers for the full exponent range. |
+| [Certificates_All_s](Certificates_All_s) | Independent certificates and checkers for every exponent $s\ge0$. |
 | [Visualization](Visualization) | Animation, video and still image. |
 
 ## Building
@@ -137,6 +134,6 @@ lake build
 ```
 
 `Showcase.lean` produces two expected `sorry` warnings.
-A complete build compiles 17,582 modules of this repository on top of Mathlib. With 36
+A complete build compiles 16,319 modules of this repository on top of Mathlib. With 36
 parallel jobs it needs up to 100 GB of memory, and the `.lake` directory needs about
-74 GB of disk space.
+66 GB of disk space.

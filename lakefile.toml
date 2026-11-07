@@ -17,14 +17,6 @@ name = "Showcase_WithProofs"
 name = "LeanCode"
 
 [[lean_lib]]
-name = "Thomson8"
-srcDir = "LeanCode/Logarithmic"
-
-[[lean_lib]]
-name = "Coulomb8"
-srcDir = "LeanCode/Coulomb"
-
-[[lean_lib]]
 name = "Lean_Code"
 srcDir = "LeanCode/LargeS"
 
