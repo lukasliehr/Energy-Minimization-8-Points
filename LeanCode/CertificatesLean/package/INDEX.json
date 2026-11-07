@@ -1,0 +1,600 @@
+{
+  "schema": "thomson-analytic-residual-certificates-v3",
+  "date": "2026-10-11",
+  "finite_closed_union": [
+    [
+      "0",
+      "97"
+    ]
+  ],
+  "tail_lower": "97",
+  "finite_basis_implementation": "analytic_contact_jet_right_inverse",
+  "finite_cells": [
+    {
+      "cell": {
+        "id": "base_A_01",
+        "degree": 12,
+        "center": "1/5",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 12,
+      "closed_nonnegative_interval": [
+        "0",
+        "2/5"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C001"
+    },
+    {
+      "cell": {
+        "id": "base_A_05",
+        "degree": 12,
+        "center": "1",
+        "halfwidth": "3/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 17,
+      "closed_nonnegative_interval": [
+        "2/5",
+        "8/5"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C002"
+    },
+    {
+      "cell": {
+        "id": "base_A_08",
+        "degree": 12,
+        "center": "8/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 14,
+      "closed_nonnegative_interval": [
+        "13/10",
+        "19/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C003"
+    },
+    {
+      "cell": {
+        "id": "base_B_00",
+        "degree": 12,
+        "center": "11/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 14,
+      "closed_nonnegative_interval": [
+        "19/10",
+        "5/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C004"
+    },
+    {
+      "cell": {
+        "id": "base_B_02",
+        "degree": 12,
+        "center": "13/5",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 13,
+      "closed_nonnegative_interval": [
+        "12/5",
+        "14/5"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C005"
+    },
+    {
+      "cell": {
+        "id": "base_B_04",
+        "degree": 12,
+        "center": "33/10",
+        "halfwidth": "1/2",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 21,
+      "closed_nonnegative_interval": [
+        "14/5",
+        "19/5"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C006"
+    },
+    {
+      "cell": {
+        "id": "base_B_09",
+        "degree": 12,
+        "center": "4",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 16,
+      "closed_nonnegative_interval": [
+        "19/5",
+        "21/5"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C007"
+    },
+    {
+      "cell": {
+        "id": "base_B_11",
+        "degree": 12,
+        "center": "22/5",
+        "halfwidth": "1/2",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 22,
+      "closed_nonnegative_interval": [
+        "39/10",
+        "49/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C008"
+    },
+    {
+      "cell": {
+        "id": "base_B_15",
+        "degree": 12,
+        "center": "26/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 17,
+      "closed_nonnegative_interval": [
+        "49/10",
+        "11/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C009"
+    },
+    {
+      "cell": {
+        "id": "base_B_18",
+        "degree": 12,
+        "center": "29/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 16,
+      "closed_nonnegative_interval": [
+        "11/2",
+        "61/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C010"
+    },
+    {
+      "cell": {
+        "id": "base_B_21",
+        "degree": 12,
+        "center": "32/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 16,
+      "closed_nonnegative_interval": [
+        "61/10",
+        "67/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C011"
+    },
+    {
+      "cell": {
+        "id": "base_B_24",
+        "degree": 12,
+        "center": "7",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 15,
+      "closed_nonnegative_interval": [
+        "67/10",
+        "73/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C012"
+    },
+    {
+      "cell": {
+        "id": "base_B_26",
+        "degree": 12,
+        "center": "38/5",
+        "halfwidth": "2/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 16,
+      "closed_nonnegative_interval": [
+        "36/5",
+        "8"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C013"
+    },
+    {
+      "cell": {
+        "id": "base_B_30",
+        "degree": 12,
+        "center": "169/20",
+        "halfwidth": "9/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 17,
+      "closed_nonnegative_interval": [
+        "8",
+        "89/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C014"
+    },
+    {
+      "cell": {
+        "id": "base_B_35",
+        "degree": 12,
+        "center": "46/5",
+        "halfwidth": "7/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 15,
+      "closed_nonnegative_interval": [
+        "177/20",
+        "191/20"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C015"
+    },
+    {
+      "cell": {
+        "id": "base_B_38",
+        "degree": 12,
+        "center": "49/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 14,
+      "closed_nonnegative_interval": [
+        "19/2",
+        "101/10"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C016"
+    },
+    {
+      "cell": {
+        "id": "base_B_41",
+        "degree": 12,
+        "center": "211/20",
+        "halfwidth": "9/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 16,
+      "closed_nonnegative_interval": [
+        "101/10",
+        "11"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C017"
+    },
+    {
+      "cell": {
+        "id": "base_C_00",
+        "degree": 12,
+        "center": "207/16",
+        "halfwidth": "33/16",
+        "order": 12,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 27,
+      "closed_nonnegative_interval": [
+        "87/8",
+        "15"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C018"
+    },
+    {
+      "cell": {
+        "id": "base_C_07",
+        "degree": 12,
+        "center": "31/2",
+        "halfwidth": "1/2",
+        "order": 12,
+        "profile": "far4",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 15,
+      "closed_nonnegative_interval": [
+        "15",
+        "16"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C019"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c18",
+        "degree": 14,
+        "center": "75/4",
+        "halfwidth": "11/4",
+        "order": 16,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 28,
+      "closed_nonnegative_interval": [
+        "16",
+        "43/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C020"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c23",
+        "degree": 14,
+        "center": "49/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 28,
+      "closed_nonnegative_interval": [
+        "43/2",
+        "55/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C021"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c29",
+        "degree": 14,
+        "center": "61/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 32,
+      "closed_nonnegative_interval": [
+        "55/2",
+        "67/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C022"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c35",
+        "degree": 14,
+        "center": "73/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 27,
+      "closed_nonnegative_interval": [
+        "67/2",
+        "79/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C023"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c41",
+        "degree": 14,
+        "center": "41",
+        "halfwidth": "3/2",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 17,
+      "closed_nonnegative_interval": [
+        "79/2",
+        "85/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C024"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c44",
+        "degree": 14,
+        "center": "91/2",
+        "halfwidth": "15/4",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 29,
+      "closed_nonnegative_interval": [
+        "167/4",
+        "197/4"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C025"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c50",
+        "degree": 14,
+        "center": "50",
+        "halfwidth": "3/2",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 17,
+      "closed_nonnegative_interval": [
+        "97/2",
+        "103/2"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C026"
+    },
+    {
+      "cell": {
+        "id": "finite_d16_c56",
+        "degree": 16,
+        "center": "56",
+        "halfwidth": "6",
+        "order": 12,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 25,
+      "closed_nonnegative_interval": [
+        "50",
+        "62"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C027"
+    },
+    {
+      "cell": {
+        "id": "finite_d16_c68",
+        "degree": 16,
+        "center": "72",
+        "halfwidth": "10",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 30,
+      "closed_nonnegative_interval": [
+        "62",
+        "82"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C028"
+    },
+    {
+      "cell": {
+        "id": "extension_d16_c84_h2",
+        "degree": 16,
+        "center": "84",
+        "halfwidth": "3",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 18,
+      "closed_nonnegative_interval": [
+        "81",
+        "87"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C029"
+    },
+    {
+      "cell": {
+        "id": "extension_d18_c92_h2",
+        "degree": 18,
+        "center": "92",
+        "halfwidth": "5",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "method": "bernstein_residual_exact",
+      "validation_order": 22,
+      "closed_nonnegative_interval": [
+        "87",
+        "97"
+      ],
+      "acceptance": "fresh_complete_analytic_residual_replay",
+      "reference": "C030"
+    }
+  ],
+  "analytic_finite": {
+    "path": "AnalyticFinite/INDEX.json",
+    "sha256": "f9892f0f98ede329d50b037dba4a29f4d7b8c41cafb63c7e4c6155dee424d92e",
+    "source_bindings": "AnalyticFinite/source_bindings.json",
+    "source_bindings_sha256": "8e2759fd45b941c8c384c0b1e4edd4b75eb06fc2fc3a4f0f7aa281ad5d471c06",
+    "replay_summary": "verification/analytic_finite/SUMMARY.json",
+    "replay_summary_sha256": "02d73852b4dd732f0a7866888b363f6230dcc63133b30c5845d9ce47e548a991"
+  },
+  "tail_replay": {
+    "summary": "verification/tail/SUMMARY.json",
+    "sha256": "a973bbea356f8d1589cb652e6ea487781dd6213bb3b25ff98e8508aec1c2d66e"
+  },
+  "analytic_premise_ledger": {
+    "path": "ANALYTIC_PREMISES.json",
+    "sha256": "68feee9159bc81ad2fa121b9832b89827feccc3fa3c3104dbf419626cd65b18e"
+  }
+}

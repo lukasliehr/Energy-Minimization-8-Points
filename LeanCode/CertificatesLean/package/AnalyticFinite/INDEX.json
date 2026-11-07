@@ -1,0 +1,455 @@
+{
+  "schema": "thomson-analytic-finite-index-v1",
+  "cells": [
+    {
+      "cell": {
+        "id": "base_A_01",
+        "degree": 12,
+        "center": "1/5",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        12
+      ],
+      "proposal": "AnalyticFinite/cells/base_A_01.json"
+    },
+    {
+      "cell": {
+        "id": "base_A_05",
+        "degree": 12,
+        "center": "1",
+        "halfwidth": "3/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        17
+      ],
+      "proposal": "AnalyticFinite/cells/base_A_05.json"
+    },
+    {
+      "cell": {
+        "id": "base_A_08",
+        "degree": 12,
+        "center": "8/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        14
+      ],
+      "proposal": "AnalyticFinite/cells/base_A_08.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_00",
+        "degree": 12,
+        "center": "11/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        14
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_00.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_02",
+        "degree": 12,
+        "center": "13/5",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        13
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_02.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_04",
+        "degree": 12,
+        "center": "33/10",
+        "halfwidth": "1/2",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        21
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_04.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_09",
+        "degree": 12,
+        "center": "4",
+        "halfwidth": "1/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        16
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_09.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_11",
+        "degree": 12,
+        "center": "22/5",
+        "halfwidth": "1/2",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        22
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_11.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_15",
+        "degree": 12,
+        "center": "26/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        17
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_15.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_18",
+        "degree": 12,
+        "center": "29/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        16
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_18.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_21",
+        "degree": 12,
+        "center": "32/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        16
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_21.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_24",
+        "degree": 12,
+        "center": "7",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        15
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_24.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_26",
+        "degree": 12,
+        "center": "38/5",
+        "halfwidth": "2/5",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        16
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_26.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_30",
+        "degree": 12,
+        "center": "169/20",
+        "halfwidth": "9/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        17
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_30.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_35",
+        "degree": 12,
+        "center": "46/5",
+        "halfwidth": "7/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        15
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_35.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_38",
+        "degree": 12,
+        "center": "49/5",
+        "halfwidth": "3/10",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        14
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_38.json"
+    },
+    {
+      "cell": {
+        "id": "base_B_41",
+        "degree": 12,
+        "center": "211/20",
+        "halfwidth": "9/20",
+        "order": 8,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        16
+      ],
+      "proposal": "AnalyticFinite/cells/base_B_41.json"
+    },
+    {
+      "cell": {
+        "id": "base_C_00",
+        "degree": 12,
+        "center": "207/16",
+        "halfwidth": "33/16",
+        "order": 12,
+        "profile": "original",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        27
+      ],
+      "proposal": "AnalyticFinite/cells/base_C_00.json"
+    },
+    {
+      "cell": {
+        "id": "base_C_07",
+        "degree": 12,
+        "center": "31/2",
+        "halfwidth": "1/2",
+        "order": 12,
+        "profile": "far4",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        15
+      ],
+      "proposal": "AnalyticFinite/cells/base_C_07.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c18",
+        "degree": 14,
+        "center": "75/4",
+        "halfwidth": "11/4",
+        "order": 16,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        28
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c18.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c23",
+        "degree": 14,
+        "center": "49/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        28
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c23.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c29",
+        "degree": 14,
+        "center": "61/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        32
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c29.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c35",
+        "degree": 14,
+        "center": "73/2",
+        "halfwidth": "3",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        27
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c35.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c41",
+        "degree": 14,
+        "center": "41",
+        "halfwidth": "3/2",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        17
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c41.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c44",
+        "degree": 14,
+        "center": "91/2",
+        "halfwidth": "15/4",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        29
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c44.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d14_c50",
+        "degree": 14,
+        "center": "50",
+        "halfwidth": "3/2",
+        "order": 12,
+        "profile": "general",
+        "balance": "unit"
+      },
+      "validation_orders": [
+        17
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d14_c50.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d16_c56",
+        "degree": 16,
+        "center": "56",
+        "halfwidth": "6",
+        "order": 12,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "validation_orders": [
+        25
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d16_c56.json"
+    },
+    {
+      "cell": {
+        "id": "finite_d16_c68",
+        "degree": 16,
+        "center": "72",
+        "halfwidth": "10",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "validation_orders": [
+        30
+      ],
+      "proposal": "AnalyticFinite/cells/finite_d16_c68.json"
+    },
+    {
+      "cell": {
+        "id": "extension_d16_c84_h2",
+        "degree": 16,
+        "center": "84",
+        "halfwidth": "3",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "validation_orders": [
+        18
+      ],
+      "proposal": "AnalyticFinite/cells/extension_d16_c84_h2.json"
+    },
+    {
+      "cell": {
+        "id": "extension_d18_c92_h2",
+        "degree": 18,
+        "center": "92",
+        "halfwidth": "5",
+        "order": 16,
+        "profile": "general",
+        "balance": "riesz"
+      },
+      "validation_orders": [
+        22
+      ],
+      "proposal": "AnalyticFinite/cells/extension_d18_c92_h2.json"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "thomson-analytic-local-tail-replay-v3",
+  "status": "PASS_FRESH_REDUCED_TAIL_NUMERICS",
+  "cutoff": 97,
+  "analytic_tail_proof_label": "prop:tail97",
+  "analytic_tail_parameter_lower": "97/2",
+  "source_sha256": {
+    "Tail/dihedral_basis.py": "19b557edb83bbd9d296362771a284352d847c38130e88bf550ea5b1d25c934d5",
+    "Tail/invariant_basis.py": "8a32b97682f1190ec8087a6af010dd020438f667c09e1ce12ead8db394ad52a3",
+    "Tail/edge_basis.py": "1114a3dee76490dcf43ce9f7bdd803c0aae74b0261b56187ac0eff0637bd82b1",
+    "Tail/exact_geometry.py": "69fd4079a6701524eb8f5f4f23fda5f0f706b4d82c0390a3fb67d8a4b58a1795",
+    "Tail/verify_boundary.py": "8d1cc3e06091973985980fcc5e1ac5b21b5ee3f0c5eb09de959afd1f23612e44",
+    "Tail/witness.json": "3d143828cf8800ee6467dfd0363d01486c9b5e7f3edbd913d30af9bd3b693665"
+  },
+  "driver_sha256": "6a7102602b1ddd0dca460b46353a9a6b622888f2517050cfb9cf41e82f2fe44e",
+  "inputs_unchanged": true,
+  "runs": [
+    {
+      "check": "gnomonic_boundary",
+      "status": "PASS_EXACT_QUADRATIC_FIELD_BOUNDARY",
+      "exit_code": 0,
+      "seconds": 1.0974214699817821,
+      "report": "gnomonic_boundary.json",
+      "report_sha256": "4fdaa96942a870d24ac4137ac5b31e8d889964de4cb9da66c11db1fc8197e67c"
+    }
+  ],
+  "tail_scalar_CAP_predicates": 0,
+  "analytically_replaced_tail_scalar_predicates": 51,
+  "local_tensor_scalar_predicates": 0,
+  "local_tensor_systems": 0,
+  "maximum_local_system_dimension": 0,
+  "boundary_geometry_root_enclosures": 0,
+  "boundary_outward_interval_operations": 0,
+  "boundary_coefficient_lift": "canonical_symmetric_monomial_split",
+  "boundary_quartic_pair_count_operations": 0,
+  "boundary_coefficient_field": "Q(sqrt2)",
+  "external_local_tensor_witness": false,
+  "historical_reports_used": false,
+  "lean_executed": false,
+  "seconds": 1.0983074490213767,
+  "analytic_replacements": [
+    "tail from s=97: explicit rational trial, circulation entry, annulus and convex-domain estimates (prop:tail97)",
+    "spanning contact cube: all five degree cases",
+    "cube algebra",
+    "weighted and unweighted contact spectra",
+    "centered quadratic bound",
+    "six local annulus contractions",
+    "whole-ball mean implication and all51 residual tail scalar inequalities",
+    "pair-resolvent tensor identity replacing20 linear systems",
+    "all11 local norm bounds by convexity, spectral moments and rectangle interpolation",
+    "explicit Fourier boundary slice replaces projector inverse and13 Gram-Schmidt steps",
+    "explicit square factors remove all boundary Gram positivity predicates;174 invariant residual coordinates and one floor bound remain",
+    "canonical symmetric quartic lift removes105-squared product counts and2380 support/divisor checks",
+    "diagonal Fourier rescaling places all geometry and residual coefficients exactly in Q(sqrt2); the algebraic norm identity replaces geometric root enclosures, precise root bounds, and interval propagation"
+  ],
+  "scope": "Only the remaining boundary SOS CAP stage is replayed. The analytic implications and replacement proofs are in the paper."
+}

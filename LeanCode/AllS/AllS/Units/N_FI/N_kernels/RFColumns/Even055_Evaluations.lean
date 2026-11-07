@@ -1,0 +1,127 @@
+import AllS.Units.N_FI.N_kernels.RFColumnBridge
+import AllS.Units.N_FI.N_moment_kernels.N_candidate_factor
+import AllS.Generated.FiniteKernelRFCatalogue.Chunk0
+import AllS.Generated.FiniteKernelRFCatalogue.Chunk2
+
+noncomputable section
+open scoped BigOperators
+namespace Blueprint.Thomson.Finite.RFColumnProofs.Even055
+open Blueprint.CAP RFCatalogue RFBridge
+set_option maxHeartbeats 0
+set_option maxRecDepth 100000
+set_option linter.unusedSimpArgs false
+set_option linter.unusedTactic false
+set_option linter.unreachableTactic false
+set_option linter.unnecessarySeqFocus false
+
+def den : Polynomial ℚ := rf1326.denominator
+def n0 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (0 : ℚ)*Polynomial.X^1 + Polynomial.C (0 : ℚ)*Polynomial.X^2 + Polynomial.C (-3 : ℚ)*Polynomial.X^3 + Polynomial.C (14 : ℚ)*Polynomial.X^4 + Polynomial.C (-22 : ℚ)*Polynomial.X^5 + Polynomial.C (10 : ℚ)*Polynomial.X^6 + Polynomial.C (9 : ℚ)*Polynomial.X^7
+theorem eval0 (a : ℝ) (h : rf1326.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1326.eval a=evalQPoly n0 a/evalQPoly den a := by
+  change (evalQPoly rf1326.rational a+Real.sqrt 2*evalQPoly rf1326.irrational a)/evalQPoly rf1326.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n0,den,rf1326,rf1326]
+  all_goals ring
+#print axioms eval0
+
+def n1 : Polynomial ℚ := 0
+theorem eval1 (a : ℝ) (h : rf0013.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf0013.eval a=evalQPoly n1 a/evalQPoly den a := by
+  change (evalQPoly rf0013.rational a+Real.sqrt 2*evalQPoly rf0013.irrational a)/evalQPoly rf0013.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n1,den,rf0013,rf1326]
+  all_goals ring
+#print axioms eval1
+
+def n2 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (1/4 : ℚ)*Polynomial.X^1 + Polynomial.C (-1 : ℚ)*Polynomial.X^2 + Polynomial.C (2 : ℚ)*Polynomial.X^3 + Polynomial.C (-2 : ℚ)*Polynomial.X^4 + Polynomial.C (-5/4 : ℚ)*Polynomial.X^5
+theorem eval2 (a : ℝ) (h : rf1381.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1381.eval a=evalQPoly n2 a/evalQPoly den a := by
+  change (evalQPoly rf1381.rational a+Real.sqrt 2*evalQPoly rf1381.irrational a)/evalQPoly rf1381.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n2,den,rf1381,rf1326]
+  all_goals ring
+#print axioms eval2
+
+def n3 : Polynomial ℚ := 0
+theorem eval3 (a : ℝ) (h : rf0013.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf0013.eval a=evalQPoly n3 a/evalQPoly den a := by
+  change (evalQPoly rf0013.rational a+Real.sqrt 2*evalQPoly rf0013.irrational a)/evalQPoly rf0013.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n3,den,rf0013,rf1326]
+  all_goals ring
+#print axioms eval3
+
+def n4 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (0 : ℚ)*Polynomial.X^1 + Polynomial.C (3 : ℚ)*Polynomial.X^2 + Polynomial.C (-14 : ℚ)*Polynomial.X^3 + Polynomial.C (34 : ℚ)*Polynomial.X^4 + Polynomial.C (-42 : ℚ)*Polynomial.X^5 + Polynomial.C (27 : ℚ)*Polynomial.X^6
+theorem eval4 (a : ℝ) (h : rf1362.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1362.eval a=evalQPoly n4 a/evalQPoly den a := by
+  change (evalQPoly rf1362.rational a+Real.sqrt 2*evalQPoly rf1362.irrational a)/evalQPoly rf1362.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n4,den,rf1362,rf1326]
+  all_goals ring
+#print axioms eval4
+
+def n5 : Polynomial ℚ := 0
+theorem eval5 (a : ℝ) (h : rf0013.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf0013.eval a=evalQPoly n5 a/evalQPoly den a := by
+  change (evalQPoly rf0013.rational a+Real.sqrt 2*evalQPoly rf0013.irrational a)/evalQPoly rf0013.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n5,den,rf0013,rf1326]
+  all_goals ring
+#print axioms eval5
+
+def n6 : Polynomial ℚ := Polynomial.C (-1/4 : ℚ)*Polynomial.X^0 + Polynomial.C (1 : ℚ)*Polynomial.X^1 + Polynomial.C (-7/2 : ℚ)*Polynomial.X^2 + Polynomial.C (5 : ℚ)*Polynomial.X^3 + Polynomial.C (-13/4 : ℚ)*Polynomial.X^4
+theorem eval6 (a : ℝ) (h : rf1452.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1452.eval a=evalQPoly n6 a/evalQPoly den a := by
+  change (evalQPoly rf1452.rational a+Real.sqrt 2*evalQPoly rf1452.irrational a)/evalQPoly rf1452.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n6,den,rf1452,rf1326]
+  all_goals ring
+#print axioms eval6
+
+def n7 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (0 : ℚ)*Polynomial.X^1 + Polynomial.C (0 : ℚ)*Polynomial.X^2 + Polynomial.C (-6 : ℚ)*Polynomial.X^3 + Polynomial.C (16 : ℚ)*Polynomial.X^4 + Polynomial.C (-18 : ℚ)*Polynomial.X^5
+theorem eval7 (a : ℝ) (h : rf1416.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1416.eval a=evalQPoly n7 a/evalQPoly den a := by
+  change (evalQPoly rf1416.rational a+Real.sqrt 2*evalQPoly rf1416.irrational a)/evalQPoly rf1416.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n7,den,rf1416,rf1326]
+  all_goals ring
+#print axioms eval7
+
+def n8 : Polynomial ℚ := 0
+theorem eval8 (a : ℝ) (h : rf0013.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf0013.eval a=evalQPoly n8 a/evalQPoly den a := by
+  change (evalQPoly rf0013.rational a+Real.sqrt 2*evalQPoly rf0013.irrational a)/evalQPoly rf0013.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n8,den,rf0013,rf1326]
+  all_goals ring
+#print axioms eval8
+
+def n9 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (3/2 : ℚ)*Polynomial.X^1 + Polynomial.C (-3 : ℚ)*Polynomial.X^2 + Polynomial.C (7/2 : ℚ)*Polynomial.X^3
+theorem eval9 (a : ℝ) (h : rf1506.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1506.eval a=evalQPoly n9 a/evalQPoly den a := by
+  change (evalQPoly rf1506.rational a+Real.sqrt 2*evalQPoly rf1506.irrational a)/evalQPoly rf1506.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n9,den,rf1506,rf1326]
+  all_goals ring
+#print axioms eval9
+
+def n10 : Polynomial ℚ := Polynomial.C (0 : ℚ)*Polynomial.X^0 + Polynomial.C (0 : ℚ)*Polynomial.X^1 + Polynomial.C (-6 : ℚ)*Polynomial.X^2 + Polynomial.C (16 : ℚ)*Polynomial.X^3 + Polynomial.C (-18 : ℚ)*Polynomial.X^4
+theorem eval10 (a : ℝ) (h : rf1487.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf1487.eval a=evalQPoly n10 a/evalQPoly den a := by
+  change (evalQPoly rf1487.rational a+Real.sqrt 2*evalQPoly rf1487.irrational a)/evalQPoly rf1487.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n10,den,rf1487,rf1326]
+  all_goals ring
+#print axioms eval10
+
+def n11 : Polynomial ℚ := 0
+theorem eval11 (a : ℝ) (h : rf0013.DefinedAt a) (hD : evalQPoly den a≠0) :
+    rf0013.eval a=evalQPoly n11 a/evalQPoly den a := by
+  change (evalQPoly rf0013.rational a+Real.sqrt 2*evalQPoly rf0013.irrational a)/evalQPoly rf0013.denominator a=_
+  apply (div_eq_div_iff h hD).2
+  norm_num [evalQPoly,n11,den,rf0013,rf1326]
+  all_goals ring
+#print axioms eval11
+
+
+end Blueprint.Thomson.Finite.RFColumnProofs.Even055

@@ -1,0 +1,21 @@
+{
+  "schema": "thomson-analytic-finite-cell-manifest-v1",
+  "cell": {
+    "id": "base_B_30",
+    "degree": 12,
+    "center": "169/20",
+    "halfwidth": "9/20",
+    "order": 8,
+    "profile": "original",
+    "balance": "unit"
+  },
+  "validation_orders": [
+    17
+  ],
+  "witness": {
+    "path": "AnalyticFinite/witnesses/base_B_30.capd.xz",
+    "compression": "capd1-xz",
+    "compressed_sha256": "f4650c3cc12c66c1a7e218635a54bc9fb1c2ab98d963de261b877d3f9f354d91",
+    "semantic_sha256": "fe826fa58d47a829af9d88e90f2e20510ef77eb2024ce37f898cc227fc31ee3f"
+  }
+}

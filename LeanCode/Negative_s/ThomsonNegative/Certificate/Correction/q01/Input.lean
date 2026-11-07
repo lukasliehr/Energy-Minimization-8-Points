@@ -1,0 +1,18 @@
+import ThomsonNegative.Certificate.Correction.CenterKernel
+import ThomsonNegative.Certificate.StoredKernel
+import ThomsonNegative.Compact.Target.Cells.Q01
+import ThomsonNegative.Certificate.Cells.q01.ResidualData
+
+namespace ThomsonNegative.Certificate.Correction.q01
+open ThomsonNegative.Compact.Packed
+open ThomsonNegative.Certificate
+open ThomsonNegative.Certificate.Correction
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+noncomputable def argument : TM := ⟨0xa827363cba782e90608656ec105e62aeef90f20f89638a461411f99d06a120a6799b54d137a817017be590ceb02130, 0xa827363cba782e90608656ec105e62aeef90f20f89638a461411f99d06a120a6799b54d137a817017be590ceb02130, 0xa827363cba782e90608656ec105e62aeef90f20f89638a461411f99d06a120a6799b54d137a817017be590ceb02130, 0x358b1fd829f78f6ff54342a1784c2c6474d81019605c679857a185ea8fcc90be66765577a307c7252253e980630cb9, true⟩
+noncomputable def heightBall : TM := collapseAt sourceContext context false 0x53a827363cba782e90608656ec105e62aeef90f20f89638a461411f99d06a120a6799b54d137a817017be590ceb02130 Compact.Target.Cells.Q01.data.heightCheckpoint
+noncomputable def argumentComputed : TM := refresh context (addC context true 0x530000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 1 heightBall)
+theorem argument_checked : sameTM argumentComputed argument=true := by decide +kernel
+noncomputable def residual (j : Nat) : TM := (ThomsonNegative.Certificate.Cells.q01.residualCheckpoint).getD j zeroTM
+end ThomsonNegative.Certificate.Correction.q01

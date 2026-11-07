@@ -3,8 +3,9 @@ import Mathlib
 /-!
 # Energy minimization for eight points on the sphere
 
-The four Lean-verified results of the paper: `s = 0`, `s = 1`, all sufficiently
-large `s`, and a counterexample for completely monotone potentials.
+The two Lean-verified results of the paper: global optimality for every real
+`s > -2`, with the exact minima for `s = 0` and `s = 1`, and a counterexample
+for completely monotone potentials.
 All definitions needed to read the statements are included here.
 The same statements, with proofs, appear in `Showcase_WithProofs.lean`.
 -/
@@ -25,10 +26,12 @@ def IsConfiguration (Y : Fin 8 → Point) : Prop :=
   (∀ i, ‖Y i‖ = 1) ∧ Function.Injective Y
 
 /-- The energy `E_s`, summed over the 28 unordered pairs; `s = 0` is logarithmic.
+For `s ≠ 0` the sum is divided by `s`: for `s < 0`, minimizing `E_s` maximizes the sum of
+distance powers, and for `s > 0` the division does not change the minimizers.
 For real exponents, `d ^ t` denotes the real power `Real.rpow d t`. -/
 def E (s : ℝ) (Y : Fin 8 → Point) : ℝ :=
   ∑ i : Fin 8, ∑ j : Fin 8 with i < j,
-    if s = 0 then -log ‖Y i - Y j‖ else ‖Y i - Y j‖ ^ (-s)
+    if s = 0 then -log ‖Y i - Y j‖ else ‖Y i - Y j‖ ^ (-s) / s
 
 /-- Congruence up to an orthogonal transformation and a permutation of the labels. -/
 def Congruent (Y Z : Fin 8 → Point) : Prop :=
@@ -63,38 +66,22 @@ def F (s a : ℝ) : ℝ :=
   16 * dA a ^ (-q) + 16 * dB a ^ (-q)
     - 8 * (2 + √2) * dC a ^ (-q) - 8 * (2 - √2) * dD a ^ (-q)
 
-/-! ## Logarithmic energy (`s = 0`): exact minimum and uniqueness -/
+/-! ## Global optimality for every `s > -2` -/
 
-/-- The logarithmic case of Global optimality and Exact logarithmic minimum. -/
-theorem logarithmic_minimum :
-    let a₀ := (2 * √58 - 13) / 7
-    IsUniqueMinimizer 0 (X a₀) ∧
-      E 0 (X a₀) = -12 * log 2 - 6 * log (1 - a₀)
-        - 4 * log (1 + 6 * a₀ + a₀ ^ 2) := by
-  sorry
-
-/-! ## Coulomb energy (`s = 1`): Thomson's problem for eight points -/
-
-/-- The Coulomb case of Global optimality and Exact Coulomb minimum.
-The first two clauses characterize `a₁` as the unique root of `F(1,·)` in `(0,1)`. -/
-theorem coulomb_minimum :
-    ∃ a₁ ∈ Set.Ioo (0 : ℝ) 1,
-      (∀ b ∈ Set.Ioo (0 : ℝ) 1, F 1 b = 0 ↔ b = a₁) ∧
-      IsUniqueMinimizer 1 (X a₁) ∧
-      E 1 (X a₁) = (4 * √2 + 2) / √(1 - a₁)
-        + 8 / √(dC a₁) + 8 / √(dD a₁) := by
-  sorry
-
-/-! ## Riesz energy for all sufficiently large `s` -/
-
-/-- The eventual case of Global optimality, including the unique parameter for every `s ≥ 0`.
-The threshold `S > 0` is existential; no numerical upper bound is asserted. -/
-theorem eventual_global_optimality :
+/-- Global optimality for every real `s > -2`, with logarithmic energy at `s = 0`.
+For each `s`, `a s` is the unique root of `F(s,·)` in `(0,1)` and `X(a s)` is the unique
+minimizer up to congruence. The last two clauses give the exact minimal energies
+for `s = 0` and `s = 1`. -/
+theorem all_s_global_optimality :
     ∃ a : ℝ → ℝ,
-      (∀ s ≥ (0 : ℝ), a s ∈ Set.Ioo 0 1 ∧
+      (∀ s > (-2 : ℝ), a s ∈ Set.Ioo 0 1 ∧
         ∀ b ∈ Set.Ioo (0 : ℝ) 1, F s b = 0 ↔ b = a s) ∧
       a 0 = (2 * √58 - 13) / 7 ∧
-      ∃ S > 0, ∀ s ≥ S, IsUniqueMinimizer s (X (a s)) := by
+      (∀ s > (-2 : ℝ), IsUniqueMinimizer s (X (a s))) ∧
+      E 0 (X (a 0)) = -12 * log 2 - 6 * log (1 - a 0)
+        - 4 * log (1 + 6 * a 0 + a 0 ^ 2) ∧
+      E 1 (X (a 1)) = (4 * √2 + 2) / √(1 - a 1)
+        + 8 / √(dC (a 1)) + 8 / √(dD (a 1)) := by
   sorry
 
 /-! ## A counterexample for completely monotone potentials -/

@@ -1,0 +1,14 @@
+import ThomsonNegative.Certificate.Correction.q07.Row46
+
+namespace ThomsonNegative.Certificate.Correction.q07
+open ThomsonNegative.Certificate.Correction
+open ThomsonNegative.Structure.Exact
+set_option maxRecDepth 100000
+set_option maxHeartbeats 20000000
+
+theorem contraction46_6 : (centerEquation Source.r46n residual (centers46 6) 3094 49 1024 6).check=true := by decide +kernel
+theorem contraction46_7 : (centerEquation Source.r46n residual (centers46 7) 3094 49 1024 7).check=true := by decide +kernel
+theorem contraction46_8 : (centerEquation Source.r46n residual (centers46 8) 3094 49 1024 8).check=true := by decide +kernel
+theorem contraction46_9 : (centerEquation Source.r46n residual (centers46 9) 3094 49 1024 9).check=true := by decide +kernel
+theorem contraction46_10 : (centerEquation Source.r46n residual (centers46 10) 3094 49 1024 10).check=true := by decide +kernel
+end ThomsonNegative.Certificate.Correction.q07

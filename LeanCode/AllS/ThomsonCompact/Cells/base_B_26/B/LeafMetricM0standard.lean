@@ -1,0 +1,13 @@
+import ThomsonCompact.Cells.base_B_26.B.Metric
+/-! F3c leaf MetricM0standard of cell base_B_26 (generated). -/
+
+
+set_option maxHeartbeats 0
+set_option maxRecDepth 100000
+namespace ThomsonCompact.Cells.C_base_B_26.B.Leaves
+open ThomsonCompact.Floor ThomsonCompact.Cells.C_base_B_26.B
+
+theorem metricM0standard : checkTheta nbM0standard wzM0standard 64 mbM0standard zrowsM0standard exM0standard klM0standard thM0standard = true ∧
+    checkTotal ((List.range 1).map fun _ => GcM0standard) GetaM0standard (GcM0standard + GetaM0standard) thM0standard (32 + mbM0standard) 4 = true := ⟨by decide +kernel, by decide +kernel⟩
+
+end ThomsonCompact.Cells.C_base_B_26.B.Leaves

@@ -27,3 +27,23 @@ srcDir = "LeanCode/Coulomb"
 [[lean_lib]]
 name = "Lean_Code"
 srcDir = "LeanCode/LargeS"
+
+[[lean_lib]]
+name = "ThomsonCompact"
+srcDir = "LeanCode/AllS"
+
+[[lean_lib]]
+name = "AllS"
+srcDir = "LeanCode/AllS"
+
+[[lean_lib]]
+name = "Blueprint"
+srcDir = "LeanCode/AllS"
+
+[[lean_lib]]
+name = "Pilot"
+srcDir = "LeanCode/AllS"
+
+[[lean_lib]]
+name = "ThomsonNegative"
+srcDir = "LeanCode/Negative_s"
