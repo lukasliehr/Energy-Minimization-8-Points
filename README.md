@@ -61,9 +61,11 @@ $\lim_{t\downarrow0}f(t)=\infty$, and
 where $x_1(a),\ldots,x_8(a)$ are the vertices of $X(a)$.
 Thus no square antiprism minimizes the energy associated with $f$.
 
-> [!NOTE]
-> The two proved theorems depend only on `propext`, `Classical.choice`
-> and `Quot.sound`. **No** `native_decide` was used.
+<table><tr><td>
+
+The two proved theorems depend only on `propext`, `Classical.choice` and `Quot.sound`. **No** `native_decide` was used.
+
+</td></tr></table>
 
 ## Computer-assisted proof for all nonnegative exponents
 
