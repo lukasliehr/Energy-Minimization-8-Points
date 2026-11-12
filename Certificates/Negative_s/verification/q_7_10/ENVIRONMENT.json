@@ -1,0 +1,13 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "numpy": "2.3.5",
+  "mpmath": "1.3.0",
+  "integer_backend": "gmp",
+  "integer_backend_module": "/mnt/data/negative_s_work/CAP_Negative_s/portable_backend/flint.py",
+  "original_s_interval": [
+    "-4/5",
+    "-2/5"
+  ],
+  "inputs_unchanged": true,
+  "backend_version": "portable GMP exact integer adapter"
+}

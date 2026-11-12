@@ -1,0 +1,10 @@
+{
+  "parameter": "q=(s+2)/2",
+  "cells": [
+    "q_1_10.json",
+    "q_3_10.json",
+    "q_1_2.json",
+    "q_7_10.json",
+    "q_9_10.json"
+  ]
+}

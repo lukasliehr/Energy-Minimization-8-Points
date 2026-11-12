@@ -1,0 +1,414 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype,booktabs}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Sph}{\mathbb S^2}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\Eh}{\widehat E}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\title[Eight points: negative exponents]{A compact negative-exponent extension of the eight-point certificate}
+\author{}
+\date{September 21, 2026}
+\begin{document}
+\begin{abstract}
+We extend the finite three-point certificate in the supplied nonnegative-exponent
+proof to the interval $-2<s\le0$. Subtracting an exactly summable centroid term
+and dividing by $(s+2)/2$ removes the degeneracy at $s=-2$. The resulting
+auxiliary potentials are regular on a closed parameter interval, which is
+covered by five degree-$12$ certificates with Taylor order $10$. The extension
+uses the same matrix blocks, coefficient correction and equality argument as
+the supplied proof, with new compact witnesses and new uniform verifications.
+The statement at $s=-2$ itself remains nonunique.
+\end{abstract}
+\maketitle
+
+\section{Statement and normalization}
+For $Y=(y_1,\ldots,y_8)\in(\Sph)^8$, set
+\[
+ \Eh_s(Y)=\sum_{i<j}\phi_s(y_i\cdot y_j),\qquad
+ \phi_s(t)=\begin{cases}
+ ((2-2t)^{-s/2}-1)/s,&s\ne0,\\
+ -\tfrac12\log(2-2t),&s=0.
+ \end{cases}
+\]
+For $s<0$ the value at $t=1$ is defined by continuity; for $s=0$ it is
+$+\infty$. Thus collisions are permitted in the domain. At nonzero $s$, this
+energy differs from $s^{-1}\sum_{i<j}|y_i-y_j|^{-s}$ by the constant $-28/s$.
+Use the same square-antiprism family and squared-height parameter as in the
+supplied manuscript~\cite{source}:
+\begin{equation}\label{eq:X}
+ X(a)=\left\{\left(\sqrt{1-a}\cos\frac{j\pi}{4},
+ \sqrt{1-a}\sin\frac{j\pi}{4},(-1)^j\sqrt a\right):0\le j<8\right\}.
+\end{equation}
+
+\begin{theorem}\label{thm:negative}
+For each $-2<s\le0$ there is a unique squared height $a_s\in(0,1)$ minimizing
+$\Eh_s(X(a))$. For every $Y\in(\Sph)^8$,
+\[
+ \Eh_s(Y)\ge\Eh_s(X(a_s)),
+\]
+with equality exactly up to an orthogonal transformation and relabeling.
+The finite obligations in the proof below are computer-assisted.
+\end{theorem}
+
+Combined with the nonnegative-exponent theorem of the supplied package,
+Theorem~\ref{thm:negative} gives the normalized statement for every $s>-2$.
+This combination uses the supplied positive-exponent proof; the new computation
+does not rerun its 111 finite cells or its large-exponent checks.
+
+\section{Removing the endpoint degeneracy}
+Put $q=(s+2)/2$. For $0\le q\le1$ and $-1\le t<1$, define
+\begin{equation}\label{eq:integral}
+ \Psi_q(t)=2\int_{-1}^t(t-u)(2-2u)^{-q-1}\,du.
+\end{equation}
+This integral and every parameter derivative are well defined on compact
+subsets with $t<1$: the integrand is smooth and its derivatives are uniformly
+bounded on the compact integration region. Differentiation under the integral
+therefore follows from dominated convergence. In particular,
+\begin{equation}\label{eq:derivatives}
+ \Psi_q(-1)=\Psi_q'(-1)=0,\qquad
+ \Psi_q^{(j)}(t)=2^{j-1}(q+1)_{j-2}(2-2t)^{1-q-j}>0\quad(j\ge2),
+\end{equation}
+where $(q+1)_0=1$. Twice integrating the equality
+$\phi_{2q-2}''(t)=q\Psi_q''(t)$ gives, for $q>0$,
+\begin{equation}\label{eq:decompose}
+ \phi_{2q-2}(t)=\phi_{2q-2}(-1)+4^{-q}(t+1)+q\Psi_q(t).
+\end{equation}
+The formula includes $q=1$ through the logarithmic definition. The regular
+endpoint potentials are
+\begin{align}
+ \Psi_0(t)&=(1-t)\log\frac{1-t}{2}+t+1,\label{eq:end0}\\
+ \Psi_1(t)&=-\frac12\log\frac{1-t}{2}-\frac{t+1}{4}.\label{eq:end1}
+\end{align}
+Let $V_q(Y)=\sum_{i<j}\Psi_q(y_i\cdot y_j)$, using the continuous value at
+collisions for $q<1$ and $+\infty$ for $q=1$. Every $X(a)$ has centroid zero.
+Since
+\[
+ \sum_{i<j}y_i\cdot y_j=\frac12\left(\norm{\sum_i y_i}^2-8\right),
+\]
+equation~\eqref{eq:decompose} gives the exact identity
+\begin{equation}\label{eq:centroid}
+ \Eh_{2q-2}(Y)-\Eh_{2q-2}(X(a))
+ =\frac{4^{-q}}2\norm{\sum_i y_i}^2
+   +q\bigl(V_q(Y)-V_q(X(a))\bigr)\qquad(0<q\le1).
+\end{equation}
+At $q<1$ it extends to collisions by continuity. At $q=1$ a colliding
+configuration already has infinite energy.
+
+\begin{proposition}[The certified auxiliary statement]\label{prop:aux}
+For every $q\in[0,1]$, the energy $V_q$ is uniquely minimized, up to congruence,
+by an antiprism $X(a(q))$, with $0<a(q)<1/3$.
+\end{proposition}
+
+Theorem~\ref{thm:negative} follows from this proposition and
+\eqref{eq:centroid}, with $a_s=a((s+2)/2)$. The multiplier $q$ is strictly
+positive in the theorem. At $s=-2$ it vanishes: indeed
+$\Eh_{-2}(Y)=-18+\tfrac12\norm{\sum_i y_i}^2$, so every centroid-zero
+configuration minimizes that energy. The stronger auxiliary statement at
+$q=0$ must not be confused with uniqueness for the original energy at $s=-2$.
+
+\section{The regularized root and scalar minorant}
+Put $b_-=2+\sqrt2$, $b_+=2-\sqrt2$, and
+\[
+ d_A=2(1-a),\quad d_B=4(1-a),\quad
+ d_C=2-\sqrt2+b_-a,\quad d_D=2+\sqrt2+b_+a.
+\]
+These squared distances have unordered-pair multiplicities $8,4,8,8$.
+With weights $w=(16,16,-8b_-,-8b_+)$, which sum to zero, define
+\begin{equation}\label{eq:Fbar}
+ \overline F(q,a)=\begin{cases}
+ \displaystyle\sum_{i=A,B,C,D}w_i\frac{e^{-q\log d_i}-1}{q},&q\ne0,\\[2mm]
+ \displaystyle-\sum_{i=A,B,C,D}w_i\log d_i,&q=0.
+ \end{cases}
+\end{equation}
+The removable extension is smooth for $0<a<1$, and direct differentiation gives
+\begin{align}
+ \partial_a V_q(X(a))&=\tfrac12\overline F(q,a),\label{eq:rootderivative}\\
+ \partial_a\overline F(q,a)
+ &=32d_A^{-q-1}+64d_B^{-q-1}
+   +8b_-^2d_C^{-q-1}+8b_+^2d_D^{-q-1}>0.\label{eq:Fbara}
+\end{align}
+The closed interval certificates below validate a root of $\overline F=0$
+with $0<a(q)<1/3$ for every $q\in[0,1]$. Strict positivity in
+\eqref{eq:Fbara} makes that root unique on $(0,1)$ and, by
+\eqref{eq:rootderivative}, makes it the unique family minimizer. The implicit
+function theorem applies, including in a neighborhood of either endpoint.
+
+For clarity, root validation is not based on trusting a numerical root.
+The checker constructs a polynomial $p(\tau)$ for $q=c+h\tau$, $|\tau|\le1$,
+bounds $|\overline F(q,p(\tau))|$ by $\epsilon$, and bounds
+$\partial_a\overline F$ from below by $m>0$ on a padded tube. It checks that
+$\epsilon/m$ is smaller than the padding. The mean value theorem and the
+intermediate value theorem give the unique exact root in that tube and
+$|a(q)-p(\tau)|\le\epsilon/m$. This error is retained in all subsequent models.
+
+Define the contact inner products
+\begin{equation}\label{eq:contacts}
+ A=a,\quad B=2a-1,\quad C=-a+(1-a)/\sqrt2,\quad D=-a-(1-a)/\sqrt2.
+\end{equation}
+The checker validates that they lie in $(-1,1)$, are distinct and nonzero,
+and contain no opposite pair. Let $H_q$ be the polynomial of degree at most
+$12$ agreeing with $\Psi_q$ to multiplicity two at each of $A,B,C,D$, and
+to multiplicity five at $-1$. Existence and uniqueness follow from the
+invertible confluent interpolation problem at these distinct nodes.
+For $t<1$, the Hermite remainder and \eqref{eq:derivatives} give
+\begin{equation}\label{eq:minorant}
+ \Psi_q(t)-H_q(t)\ge
+ \frac{\Psi_q^{(13)}(-1)}{13!}(t+1)^5
+       \prod_{\alpha\in\{A,B,C,D\}}(t-\alpha)^2\ge0.
+\end{equation}
+Here the derivative at the remainder point is at least its value at $-1$,
+since $\Psi_q^{(14)}>0$. Equality occurs only at the five interpolation nodes.
+For $q<1$, $\Psi_q(1)=2\,4^{-q}/(1-q)$, and taking $t\uparrow1$ in
+\eqref{eq:minorant} proves a strictly positive gap also at $t=1$.
+For $q=1$ the potential diverges there. Thus collisions cannot attain equality.
+
+\section{What the finite certificates prove}
+We use the three-point construction of Cohn and Woo~\cite{CW} in the explicit
+form of Section 2 of the supplied manuscript~\cite{source}. We spell out why
+its finite criterion applies to the new potentials. Set
+$e_q=V_q(X(a(q)))$ and
+\[
+ P_q(u,v,t)=\frac{H_q(u)+H_q(v)+H_q(t)}3-\frac{e_q}{28},\qquad
+ \Delta=1+2uvt-u^2-v^2-t^2.
+\]
+For $0\le k\le5$, let $Q_0=1$, $Q_1=t-uv$, and
+\[
+ Q_k=2(t-uv)Q_{k-1}-(1-u^2)(1-v^2)Q_{k-2}.
+\]
+For $0\le i,j\le6-k$, set $S_{k,ij}=\Sym(u^iv^jQ_k)$, where $\Sym$ is
+the average over all six coordinate permutations, and define
+\[
+ R_k=6S_k+S_k(u,u,1)+S_k(v,v,1)+S_k(t,t,1)+\frac{\delta_{k0}}7\mathbf J.
+\]
+The full moment $M_k(Y)$ is the sum of $S_k$ over all ordered triples of
+labels, allowing repeated labels. For a fixed first point, projecting the
+other two points to its tangent plane expresses the double sum through
+cosine and sine feature outer products. This proves $M_k(Y)\succeq0$;
+vanishing tangent projections are handled by continuity of the polynomial
+formula. Separating repeated labels gives
+\begin{equation}\label{eq:count}
+ \sum_{\text{ordered distinct labels}}R_k=6M_k(Y).
+\end{equation}
+These are geometric identities, independent of the potential or of $q$.
+
+At the antiprism each $M_k$ has rank at most one: vertex transitivity and
+the reflection fixing a vertex make its cosine feature vector common and
+its sine vector zero. A verified positive diagonal pivot proves rank one.
+Its kernel basis is formed from the columns
+$e_f-M_k[r,f]e_r/M_k[r,r]$ and a fixed witness change of basis, giving $N_k$.
+For each of the raw monomial vectors of degrees at most $6,5,4$, impose
+vanishing on the 21 ordered candidate contact triples. Inverting a checked
+$21$-column evaluation minor yields a kernel basis; a fixed witness change
+of basis gives the feature vectors $z_0,z_1,z_\Delta$. The candidate's five
+unordered types are
+\[
+ (D,D,A),\ (D,B,C),\ (D,C,A),\ (B,A,A),\ (C,C,A),
+\]
+with respective multiplicities $8,16,16,8,8$.
+
+The new witnesses validate the coefficient identity
+\begin{align}\label{eq:certificate}
+ P_q={}&\sum_{k=0}^5\tr(N_kB_kN_k^TR_k)
+       +\Sym(z_0^TW_0z_0)\notag\\
+     &+\Sym((1-u^2)z_1^TW_1z_1)
+       +\Delta\Sym(z_\Delta^TW_\Delta z_\Delta),
+\end{align}
+where all nine reduced matrices are strictly positive definite.
+Their orders are
+\[
+ (6,5,4,3,2,1;63,35,14).
+\]
+There are $102$ symmetric polynomial coefficient coordinates and $2807$
+symmetric-matrix coordinates. The latter use diagonal entries unchanged
+and off-diagonal entries multiplied by $\sqrt2$.
+
+\subsection{Exactness, not a small numerical residual}
+At the fixed root, define two linear functionals on symmetric polynomials:
+$L_0(f)$ is its ordered-distinct-triple sum on $X(a)$, and $L_1(f)$ is the
+height derivative of that sum, with the polynomial coefficients frozen.
+They are independent, since
+\[
+ L_0(1)=336,\quad L_1(1)=0,\quad
+ L_1(u^2+v^2+t^2)=1152(3a-1)\ne0.
+\]
+Every certificate column belongs to $\ker L_0\cap\ker L_1$. For SOS columns
+this follows from contact vanishing to second order in the product. For
+moment columns, the frozen compression of the positive semidefinite full
+moment is zero at the candidate; each quadratic form has a minimum there,
+so its first derivative is zero, and polarization gives the matrix claim.
+The target belongs to the same common kernel, because interpolation gives
+$L_0(P_q)=0$, while first-derivative interpolation and
+\eqref{eq:rootderivative} give $L_1(P_q)=6\overline F(q,a)=0$.
+This is the only stationarity input needed here; it holds also at $q=0$.
+
+Let $A(q)w=b(q)$ be the full coefficient system. The witness chooses $100$
+rows $R$, a fixed correction matrix $C_r$, a left preconditioner $L$ and
+an initial vector $w_0$. Set
+\[
+ T=LA_RC_r,\qquad r=L(b_R-A_Rw_0),\qquad
+ w=w_0+C_rT^{-1}r.
+\]
+The exact checker proves $T$ invertible uniformly. Thus $A_R$ has rank
+$100$, its image fills the $100$-dimensional common kernel, and restriction
+to the selected rows is injective on that kernel. The selected residual
+is exactly zero by construction; therefore the full residual is exactly
+zero. The checker encloses this corrected $w$, including its complete
+Taylor and inverse errors, and validates all its reduced matrices as
+positive definite. A small floating-point residual is never substituted
+for this argument.
+
+\subsection{Global inequality and equality}
+Summing \eqref{eq:certificate} over ordered distinct labels gives
+$12(E_{H_q}(Y)-e_q)\ge0$: the moment terms are nonnegative by
+\eqref{eq:count}, and the remaining terms are nonnegative on spherical
+triples because $1-u^2\ge0$ and $\Delta\ge0$. Combining this with
+\eqref{eq:minorant} proves $V_q(Y)\ge e_q$ for every configuration, not
+merely for symmetric or stationary competitors.
+
+For equality, the scalar gap first excludes collisions and restricts
+inner products to $\{-1,A,B,C,D\}$. An antipodal pair is impossible: a
+third point would give an opposite pair of contact values, or zero, both
+excluded by the node tests. Strict positivity of $B_0$, and invertibility
+of its fixed change of basis, force each per-vertex moment vector to equal
+the candidate's moment vector: it is proportional to that vector by the
+kernel condition, and its zeroth coordinate is $8$. The Vandermonde system
+at the four distinct nodes then gives counts $n_A=2,n_B=1,n_C=n_D=2$ at
+every vertex. The first moments also give centroid zero.
+
+Strict positivity of $W_0$ forces $z_0$ to vanish at every equality triple.
+The checker validates a nonzero feature at $(A,A,A),(A,A,C),(A,A,D)$,
+so two incident $A$ edges force the opposite edge to be a $B$ edge.
+The graph of $A$ edges is two-regular, has no triangles, and cannot have
+a cycle of length at least five (it would give two distinct $B$ neighbors
+at each vertex). It is consequently two four-cycles. Each cycle has
+adjacent inner product $a$ and opposite inner product $2a-1$, and therefore
+is a Euclidean square of center squared norm $a$ and radius
+$\sqrt{1-a}$. Centroid zero makes the two centers opposite. The remaining
+inner products $C,D$ force planar angle cosines $\pm1/\sqrt2$, hence an
+offset of $\pi/4$ modulo $\pi/2$. The configuration is exactly
+\eqref{eq:X}, up to congruence. This proves Proposition~\ref{prop:aux}
+once the finite obligations in the next section are validated.
+
+\section{Endpoint-safe evaluation and verified cells}
+The inherited interval arithmetic and Taylor operations are unchanged.
+The new evaluator avoids dividing by $q$ or $q-1$ on a cell containing an
+endpoint. Define the entire functions
+\[
+ E(z)=\sum_{n\ge0}\frac{z^n}{(n+1)!},\qquad
+ D(a,b)=\sum_{n\ge0}\frac{\sum_{j=0}^n a^j b^{n-j}}{(n+2)!}.
+\]
+Here $D(a,b)=[0,a,b]\exp$ is the second divided difference, with its
+removable values at repeated nodes. If $\ell=\log(4/(2-2t))$, then
+\begin{align}
+ \Psi_q(t)&=2\,4^{-q}\ell^2D(-\ell,(q-1)\ell),\label{eq:dd}\\
+ \Psi_q'(t)&=4^{-q}\ell E(q\ell),\qquad
+ \overline F(q,a)=-\sum_iw_i\log(d_i)E(-q\log d_i).
+\end{align}
+For distinct parameters formula~\eqref{eq:dd} follows from the explicit
+divided-difference formula and \eqref{eq:decompose}; analyticity then
+extends it to repeated nodes, including $q=0,1$. Alternatively both
+expressions have second $t$ derivative \eqref{eq:derivatives} and vanish
+to first order at $-1$. The higher derivatives are evaluated directly
+by \eqref{eq:derivatives}.
+
+Both series are absolutely and uniformly convergent on bounded sets.
+Truncating after $n=M$, with $|z|\le R$ or $|a|,|b|\le R$, gives in either
+case the valid error bound
+\begin{equation}\label{eq:tail}
+ \frac{e^R R^{M+1}}{(M+2)!}.
+\end{equation}
+For $E$, factor the first omitted power and bound the remaining factorial
+ratio by $1/k!$. For $D$, bound its numerator by $(n+1)R^n$ and use
+$(n+1)/(n+2)!\le1/(n+1)!$ before the same estimate. The implementation
+uses $M=32$ on these order-$10$ cells. Arithmetic Taylor remainders and
+the analytic series tails are both retained; they are not interchangeable.
+
+The parameter cells, read as exact rational numbers, are
+\[
+ [0,1/5],\ [1/5,2/5],\ [2/5,3/5],\ [3/5,4/5],\ [4/5,1].
+\]
+Each uses degree $12$, contact multiplicities $(2,2,2,2)$, endpoint
+multiplicity $5$, Taylor order $10$, and certificate multiplier $1$.
+The witnesses are new numerical proposals; the exact checker accepts them
+only after rebuilding the coefficient system and all bounds uniformly.
+\begin{table}[htbp]
+\centering
+\caption{Fresh uniform verification: upward-rounded bounds.}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+Auxiliary $q$ interval & Maximum PSD error $\delta$ & Inverse residual \\
+\midrule
+$[0,1/5]$ & 0.613964 & $5.436\times10^{-9}$ \\
+$[1/5,2/5]$ & 0.619303 & $5.593\times10^{-9}$ \\
+$[2/5,3/5]$ & 0.534026 & $4.266\times10^{-9}$ \\
+$[3/5,4/5]$ & 0.438488 & $4.210\times10^{-9}$ \\
+$[4/5,1]$ & 0.319059 & $3.980\times10^{-9}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the table, $\delta$ bounds the norm of each preconditioned reduced
+matrix minus the identity; the reported maximum is over all nine blocks.
+Thus $\delta<1$ proves strict positive definiteness. The inverse residual
+bounds the complete polynomial inverse residual and must also be less
+than one. Displayed decimal bounds are rounded upward; full outward
+machine bounds, root tubes, basis checks and equality exclusions are
+retained in the individual \path{verified.json} files. Exact rational
+aggregation of the five closed cells gives $[0,1]$ with no gap.
+
+\subsection{Scope and reproducibility}
+The publication records contain five fresh uniform cell computations,
+followed by an exact rational coverage check. Source and witness hashes
+were recorded before each cell and checked unchanged afterward. Hashes
+bind inputs; they do not prove inequalities. Numerical roots, inverses,
+eigenbases and matrix reconstructions from NumPy or mpmath are untrusted
+proposals. Acceptance uses integer interval arithmetic, integer matrix
+products, integer square roots and explicit rational series tails.
+
+The local verification used the included GMP exact-integer matrix adapter
+in place of python-flint. Its matrix operations are arbitrary-precision
+integer construction, multiplication, addition and export; it introduces
+no floating-point arithmetic. This backend change is disclosed in every
+run record. The default replay instead uses python-flint; either backend
+must satisfy the same exact-integer interface. The retained positive
+package is supplied only as the mathematical source of the finite
+criterion and the complementary nonnegative theorem. The new negative
+checks do not depend on reading its old success reports.
+
+This is a computer-assisted proof with an explicit mathematical reduction,
+not a Lean formalization. It relies on the correctness of the mathematical
+argument, checker indexing and control flow, Python, the integer backend,
+and the execution platform. To recompute the whole extension using a
+fresh output directory, run
+\begin{verbatim}
+python -B cap.py replay --jobs 4 --output new-replay
+\end{verbatim}
+For the optional GMP backend, append \verb|--backend gmp|; a C++17 compiler
+and GMP development libraries are required. A complete replay recomputes
+all five cells; an integrity check or an isolated successful cell is not
+a complete replay. See \path{README.md} for the precise command and
+publication-record provenance.
+
+\begin{thebibliography}{9}
+\bibitem{source} Supplied manuscript, \emph{Optimal eight-point configurations
+for all nonnegative exponents}, dated September 18, 2026, especially
+Section 2. The unmodified source is retained as
+\path{sources/positive_manuscript.tex}; its original archive location is
+\path{Thomson_8_Points-main/CAP_General_s/manuscript/paper.tex}.
+\bibitem{CW} H. Cohn and J. Woo, \emph{Three-point bounds for energy
+minimization}, J. Amer. Math. Soc. \textbf{25} (2012), 929--958.
+\end{thebibliography}
+\end{document}

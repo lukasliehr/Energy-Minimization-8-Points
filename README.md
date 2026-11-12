@@ -75,15 +75,15 @@ treats $s\ge97$ by an analytic argument with exact algebraic certificates.
 The certificates carried by the Lean proof, with their Python checkers, are
 in [LeanCode/CertificatesLean](LeanCode/CertificatesLean).
 
-The directory [Certificates_All_s](Certificates_All_s) contains an independent
+The directory [Certificates](Certificates) contains an independent
 computer-assisted proof that $X(a_s)$ is the unique global minimizer, up to congruence,
 for every real $s\gt0$ and for logarithmic energy at $s=0$. The proof uses
 exact interval certificates on 111 closed intervals covering $[0,124]$,
 together with an analytic argument and exact computational checks for
 $s\ge124$. The certificate data and
-[verification records](Certificates_All_s/verification)
+[verification records](Certificates/verification)
 are included. Instructions for reproducing the computations are in
-[CAP.md](Certificates_All_s/CAP.md).
+[CAP.md](Certificates/CAP.md).
 
 ## Computer-assisted proof for negative exponents
 
@@ -92,6 +92,11 @@ The Lean proof of global optimality in (i) for $-2\lt s\lt0$, in
 energy and covers $q=(s+2)/2\in[0,1]$ by five cells, each with an exact certificate checked by the
 Lean kernel. The certificate data are part of the Lean source. At $s=-2$ the minimizers are exactly
 the configurations with centroid zero, so uniqueness fails there.
+
+For the independent computation on $-2\lt s\le0$, the five witnesses and
+instructions for running the Python checker are in
+[Certificates/Negative_s](Certificates/Negative_s). The result for each cell
+is in the [verification summary](Certificates/Negative_s/verification/SUMMARY.json).
 
 ## Lean entry points
 
@@ -121,7 +126,7 @@ the configurations with centroid zero, so uniqueness fails there.
 | [LeanCode/Monotonic](LeanCode/Monotonic) | Counterexample for completely monotone potentials. |
 | [LeanCode/Bridge.lean](LeanCode/Bridge.lean) | Coordinates of the large-exponent development in the notation of the paper. |
 | [LeanCode/CertificatesLean](LeanCode/CertificatesLean) | Certificates carried by the Lean proof for every exponent $s\ge0$, with Python checkers. |
-| [Certificates_All_s](Certificates_All_s) | Independent certificates and checkers for every exponent $s\ge0$. |
+| [Certificates](Certificates) | Independent certificates and checkers for every exponent $s\gt-2$. |
 | [Visualization](Visualization) | Animation, video and still image. |
 
 ## Building

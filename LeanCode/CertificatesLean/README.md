@@ -6,8 +6,8 @@ generated from them are part of the Lean sources, as packed hexadecimal numerals
 checks them. The files document where the Lean data come from and can be checked independently in Python.
 
 [package](package) is a byte-identical copy of the certificate package. It covers $[0,97]$ by 30 cells
-and treats $s\ge97$ analytically, with an exact boundary certificate. This package differs from the
-one in [Certificates_All_s](../../Certificates_All_s), which uses 111 intervals covering $[0,124]$.
+and treats $s\ge97$ analytically, with an exact boundary certificate. The independent
+nonnegative-exponent certificates cover $[0,124]$ with 111 intervals in [Certificates](../../Certificates).
 
 | Path | Contents | Lean |
 | --- | --- | --- |

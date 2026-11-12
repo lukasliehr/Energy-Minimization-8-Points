@@ -1,9 +1,15 @@
-# Optimal eight-point configurations for all nonnegative exponents
+# Optimal eight-point configurations for all exponents $s>-2$
 
 This directory contains certificates and checkers for the computer-assisted proof that the
-optimized square antiprism uniquely minimizes Riesz energy among eight points
+optimized square antiprism uniquely minimizes the energy of eight points
 on the unit sphere, up to orthogonal transformations and relabeling, for every
-real exponent `s > 0`. At `s = 0` the energy is logarithmic.
+real exponent `s > -2`. At `s = 0` the energy is logarithmic. The energy
+and the Lean theorem are stated in the [repository README](../README.md#lean-verified-statements).
+
+For `-2 < s <= 0`, five interval certificates cover `q = (s+2)/2` from 0 to 1.
+The witnesses, verification records and replay instructions are in [Negative_s](Negative_s).
+
+## Nonnegative exponents
 
 The finite certificates cover the closed interval `[0,124]`. An analytic tail
 argument, with exact computational checks, covers every real `s >= 124`.
@@ -11,9 +17,8 @@ Each finite certificate is valid throughout its exponent interval.
 
 The computations use exact integer enclosures. Numerical solvers supply
 candidate matrices whose residuals are checked by exact arithmetic.
-The full-range proof has not yet been formalized in Lean.
 
-## Contents
+### Contents
 
 - `cap.py`: the complete replay entry point.
 - `finite/`: exact arithmetic, Taylor models, one finite checker and its cells.
@@ -22,7 +27,7 @@ The full-range proof has not yet been formalized in Lean.
 - `verification/`: complete verification records and input hashes.
 - `docs/`: instructions for the certificate reader and arithmetic tests.
 
-## Reproduce
+### Reproduce
 
 Use Python 3.13. Some intervals require several gigabytes of memory each.
 Set the number of concurrent intervals with `--jobs`.

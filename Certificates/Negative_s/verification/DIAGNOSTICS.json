@@ -1,0 +1,8 @@
+{
+  "status": "PASS_REGRESSION_TESTS_NOT_A_PROOF",
+  "integer_backend": "gmp",
+  "exact_integer_test_families": 45,
+  "high_precision_potential_and_derivative_comparisons": 80,
+  "reference_tolerance": "1e-75, numerical reference only; not used by proof checker",
+  "scope": "Finite diagnostic comparisons; mathematical coverage requires cap.py replay."
+}

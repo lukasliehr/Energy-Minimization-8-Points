@@ -1,0 +1,96 @@
+{
+  "source_archive_filename": "Thomson_8_Points-main (1).zip",
+  "source_archive_sha256": "9208c6326121e867d90ee4a35e7ba331c4ba00a29be526dd16d55d87182ffbea",
+  "source_archive_size_bytes": 46349118,
+  "source_subpackage": "Thomson_8_Points-main/CAP_General_s",
+  "unmodified_kernel_modules": [
+    {
+      "path": "kernel/codec.py",
+      "original_sha256": "b566dd4fb3db7ea6fd3ea2b5323100588ac6befbcac36d72997f80739e63a467",
+      "extension_sha256": "b566dd4fb3db7ea6fd3ea2b5323100588ac6befbcac36d72997f80739e63a467"
+    },
+    {
+      "path": "kernel/exact_i.py",
+      "original_sha256": "4b2f5d54f095fba6c9040360d09a28c9c47df02602acc9c8ce93cd6b62a605bc",
+      "extension_sha256": "4b2f5d54f095fba6c9040360d09a28c9c47df02602acc9c8ce93cd6b62a605bc"
+    },
+    {
+      "path": "kernel/exact_iv.py",
+      "original_sha256": "871664cd46ded505c80eb54bb425da1fd48c094183ae26da1bb51a32cc50fcab",
+      "extension_sha256": "871664cd46ded505c80eb54bb425da1fd48c094183ae26da1bb51a32cc50fcab"
+    },
+    {
+      "path": "kernel/exact_mm.py",
+      "original_sha256": "ce94d7ac2c41a893a5cc774ee07275b4db57b79058d400dd20c09b60e20106ac",
+      "extension_sha256": "ce94d7ac2c41a893a5cc774ee07275b4db57b79058d400dd20c09b60e20106ac"
+    },
+    {
+      "path": "kernel/fast_interval.py",
+      "original_sha256": "a13d616974d039b3664a62d0b8ff94546d824864991c66d2c2117e19b5b201d1",
+      "extension_sha256": "a13d616974d039b3664a62d0b8ff94546d824864991c66d2c2117e19b5b201d1"
+    },
+    {
+      "path": "kernel/hermite.py",
+      "original_sha256": "e1888d714fce9c0ba7f9366642fd14d9eb08ea0969610c712c11bc41c616a1cb",
+      "extension_sha256": "e1888d714fce9c0ba7f9366642fd14d9eb08ea0969610c712c11bc41c616a1cb"
+    },
+    {
+      "path": "kernel/interval_arithmetic.py",
+      "original_sha256": "21c203bf39c9243db05287059e161586cda7ad9527285a9254f0ca258812e790",
+      "extension_sha256": "21c203bf39c9243db05287059e161586cda7ad9527285a9254f0ca258812e790"
+    },
+    {
+      "path": "kernel/ipoly.py",
+      "original_sha256": "acac1a32fab676ede81f941690f5df1068423631e3881513e8e9d2d71111535b",
+      "extension_sha256": "acac1a32fab676ede81f941690f5df1068423631e3881513e8e9d2d71111535b"
+    },
+    {
+      "path": "kernel/matrix_models.py",
+      "original_sha256": "c9955ccf1396461321e8b074e179834652402f9dc7a2e4dae1c47f90dc3fba07",
+      "extension_sha256": "c9955ccf1396461321e8b074e179834652402f9dc7a2e4dae1c47f90dc3fba07"
+    },
+    {
+      "path": "kernel/parallel_chunks.py",
+      "original_sha256": "72eaf14625eb2a4b560e607ec4c5c13c3ea6ec25e0ad297ed7a709eea08ef572",
+      "extension_sha256": "72eaf14625eb2a4b560e607ec4c5c13c3ea6ec25e0ad297ed7a709eea08ef572"
+    },
+    {
+      "path": "kernel/recipe.py",
+      "original_sha256": "0d7ea5ab91a8ec1c3081615f67e1aff5706573f15270190d7644680ac820ffe3",
+      "extension_sha256": "0d7ea5ab91a8ec1c3081615f67e1aff5706573f15270190d7644680ac820ffe3"
+    },
+    {
+      "path": "kernel/structure.py",
+      "original_sha256": "a820537296033b8aa398dc644936cbaff9333d497f9eb515715b7404a51f2908",
+      "extension_sha256": "a820537296033b8aa398dc644936cbaff9333d497f9eb515715b7404a51f2908"
+    },
+    {
+      "path": "kernel/vector_dyadic.py",
+      "original_sha256": "6cdd51c20eb13b5194a7a20c82955fcec6a26ff77001c244150fe5c6a5e12340",
+      "extension_sha256": "6cdd51c20eb13b5194a7a20c82955fcec6a26ff77001c244150fe5c6a5e12340"
+    }
+  ],
+  "modified_kernel_modules": [
+    {
+      "path": "kernel/build_models.py",
+      "original_sha256": "daa6823529412b10f52da6e0280d5d990c3bad859519247b80bdc3951a4dca45",
+      "extension_sha256": "fe51e96c0e67ebdd9c371aa139f2a15bf846af8d8d0e42434bd24f9506af282d"
+    },
+    {
+      "path": "kernel/taylor_models.py",
+      "original_sha256": "baec10b590189b985a807fdec4fe525f2f119722ee3b77654865ef11960307af",
+      "extension_sha256": "8005338df02e18f2102c780ba20cdb607091e9482b4c9f4210dc4bb0ff03b31e"
+    },
+    {
+      "path": "kernel/verify_interval.py",
+      "original_sha256": "76fb408a73aec3a98b57bf0a0d97801bfe60f9a6f3cf6284d77c318a0308116c",
+      "extension_sha256": "00dd9b6d9afbb50153c0d1171c56ffd988edf68b3a615f4d6350f8a668d55c07"
+    }
+  ],
+  "new_construction": "q=(s+2)/2; centroid-subtracted Psi_q; entire divided-difference evaluation; five new degree-12 witnesses",
+  "integer_backend_for_recorded_run": "GMP via portable_backend/flint.py; NOT python-flint",
+  "positive_package_check": "Input integrity only, 641 files; positive finite and tail computations were not rerun",
+  "recorded_verification_method": "Five fresh standalone verify_cell.py processes, each bound to its kernel, cell, witness and integer-backend inputs; exact rational union aggregation afterward.",
+  "full_range_driver": "cap.py replay creates a new directory and reruns every cell; old reports are not inputs",
+  "formalization": "No Lean verification of this extension is claimed."
+}

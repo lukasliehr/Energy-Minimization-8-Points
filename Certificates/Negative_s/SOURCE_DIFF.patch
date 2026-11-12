@@ -1,0 +1,223 @@
+--- original/finite/kernel/build_models.py
++++ extension/kernel/build_models.py
+@@ -173,7 +173,7 @@
+     if balance_mode == "unit":
+         balance = TM.const(1)
+         rec["_target_multiplier"] = "1"
+-    elif balance_mode == "riesz":
++    elif balance_mode == "riesz_DISABLED_FOR_Q_EXTENSION":
+         cc = iv.mpf(center)
+         if not cc.a > 0 or not S.interval().a > 0:
+             raise ArithmeticError("Balanced target requires a positive cell")
+--- original/finite/kernel/taylor_models.py
++++ extension/kernel/taylor_models.py
+@@ -146,101 +146,113 @@
+ 
+ 
+ def potential_evaluation_mode(S):
+-    # Both formulas represent the same entire function of S. Near zero the
+-    # expm1(z)/z series avoids the large Taylor remainder of an inverse of S.
+-    # The cutoff is only an enclosure strategy, not a mathematical premise.
+-    si = S.interval()
+-    return "entire" if 0 in si or (si.a > -4 and si.b < 4) else "quotient"
+-
+-
+-def normalized_phi(S, T, k=0):
+-    d = 2 - 2 * T
+-    if k:
+-        pref = TM.const(1)
+-        for j in range(1, k):
+-            pref = pref * (S / 2 + j)
+-        return pref * ((-S / 2 - k) * d.log()).exp() * (2 ** (k - 1))
+-    ell = -d.log() / 2
+-    if potential_evaluation_mode(S) == "quotient":
+-        return ((S * ell).exp() - 1) / S
+-    z = S * ell
+-    zb = z.bound()
+-    r = TM.const(1)
++    return "entire-second-divided-difference"
++
++
++def expm1_over_z(z):
++    """Entire E(z)=(exp(z)-1)/z, with an explicit absolute tail."""
++    z = TM.coerce(z)
++    bound = z.bound()
++    terms = max(ORDER + 3, 32)
++    value = TM.const(1)
+     term = TM.const(1)
+-    terms = max(ORDER + 3, 32)
+     for n in range(1, terms + 1):
+         term = term * z / (n + 1)
+-        r = r + term
+-    r.e = (r.e + iv.exp(zb) * zb ** (terms + 1) / math.factorial(terms + 2)).b
+-    return ell * r
+-
+-
+-def family_equation(S, A):
+-    q = iv.sqrt(2)
+-    p = 1 + S / 2
+-    ds = [2 * (1 - A), 4 * (1 - A), A * (2 + q) + (2 - q), A * (2 - q) + (2 + q)]
+-    weights = [16, 16, -8 * (2 + q), -8 * (2 - q)]
+-    return sum([(-p * d.log()).exp() * w for w, d in zip(weights, ds)], TM.const(0))
+-
+-
+-def family_a_derivative(S, A):
+-    q = iv.sqrt(2)
+-    p = 1 + S / 2
+-    ds = [2 * (1 - A), 4 * (1 - A), A * (2 + q) + (2 - q), A * (2 - q) + (2 + q)]
+-    weights = [32, 64, 8 * (2 + q) ** 2, 8 * (2 - q) ** 2]
+-    return p * sum(
+-        [((-p - 1) * d.log()).exp() * w for w, d in zip(weights, ds)], TM.const(0)
+-    )
++        value = value + term
++    value.e = (value.e + iv.exp(bound) * bound ** (terms + 1)
++               / math.factorial(terms + 2)).b
++    return value
++
++
++def exp_second_dd(a, b):
++    """[0,a,b] exp, entire also at repeated nodes.
++    Series: sum_{n>=0} sum_{j=0}^n a^j b^(n-j)/(n+2)!.
++    The omitted absolute tail is <= exp(R) R^(M+1)/(M+2)!.
++    """
++    terms = max(ORDER + 3, 32)
++    R = max(a.bound(), b.bound())
++    value = TM.const(iv.mpf(1) / 2)
++    power_a = TM.const(1)
++    homogeneous = TM.const(1)
++    for n in range(1, terms + 1):
++        power_a = power_a * a
++        homogeneous = b * homogeneous + power_a
++        value = value + homogeneous / math.factorial(n + 2)
++    value.e = (value.e + iv.exp(R) * R ** (terms + 1)
++               / math.factorial(terms + 2)).b
++    return value
++
++
++def normalized_phi(Q, T, k=0):
++    """Psi_q(t), the centroid-subtracted potential; q=(s+2)/2.
++    Psi_q=(phi_{2q-2}(t)-phi_{2q-2}(-1)-4^(-q)(t+1))/q.
++    All removable q=0 and q=1 singularities are evaluated by entire series.
++    """
++    d = 2 - 2 * T
++    if k >= 2:
++        pref = TM.const(2 ** (k - 1))
++        for j in range(1, k - 1):
++            pref = pref * (Q + j)
++        return pref * ((1 - Q - k) * d.log()).exp()
++    ell = iv.log(iv.mpf(4)) - d.log()
++    scale = (-Q * iv.log(iv.mpf(4))).exp()
++    if k == 1:
++        return scale * ell * expm1_over_z(Q * ell)
++    return 2 * scale * ell ** 2 * exp_second_dd(-ell, (Q - 1) * ell)
++
++
++def family_equation(Q, A):
++    """F(s,a)/q with its removable q=0 singularity filled in."""
++    rt = iv.sqrt(2)
++    ds = [2*(1-A), 4*(1-A), 2-rt+(2+rt)*A, 2+rt+(2-rt)*A]
++    weights = [16, 16, -8*(2+rt), -8*(2-rt)]
++    result = TM.const(0)
++    for w, d in zip(weights, ds):
++        logd = d.log()
++        result = result - w * logd * expm1_over_z(-Q * logd)
++    return result
++
++
++def family_a_derivative(Q, A):
++    rt = iv.sqrt(2)
++    ds = [2*(1-A), 4*(1-A), 2-rt+(2+rt)*A, 2+rt+(2-rt)*A]
++    weights = [32, 64, 8*(2+rt)**2, 8*(2-rt)**2]
++    return sum([w*((-Q-1)*d.log()).exp() for w,d in zip(weights,ds)], TM.const(0))
+ 
+ 
+ def candidate_model(center, halfwidth):
+-    c = iv.mpf(center)
+-    h = iv.mpf(halfwidth)
+-    S = TM([c, h])
+-    smp = mp.mpf(center)
+-    qq = mp.sqrt(2)
+-    pmp = 1 + smp / 2
+-
++    c, h = iv.mpf(center), iv.mpf(halfwidth)
++    Q = TM([c, h])
++    cq = mp.mpf(center)
++    rt = mp.sqrt(2)
+     def f(a):
+-        d = [2 * (1 - a), 4 * (1 - a), 2 - qq + (2 + qq) * a, 2 + qq + (2 - qq) * a]
+-        return (
+-            16 * d[0] ** (-pmp)
+-            + 16 * d[1] ** (-pmp)
+-            - 8 * (2 + qq) * d[2] ** (-pmp)
+-            - 8 * (2 - qq) * d[3] ** (-pmp)
+-        )
+-
+-    ac = mp.findroot(f, (mp.mpf(".27"), mp.mpf(".33")))
+-    A = TM.const(iv.mpf(mp.nstr(ac, mp.mp.dps - 10)))
+-    for _ in range(ORDER.bit_length() + 2):
+-        F = family_equation(S, A)
+-        Fa = family_a_derivative(S, A)
+-        A = (A - F / Fa).poly_only()
+-    F = family_equation(S, A)
+-    fb = F.bound()
++        ds = [2*(1-a), 4*(1-a), 2-rt+(2+rt)*a, 2+rt+(2-rt)*a]
++        weights = [16, 16, -8*(2+rt), -8*(2-rt)]
++        if cq == 0:
++            return -sum(w*mp.log(d) for w,d in zip(weights,ds))
++        return sum(w*mp.expm1(-cq*mp.log(d))/cq for w,d in zip(weights,ds))
++    ac = mp.findroot(f, (mp.mpf(".30"), mp.mpf(".33")))
++    A = TM.const(iv.mpf(mp.nstr(ac, mp.mp.dps-10)))
++    for _ in range(ORDER.bit_length()+2):
++        A = (A-family_equation(Q,A)/family_a_derivative(Q,A)).poly_only()
++    residual = family_equation(Q,A).bound()
+     aq = A.interval()
+-    SI = S.interval()
++    qi = Q.interval()
+     padding = iv.mpf("1e-6")
+     for _ in range(12):
+         U = aq + radius(padding)
+-        q = iv.sqrt(2)
+-        p = 1 + SI / 2
+-        ds = [2 * (1 - U), 4 * (1 - U), 2 - q + (2 + q) * U, 2 + q + (2 - q) * U]
+-        weights = [32, 64, 8 * (2 + q) ** 2, 8 * (2 - q) ** 2]
+-        Fa = p * sum([w * d ** (-p - 1) for w, d in zip(weights, ds)], iv.mpf(0))
+-        if not Fa.a > 0:
++        rt = iv.sqrt(2)
++        ds = [2*(1-U), 4*(1-U), 2-rt+(2+rt)*U, 2+rt+(2-rt)*U]
++        weights = [32,64,8*(2+rt)**2,8*(2-rt)**2]
++        derivative = sum([w*d**(-qi-1) for w,d in zip(weights,ds)],iv.mpf(0))
++        if not derivative.a > 0:
+             raise ArithmeticError("No derivative lower bound")
+-        err = fb / Fa.a
+-        if err.b < padding.a:
+-            A.e = err.b
+-            return (
+-                S,
+-                A,
+-                {
+-                    "root_residual": str(fb),
+-                    "root_model_error": str(err),
+-                    "a_enclosure": str(A.interval()),
+-                },
+-            )
+-        padding = err * 2
++        error = residual/derivative.a
++        if error.b < padding.a:
++            A.e = error.b
++            if not A.interval().a > 0 or not A.interval().b < iv.mpf(1)/3:
++                raise ArithmeticError("Candidate root outside (0,1/3)")
++            return Q,A,{"root_residual":str(residual),"root_model_error":str(error),
++                        "a_enclosure":str(A.interval()),"parameter":"q=(s+2)/2"}
++        padding = error*2
+     raise ArithmeticError("Root model did not validate")
+--- original/finite/kernel/verify_interval.py
++++ extension/kernel/verify_interval.py
+@@ -410,7 +410,7 @@
+         "matrix_bound_type": "uniform symmetric operator-norm bound (minimum of proved entrywise and congruence estimates)",
+         "elapsed_seconds": time.time() - st,
+         "passed": True,
+-        "scope": "Global energy bound and uniqueness for every nonnegative exponent in the stated closed interval; logarithmic normalization at zero.",
++        "scope": "Global Psi_q energy bound and uniqueness on the full stated q interval; q=(s+2)/2. Negative-Riesz inference uses the centroid identity in proof.tex.",
+     }
+     if out:
+         Path(out).write_text(json.dumps(report, indent=2))

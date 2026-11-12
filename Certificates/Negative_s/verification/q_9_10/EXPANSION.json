@@ -1,0 +1,8 @@
+{
+  "generated_C_shape": [
+    2807,
+    100
+  ],
+  "generated_C_sha256_le_f64": "5cd0c6944afa3c54859afc7a5ffbd2e57fdf3b8a2a2a84bd1b0c819c6a7202d0",
+  "decoder_semantics": "untrusted numerical generation; actual finite output entries denote exact dyadics"
+}

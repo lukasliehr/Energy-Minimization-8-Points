@@ -1,0 +1,103 @@
+{
+  "auxiliary_parameter": "q=(s+2)/2",
+  "exact_auxiliary_union": [
+    "0",
+    "1"
+  ],
+  "original_Riesz_range": "-2 < s <= 0",
+  "degree": 12,
+  "Taylor_orders": [
+    10
+  ],
+  "cells": [
+    {
+      "id": "q_1_10",
+      "q_interval": [
+        "0",
+        "1/5"
+      ],
+      "s_interval": [
+        "-2",
+        "-8/5"
+      ],
+      "max_PSD_uniform_error": 0.6139631440911681,
+      "inverse_residual": 5.4355193952968906e-09,
+      "solution_error": 7.774039084455124e-08,
+      "minimum_forbidden_feature_bound": 0.006533683998997612,
+      "elapsed_seconds": 682.6255395412445,
+      "integer_backend": "gmp"
+    },
+    {
+      "id": "q_3_10",
+      "q_interval": [
+        "1/5",
+        "2/5"
+      ],
+      "s_interval": [
+        "-8/5",
+        "-6/5"
+      ],
+      "max_PSD_uniform_error": 0.6193023152338887,
+      "inverse_residual": 5.592000076869533e-09,
+      "solution_error": 6.716541525881415e-08,
+      "minimum_forbidden_feature_bound": 0.004827057170125892,
+      "elapsed_seconds": 686.941502571106,
+      "integer_backend": "gmp"
+    },
+    {
+      "id": "q_1_2",
+      "q_interval": [
+        "2/5",
+        "3/5"
+      ],
+      "s_interval": [
+        "-6/5",
+        "-4/5"
+      ],
+      "max_PSD_uniform_error": 0.5340255552869564,
+      "inverse_residual": 4.2654475336146655e-09,
+      "solution_error": 4.8901562626079595e-08,
+      "minimum_forbidden_feature_bound": 0.0040328805978378165,
+      "elapsed_seconds": 683.2692501544952,
+      "integer_backend": "gmp"
+    },
+    {
+      "id": "q_7_10",
+      "q_interval": [
+        "3/5",
+        "4/5"
+      ],
+      "s_interval": [
+        "-4/5",
+        "-2/5"
+      ],
+      "max_PSD_uniform_error": 0.4384872100854701,
+      "inverse_residual": 4.209879460180903e-09,
+      "solution_error": 4.2259009504747814e-08,
+      "minimum_forbidden_feature_bound": 0.004940815320829897,
+      "elapsed_seconds": 693.0348279476166,
+      "integer_backend": "gmp"
+    },
+    {
+      "id": "q_9_10",
+      "q_interval": [
+        "4/5",
+        "1"
+      ],
+      "s_interval": [
+        "-2/5",
+        "0"
+      ],
+      "max_PSD_uniform_error": 0.3190582108037433,
+      "inverse_residual": 3.979902853172472e-09,
+      "solution_error": 3.2855867922545253e-08,
+      "minimum_forbidden_feature_bound": 0.005025169424884564,
+      "elapsed_seconds": 678.3189039230347,
+      "integer_backend": "gmp"
+    }
+  ],
+  "conclusion": "Unique optimized square antiprism for Psi_q on [0,1]; centroid identity implies the normalized Riesz theorem for -2<s<=0. The original Riesz energy at s=-2 is not uniquely minimized.",
+  "status": "PASS_FIVE_FRESH_CELLS_EXACT_UNION",
+  "fresh_cell_computations": true,
+  "provenance": "The five verify_cell.py workers were launched directly during this computation; their complete reports and unchanged input bindings were then aggregated. The packaged cap.py replay command is provided for a new complete replay; it was not the launcher of these retained runs."
+}

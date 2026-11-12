@@ -1,0 +1,15 @@
+{
+  "id": "q_7_10",
+  "degree": 12,
+  "center": "7/10",
+  "halfwidth": "1/10",
+  "order": 10,
+  "profile": "original",
+  "balance": "unit",
+  "witness": {
+    "path": "certificates/39a6f5801908716440dcc03081347f194db8b2ff95d236b2e2126930130e8d11.capd.xz",
+    "semantic_sha256": "39a6f5801908716440dcc03081347f194db8b2ff95d236b2e2126930130e8d11",
+    "compressed_sha256": "86a00b818876bcd157da083f841a7c96203c32fcef00005d62602d507d5fcf08",
+    "compression": "capd1-xz"
+  }
+}

@@ -1,0 +1,3 @@
+numpy==2.3.5
+mpmath==1.3.0
+# Optional GMP backend additionally requires a C++17 compiler and GMP development libraries.

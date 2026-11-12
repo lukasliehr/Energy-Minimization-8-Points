@@ -1,7 +1,11 @@
 # Reproduce the certificate checks
 
-Use Python 3.13 and run the following commands from `Certificates_All_s/`
-in a fresh checkout:
+For the five cells covering `-2 < s <= 0`, follow the
+[negative-exponent replay instructions](Negative_s/README.md#recompute-the-complete-extension).
+
+## Nonnegative exponents
+
+Use Python 3.13. In a fresh checkout, run the following commands from `Certificates/`.
 
 ```sh
 python3 -m venv .venv

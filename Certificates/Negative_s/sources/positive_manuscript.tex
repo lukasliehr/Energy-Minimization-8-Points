@@ -1,0 +1,1761 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage[a4paper, hmargin={2.7cm,2.7cm},vmargin={3.3cm,3.3cm}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\mathtoolsset{showonlyrefs}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Sph}{\mathbb S^2}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\ip}[2]{\langle#1,#2\rangle}
+\newcommand{\Eh}{\widehat E}
+\newcommand{\dd}{\mathrm d}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\title[Optimal eight-point configurations]{Optimal eight-point configurations for all nonnegative exponents}
+\author{}
+\date{September 18, 2026}
+\hypersetup{pdftitle={Optimal eight-point configurations for all nonnegative exponents}}
+\begin{document}
+\begin{abstract}
+We prove, with computer assistance, that the height-optimized square
+antiprism uniquely minimizes logarithmic energy and Riesz energy of every
+positive exponent among eight-point configurations on the unit sphere,
+up to congruence.
+\end{abstract}
+\maketitle
+
+\section{Introduction and results}
+For eight distinct points $Y=(y_1,\ldots,y_8)$ on the unit sphere
+$\Sph\subset\R^3$, define
+\begin{equation}\label{eq:energy}
+ E_s(Y)=\sum_{i<j}|y_i-y_j|^{-s}\quad(s>0),\qquad
+ E_0(Y)=-\sum_{i<j}\log|y_i-y_j|.
+\end{equation}
+At a collision the energy is $+\infty$. Congruence means equality after
+an orthogonal transformation and a permutation of the points. The
+notation $s=0$ always refers to logarithmic energy. The direct
+substitution $s=0$ in the Riesz formula would instead give a constant.
+
+For $0<a<1$, let $X(a)$ be the square antiprism
+\begin{equation}\label{eq:family}
+ X(a)=\left\{\left(\sqrt{1-a}\cos\frac{j\pi}{4},
+ \sqrt{1-a}\sin\frac{j\pi}{4},(-1)^j\sqrt a\right):0\le j<8\right\}.
+\end{equation}
+The parameter $a$ is the squared height. For every $s\ge0$ there is a
+unique minimizer $a_s$ of $a\mapsto E_s(X(a))$; an exact equation for it
+is given below.
+
+\begin{theorem}\label{thm:main}
+Let $s\ge0$. For every eight-point configuration
+$Y$ on $\Sph$,
+\[
+ E_s(Y)\ge E_s(X(a_s)).
+\]
+Equality holds if and only if $Y$ is congruent to $X(a_s)$.
+\end{theorem}
+
+The square antiprism changes with $s$. Thus the theorem concerns a
+one-parameter family of optimal configurations. The logarithmic member
+has $a_0=(2\sqrt{58}-13)/7$.
+
+For bounded exponents we use the three-point method of Cohn and
+Woo~\cite{CW}. We construct a polynomial minorant of the pair
+potential and an exact three-point identity whose summed terms are
+nonnegative. Strict positivity of the certificate matrices also
+determines the equality case. For large exponents we first locate every
+possible global minimizer near the packing antiprism. We then place it
+and the optimized energy antiprism in a common convex coordinate set
+on which the full energy has positive Hessian.
+
+The integer arithmetic checks are described in
+Section~\ref{sec:arithmetic}. The accompanying programs and certificates
+verify its finite computational obligations; their use is described in
+\path{CAP.md}. The exact exponent intervals and verification records are
+included with the code.
+
+\subsection{The optimized height}
+It is convenient to use the normalized energy
+\[
+ \Eh_s(Y)=\sum_{i<j}\phi_s(y_i\cdot y_j),\qquad
+ \phi_s(t)=
+ \begin{cases}((2-2t)^{-s/2}-1)/s,&s>0,\\
+ -\tfrac12\log(2-2t),&s=0.
+ \end{cases}
+\]
+Thus $\Eh_s=(E_s-28)/s$ for $s>0$, and the minimizers are unchanged.
+The four squared distances of $X(a)$ are
+\begin{equation}\label{eq:distances}
+\begin{aligned}
+ d_A&=2(1-a),& d_B&=4(1-a),\\
+ d_C&=2-\sqrt2+(2+\sqrt2)a,&
+ d_D&=2+\sqrt2+(2-\sqrt2)a,
+\end{aligned}
+\end{equation}
+with multiplicities $8,4,8,8$, respectively. Write
+$b_-=2+\sqrt2$, $b_+=2-\sqrt2$.
+
+\begin{lemma}[Exact optimized parameter]\label{lem:parameter}
+For every $s\ge0$ there is exactly one $a_s\in(0,1)$ satisfying
+\begin{equation}\label{eq:root}
+ F(s,a_s)=0,
+\end{equation}
+where, with $q_s=1+s/2$,
+\begin{equation}\label{eq:F}
+ F(s,a)=16d_A^{-q_s}+16d_B^{-q_s}
+        -8b_-d_C^{-q_s}-8b_+d_D^{-q_s}.
+\end{equation}
+For $s>0$, $a_s$ uniquely minimizes $G_s(a)=E_s(X(a))$. At zero,
+\begin{equation}\label{eq:a0}
+ a_0=\frac{2\sqrt{58}-13}{7}.
+\end{equation}
+The normalized family minimum and the parameter depend smoothly on $s$
+near zero and throughout the positive half-line.
+\end{lemma}
+\begin{proof}
+Differentiating the normalized family energy gives
+$\partial_a\Eh_s(X(a))=F(s,a)/2$, including at $s=0$ by smooth extension.
+Furthermore,
+\begin{equation}\label{eq:Fa}
+ \partial_aF=q_s\left(32d_A^{-q_s-1}+64d_B^{-q_s-1}
+             +8b_-^2d_C^{-q_s-1}+8b_+^2d_D^{-q_s-1}\right)>0.
+\end{equation}
+At $a=0$, the two positive terms of $F$ sum to at most $12$, whereas
+the magnitude of its negative $d_C$ term is greater than
+$8(2+\sqrt2)>12$. As $a\uparrow1$, the positive terms tend to infinity
+and the negative terms remain bounded. Existence and uniqueness follow.
+At $s=0$, direct simplification gives
+\[
+ \frac12F(0,a)=\frac{2(7a^2+26a-9)}{(1-a)(a^2+6a+1)},
+\]
+which gives \eqref{eq:a0}. The implicit-function theorem applies because
+\eqref{eq:Fa} is strictly positive. The smooth extension of the normalized
+potential follows, for example, from
+\[
+ \phi_s(t)=\ell(t)\int_0^1 e^{s\ell(t)u}\,du,
+ \qquad \ell(t)=-\tfrac12\log(2-2t).
+\]
+\end{proof}
+
+
+
+
+
+The family minimizer is stationary for the energy on $(\Sph)^8$.
+Indeed, the symmetries of the antiprism act transitively on its vertices.
+A reflection fixing a vertex reverses its azimuthal tangent direction,
+so the energy gradient there has only a meridional component.
+Transitivity identifies these components with the derivative of the
+height variation. That derivative vanishes at $a_s$, so every tangential
+gradient vanishes.
+
+\section{A certificate for a bounded exponent interval}\label{sec:finite}
+We give one criterion for all the finite certificates. Let $I\subset[0,\infty)$
+be a closed interval and $d\ge6$ an integer. All definitions in this
+section are made for each $s\in I$ at the exact root $a=a_s$.
+Put $e_s=\Eh_s(X(a_s))$ and
+\begin{equation}\label{eq:nodes}
+ A=a,\quad B=2a-1,\quad
+ C=-a+(1-a)/\sqrt2,\quad D=-a-(1-a)/\sqrt2.
+\end{equation}
+We require $0<a<1/3$ and that these nodes are distinct, nonzero, in
+$(-1,1)$, and have no opposite pair. The unordered triangle types of
+$X(a)$ are
+\[
+ (D,D,A),\quad(D,B,C),\quad(D,C,A),\quad(B,A,A),\quad(C,C,A),
+\]
+with respective multiplicities $8,16,16,8,8$. Their permutations give 21 distinct
+ordered triples. These statements follow directly from \eqref{eq:family}.
+
+\subsection{A scalar minorant}
+Choose positive even contact multiplicities $m_A,m_B,m_C,m_D$, and a
+positive odd endpoint multiplicity $m_-$, with
+$m_-+m_A+m_B+m_C+m_D=2d+1$.
+Let $H_s$ be the polynomial of degree at most $2d$ whose derivatives
+through order $m_\alpha-1$ agree with those of $\phi_s$ at each node
+$\alpha\in\{-1,A,B,C,D\}$. Counting zeros with multiplicity proves
+uniqueness, and hence existence by finite-dimensional linear algebra.
+
+\begin{lemma}\label{lem:minorant}
+For $-1\le t<1$, $H_s(t)\le\phi_s(t)$, with equality precisely at
+$-1,A,B,C,D$.
+\end{lemma}
+\begin{proof}
+For $j\ge1$,
+\[
+ \phi_s^{(j)}(t)=2^{j-1}\prod_{k=1}^{j-1}(s/2+k)
+                    (2-2t)^{-s/2-j}>0,
+\]
+including $s=0$. Away from the interpolation nodes, the confluent
+interpolation remainder is a positive derivative divided by $(2d+1)!$,
+multiplied by
+$(t+1)^{m_-}\prod_{\alpha=A,B,C,D}(t-\alpha)^{m_\alpha}$.
+This product is strictly positive for $t>-1$ away from the contacts.
+At the nodes equality is part of the interpolation conditions.
+\end{proof}
+Consequently, writing $E_H(Y)=\sum_{i<j}H_s(y_i\cdot y_j)$,
+\begin{equation}\label{finite73:scalarenergy}
+ \Eh_s(Y)\ge E_H(Y),\qquad E_H(X(a_s))=e_s.
+\end{equation}
+We allow a positive scalar multiplier $\chi(s)$ of the certificate
+identity. The archived cells use either $\chi=1$ or, for a positive
+cell center $c$, $\chi(s)=(s/c)(3/2)^{(s-c)/2}$ on a positive interval.
+
+\subsection{Moment and contact-kernel polynomials}
+For a triple of points use coordinates $(u,v,t)=(x\cdot y,x\cdot z,y\cdot z)$. Let $\operatorname{Sym}$ mean the average over all six permutations of these coordinates, including repeated terms. Set
+\begin{equation}\label{finite73:Q}
+ Q_0=1,\quad Q_1=t-uv,\quad
+ Q_k=2(t-uv)Q_{k-1}-(1-u^2)(1-v^2)Q_{k-2}.
+\end{equation}
+For $0\leq k\leq d-1$ and $0\leq i,j\leq d-k$, form the symmetric matrix polynomial
+$S_{k,ij}=\operatorname{Sym}(u^iv^jQ_k)$ and put
+\begin{equation}\label{finite73:R}
+ R_k=6S_k+S_k(u,u,1)+S_k(v,v,1)+S_k(t,t,1)
+       +\frac{\delta_{k0}}7\mathbf J,
+\end{equation}
+where $\mathbf J$ is the all-ones matrix of the required order. Let $M_k(Y)$ be the sum of $S_k$ over all ordered triples of labels, including repeated labels, and let $\Psi_Y$ sum over ordered triples with distinct labels.
+
+\begin{lemma}[Moment positivity and counting]\label{finite73:moment}
+For every spherical configuration, $M_k(Y)\succeq0$ and $\Psi_Y(R_k)=6M_k(Y)$.
+\end{lemma}
+\begin{proof}
+At a fixed first vertex $x$, the recurrence is the polynomial version of
+$((1-u^2)(1-v^2))^{k/2}\cos(k\theta)$ for the angle between the projections of $y,z$ into $x^\perp$. Its double sum is a sum of cosine and sine feature outer products. For $k=0$ it is the usual moment-vector outer product. If a tangent projection vanishes and $k>0$, the prefactor is zero; hence the polynomial formula covers these cases continuously. Summing in $x$ gives positivity, and averaging permutations does not change the all-ordered sum.
+
+Separate all ordered triples into those with distinct labels, exactly two equal labels, and three equal labels. Every unordered pair belongs to six unordered triples. The three repeated-coordinate terms in \eqref{finite73:R}, when summed over ordered distinct triples, therefore supply six times the exactly-two-equal contribution to $M_k$. The all-equal contribution is $8\delta_{k0}\mathbf J$, while $\Psi_Y(\delta_{k0}\mathbf J/7)=336\delta_{k0}\mathbf J/7=48\delta_{k0}\mathbf J$. This proves the identity.
+\end{proof}
+
+For the candidate, reflection fixing a vertex makes each sine moment vanish, while vertex transitivity identifies the remaining cosine moment vectors up to sign. Thus each $M_k(X(a_s))$ has rank at most one. A verified positive diagonal pivot makes its rank exactly one. If its pivot index is $r$, its kernel is generated by
+\begin{equation}\label{finite73:momentkernel}
+ e_f-\frac{M_k[r,f]}{M_k[r,r]}e_r\qquad(f\ne r).
+\end{equation}
+Multiplication of this generator matrix by the fixed witness matrix $J_k$ gives $N_k$. These columns still belong to the exact kernel. Only the $k=0$ matrix $J_0$ needs a separate invertibility check for the equality proof below.
+
+For the three SOS blocks, take the raw monomial columns of degrees at most $d,d-1,d-2$ respectively. Evaluate at the $21$ ordered contacts. A verified invertible $21$-column pivot subsystem defines exact kernel generators with identity free rows and pivot rows $-E_{\rm piv}^{-1}E_{\rm free}$. Multiply these generators by their fixed witness change-of-coordinates matrices. Denote the resulting polynomial feature columns by $z_0,z_1,z_\Delta$. Each feature vanishes at all contacts. Without a further invertibility test on its fixed change of coordinates we assert kernel membership, not that every transformed list is a full basis.
+
+\subsection{The exact coefficient identity}
+Set
+\begin{equation}\label{finite73:target}
+\begin{aligned}
+ P_s(u,v,t)&=\frac{H_s(u)+H_s(v)+H_s(t)}3-\frac{e_s}{28},\\
+ \Delta(u,v,t)&=1+2uvt-u^2-v^2-t^2.
+\end{aligned}
+\end{equation}
+The required identity, as an identity of polynomial coefficients, is
+\begin{align}\label{finite73:identity}
+ \chi(s)P_s={}&\sum_{k=0}^{d-1}\operatorname{tr}(F_kR_k)
+ +\operatorname{Sym}(z_0^TW_0z_0)
+ +\operatorname{Sym}((1-u^2)z_1^TW_1z_1)\notag\\
+ &+\Delta\operatorname{Sym}(z_\Delta^TW_\Delta z_\Delta),
+ \qquad F_k=N_kB_kN_k^T,
+\end{align}
+where all reduced symmetric matrices $B_k,W_0,W_1,W_\Delta$ are positive definite. Every term has degree at most $2d$: the determinant-localized term even has degree at most $2d-1$. On a realized sphere triple, $1-u^2\geq0$ and $\Delta\geq0$ since $\Delta$ is the Gram determinant.
+
+Each unordered pair occurs twelve times in the ordered-distinct sum of $(H(u)+H(v)+H(t))/3$, and there are $336$ ordered distinct triples. Thus
+\begin{equation}\label{finite73:configurationidentity}
+ \Psi_Y(\chi P_s)=12\chi(s)(E_H(Y)-e_s)\geq0.
+\end{equation}
+Indeed the SOS terms are nonnegative individually, and the summed moment term is $6\operatorname{tr}(F_kM_k(Y))\geq0$ by Lemma~\ref{finite73:moment}. We do not require a pointwise positivity assertion for $R_k$. Equations~\eqref{finite73:scalarenergy} and \eqref{finite73:configurationidentity} imply the global energy inequality for every configuration; competitors need not be stationary or symmetric.
+
+Here is why a corrected identity on the retained rows is an exact identity on all rows. Let $V_{2d}$ be the space of symmetric three-variable polynomials of degree at most $2d$. The coefficient coordinates are the coefficients of individual canonical sorted monomials, not sums over their permutation orbits. Put $m=\dim V_{2d}$ and define
+\begin{equation}\label{finite73:annihilators}
+ L_0(f)=\Psi_{X(a_s)}f,\qquad
+ L_1(f)=\left.\frac{d}{da}\Psi_{X(a)}f\right|_{a=a_s}.
+\end{equation}
+In the second expression all coefficients of $f$, and in particular all candidate kernel matrices, $s$, and $\chi(s)$, are frozen. The pair sum of squared inner products in $X(a)$ is $48a^2-32a+12$. Consequently
+\begin{equation}\label{finite73:annihilatorindependence}
+ L_0(1)=336,\quad L_1(1)=0,\quad
+ L_1(u^2+v^2+t^2)=1152(3a_s-1)\ne0.
+\end{equation}
+The common kernel $K=\ker L_0\cap\ker L_1$ therefore has dimension $m-2$.
+
+Every coefficient column on the right side of \eqref{finite73:identity} belongs to $K$. A product of two contact-vanishing features has both value and first height derivative zero, even after multiplication by a localizer. For a moment column, freeze $N_k$ at $a_s$. The matrix $N_k^TM_k(X(a))N_k$ is positive semidefinite for nearby $a$ and is zero at $a_s$. Every quadratic form has a differentiable minimum there, so its derivative vanishes; polarization gives zero for every entry. This proves the assertion using the counting identity. The target also belongs to $K$: its value is zero by interpolation and $e_s=\Eh_s(X(a_s))$, and its derivative is $12\chi(s)\partial_a\widehat E_s(X(a_s))=6\chi(s)F(s,a_s)=0$, since Hermite first derivatives agree with $\phi_s'$.
+
+Collect the independent symmetric matrix entries in $w$, with the explicit convention
+\begin{equation}\label{finite73:svec}
+ w_{ii}=B_{ii},\qquad w_{ij}=\sqrt2 B_{ij}\quad(i<j).
+\end{equation}
+Unpacking divides off-diagonal coordinates by $\sqrt2$. Let $A(s)w=b(s)$ be the full coefficient system for \eqref{finite73:identity}. Its columns and target lie in $K$. The witness selects $m-2$ rows $R$, an $n\times(m-2)$ correction matrix $C_r$, an initial vector $w_0$, and optionally a square left preconditioner $L$ (otherwise $L=I$). Define
+\begin{equation}\label{finite73:correction}
+ T=L A_R C_r,\quad r=L(b_R-A_Rw_0),\qquad
+ w=w_0+C_rT^{-1}r.
+\end{equation}
+If $T$ is invertible, $L$ is invertible and $A_R$ has rank $m-2$. Since $\operatorname{im}A\subseteq K$, it follows that $\operatorname{im}A=K$, and restriction to the selected rows is injective on $K$. Equation~\eqref{finite73:correction} makes the selected residual zero. The full residual lies in $K$, so every coefficient is zero. No assumption about a particular distinguished pair of omitted rows is required.
+
+
+
+\begin{proposition}[Finite certificate criterion]\label{finite73:obligation}
+Suppose the node conditions above hold throughout $I$. Suppose that the
+moment pivots are positive, the contact evaluation pivots and the
+coefficient correction matrix $T$ are invertible, and every corrected
+matrix in \eqref{finite73:identity} is positive definite throughout $I$.
+Suppose also that $J_0$ is invertible and $z_0$ is nonzero at each of
+$(A,A,A),(A,A,C),(A,A,D)$. Then $X(a_s)$ uniquely minimizes $E_s$ up to
+congruence for every $s\in I$, with the logarithmic convention at zero.
+\end{proposition}
+\begin{proof}
+The exact coefficient correction proves \eqref{finite73:identity}.
+The moment counting identity and the nonnegative localizers give
+\eqref{finite73:configurationidentity}. Combining it with
+\eqref{finite73:scalarenergy} proves the energy inequality.
+The following argument proves uniqueness.
+\end{proof}
+
+\subsection{Equality classification}
+\begin{lemma}[Equality from the finite certificates]\label{finite73:equality}
+Under the hypotheses of Proposition~\ref{finite73:obligation}, if $E_s(Y)=E_s(X(a_s))$, then $Y$ is $X(a_s)$ up to an orthogonal transformation and relabeling.
+\end{lemma}
+\begin{proof}
+Equality in the scalar comparison and in \eqref{finite73:configurationidentity} forces every off-diagonal inner product to lie in $\{-1,A,B,C,D\}$. There is no antipodal pair: for such a pair and any third distinct vertex its two inner products would be $t$ and $-t$ in $\{A,B,C,D\}$. The nonzero and no-opposite-pair checks exclude this, including the possibility $t=0$.
+
+For each vertex $y$, put $m_y=(\sum_z(y\cdot z)^j)_{j=0}^{d}$, where the sum includes the vertex itself. The $k=0$ full moment is $M_0(Y)=\sum_y m_y m_y^T$. The candidate has $M_0(X(a_s))=8m_*m_*^T$ for its common moment vector $m_*$. Since the $B_0$ block is positive definite and its nonnegative summed term vanishes, $N_0^Tm_y=0$ for every $y$. The verified invertibility of $J_0$ makes the columns of $N_0$ span $m_*^\perp$. Hence $m_y$ is a scalar multiple of $m_*$. Their zeroth coordinates are both $8$, so $m_y=m_*$.
+
+Subtracting the self contribution at inner product $1$, the moments of orders $0,1,2,3$ form a Vandermonde system in the four distinct contact nodes. They force the per-vertex neighbor counts
+\begin{equation}\label{finite73:neighbors}
+ n_A=2,\qquad n_B=1,\qquad n_C=2,\qquad n_D=2.
+\end{equation}
+The first moment of the candidate is zero, so $y\cdot\sum_z z=0$ for every $y$. Summing in $y$ gives $|\sum_z z|^2=0$, proving that the configuration has zero centroid.
+
+The unweighted $W_0$ term in \eqref{finite73:identity} is strictly positive definite on nonzero feature vectors. Since the total sum vanishes, $z_0$ must vanish at each equality triangle. The verified nonzero feature coordinates at $(A,A,A),(A,A,C),(A,A,D)$ forbid those triangle types. Thus two incident $A$ edges force their opposite edge to have inner product $B$.
+
+The simple graph of $A$ edges is two-regular. A triangle is forbidden. A cycle of length at least five would give every vertex two distinct distance-two neighbors, both $B$ neighbors, contradicting \eqref{finite73:neighbors}. Therefore the graph is two four-cycles. For each, the Gram matrix in cyclic order is
+\begin{equation}\label{finite73:squaregram}
+ \begin{pmatrix}
+ 1&a&2a-1&a\\a&1&a&2a-1\\2a-1&a&1&a\\a&2a-1&a&1
+ \end{pmatrix}.
+\end{equation}
+Its row sums are $4a$. If $c_*$ is this four-cycle's centroid, then $|c_*|^2=a$ and each vertex has inner product $a$ with $c_*$. Subtracting $c_*$ gives four vectors of squared norm $1-a$, adjacent inner products zero, and opposite vectors equal to negatives. They are a regular square in $c_*^\perp$. The total centroid condition makes the other square's centroid $-c_*$, so the squares have a common axis. All cross inner products are $C$ or $D$, since the $A$ and $B$ neighbors are exhausted within each square. Their planar angle cosines are consequently $\pm1/\sqrt2$, which forces an angular offset $\pi/4$ modulo $\pi/2$. This is precisely \eqref{eq:family}.
+\end{proof}
+
+
+
+\subsection{Application to the finite range}
+The verified closed cells cover $[0,124]$. Each satisfies the hypotheses
+of Proposition~\ref{finite73:obligation}; the root tubes, inverse
+residuals, strict matrix bounds and equality exclusions are retained in
+the machine-readable reports. The exact endpoints and the witness and
+source bindings are the replay inputs, not rounded numbers read from a
+table. The independent aggregation recomputes their union using rational
+arithmetic and rejects a missing or failed cell. This proves
+Theorem~\ref{thm:main} for $0\le s\le124$.
+
+The scalar interpolation pattern is allowed to change between cells.
+No agreement between the two auxiliary polynomials is needed at a shared
+endpoint: either complete certificate suffices there.
+
+\section{The packing configuration}\label{r3:packing}
+Put
+\[
+ a=\frac{2\sqrt2-1}{7},\qquad P=X(a),\qquad \tau=2(1-a),\qquad
+ T(Y)=\max_{i<j}y_i\cdot y_j.
+\]
+A contact is a pair attaining $T$. We call a configuration \emph{contact-minimal
+locally optimal} if it has a neighborhood containing neither a smaller value
+of $T$ nor a configuration with the same $T$ and fewer contacts.
+
+\begin{theorem}\label{r3:packingclassification}
+Every contact-minimal locally optimal eight-point configuration with
+$T<3/10$ is congruent to $P$. Moreover, $T(Y)\ge a$ for all configurations,
+with equality exactly on the congruence orbit of $P$.
+\end{theorem}
+
+\subsection{Contact graph and facial geometry}
+Write $t=T(Y)<3/10$. The Gram matrix $G$ has trace $8$, is positive
+semidefinite, and has rank at most three. For $-1\le u\le t$,
+$u^2\le(t-1)u+t$. Hence, with $S=\sum_i y_i$,
+\[
+ \frac{64}{3}\le\tr G^2\le16+48t+(t-1)\norm S^2\le16+48t,
+\]
+so $t\ge1/9$. Contact edges have spherical length $\theta=\arccos t$,
+with $2\pi/5<\theta<\pi/2$. Their shorter great-circle arcs cannot cross:
+from each of two crossing edges choose an endpoint within $\theta/2$ of
+the crossing. The strict spherical triangle inequality would give a pair
+at distance less than $\theta$. Overlapping arcs on one great circle
+likewise give a too-close pair of endpoints.
+
+Two neighbors of a vertex have tangent angle at least
+\[
+ \alpha=\arccos\frac{t}{1+t},\qquad 75^\circ<\alpha<90^\circ.
+\]
+Thus all degrees are at most four. If all contact tangent directions at
+one vertex lie in a closed semicircle, choose a unit tangent vector $w$
+with nonpositive inner products with them. Along the motion
+$x(u)=\cos u\,x+\sin u\,w$, every contact inner product becomes
+$t\cos u+(w\cdot y)\sin u<t$ for sufficiently small $u>0$.
+Every strict noncontact retains its slack. This contradicts the local
+selection condition. In particular degrees one and two are impossible,
+and every facial angle at an active vertex is less than $\pi$.
+
+A nontrivial component has at least five vertices: a four-vertex component
+of minimum degree three would be $K_4$, whose contact Gram matrix
+$(1-t)I+tJ$ has rank four. There is therefore exactly one active component.
+It is two-connected. Indeed, if a cut vertex separated off at most three
+vertices, minimum degree three would be impossible or would force a
+contact $K_4$ including the cut vertex. Every component after deletion of
+a cut vertex would thus have at least four vertices, requiring at least
+nine vertices in total. Consequently the active component has simple
+facial cycles bounding disks on the sphere.
+
+We supply the global perimeter fact needed to restrict these faces.
+\begin{lemma}[One-turn polygon]\label{r3:topology-one-turn}
+Let $p_0,p_1,\ldots,p_{n-1},p_n=p_0$ be a closed polygonal
+chain in an oriented Euclidean plane, with all edges nonzero. Suppose
+the edge directions have arguments $\vartheta_0<\cdots<\vartheta_{n-1}
+<\vartheta_0+2\pi$ and every successive difference, including
+$\vartheta_0+2\pi-\vartheta_{n-1}$, lies in $(0,\pi)$.
+Then the chain is the positively oriented boundary of a strictly convex
+polygon. Equivalently, every vertex not on a given edge lies strictly
+to that edge's left.
+\end{lemma}
+\begin{proof}
+Fix an edge, rotate and cyclically relabel so that it is the first edge
+and has argument zero, and write $H_j$ for the signed height of $p_j$
+above its line. Thus $H_0=H_1=H_n=0$. For $j=1,\ldots,n-1$,
+\[
+ H_{j+1}-H_j=|p_{j+1}-p_j|\sin\vartheta_j.
+\]
+The increments are first positive, possibly then zero for one edge,
+and then negative. The first is strictly positive because
+$0<\vartheta_1<\pi$; the last is strictly negative because
+$\pi<\vartheta_{n-1}<2\pi$. Consequently $H_j>0$ for
+$2\le j\le n-1$: before the sign change this follows from the first
+increment, and after it from the negative increments remaining before
+$H_n=0$. Each edge therefore exposes precisely its two endpoints in
+the convex hull of all vertices. The vertices are distinct, all the
+displayed segments are successive exposed edges, and the chain is the
+boundary of that convex hull, oriented with its interior on the left.
+\end{proof}
+
+\begin{lemma}[Spherical perimeter]
+\label{r3:perimeter}
+A simple spherical polygon bounding a disk on its left, with short
+geodesic edges and all interior angles in $(0,\pi)$, has perimeter
+less than $2\pi$.
+\end{lemma}
+\begin{proof}
+Let its vertices be $x_i$, its side lengths $\theta_i\in(0,\pi)$,
+and its interior angles $\alpha_i\in(0,\pi)$. Set
+$n_i=(x_i\times x_{i+1})/\sin\theta_i$. The short arc from
+$n_{i-1}$ to $n_i$ has length $\pi-\alpha_i$ and left normal $x_i$.
+By Gauss--Bonnet on the original Jordan disk $D$, this closed polar
+chain has length
+\[
+ L_*=\sum_i(\pi-\alpha_i)=2\pi-\operatorname{area}(D)<2\pi.
+\]
+No simplicity of the polar chain is being assumed.
+
+Every closed spherical curve of length $L<2\pi$ lies in an open
+hemisphere. Indeed, choose points $U,V$ separated by half its
+arclength. For any point $z$ on either half, spherical distances
+$p=d(U,z)$ and $q=d(V,z)$ satisfy $p+q\le L/2<\pi$, and hence
+\[
+ (U+V)\cdot z
+ =2\cos((p+q)/2)\cos((p-q)/2)>0.
+\]
+In particular $U+V\ne0$, and its direction is a hemisphere center.
+Apply this observation to the polar chain and denote its hemisphere
+center by $c$.
+
+The original boundary avoids both $c$ and $-c$, since its edge planes
+have normals $n_i$ with $c\cdot n_i>0$. Along each edge its longitude
+$\varphi$ about $c$ has derivative
+\[
+ \varphi'=\frac{c\cdot n_i}{1-(c\cdot x)^2}>0
+\]
+when the edge is parametrized by spherical arclength. Its total
+longitude change is therefore $2\pi d$ for an integer $d\ge1$.
+Choose a meridian from $c$ to $-c$ avoiding all vertices. It has
+exactly $d$ transverse intersections with the boundary, all with the
+same crossing orientation. On a Jordan disk, successive transverse
+crossings of a simple path alternate between entrance and exit, and
+thus have opposite orientations. It follows that $d\le1$, hence
+$d=1$.
+
+Gnomonically project the polar chain to $c^\perp$ by
+$n\mapsto n/(c\cdot n)-c$. Its edge corresponding to $x_i$ has
+nonzero left normal proportional to
+$X_i=x_i-(c\cdot x_i)c$. The arguments of these normals increase
+exactly once around the circle by the preceding longitude argument.
+Moreover
+\[
+ \det_c(X_i,X_{i+1})
+ =c\cdot(x_i\times x_{i+1})>0.
+\]
+The longitude change on this edge is in $(0,\pi)$: its short arc is
+a normalized positive combination of its endpoints, whose projections
+lie in that open planar sector. Thus every successive normal turn
+is in $(0,\pi)$. Lemma~\ref{r3:topology-one-turn}, applied equivalently
+to edge directions, shows that the projected polar chain is a simple
+strictly convex polygon. Its inverse image bounds a positive-area
+spherical disk $D^*$ in the hemisphere centered at $c$.
+
+At polar vertex $n_i$, the incoming and outgoing left normals are
+$x_i$ and $x_{i+1}$, both tangent to the sphere at $n_i$. Their
+positive angle is exactly $\theta_i$, since
+$n_i=(x_i\times x_{i+1})/\sin\theta_i$. These are therefore the
+exterior angles of $D^*$. A second application of Gauss--Bonnet gives
+\[
+ \sum_i\theta_i=2\pi-\operatorname{area}(D^*)<2\pi.
+\]
+\end{proof}
+
+Every active face therefore has three or four edges, since
+$\theta>2\pi/5$. A contact triangle has a small convex region containing
+no additional point: a nonvertex in it is a normalized positive combination
+$v=(\sum c_i x_i)/N$, with $C=\sum c_i>N$; because $t>0$,
+$v\cdot x_j=[tC+(1-t)c_j]/N>t$. Its complementary region contains other
+active vertices, so a triangular face uses the small region.
+
+For a contact four-cycle $x_1,x_2,x_3,x_4$, put
+$r=x_1\cdot x_3$, $s=x_2\cdot x_4$. The differences
+$x_1-x_3,x_2-x_4$ are nonzero and orthogonal, and both are perpendicular
+to the two sums $x_1+x_3,x_2+x_4$. The sums are therefore parallel; they
+point in the same direction because their inner product is $4t>0$.
+In particular
+\[
+ (1+r)(1+s)=4t^2.
+\]
+Writing their common unit direction as $m$, the four corners have heights
+$h_1=\sqrt{(1+r)/2}$ and $h_2=\sqrt{(1+s)/2}$, with $h_1h_2=t$.
+Because $r,s\le t$, both heights are at least
+$t\sqrt{2/(1+t)}>t$. Gnomonic projection about $m$ gives a convex diamond.
+For a convex combination $w$ of the corners, $\norm w\ge m\cdot w>t$.
+Its normalized direction cannot have inner product at most $t$ with all
+corners, since that would imply $\norm w\le t$ by averaging.
+The small quadrilateral is therefore empty of other packing points,
+and every quadrilateral face uses that region. An isolated point can
+lie neither in any face, nor on an edge, nor at a vertex. All eight
+vertices are consequently active.
+
+Let $A,B$ be the alternating angles of a contact quadrilateral. Opposite
+angles agree by the spherical cosine law, and
+\begin{equation}\label{pack:rhombus}
+ \cos A=\frac{s-t^2}{1-t^2},\quad
+ \cos B=\frac{r-t^2}{1-t^2},\quad
+ \cot(A/2)\cot(B/2)=t.
+\end{equation}
+The last equality follows by squaring, using the diagonal identity, and
+then using positivity of the half-angle cotangents. For a face of the
+\emph{exact} contact graph the diagonals are strict noncontacts. Thus
+\begin{equation}\label{pack:angles}
+ \alpha<A,B<2\alpha,
+\end{equation}
+since the decreasing involution in \eqref{pack:rhombus} interchanges $\alpha$ and
+$2\alpha$. A degree-three vertex is consequently incident to at most
+one triangle; a degree-four vertex to at most three. Every contact
+three-cycle is facial, by its empty small region.
+
+\subsection{The exact finite graph obligation}
+Let $k$ be the number of degree-three vertices. Edge and Euler counting
+show $k$ is even and there are $8-k$ triangular and $2+k/2$
+quadrilateral faces. If $k=8$, the cubic quadrangulation is bipartite:
+every cycle is, modulo two, a sum of quadrilateral face boundaries.
+Its bipartition has four vertices in each part, so it is $K_{4,4}$ minus
+a perfect matching, namely the cube.
+
+For $k=2,4,6$, the following finite verification gives a spanning cube.
+Write $\beta=2\pi-3\alpha$. At a degree-four vertex a quadrilateral
+angle equals $\beta$ if three incident
+faces are triangles, and is less than $\beta$ otherwise. At a
+degree-three vertex it is greater than $\beta$ if one incident face is
+a triangle; with no incident triangle we impose no comparison.
+These comparisons follow by summing the other incident angles and using
+\eqref{pack:angles}. Opposite corners cannot have unequal determined classes.
+
+Here is the complete enumeration obligation and procedure. Label the
+$k$ degree-three vertices first. At vertex $i$, its edges to smaller
+vertices are already fixed. Choose every subset of the requisite size
+from larger vertices with positive degree remainder. Reject only impossible
+remainders, and restore all data on backtracking. Enumerate all three-cliques;
+require exactly $8-k$, with the incidence bounds just proved, and reject
+$K_4$. Enumerate all simple four-cycles up to rotation and reversal,
+rejecting a contact diagonal and unequal determined opposite classes.
+For every edge set its remaining face need equal to two minus its
+number of triangular incidences. Recursively choose an edge with positive
+need and try every unused eligible four-cycle through it. Decrease its
+four edge needs, recurse, and restore them. A branch is rejected if
+fewer eligible four-cycles remain than its required need. Sorted sets
+of chosen four-cycle indices remove only repeated search orders.
+
+The extended checker additionally requires the necessary sphere-map
+conditions: edge use twice, Euler characteristic two, connected cyclic
+vertex links, compatible face orientations, and connected face adjacency.
+Every actual embedded contact graph passes these tests. No isomorphism
+pruning is used. For each surviving graph, delete in turn every matching
+between degree-four vertices that covers them exactly once. Verify that
+one deletion leaves a connected cubic bipartite graph with parts of size
+four. This is precisely a spanning cube. The search is complete, since
+a spanning cubic subgraph deletes no edge at a degree-three vertex and
+exactly one edge at each degree-four vertex.
+
+{\raggedright
+The programs \path{tail/enumerate_contact_maps_extended.py} and
+\path{tail/verify_packing.py} implement these exact
+predicates and reject any surviving graph without a spanning cube.
+Their fresh replay succeeds. The enumeration is finite and uses integer
+combinatorics; no numerical geometric embedding is used as a premise.\par}
+
+\subsection{Four-regular configurations}
+For $k=0$, Euler counting gives eight triangles and two quadrilaterals.
+Every vertex needs a nontriangular face. The two quadrilaterals are
+therefore disjoint and cover all vertices. Every corner has angle
+$\beta=2\pi-3\alpha$. Their cyclic Gram matrices have adjacent entries
+$t$ and a common diagonal entry $r$. Eigenvalues are $1-r$ twice and
+$1+r\pm2t$. Positivity, rank at most three, and distinctness give $r=2t-1$.
+Consequently
+\[
+ \cos\beta=-\frac{1-t}{1+t}=\cos(3\alpha),\qquad
+ 1-2t-7t^2=0.
+\]
+Thus $t=a$. Each quadrilateral is a Euclidean square of center norm
+$\sqrt a$ and radius $\sqrt{1-a}$, by its Gram matrix. Place one square
+at height $h=\sqrt a$. A vertex contacting the two upper corners
+$(r,0,h),(0,r,h)$ has the form $(x,x,z)$, where $x=(a-hz)/r$.
+Its possible heights solve
+\[
+ (1+a)z^2-4ahz+2a^2+a-1=0,
+\]
+and are $-h$ and $h(1+5a)/(1+a)$. The second violates the cutoff with
+the opposite upper corner. The four edges of the upper square therefore
+force the four lower vertices at height $-h$ and offset $\pi/4$, using
+$2a/(1-a)=1/\sqrt2$. This is $P$.
+
+\subsection{Cube angles and a realized packing deformation}
+\begin{lemma}[The inherited cube faces]\label{r3:topology-cube-faces}
+Suppose eight distinct spherical points have maximum pairwise inner
+product $t\in(0,3/10)$, and their noncrossing short contact arcs
+contain an abstract spanning cube. Suppose also that the small convex
+region of every contact four-cycle contains no other packing point.
+Then the inherited cube embedding has six faces, each the small convex
+region of a contact four-cycle. Every contact edge omitted from the
+cube is a diagonal of one of these facial quadrilaterals.
+\end{lemma}
+\begin{proof}
+The cube is connected and two-connected, so each boundary of a face
+of its sphere embedding is a simple cycle. Euler's formula gives six
+faces. As the cube is bipartite, every facial cycle has length at
+least four; the total of their lengths is twice its twelve edges,
+namely twenty-four. Thus all six boundaries are four-cycles.
+
+For each such cycle, the small convex disk contains none of the
+remaining four cube vertices, by hypothesis. Its complementary disk
+contains them all and consequently cannot be a face. The facial disk
+must therefore be the small disk. An omitted contact arc has no
+interior cube vertex and cannot cross or overlap any cube edge. Its
+open arc lies in one face, and its two endpoints lie on that face's
+boundary. They cannot be adjacent, since the unique short arc between
+adjacent corners is already a cube edge. They are therefore opposite
+corners, as claimed.
+\end{proof}
+
+The empty-quadrilateral property proved above verifies the hypothesis
+of Lemma~\ref{r3:topology-cube-faces}. Label the vertices of a spanning cube $(x,y,z)\in\{\pm1\}^3$. On the face
+$x=\sigma$, express the angle as $m_{1,\sigma}+e_{1,\sigma}yz$, and use
+cyclic analogues on the other faces. The eight vertex angle sums are
+\[
+ m_{1,x}+e_{1,x}yz+m_{2,y}+e_{2,y}xz+m_{3,z}+e_{3,z}xy=2\pi.
+\]
+Expanding in the eight independent sign monomials gives
+\[
+ m_{i,+}=m_{i,-}=M_i,\quad e_{i,+}=-e_{i,-}=E_i,\quad
+ \sum_iM_i=2\pi,\quad\sum_iE_i=0.
+\]
+Set $c=(1-t)/(1+t)$ and $L=\alpha/2$. The rhombus identity is equivalent to
+\[
+ M_i=m_t(E_i)=\arccos(-c\cos E_i),\qquad |E_i|\le L.
+\]
+The weak endpoints allow added contact diagonals. All angle branches are
+in $(0,\pi)$, and
+\[
+ m_t''(E)=-\frac{c(1-c^2)\cos E}{(1-c^2\cos^2E)^{3/2}}<0.
+\]
+The plane $\sum E_i=0$ cuts the cube $|E_i|\le L$ in the hexagon with
+vertices the permutations of $(L,-L,0)$. At these vertices the common
+sum of means is
+\[
+ 3\alpha(t)+\beta_{\square}(t),\qquad
+ \beta_{\square}(t)=2\operatorname{arccot}\sqrt t.
+\]
+Both summands decrease strictly with $t$, and their sum equals $2\pi$
+exactly at $t=a$. For $t\le a$, strict concavity therefore forces $t=a$
+and a hexagon vertex. The four faces with angles $\alpha,2\alpha$
+then supply four distinct contact diagonals forming a perfect matching:
+at each cube vertex exactly one of the first two face families has angle
+$2\alpha$. Every degree becomes four, and the preceding classification
+forces $P$.
+
+For the stronger local assertion allow $t<3/10$ and rescale $E_i=L(t)z_i$.
+The fixed domain is $K=\{z\in[-1,1]^3:\sum z_i=0\}$, and the realization
+equation is
+\[
+ F(t,z)=\sum_i m_t(L(t)z_i)-2\pi=0.
+\]
+This is strictly concave in $z$ and strictly decreasing in $t$. Indeed,
+with $C=\sqrt{1+2t}$,
+\[
+ \alpha'=-\frac1{(1+t)C},\quad c'=-\frac2{(1+t)^2},\quad
+ \frac{d}{dt}m_t(E)=\frac{c'\cos E-c\sin E\,E'}{\sin m_t(E)}.
+\]
+For $E=z\alpha/2$, the ratio of the possibly positive second numerator
+term to the magnitude of the first is at most
+\[
+ \frac{(1-t)|z|\tan|E|}{4C}
+ \le\frac{1-t}{4(1+2t)}<1.
+\]
+If $z$ is not a vertex of $K$, choose a line segment in $K$ with $z$ in
+its relative interior. Strict concavity makes $F(t,z')<0$ for points
+arbitrarily near $z$ on at least one side. The implicit-function theorem
+then gives nearby $t'<t$ with $F(t',z')=0$. At a vertex of $K$, the equation
+instead forces $t=a$ and the packing antiprism as above.
+
+\begin{lemma}[Spherical gluing and continuous realization]
+\label{r3:topology-spherical-gluing}
+Attach six convex spherical quadrilaterals according to the faces of
+an oriented abstract cube, identifying matching edges by arclength.
+Assume that each edge length is in $(0,\pi)$, each face lies in an
+open hemisphere and has all angles in $(0,\pi)$, matching edge
+lengths agree, and the three face angles at each cube vertex sum to
+$2\pi$. Then the glued surface admits an isometry to the unit sphere.
+In particular its vertices and edges form an embedded realization of
+the cube. If the face shapes vary continuously near a given such
+gluing, the realization can be chosen continuously after fixing the
+position and orientation of one face.
+\end{lemma}
+\begin{proof}
+The quotient is a compact connected topological sphere, since its
+gluing is the boundary complex of a cube. Face interiors already have
+spherical charts. At an interior edge point, place its two incident
+faces on opposite sides of their common great circle; this supplies
+a spherical chart across the edge.
+
+At a vertex choose a radius smaller than the distances to every
+other vertex and every nonincident edge in each of its three faces.
+Each incident piece is then a spherical sector with metric
+\[
+ dr^2+\sin^2r\,d\phi^2.
+\]
+The three sectors glue cyclically, and their angular widths sum to
+$2\pi$. Together they are exactly a spherical disk with this polar
+metric. This supplies the vertex chart, including the center, and
+shows explicitly that no cone singularity or residual vertex holonomy
+remains. All chart transitions are restrictions of orientation
+preserving isometries of the unit sphere.
+
+Start with an isometry of one chart into the unit sphere and continue
+it along paths by these transitions. Continuation exists along every
+path by compactness of its parameter interval. It is independent of
+path: a homotopy of paths can be subdivided into sufficiently small
+rectangles lying in charts, on each of which the transition cocycle
+telescopes. The source sphere is simply connected, so all paths with
+the same endpoints are homotopic. We obtain a global local isometry
+$f$ into the unit sphere.
+
+Its image is open because $f$ is a local homeomorphism and closed
+because the source is compact, hence is the entire unit sphere. A
+proper local homeomorphism is a covering: each fiber is finite, and
+disjoint chart neighborhoods of its points can be shrunk to a common
+image neighborhood avoiding the image of their compact complement.
+A connected covering of the simply connected sphere has one sheet.
+Consequently $f$ is a bijective local isometry and thus an isometry.
+
+Finally, choose a fixed spanning tree of the six face adjacencies.
+Position the first face continuously, and position successive faces
+across their shared edges on the prescribed opposite side. All these
+operations are continuous for the present nondegenerate short edges
+and face angles. The resulting face maps agree with the unique global
+development just constructed. In particular all eight developed
+vertices vary continuously and agree with the original realization
+at the original parameter value.
+\end{proof}
+
+We apply this lemma to realize the angle variations as nearby configurations. A prescribed rhombus with diagonal inner products $r,s$ has
+corners
+\[
+ h_1m\pm\sqrt{1-h_1^2}\,e_1,\qquad
+ h_2m\pm\sqrt{1-h_2^2}\,e_2,
+\]
+where $h_1=\sqrt{(1+r)/2}$, $h_2=\sqrt{(1+s)/2}$, $h_1h_2=t'$, and
+$(m,e_1,e_2)$ is orthonormal. The cosine law recovers $r,s$ continuously
+from the angles. These six convex spherical rhombi have matching short
+edge lengths and vertex angle sums $2\pi$. Lemma~\ref{r3:topology-spherical-gluing}
+therefore supplies an embedded realization varying continuously from the
+original one.
+The bounds $|z_i|\le1$ keep all facial diagonals at inner product at most
+$t'$. Every original contact outside the cube is such a diagonal, because
+its short arc cannot cross or overlap a cube edge or pass through another
+vertex. All remaining strict noncontacts keep their slack by continuity.
+We have constructed a genuine smaller cutoff, contradicting local optimality.
+
+This proves the first assertion of Theorem~\ref{r3:packingclassification}.
+For the global assertion, compactness gives a global packing minimizer;
+choose one with fewest contacts. Since $P$ attains $a<3/10$, the first
+assertion forces this chosen minimizer to be $P$. It has sixteen contacts.
+Every other global minimizer has at least sixteen by the selection and
+at most sixteen by the degree bound, so it is four-regular and the preceding
+geometric argument gives the same congruence class. This completes the
+proof of the packing theorem and its equality case.
+
+
+\section{Quantitative geometry near the packing antiprism}\label{sec:geometry}
+Throughout this section let
+\[
+\begin{gathered}
+ a=\frac{2\sqrt2-1}{7},\quad P=X(a),\quad \tau=2(1-a),\\
+ \kappa=1+\frac1{\sqrt2},\quad W=8(\kappa+1),\quad d_w=W/4.
+\end{gathered}
+\]
+The contacts of $P$ are its eight square edges and eight nearest cross
+edges. Their squared distance is $\tau$; every other squared distance
+is at least $2\tau$. Give square contacts weight $\kappa$ and cross
+contacts weight $1$. Write $\mathcal C$ for this weighted contact set.
+
+We use the tangent chart and rotation slice
+\[
+ y_i(q)=\sqrt{1-|q_i|^2}\,P_i+q_i,\qquad
+ V=\{(q_i):q_i\perp P_i,\ \sum_iP_i\times q_i=0\}.
+\]
+Put $r=|q|$, $f_{ij}(q)=|y_i(q)-y_j(q)|^2$, $t_i=|q_i|^2$ and
+$t_e=t_i+t_j$ for $e=\{i,j\}$. The linear and quadratic contact terms are
+\[
+ \ell_e(q)=-2(P_i\cdot q_j+P_j\cdot q_i),\qquad
+ Q_e(q)=a(t_i+t_j)-2q_i\cdot q_j.
+\]
+Let $R:q\mapsto(\ell_e(q))_e$ on the full sixteen-dimensional tangent
+space, and $D_w=\operatorname{diag}(w_e)$. Direct substitution gives the
+positive stress identity $R^Tw=0$. Each vertex has weighted degree $d_w$.
+
+\subsection{Contact matrices and chart remainders}
+The constants needed below are
+\begin{equation}\label{geo:constants}
+ \rho=\frac3{10},\qquad \gamma=\frac32,\qquad h_0=\frac{11}{50},
+ \qquad \mu=\frac{59546}{15625},\qquad \delta=\frac{289}{10000}.
+\end{equation}
+We use the unnormalized weighted norm
+$\|x\|_w^2=\sum_ew_ex_e^2$ and write
+$C_wx=x-W^{-1}(\sum_ew_ex_e)\mathbf1$ for weighted centering.
+
+We construct the coordinates for the matrix estimates as follows.
+With $\theta_j=j\pi/4$ and $\sigma_j=(-1)^j$, use the tangent frames
+\[
+ u_j=(-\sin\theta_j,\cos\theta_j,0),\qquad
+ v_j=(-\sqrt a\cos\theta_j,-\sqrt a\sin\theta_j,
+                           \sigma_j\sqrt{1-a}).
+\]
+The three rotation columns in these frames give their orthogonal
+projection by a $3$-by-$3$ Gram inverse. Projecting the coordinate
+vectors onto $V$ and applying Gram--Schmidt to thirteen independent
+columns gives an orthonormal basis. The column choices are witness
+data; the checker proves that every normalization denominator is
+positive. Orthogonality follows from the defining exact operations.
+From now on, $R$, $M_e$ and $T_e$ denote the matrices in this basis,
+so that $\ell_e(q)=R_eq$, $Q_e(q)=q^TM_eq$ and $t_e=q^TT_eq$.
+All entries are defined by radicals and finite algebraic operations,
+with outward rational enclosures constructed by
+\path{tail/exact_geometry.py}.
+
+\begin{lemma}[Contact matrix bounds]\label{geo:spectrum}
+The kernel of the contact differential on the full tangent space is
+exactly the space of infinitesimal rotations. For every $q\in V$,
+\[
+ \|Rq\|_2^2\ge3|q|^2,\qquad \|Rq\|_w^2\ge\mu|q|^2.
+\]
+Moreover, with $\bar M=W^{-1}\sum_ew_eM_e$,
+\begin{equation}\label{geo:variancegram}
+ \sum_ew_e(M_e-\bar M)^2\preceq4I.
+\end{equation}
+\end{lemma}
+\begin{proof}
+{\raggedright
+The program \path{tail/verify_variance.py} constructs
+these matrices from the preceding coordinates. Outward $LDL^T$
+elimination gives thirteen positive pivots for each of\par}
+\[
+ R^TR-3I,\qquad R^TD_wR-\mu I,\qquad
+ 4I-\sum_ew_e(M_e-\bar M)^2.
+\]
+These finite checks prove the claimed comparisons on $V$.
+The three independent rotation vectors are annihilated by the
+contact differential, while its restriction to the thirteen-dimensional
+complement is injective. This identifies its kernel.
+\end{proof}
+
+For $r\le\rho$, expansion of the chart gives
+\begin{equation}\label{geo:remainders}
+ |f_e-\tau-\ell_e|\le\gamma t_e,
+ \qquad |f_e-\tau-\ell_e-Q_e|\le h_0t_e.
+\end{equation}
+Indeed, setting $h_i=\sqrt{1-t_i}$, the full remainder equals
+\[
+ 2a(1-h_ih_j)+2(1-h_i)P_i\cdot q_j
+ +2(1-h_j)P_j\cdot q_i-2q_i\cdot q_j.
+\]
+Its absolute value divided by $t_e$ is at most
+\[
+ 1+\frac{2a+\sqrt{2(1-a^2)}\rho}{1+\sqrt{1-\rho^2}}<\gamma.
+\]
+After subtracting $Q_e$, the first term becomes $a(h_i-h_j)^2$.
+The inequality $|P_i\cdot q_j|\le\sqrt{1-a^2}|q_j|$ then bounds the
+remaining absolute error divided by $t_e$ by
+\[
+ \frac{a\rho^2}{4(1-\rho^2)}+
+ \frac{\sqrt{2(1-a^2)}\rho}{1+\sqrt{1-\rho^2}}<h_0.
+\]
+The scalar checker verifies both strict comparisons.
+
+\subsection{A quartic certificate for global packing separation}
+\begin{lemma}[Global separation]\label{geo:gap}
+If the distance to the congruence orbit of $P$, measured in the
+product Euclidean norm, is at least $\rho$, then
+\[
+ \min_{i<j}|y_i-y_j|^2<\tau-\delta.
+\]
+\end{lemma}
+\begin{proof}
+First consider a configuration on the boundary of this orbit ball
+and choose a closest alignment with $P$. Put $r_i=|y_i-P_i|$.
+Then $P_i\cdot y_i=1-r_i^2/2>0$, so its tangent projections $q_i$
+are valid chart coordinates. Differentiating the alignment distance
+under rotations gives $q\in V$, and
+\[
+ |q|^2=\rho^2-\frac14\sum_i r_i^4,
+ \qquad \rho^2(1-\rho^2/4)\le|q|^2\le\rho^2.
+\]
+Writing $q=\rho u$ in the orthonormal coordinates above, define
+\[
+ \begin{aligned}
+ g_e(u)&=\delta+\rho R_eu+\rho^2u^T(M_e+h_0T_e)u
+                       &&(e\in\mathcal C),\\
+ g_{17}(u)&=1-|u|^2,\qquad
+ g_{18}(u)=|u|^2-\frac{391}{400}.
+ \end{aligned}
+\]
+If all contact distances were at least $\tau-\delta$, the upper
+remainder bound in \eqref{geo:remainders} would imply all eighteen
+inequalities $g_j(u)\ge0$.
+
+The exact certificate checked by
+\path{tail/verify_sos_gap.py} is the polynomial identity
+\begin{equation}\label{geo:sosidentity}
+ -1=z_2(u)^TQ_0z_2(u)
+       +\sum_{j=1}^{18}z_1(u)^TQ_jz_1(u)g_j(u),
+ \qquad Q_j\succ0.
+\end{equation}
+Here $z_1$ and $z_2$ list all monomials of degree at most one and two,
+respectively, so the Gram dimensions are $14$ and $105$.
+For precision, the checker keeps the eighteen rational multiplier
+matrices fixed and corrects a proposed free matrix $Q_0^{\rm rat}$ as follows.
+Let $r_\alpha$ be a coefficient residual and $n_\alpha$ the number
+of ordered Gram entries representing $u^\alpha$. Every monomial of
+degree at most four occurs, so $n_\alpha>0$. Add
+$r_\alpha/n_\alpha$ to each corresponding entry of $Q_0^{\rm rat}$.
+This makes all $2380$ coefficients exact and preserves symmetry.
+If $e$ bounds the absolute value of every added entry, then the
+correction $\Delta$ satisfies $\|\Delta\|_2\le105e$.
+A rational congruence matrix $A_0$ is checked to satisfy
+\[
+ \|A_0Q_0^{\rm rat}A_0^T-I\|_2+
+        105e\,\|A_0\|_1\|A_0\|_\infty<1.
+\]
+Thus the corrected matrix is positive definite. The other eighteen
+matrices have congruence defects below one without correction.
+Integer matrix products and rational interval bounds prove these
+comparisons; numerical eigenvalues are not proof inputs.
+Identity \eqref{geo:sosidentity} now contradicts $g_j(u)\ge0$.
+
+To pass from the boundary to the entire exterior, minimize $T(Y)$
+on the compact exterior and choose a minimizer with fewest contacts.
+An interior minimizer with $T<3/10$ would be contact-minimal locally
+optimal, so Theorem~\ref{r3:packingclassification} would make it
+congruent to $P$, which is impossible. If $T\ge3/10$, its distance
+deficit is at least $2(3/10-a)>\delta$, an exact checked comparison.
+The remaining boundary case was just excluded. This minimizer has
+the largest minimum squared distance in the exterior, proving the
+claim for every exterior configuration.
+\end{proof}
+
+\subsection{A bound for the signed contact mean}
+Let $K=ad_wI-\operatorname{Adj}_w$ be the weighted graph stress matrix.
+Then $KP=0$. For $\Delta Y=Y-P$, the unit lengths give the exact identity
+\[
+ S(q):=\sum_ew_e(f_e(q)-\tau)
+       =\sum_{j=1}^3(\Delta Y^{(j)})^TK\Delta Y^{(j)}.
+\]
+In the tangent and radial frames write this as
+\begin{equation}\label{geo:meanblocks}
+ S(q)=q^THq+2q^TBn+n^TDn,\qquad n_i=\sqrt{1-t_i}-1.
+\end{equation}
+The letters $H,B,D$ in this subsection denote these blocks only.
+
+\begin{lemma}\label{geo:mean}
+For $q\in V$ and $r=|q|<1$,
+\[
+ S(q)\le\left[\frac{413}{100}+\frac34r^2+
+ \frac{(4r+231/100)r^2}{(1+\sqrt{1-r^2})^2}\right]r^2.
+\]
+\end{lemma}
+\begin{proof}
+We first specify the small exact matrix certificate used in the proof.
+Put $\alpha=413/100$. The cyclic Fourier decomposition of
+\eqref{geo:meanblocks} gives, for $\omega=k\pi/4$, the rephased blocks
+\[
+ H_k=\begin{pmatrix}t_k&b_k\\b_k&m_k\end{pmatrix},\quad
+ B_k=\binom{-e_k}{f_k},\quad D_k=d_k,
+\]
+where, with $h=\sqrt a$,
+\begin{align*}
+ t_k&=\sqrt2(1-\cos\omega),\\
+ m_k&=\sqrt2+[2-(2+\sqrt2)a]\cos\omega-2(1+a)\cos(2\omega),\\
+ b_k&=2h[(\sqrt2/2)\sin\omega+\kappa\sin(2\omega)],\\
+ e_k&=2\sqrt{1-a}[(\sqrt2/2)\sin\omega+\kappa\sin(2\omega)],\\
+ f_k&=2h\sqrt{1-a}[(1+\sqrt2/2)\cos\omega-\kappa\cos(2\omega)],\\
+ d_k&=2a[\kappa+1-\cos\omega-\kappa\cos(2\omega)].
+\end{align*}
+The rephasing multiplies the azimuthal Fourier coordinate by $i$.
+For $k=0,4$, the two coordinate vectors are diagonal modes with
+entries $\cos(k\theta_j)/\sqrt8$. For $k=1,2,3$, the eigenvalues are
+\[
+ h_k^\pm=\tfrac12(t_k+m_k\pm\sqrt{(t_k-m_k)^2+4b_k^2}).
+\]
+Normalize $(b_k,h_k^\pm-t_k)$ to a unit vector $(\xi,\zeta)$.
+The corresponding real modes have tangent pairs
+$(-\xi\sin(k\theta_j),\zeta\cos(k\theta_j))/2$ and
+$(\xi\cos(k\theta_j),\zeta\sin(k\theta_j))/2$.
+Trigonometric orthogonality and the orthogonality of the two eigenvectors
+of each symmetric block give an orthonormal eigenbasis $V_0$ of $H$.
+All displayed normalizers are nonzero, as checked by exact intervals.
+
+Write $q=V_0x$, $V_0^THV_0=\operatorname{diag}(h_i)$ and
+$\delta_i=\alpha-h_i$. The certificate checks $\delta_i>0$,
+$e_k^2+f_k^2<16$ and $d_k<231/100$. Thus
+$\|B\|_2<4$ and $D\preceq(231/100)I$.
+Let $C_3(q)=-q^TB(t_i)_i$, and write its fully symmetric coefficient
+tensor in the $x$ coordinates as $C_3(V_0x)=\sum_{ijk}T_{ijk}x_ix_jx_k$.
+Define
+\[
+ U_{ijk}=\frac{3T_{ijk}}{\delta_i+\delta_j+\delta_k},\qquad
+ N_{i,(j,k)}=\sqrt{\delta_i}\,U_{ijk}.
+\]
+The ordered pair $(j,k)$ indexes the 256 columns of $N$. The final
+certificate is the positive definiteness of $3I-NN^T$, proved by
+sixteen positive outward $LDL^T$ pivots. Every entry is reconstructed
+from the formulas above by
+\path{tail/verify_wholeball_mean.py}.
+This is a finite algebraic comparison; a numerical eigenvalue is not
+used as a bound.
+
+Symmetry of $U$ gives
+$C_3(V_0x)=\sum_{ijk}\delta_iU_{ijk}x_ix_jx_k$.
+With $\Delta=\sum_i\delta_ix_i^2=q^T(\alpha I-H)q$, Cauchy--Schwarz
+therefore yields $|C_3(q)|\le\sqrt{3\Delta}\,r^2$.
+The radial identity, including its entire remainder, is
+\[
+ n_i=-\frac{t_i}{2}+e_i',\qquad
+ e_i'=-\frac{t_i^2}{2(1+\sqrt{1-t_i})^2}.
+\]
+For $L=1+\sqrt{1-r^2}$, this gives
+$|e'|\le r^4/(2L^2)$ and $|n|^2\le r^4/L^2$.
+Substitution into \eqref{geo:meanblocks} proves
+\[
+ S(q)\le\alpha r^2-\Delta+\sqrt{3\Delta}\,r^2
+                       +4r^5/L^2+(231/100)r^4/L^2.
+\]
+Finally $-\Delta+\sqrt{3\Delta}\,r^2\le3r^4/4$ by completing a
+square. This proves the bound on the whole ball.
+\end{proof}
+
+\subsection{Two bounds for the centered contact norm}
+The matrix bound \eqref{geo:variancegram} and Cauchy--Schwarz give
+\[
+ \|C_wQ(q)\|_w^2
+ =\sum_ew_e\bigl(q^T(M_e-\bar M)q\bigr)^2\le4r^4.
+\]
+For the higher error $h=f-\tau-Rq-Q(q)$, the bounds
+$t_e\le r^2$ and $\sum_ew_et_e=d_wr^2$ imply
+$\|h\|_w\le h_0\sqrt{d_w}\,r^2$.
+Centering is an orthogonal projection in the weighted norm. Hence
+\begin{equation}\label{geo:sigma}
+ \|C_w(f-\tau)-Rq\|_w\le\sigma r^2,
+ \qquad \sigma=2+h_0\sqrt{d_w}.
+\end{equation}
+A stronger lower bound retains the interaction of the linear and
+quadratic contact terms.
+
+\begin{lemma}[Cubic absorption]\label{geo:newvariance}
+Put $\mu_0=37/10$, $B_0=528/25$ and $\epsilon_0=10^{-7}$. For
+$q\in V$ with $r=|q|\le\rho$,
+\begin{equation}\label{geo:variancelower}
+ \|C_w(f-\tau)\|_w\ge\mathcal F(r),\qquad
+ \mathcal F(r)=r\sqrt{\mu_0-\tfrac14B_0r^2-\epsilon_0r}
+                         -h_0\sqrt{d_w}\,r^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Let $G=R^TD_wR$ and $A=G-\mu_0I$. In addition to the comparisons in
+Lemma~\ref{geo:spectrum}, the exact variance checker proves
+\[
+ A\succ0,\qquad UU^T\preceq B_0A^{-1},
+\]
+for the rational symmetric tensor $U$ in
+\path{tail/variance_witness.json}, viewed as a
+$13$-by-$169$ matrix with ordered tensor coordinates. It also proves
+\[
+ \left|2\sum_ew_e\ell_e(q)Q_e(q)
+       -q^TAU(q\otimes q)\right|\le\epsilon_0r^3.
+\]
+The matrix comparisons use thirteen positive outward $LDL^T$ pivots.
+For the last bound, the checker forms every exact cubic coefficient
+residual and bounds their absolute sum by $\epsilon_0$; each cubic
+monomial has absolute value at most $r^3$.
+
+Since $R^Tw=0$, centering fixes $Rq$. Dropping the nonnegative
+quadratic-square term gives
+\[
+ \|C_w(Rq+Q(q))\|_w^2
+ \ge q^TGq+2\sum_ew_e\ell_e(q)Q_e(q).
+\]
+Write $\Delta=q^TAq$. The matrix comparison and
+$|q\otimes q|=r^2$ give
+$|q^TAU(q\otimes q)|\le\sqrt{B_0\Delta}\,r^2$. Therefore
+\[
+ \|C_w(Rq+Q(q))\|_w^2
+ \ge\mu_0r^2+\Delta-\sqrt{B_0\Delta}\,r^2-\epsilon_0r^3
+ \ge\mu_0r^2-\tfrac14B_0r^4-\epsilon_0r^3.
+\]
+The last inequality completes a square. The radicand is positive
+on $[0,\rho]$ after its factor $r^2$ is removed, as checked at
+$\rho$. Finally subtract the centered higher-error norm
+$h_0\sqrt{d_w}\,r^2$ by the triangle inequality.
+\end{proof}
+
+\section{The unbounded exponent range}\label{sec:tail}
+We prove Theorem~\ref{thm:main} for $s\ge124$. Set $p=s/2$ and
+$p_0=62$. Constants concerning the packing chart retain the meaning
+fixed in Section~\ref{sec:geometry}.
+All scalar comparisons in this section are checked by
+\path{tail/verify_tail124.py}, using outward rational
+intervals and explicit exponential and logarithmic remainder bounds.
+Together with the monotonicity arguments below, these comparisons apply
+to every real $p\ge p_0$.
+
+\subsection{A necessary condition for stationarity}
+For a stationary configuration and $f_{ij}=|y_i-y_j|^2$, the tangential
+force equations imply
+\begin{equation}\label{r5:centroid}
+ \sum_{i<j}f_{ij}^{-p}(y_i+y_j)=0.
+\end{equation}
+Indeed, the force equation at $i$ can be written
+\[
+ \sum_{j\ne i}f_{ij}^{-p-1}(y_j-y_i)
+      =-\frac12\sum_{j\ne i}f_{ij}^{-p}y_i.
+\]
+Summing in $i$ cancels the left side and gives \eqref{r5:centroid}.
+
+\begin{lemma}[Force efficiency]\label{r6:force}
+For $N\ge3$ distinct stationary points on the unit two-sphere, choose a
+closest pair $\{i,k\}$, put $m=f_{ik}$, $D=m^{-p}$, and
+$\ell=\sqrt{4-m}$. Let $U$ be the sum of $(m/f)^p$ on the $2(N-2)$ other
+edges incident to either endpoint. Then
+\begin{equation}\label{r6:forcebound}
+ U\ge2,\qquad \frac ED\ge6-m+A(m)(U-2),\qquad
+ A(m)=\frac{(\ell-1)^2+2/\ell}{4}>0.
+\end{equation}
+For $N>3$ one has $U>2$ and $E/D>6-m$.
+\end{lemma}
+\begin{proof}
+The identity $\sum_{a<b}|y_a-y_b|^2=N^2-|\sum_a y_a|^2$ implies
+$0<m\le2N/(N-1)\le3$, so the closest pair is not antipodal. On an adjacent
+edge of squared length $f\ge m$, set
+\[
+ x=(m/f)^p,\qquad q(f)=\sqrt{\frac{m(4-f)}{f(4-m)}}\in[0,1].
+\]
+The tangent projection of the other vertex, divided by $f$, has norm
+$\sqrt{(4-f)/f}/2$. Isolating the closest-edge term in the endpoint
+force equation and taking norms gives $1\le\sum xq$ at each endpoint.
+Consequently $\sum_{\rm adj}xq\ge2$ and $U\ge2$.
+
+An exact pointwise estimate is
+\[
+ f-m\le K(m)(1-q),\qquad K(m)=(4-m)/2+\sqrt{4-m}.
+\]
+Indeed $f-m=(1-q)(4-m)f(1+q)/4$, while Cauchy--Schwarz and
+$(f-2)^2+f(4-f)=4$ give
+\[
+ f(1+q)=f+\sqrt{\frac m{4-m}}\sqrt{f(4-f)}\le2+\frac4{\sqrt{4-m}}.
+\]
+These formulas include the endpoints without dividing by $1-q$. Hence
+$M:=\sum_{\rm adj}x(f-m)\le K(m)(U-2)$.
+
+The energy-weighted centroid identity \eqref{r5:centroid} holds for every
+stationary configuration. Project it onto $u=(y_i+y_k)/\ell$. An adjacent
+edge has projection at least
+\[
+ h_m(f)=\ell(1-f/4)-\frac{\sqrt m}{2}\sqrt{f(1-f/4)},
+\]
+as follows by resolving $u$ and the other vertex along and perpendicular
+to its incident endpoint. Every disjoint edge has projection at least
+$-\ell$. If $V_0$ denotes the normalized energy on disjoint edges, then
+\[
+ V_0\ge1+\ell^{-1}\sum_{\rm adj}x h_m(f),\qquad E/D=1+U+V_0.
+\]
+The function $h_m$ is convex on $[m,4]$ and
+\[
+ h_m(m)/\ell=1-m/2,\qquad
+ h_m'(m)/\ell=-\frac{3-m}{2(4-m)}\le0.
+\]
+Its tangent lower bound, followed by the upper bound on $M$, yields
+\[
+ \frac ED\ge6-m+(U-2)\left(2-\frac m2-
+                  \frac{(3-m)K(m)}{2(4-m)}\right).
+\]
+The bracket equals $(5-m)/4-(3-m)/(2\ell)=A(m)$.
+If $N>3$ and $U=2$, positivity of every $x$ and $q\le1$ force $q=1$ on
+every adjacent edge. Then every such $f=m$, so $U=2(N-2)>2$, a
+contradiction. This also proves the strict conclusion.
+\end{proof}
+
+For eight points, Lemma~\ref{r6:force} gives the strict consequence
+\begin{equation}\label{tail:force}
+ E_sm^p>6-m
+\end{equation}
+for every collision-free stationary configuration.
+
+\subsection{Trial energy and entry into the chart}
+Define
+\[
+\begin{gathered}
+ d=\frac{\log\kappa}{\kappa+1},\qquad \lambda=e^{-\kappa d},\qquad
+ C_{\min}=\lambda W,\\ D=\frac{(\kappa d)^2}{2},\qquad
+ C=\frac{9669627}{625000}.
+\end{gathered}
+\]
+The trial antiprism of height $a+\tau d/(2p)$ has short squared
+distances $\tau(1-d/p)$ and $\tau(1+\kappa d/p)$. The inequalities
+\[
+ -\log(1-x)\le x+\frac{x^2}{2(1-x)},\qquad
+ \log(1+x)\ge x-x^2/2
+\]
+and the endpoint comparison $d^2/[2(1-d/p_0)]<D$ bound the sum of
+the sixteen short-pair energies, after multiplication by $\tau^p$,
+by $C_{\min}e^{D/p}$.
+The other distances contribute less than $16\,2^{-p}<10^{-6}$:
+the four opposite-square terms are bounded using
+$e^{d+D/p_0}<2$, and the remaining eight squared distances exceed
+$2\tau$. The trial height belongs to $(0,1)$.
+The exact endpoint comparison therefore gives, for every $p\ge p_0$,
+\begin{equation}\label{tail:ceiling}
+ \tau^p E_s(X(a_s))\le
+ \tau^p E_s(X(a+\tau d/(2p)))
+ <C_{\min}e^{D/p}+10^{-6}<C.
+\end{equation}
+All adverse bounds here decrease with $p$.
+
+Set $m_0=\tau-\delta$. The scalar checker verifies
+\[
+ 0<m_0<\tau,\qquad (6-m_0)(\tau/m_0)^{p_0}>C.
+\]
+For fixed $m_0$ the left side increases with $p$, and for fixed $p$
+the expression $(6-m)(\tau/m)^p$ strictly decreases with $m$ on
+$(0,m_0]$. Lemma~\ref{r6:force} therefore implies that every
+stationary configuration below the ceiling has $m>m_0$.
+Lemma~\ref{geo:gap} places it inside the orbit ball of radius $\rho$.
+In particular, this applies both to every possible global minimizer
+and to $X(a_s)$, which is fully stationary by the symmetry argument
+in Section~1. After closest alignment, both have chart representatives
+in $V$ with $r<\rho$.
+
+\subsection{A finite sequence of radius improvements}
+We first record the elementary extremal inequality used for the
+exponential contact energy.
+
+\begin{lemma}[Two-value exponential extremum]\label{r3:twovalue}
+Let positive weights $w_i$ have sum $W$, and suppose
+$\sum_iw_iu_i=0$, $v=\sum_iw_iu_i^2>0$. For every subset weight
+$b=\sum_{i\in I}w_i$ with $0<b<W$, put
+\[
+ J_b(v)=b\exp\left(-\sqrt{\frac{v(W-b)}{Wb}}\right)
+ +(W-b)\exp\left(\sqrt{\frac{vb}{W(W-b)}}\right).
+\]
+Then $\sum_iw_ie^{-u_i}\ge\min_b J_b(v)$. Moreover every $J_b$ is strictly
+increasing in $v>0$.
+\end{lemma}
+\begin{proof}
+At fixed positive variance and zero mean the feasible set is a compact
+ellipsoid section. The two constraint gradients are independent, since
+dependence would make all $u_i$ equal and hence the variance zero.
+Lagrange multipliers at a minimum give $e^{-u_i}=\alpha+\beta u_i$.
+A strictly convex exponential intersects a line in at most two points.
+There must be two, with one positive and one negative. If the positive
+entries have total weight $b$, the mean and variance determine their
+values as $\sqrt{v(W-b)/(Wb)}$ and $-\sqrt{vb/[W(W-b)]}$. This gives the
+listed alternatives. Write $v=t^2$. The derivative of $J_b(t^2)$ is a
+positive constant times $e^{ct}-e^{-at}>0$, where
+$a=\sqrt{(W-b)/(Wb)}$ and $c=\sqrt{b/[W(W-b)]}$. This proves monotonicity.
+\end{proof}
+
+
+Let $v=\partial_bX(b)|_{b=a}$ in the aligned tangent coordinates.
+Then $v\in V$, $|v|^2=2/[a(1-a)]$, and its contact differentials are
+$-2$ on square contacts and $2\kappa$ on cross contacts. Set
+\[
+ q_*=(\tau d/(2p))v,\qquad N=\frac d{\sqrt{2a(1-a)}},\qquad
+ z_e^*=(p/\tau)\ell_e(q_*).
+\]
+Thus $z_e^*=-d$ or $\kappa d$, $p|q_*|=\tau N$, and
+$e^{-z_e^*}=\lambda w_e$. Define
+\[
+ \begin{gathered}
+ Z_e=(p/\tau)(f_e-\tau),\qquad z_e=(p/\tau)\ell_e(q),\\
+ \bar Z=W^{-1}\sum_ew_eZ_e,\qquad u_e=Z_e-z_e^*-\bar Z.
+ \end{gathered}
+\]
+The list $u$ has weighted mean zero. Lemma~\ref{geo:mean}, evaluated
+at $\rho$, gives on the entire chart
+\begin{equation}\label{tail:mean}
+ \bar Z\le\eta pr^2/\tau,\qquad \eta=1/5.
+\end{equation}
+The coefficient divided by $W$ is increasing with $r$ and is checked
+to be below $\eta$ at $\rho$. Since $\log(1+x)\le x$,
+\begin{equation}\label{tail:contactenergy}
+ \tau^pE_s(q)\ge\sum_{e\in\mathcal C}e^{-Z_e}
+              =\lambda e^{-\bar Z}\sum_ew_ee^{-u_e}.
+\end{equation}
+
+\begin{lemma}[The outer annulus]\label{tail:outer}
+For every real $p\ge p_0$, a configuration in the chart below the
+trial ceiling has $r<6/p$.
+\end{lemma}
+\begin{proof}
+Put
+\[
+ \begin{gathered}
+ Z_* =\|z^*\|_w=\sqrt{8\kappa d^2+8\kappa^2d^2},\\
+ a_1=\frac1{\sqrt{W(W-1)}},\qquad
+ \mathcal H(r)=a_1\mathcal F(r)-\eta r^2.
+ \end{gathered}
+\]
+Lemma~\ref{geo:newvariance} and the triangle inequality imply
+\[
+ \|u\|_w\ge v(p,r):=p\mathcal F(r)/\tau-Z_*.
+\]
+The function $\mathcal F(r)/r$ decreases. Consequently, throughout
+$6/p\le r\le\rho$,
+\[
+ v(p,r)\ge\frac{6\mathcal F(\rho)}{\tau\rho}-Z_*>\sqrt W,
+\]
+where the final strict inequality is checked exactly.
+For any possible subset mass $b$ in Lemma~\ref{r3:twovalue}, keep
+only the positive exponential term of $J_b(v^2)$. When $v\ge\sqrt W$,
+the function
+\[
+ (W-b)\exp\left(v\sqrt{\frac b{W(W-b)}}\right)
+\]
+is nondecreasing in $b$: its logarithmic derivative is nonnegative
+precisely when $v\ge2\sqrt{b(W-b)/W}$, and the latter bound follows
+from $4b(W-b)\le W^2$. Every nonempty subset has mass at least one.
+Thus \eqref{tail:mean}--\eqref{tail:contactenergy} imply
+\begin{equation}\label{tail:outerenergy}
+ \tau^pE_s(q)\ge\lambda(W-1)
+            \exp\left(-a_1Z_*+\frac p\tau\mathcal H(r)\right).
+\end{equation}
+
+To control the whole interval in $r$ and the whole half-line in $p$,
+write $g(r)=\mu_0-\epsilon_0r-(B_0/4)r^2$. Its derivative and second
+derivative are negative, and
+\[
+ (r\sqrt{g(r)})''=
+ \frac{g'(r)}{\sqrt{g(r)}}+
+ \frac{r g''(r)}{2\sqrt{g(r)}}-
+ \frac{r(g'(r))^2}{4g(r)^{3/2}}<0.
+\]
+Hence $\mathcal H$ is strictly concave and its minimum on
+$[6/p,\rho]$ is at an endpoint. The checker proves
+$\mathcal H(\rho)>0$ and
+\[
+ \lambda(W-1)\exp\left(-a_1Z_*+
+        \frac{p_0}{\tau}\mathcal H(r)\right)>C
+ \qquad\left(r=\frac6{p_0},\ \rho\right).
+\]
+The quantity $p\mathcal H(\rho)$ increases. The other endpoint is
+\[
+ p\mathcal H(6/p)=
+ 6a_1\sqrt{\mu_0-6\epsilon_0/p-9B_0/p^2}
+       -\frac{36(a_1h_0\sqrt{d_w}+\eta)}p,
+\]
+which also increases. Both endpoint comparisons therefore remain
+strict for every $p\ge p_0$. Concavity and
+\eqref{tail:outerenergy} exclude every $6/p\le r\le\rho$.
+\end{proof}
+
+Four further annuli give the final radius. Lemma~\ref{geo:spectrum}
+and \eqref{geo:sigma} imply
+\begin{equation}\label{tail:variance}
+ \|u\|_w\ge
+ \sqrt\mu\left(\frac{pr}\tau-N\right)-\frac{p\sigma r^2}\tau.
+\end{equation}
+Indeed the centered linear list is $(p/\tau)R(q-q_*)$, and its
+distance from the actual centered list is at most $p\sigma r^2/\tau$.
+Use the exact sequence
+\[
+ 6\longrightarrow\frac{27}{10}\longrightarrow\frac{13}{10}
+       \longrightarrow\frac{43}{50}\longrightarrow\frac34.
+\]
+For each step $K$ to $L$, set
+\[
+ v_L=\left[\sqrt\mu(L/\tau-N)-\frac{\sigma L^2}{p_0\tau}\right]^2.
+\]
+The checker verifies positivity of the bracket and, for all $79$
+masses $b=i\kappa+j$ with $0\le i,j\le8$ other than $0,W$,
+\begin{equation}\label{tail:annulustest}
+ \lambda J_b(v_L)>C\exp\left(\frac{\eta K^2}{p_0\tau}\right).
+\end{equation}
+These tests exclude each entire annulus for every $p\ge p_0$.
+In fact the checked inequality $\sqrt\mu-2\sigma\rho>0$ makes
+the right side of \eqref{tail:variance} increase in $r\le\rho$.
+For $r\ge L/p$ it is at least $\sqrt{v_L}$, since increasing $p$
+decreases the adverse error term. For $r\le K/p$, the mean is at
+most $\eta K^2/(p\tau)$. Lemma~\ref{r3:twovalue} and its monotonicity,
+together with \eqref{tail:annulustest}, contradict the ceiling throughout
+$L/p\le r\le K/p$. It follows that
+\begin{equation}\label{tail:finalradius}
+ |q|<3/(4p).
+\end{equation}
+The argument uses only the energy ceiling and chart entry, and hence
+applies to both the candidate and every possible global minimizer.
+
+\subsection{Strict convexity on a common containing set}
+Let $K_f=3/4$ and define
+\[
+ \epsilon=\frac{\gamma K_f^2}{p_0\tau},\qquad
+ C_*=Ce^\epsilon,\qquad L_p(q)=\sum_{e\in\mathcal C}e^{-z_e},
+\]
+\begin{equation}\label{tail:convexset}
+ \mathcal K_p=\{q\in V:|q|\le K_f/p,\ L_p(q)\le C_*\}.
+\end{equation}
+The set is convex because each $z_e$ is linear. On the final ball,
+\eqref{geo:remainders} gives $|Z_e-z_e|\le\epsilon$ and hence
+$\tau^pE_s(q)\ge e^{-\epsilon}L_p(q)$.
+Thus the candidate and every global minimizer have representatives
+in this same set. The following bounds hold everywhere on it.
+
+For $u_e=z_e-z_e^*$, the weighted mean is zero and
+$L_p=\lambda\sum_ew_ee^{-u_e}$.
+If one coordinate of weight $w$ has value $u>0$, weighted Jensen on
+the remaining coordinates gives
+\[
+ L_p\ge\lambda\{we^{-u}+(W-w)e^{wu/(W-w)}\}.
+\]
+The right side increases for $u>0$. The two endpoint tests at $z_e=11/10$,
+using $w=\kappa,z_e^*=-d$ or $w=1,z_e^*=\kappa d$, exceed $C_*$.
+Therefore $z_e<11/10$ for every contact, while $z_e\ge-\log C_*$ follows
+from its own summand. The checked comparisons imply
+\begin{equation}\label{tail:contactbounds}
+ 1-3/p<f_e/\tau<1+3/p,\qquad (\tau/f_e)^{p+2}>3/10.
+\end{equation}
+For the second inequality use
+$(1+(11/10+\epsilon)/p)^{p+2}\le e^{(11/10+\epsilon)(1+2/p_0)}<10/3$.
+
+There is a stronger bound on the incident contact energies.
+Put $x_e=e^{-z_e}$, $L=\sum_ex_e$ and $S_i=\sum_{e\ni i}x_e$.
+The incident and complementary stress masses are $W/4$ and $3W/4$.
+Weighted Jensen for the logarithm in each group, together with
+$\sum_ew_e\log x_e=0$, gives
+\begin{equation}\label{tail:incidententropy}
+ S_i(L-S_i)^3\ge\frac{27}{256}C_{\min}^4.
+\end{equation}
+Indeed, for a group of stress mass $b$ and total $x$-mass $S$,
+\[
+ \sum_{e\text{ in group}}w_e\log x_e
+ \le b\log(S/b)+\sum_{e\text{ in group}}w_e\log w_e.
+\]
+Adding the two inequalities and using
+$W\log\lambda=-8\kappa\log\kappa$ proves
+\eqref{tail:incidententropy} by exponentiation.
+Since $L\le C_*$, the checker comparisons
+\[
+ C_*/4<5<C_*,\qquad 5(C_*-5)^3<\frac{27}{256}C_{\min}^4
+\]
+and the decrease of $S(C_*-S)^3$ for $S>C_*/4$ imply $S_i<5$.
+
+The elementary bound
+$\log(1+x)\ge x-x^2/[2(1-|x|)]$ for $|x|<1$ and the exact comparison
+\[
+ \epsilon+\frac9{2p_0(1-3/p_0)}<\frac1{11}
+\]
+give $(\tau/f_e)^p\le e^{1/11}e^{-z_e}$ on contacts.
+For a noncontact, $f_e(0)\ge2\tau$, and the chart derivative bound
+$|Df_e(q)[v]|\le4|v|$ implies $f_e>3\tau/2$ on
+\eqref{tail:convexset}. Each vertex has three noncontacts. Hence
+\begin{equation}\label{tail:incident}
+ \tau^{p+1}\sum_{j\ne i}f_{ij}^{-p-1}
+ <\frac{5e^{1/11}}{1-3/p_0}+\frac1{1000}<6,
+\end{equation}
+where $3(2/3)^{p+1}\le3(2/3)^{30}<1/1000$.
+
+For clarity, the derivative estimates used here follow directly from
+the chart. On $|q|\le1/2$, $\|Dy_i\|\le(1-t_i)^{-1/2}$ and
+$\|D^2y_i\|\le(1-t_i)^{-3/2}$, giving
+\[
+ |Df_{ij}(q)[v]|\le4|v|,\qquad
+ |D^2f_{ij}(q)[v,v]|\le6(|v_i|^2+|v_j|^2).
+\]
+Integration along a radius and the four contacts at each vertex give
+$\|Df_{\mathcal C}(q)-R\|_2\le12|q|$.
+Lemma~\ref{geo:spectrum} and the endpoint test therefore imply
+\[
+ \sum_{e\in\mathcal C}(Df_e(q)[v])^2
+ \ge(\sqrt3-12K_f/p_0)^2|v|^2>\frac52|v|^2\quad(v\ne0).
+\]
+An upper Hessian bound improves the absolute bound on the smaller ball.
+Set $r_f=K_f/p_0$ and $h_i=\sqrt{1-t_i}$. Direct differentiation gives
+\[
+ D^2f_{ij}[v,v]=-4Dy_i[v_i]\cdot Dy_j[v_j]
+ +2(P_i\cdot y_j)b_i+2(P_j\cdot y_i)b_j,
+\]
+where $b_i=|v_i|^2/h_i+(q_i\cdot v_i)^2/h_i^3$.
+Since $P_i\cdot P_j\le a$ and
+$|y_j-P_j|\le(101/100)r_f$, the coefficient is bounded by
+\[
+ \frac2{1-r_f^2}+\frac{2(a+(101/100)r_f)}{(1-r_f^2)^{3/2}}<\frac83.
+\]
+The displacement bound and this comparison are checked at $r_f$;
+both remain valid on every smaller ball. Thus, for all 28 pairs,
+\begin{equation}\label{tail:pairhessian}
+ D^2f_{ij}[v,v]\le\frac83(|v_i|^2+|v_j|^2).
+\end{equation}
+
+Differentiate the entire energy:
+\[
+ D^2E_s(q)[v,v]=p(p+1)\sum_{i<j}f_{ij}^{-p-2}(Df_{ij}[v])^2
+                 -p\sum_{i<j}f_{ij}^{-p-1}D^2f_{ij}[v,v].
+\]
+In the positive sum retain the contact terms and use
+\eqref{tail:contactbounds} and the differential bound. In the negative
+sum use \eqref{tail:incident} and \eqref{tail:pairhessian} for every
+pair, including noncontacts. This proves
+\begin{equation}\label{tail:hessian}
+ D^2E_s(q)[v,v]\ge p\tau^{-p-2}
+       \left[\frac34(p+1)-16\tau\right]|v|^2>0\quad(v\ne0)
+\end{equation}
+throughout $\mathcal K_p$. The bracket is positive at $p_0$ and
+increases with $p$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main} for $s\ge124$]
+Compactness and lower semicontinuity give a global minimizer.
+The trial ceiling makes its energy finite, so it is collision-free
+and is a local minimum. The closest-pair argument, global packing gap
+and radius improvements place an aligned representative in
+$\mathcal K_p$. The fully stationary candidate
+also has a representative there.
+Their joining segment stays in $\mathcal K_p$. If the representatives
+were distinct, \eqref{tail:hessian} would make the energy strictly
+convex on the segment. Its derivative at the candidate endpoint is
+zero, so the other endpoint would have strictly greater energy.
+This contradicts global minimality. Restoring orthogonal transformations
+and labels proves precisely the stated equality case.
+\end{proof}
+
+\section{Verification and arithmetic}\label{sec:arithmetic}
+The mathematical proofs above reduce the computation to finite
+identities, strict inequalities, and complete interval coverage.
+We describe how the programs verify these obligations. Certificate
+search supplies numerical data; the proof uses only the resulting
+verified identities and inequalities.
+
+\subsection{Uniform verification of a finite cell}
+A cell is the exact closed interval $s=c+h\zeta$, $-1\le\zeta\le1$,
+with rational $c,h$. The Taylor order is independent of the Hermite
+degree. A Taylor model consists of polynomial coefficients and a
+remainder interval that encloses the exact represented function over
+the entire cell. All arithmetic and root errors enter its remainder.
+
+For the height, let $\widetilde a(s)$ be a proposed approximation.
+On a tube around its graph the checker bounds $F_a\ge m_0>0$ and
+$|F(s,\widetilde a(s))|\le\eta$, with $\eta/m_0$ smaller than the
+tube padding. The intermediate value and mean value theorems then
+give the unique exact root and
+$|a_s-\widetilde a(s)|\le\eta/m_0$.
+The root enclosure must lie in $(0,1/3)$, and its error is propagated
+through the nodes, interpolation, kernels and coefficient system.
+
+For the correction \eqref{finite73:correction}, let $P$ and $Z$ be
+proposed matrix and vector polynomial models for $T^{-1}$ and
+$T^{-1}r$. Bound the complete residuals
+\[
+ R_T=I-TP,\qquad \rho_r=r-TZ.
+\]
+If $B\ge|R_T|$ entrywise and $q=\|B\|_\infty<1$, the Neumann series
+proves invertibility and
+\begin{equation}\label{arith:solve}
+ |T^{-1}r-Z|\le |P|(I-B)^{-1}|\rho_r|.
+\end{equation}
+For a nonnegative vector $r_0\ge|\rho_r|$, the constant vector
+$\|r_0\|_\infty/(1-q)$ dominates $(I-B)^{-1}r_0$.
+The update $v\mapsto r_0+Bv$ preserves this domination. Thus any
+finite number of outward iterations gives a proved bound; convergence
+after a prescribed number of steps is unnecessary.
+Propagating \eqref{arith:solve} through the correction matrix encloses
+the exact corrected positive-definiteness blocks.
+
+For a corrected symmetric block $B_*$ and a square proposed
+preconditioner $P_*$, it suffices to prove
+\begin{equation}\label{arith:positive}
+ \|P_*B_*P_*^T-I\|_2<1.
+\end{equation}
+The congruence is then positive definite, $P_*$ is nonsingular, and
+$B_*$ is positive definite. The square-shape condition is essential.
+An outward row-sum norm of an entrywise absolute bound controls the
+spectral norm of the symmetric matrix. A sharper coefficient bound
+may use a proposed square eigenbasis $Q$: if
+$\varepsilon=\|Q^TQ-I\|_\infty<1$, then, for symmetric $M$,
+\[
+ \|M\|_2\le\frac{\|Q^TMQ\|_\infty}{1-\varepsilon}.
+\]
+The lower singular-value bound of $Q$ proves this inequality, so an
+approximate eigenbasis is sufficient once its residual is enclosed.
+
+The checker uses exact identities to reduce the interval widths.
+The free rows of a kernel basis are fixed rows of its constant
+change-of-basis matrix; their positive Taylor coefficients and
+remainders are exactly zero. A recursively constructed formal inverse
+has product coefficients $I,0,\ldots,0$ through its construction order;
+its omitted-degree terms and input remainders still have to be bounded.
+In contrast, all coefficients of a merely proposed correction inverse
+are checked by the complete residual above. Streamed contractions are
+partitions of a sum and retain every cross term and remainder.
+The higher-precision replacement of a constant residual coefficient
+encloses that same exact coefficient, including the height error.
+When a stored block is exactly the identity, a free/free contraction
+may be performed by exact integer multiplication of the dyadic
+change-of-basis entries. The predicate is checked before using this
+special case; otherwise the general interval contraction is used.
+These operations change the enclosures, not the defining identity.
+
+\subsection{Exact arithmetic}
+The packing enumeration uses integers. The geometric and final tail
+checkers use rational intervals, exact arithmetic in
+$\mathbb Q(\sqrt2)$, integer square-root bounds, and exponential and
+logarithmic series with explicit tails. All divisions and square roots
+have their sign conditions checked. An interval $LDL^T$ computation
+with positive pivot lower bounds certifies positive definiteness of
+the exact symmetric matrix it encloses.
+
+The finite checker also proves its bounds by integer arithmetic.
+Every finite stored binary64 number denotes its exact dyadic rational.
+Scalar interval operations use integer floor and ceiling division;
+directed conversion to this storage format is performed on its bits.
+The higher-precision layer uses dyadic endpoints with a fixed common
+denominator. Reciprocals reject intervals containing zero; nonfinite
+inputs and bounds are rejected.
+
+For matrix multiplication, write the input enclosures as
+$2^{-p}(M+[-R,R])$ and $2^{-q}(N+[-S,S])$, where $M,N$ are integer
+matrices and $R,S$ are nonnegative integer matrices. Their product is
+contained in
+\[
+ 2^{-p-q}\bigl(MN+[-H,H]\bigr),\qquad
+ H=|M|S+R|N|+RS.
+\]
+All four products are exact integer products. Outward integer
+quantization of the inputs and outputs preserves this enclosure.
+Thus floating-point dot-product accuracy is not a proof assumption.
+
+Square roots are bounded by integer square-root inequalities.
+For exponentials, repeated halving reduces a nonnegative argument to
+$[0,1/8]$; the positive Taylor series and a geometric bound on its
+omitted terms give an enclosure, which is propagated by squaring.
+Negative arguments use reciprocals. For logarithms, powers of two
+reduce the argument to $z\in[1,2]$. The series
+\[
+ \log z=2\sum_{j\ge0}\frac{u^{2j+1}}{2j+1},
+ \qquad u=\frac{z-1}{z+1},
+\]
+has a geometric tail bound since $0\le u\le1/3$.
+All range and sign conditions are checked. Taylor models include all
+omitted products and the analytic remainders described above.
+Numerical root finding, inverses and eigenbases supply proposals only;
+their complete residuals are checked with these exact enclosures.
+
+The raw polynomial tensors are integers. For permitted half-degrees
+$6\le d\le10$, the recurrence bounds the coefficient sum of $Q_9$
+by $713216$ and the moment numerator magnitude by
+$63\cdot6\cdot713216+6=269595654<2^{53}$.
+Thus their signed 64-bit storage is exact. The executable checker
+still trusts the Python runtime, its integer operations and the FLINT
+integer matrix implementation. These programs have not been formally
+verified in Lean.
+
+\subsection{Inputs, checks and coverage}
+The finite checker and its exact cell registry are in
+\path{finite/kernel/} and \path{finite/cells.json}. The witnesses are
+in \path{certificates/finite/}. The geometric and tail
+certificates are in \path{tail/}.
+The program \path{finite/replay.py} checks source and witness hashes,
+legal pivots, matrix dimensions, finite entries and square preconditioners.
+It verifies the exact cell endpoints, degree, interpolation profile
+and Taylor order before aggregating the fresh reports.
+
+The compact witnesses store proposals from which the constant
+correction matrix $C$ is reconstructed. Its entries need not satisfy
+any asserted reconstruction identity: the actual finite output entries
+define an arbitrary dyadic matrix, and the complete uniform residual
+test proves its suitability. Small factors replace the dense matrix
+in the stored data; optional low-rank terms retain selected search
+directions. The lossless encoding and the proposal reconstruction are
+specified alongside the checker. A future formal checker may accept
+the generated dyadic matrix as an untrusted input in exactly the same way.
+
+For each finite cell the accepted report must establish the root and
+node conditions, positive moment pivots, invertible evaluation and
+correction systems, strict positivity of every corrected block,
+invertibility of the zeroth moment change of basis, and the three
+forbidden-triangle exclusions. All endpoints are rational and cells
+are closed; the union is recomputed exactly.
+
+All $111$ finite cells passed with the compact witnesses and the exact
+arithmetic checker: $98$ cover $[0,74]$ and $13$ cover $[74,124]$.
+The source, witness and report bindings are retained in
+\path{verification/}; the exact finite union is $[0,124]$.
+
+The five exact tail checkers cover packing enumeration, the signed mean,
+contact variance, the quartic packing gap, and the scalar inequalities.
+They were independently replayed. The final driver
+passes $403$ checks, including all $316$ inner-annulus mass
+alternatives and the two outer-annulus endpoint tests. The source and
+witness bindings accompany the reports in \path{verification/}.
+These computations establish the stated premises using the integer
+arithmetic above. Since the finite cells include $124$ and the tail applies
+to every $s\ge124$, their union is $[0,\infty)$.
+
+\subsection{Interface for a later formalization}
+The proof separates three tasks. First, prove the finite certificate
+criterion, the packing and localization reductions, and the convexity
+argument as mathematical lemmas. Second, verify the finite arithmetic
+obligations for the bound witnesses. Third, verify the rational union
+of the exponent cells and the endpoint of the unbounded range.
+Certificate search need not be formalized: its output is accepted only
+after the checking task proves the required identities and inequalities.
+Both arithmetic backends reduce to finite integer computations and
+explicit series bounds. A Lean formalization still requires proofs of
+the interval and Taylor-model operations and of their mathematical
+implications; the present replay is not a Lean certificate.
+
+\begin{thebibliography}{1}
+\bibitem{CW}
+H.~Cohn and J.~Woo,
+\emph{Three-point bounds for energy minimization},
+J. Amer. Math. Soc. \textbf{25} (2012), 929--958.
+\end{thebibliography}
+\end{document}
