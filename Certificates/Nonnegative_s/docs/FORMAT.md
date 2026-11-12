@@ -1,7 +1,7 @@
 # Check the certificate files
 
 Install the dependencies as described in [CAP.md](../CAP.md), then run
-these commands from `Certificates/`.
+these commands from `Certificates/Nonnegative_s/`.
 
 ```sh
 .venv/bin/python -B cap.py integrity

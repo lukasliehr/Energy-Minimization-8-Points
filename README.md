@@ -75,15 +75,15 @@ treats $s\ge97$ by an analytic argument with exact algebraic certificates.
 The certificates carried by the Lean proof, with their Python checkers, are
 in [LeanCode/CertificatesLean](LeanCode/CertificatesLean).
 
-The directory [Certificates](Certificates) contains an independent
+The directory [Certificates/Nonnegative_s](Certificates/Nonnegative_s) contains an independent
 computer-assisted proof that $X(a_s)$ is the unique global minimizer, up to congruence,
 for every real $s\gt0$ and for logarithmic energy at $s=0$. The proof uses
 exact interval certificates on 111 closed intervals covering $[0,124]$,
 together with an analytic argument and exact computational checks for
 $s\ge124$. The certificate data and
-[verification records](Certificates/verification)
+[verification records](Certificates/Nonnegative_s/verification)
 are included. Instructions for reproducing the computations are in
-[CAP.md](Certificates/CAP.md).
+[CAP.md](Certificates/Nonnegative_s/CAP.md).
 
 ## Computer-assisted proof for negative exponents
 

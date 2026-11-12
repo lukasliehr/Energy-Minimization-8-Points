@@ -3,7 +3,7 @@
   "meaning": "Byte integrity and provenance, not a mathematical proof; replay recomputes all cells.",
   "files": {
     "PROVENANCE.json": "e6898d2423e50799bb9858d7747f82d5733d9ebb013767765a72991f340929b9",
-    "README.md": "a45f0de64e7eca5abe5dfb60d2e288e4d8d45899259a3558023b94999c88642c",
+    "README.md": "a6a6d179abd4e3e95d5aa3a8dd04a1e57ae0ad1b44d56053add81290fd33cce6",
     "SOURCE_DIFF.patch": "cbbfd25839f2944dac78efb25033f6fe9248cb74c51c06d39ae1bcaf5e44c12d",
     "cap.py": "f9f4de3a66e3451e9f505ee822eab34aa6dd41a6963f60008ac4454c4dc40114",
     "cells.json": "ac1ed99ed8b188b2a0dfea7d15bee5bf7e4c74db6c096c5a230ed5d1c58cf431",

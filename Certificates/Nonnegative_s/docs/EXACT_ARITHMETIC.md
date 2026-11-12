@@ -1,7 +1,7 @@
 # Reproduce the arithmetic tests
 
 Install the dependencies as described in [CAP.md](../CAP.md), then run
-these commands from `Certificates/` without `-O`.
+these commands from `Certificates/Nonnegative_s/` without `-O`.
 
 ```sh
 .venv/bin/python -B tools/test_scalar.py

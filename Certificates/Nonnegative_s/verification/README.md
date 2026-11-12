@@ -1,7 +1,7 @@
 # Reproduce the nonnegative-exponent verification
 
 Follow the setup instructions in [CAP.md](../CAP.md) and run the following
-command from `Certificates/`.
+command from `Certificates/Nonnegative_s/`.
 
 ```sh
 .venv/bin/python -B cap.py replay --jobs 1 --output /path/to/new-results

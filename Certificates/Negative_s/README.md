@@ -1,6 +1,6 @@
 # Eight points on S²: the negative-exponent extension
 
-This package extends the [nonnegative-exponent computation](../README.md#nonnegative-exponents)
+This package extends the [nonnegative-exponent computation](../Nonnegative_s)
 to **−2 < s ≤ 0** for the normalized potential
 
     φ_s(t) = ((2−2t)^(−s/2) − 1)/s,

@@ -1,17 +1,13 @@
 {
   "schema_version": 1,
   "files": {
-    ".gitattributes": {
-      "bytes": 117,
-      "sha256": "956c3308314642866032b069b509ce2dd330c0ae199cd552023c204118adfcfe"
-    },
     "CAP.md": {
-      "bytes": 1379,
-      "sha256": "bcb602c9582477d79040a9cf38a0d4d881d1ba26f3b54ef5b1e887acb1f1cc6a"
+      "bytes": 1396,
+      "sha256": "fad28424ab83e09805648aff06ff2c0f61dbeebc0f0fb3938bf4be63e288d3e6"
     },
     "README.md": {
-      "bytes": 2439,
-      "sha256": "ecb5a38b0a4acad94eaa1330e73fb8d2026f55ab99ad98632bd60267e0e82996"
+      "bytes": 2306,
+      "sha256": "74632fd348b8f47b87ce631fd1d09bc2c6c957a8b82c7c0254cee05f41d70ba0"
     },
     "cap.py": {
       "bytes": 5714,
@@ -454,12 +450,12 @@
       "sha256": "437583763b2a1fd1ad404d13dff4c1d5fb4f1c0fc3ed05de87a3b0e5ac2e23f4"
     },
     "docs/EXACT_ARITHMETIC.md": {
-      "bytes": 523,
-      "sha256": "639c0534873fc81f79af4d212d34f2040b2fce078b5b2e383dcacd5e52e530fe"
+      "bytes": 537,
+      "sha256": "8b95fc030283eba3ca542bef5334ddafad39888447e6dd64c5de33d66b2b7a03"
     },
     "docs/FORMAT.md": {
-      "bytes": 518,
-      "sha256": "136f9d7a7fe4f976bb56e43457d9589f2c30a9aec0ebee69099f8b3c41b13e48"
+      "bytes": 532,
+      "sha256": "9750db9f47017a02c28278a4fe7b91d958ecc718e14d6f6db04752a04b1fa516"
     },
     "finite/cells.json": {
       "bytes": 62705,
@@ -622,8 +618,8 @@
       "sha256": "711137a0fd6626ec500d2f2bf9800540ee53939fd63d83776b373ada9b1b448c"
     },
     "verification/README.md": {
-      "bytes": 611,
-      "sha256": "29439a964f712bb9df59420399f58db39b1bacbaa5ec957f51bd024671f96db9"
+      "bytes": 625,
+      "sha256": "f2c5c2aaf849febcd5510e68adde85fef436f87e45b8077a096ecb052b5154a9"
     },
     "verification/SUMMARY.json": {
       "bytes": 679,
