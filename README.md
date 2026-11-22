@@ -127,7 +127,7 @@ is in the [verification summary](Certificates/Negative_s/verification/SUMMARY.js
 | [LeanCode/Bridge.lean](LeanCode/Bridge.lean) | Coordinates of the large-exponent development in the notation of the paper. |
 | [LeanCode/CertificatesLean](LeanCode/CertificatesLean) | Certificates carried by the Lean proof for every exponent $s\ge0$, with Python checkers. |
 | [Certificates](Certificates) | Independent certificates and checkers for every exponent $s\gt-2$. |
-| [Visualization](Visualization) | The animation above, an SVG file of 33 kB, with the program that writes it; an earlier animation, video and still image. |
+| [Visualization](Visualization) | The animation above, an SVG file of 33 kB, and the program that writes it. |
 
 ## Building
 
