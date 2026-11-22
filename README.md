@@ -4,12 +4,12 @@ This repository contains a Lean 4 formalization as well as numerical certificate
 **Energy minimization for eight points on the sphere** by **Liudmyla Kryvonos**,
 **Lukas Liehr** and **Mitchell A. Taylor**.
 
-![The Coulomb-optimal square antiprism on the unit sphere.](Visualization/square-antiprism.gif)
+![The Coulomb-optimal square antiprism on the unit sphere, rotating about its axis.](Visualization/square-antiprism.svg)
 
 The animation shows $X(a_1)$ with $a_1\approx0.314089367889$. The two
-squares lie at heights $\pm\sqrt{a_1}$; the view from above shows their
-relative rotation by $\pi/4$. The configuration is fixed while the viewing
-direction changes. Its Coulomb energy is approximately $19.675287861233$.
+squares lie at heights $\pm\sqrt{a_1}$, with relative rotation by $\pi/4$.
+The configuration rotates about its axis. Its Coulomb energy is
+approximately $19.675287861233$.
 
 ## Lean-verified statements
 
@@ -127,7 +127,7 @@ is in the [verification summary](Certificates/Negative_s/verification/SUMMARY.js
 | [LeanCode/Bridge.lean](LeanCode/Bridge.lean) | Coordinates of the large-exponent development in the notation of the paper. |
 | [LeanCode/CertificatesLean](LeanCode/CertificatesLean) | Certificates carried by the Lean proof for every exponent $s\ge0$, with Python checkers. |
 | [Certificates](Certificates) | Independent certificates and checkers for every exponent $s\gt-2$. |
-| [Visualization](Visualization) | Animation, video and still image. |
+| [Visualization](Visualization) | The animation above, an SVG file of 33 kB, with the program that writes it; an earlier animation, video and still image. |
 
 ## Building
 
